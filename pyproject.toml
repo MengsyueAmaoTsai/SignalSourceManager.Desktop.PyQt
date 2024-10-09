@@ -1,0 +1,21 @@
+[project]
+name = "signalsourcemanager-desktop-pyqt"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Mengsyue Amao Tsai", email = "mengsyue.tsai@outlook.com" }
+]
+dependencies = [
+    "pyside6>=6.7.3",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = []
+
+[tool.rye.scripts]
+start = "python ./src/main.py"
+dev = "python ./src/main.py"
