@@ -1,41 +1,33 @@
-import asyncio
+import json
 import os
 import sys
 from pathlib import Path
 
-import httpx
-from PySide6.QtCore import QObject, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
-from resources import ResourceService
+from resources import ResourceOptions, ResourceService
+from view_models import MainViewModel
 
-
-class MainViewModel(QObject):
-    _signal_sources = []
-
-    def __init__(self, resource_service: ResourceService) -> None:
-        super().__init__()
-        self._resource_service = resource_service
-
-    @Slot()
-    def load_data(self) -> None:
-        asyncio.run(self._load_data())
-
-    async def _load_data(self) -> None:
-        self._signal_sources = await self._resource_service.list_signal_sources()
-        print(self._signal_sources)
-
+content_root_path = Path(os.getcwd())
 
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
 
-resource_service = ResourceService()
+## Infrastructure - Resource services
+resource_options: ResourceOptions
+
+with open(content_root_path / "appsettings.Development.json") as f:
+    app_settings = json.load(f)
+    resource_options = ResourceOptions(**app_settings["Resources"])
+resource_service = ResourceService(resource_options.base_address)
+
+# Presentation - MVVM
 main_view_model = MainViewModel(resource_service)
-
-qml_file = Path(os.getcwd()) / "src" / "App.qml"
-
 engine.rootContext().setContextProperty("mainViewModel", main_view_model)
+
+# Load QML file
+qml_file = content_root_path / "src" / "App.qml"
 engine.load(str(qml_file))
 
 

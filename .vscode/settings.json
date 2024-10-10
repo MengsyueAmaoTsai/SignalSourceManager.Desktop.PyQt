@@ -308,6 +308,7 @@
     "editor.formatOnPaste": true
   },
   "cSpell.words": [
+    "appsettings",
     "assertpy",
     "httpx",
     "levelname",

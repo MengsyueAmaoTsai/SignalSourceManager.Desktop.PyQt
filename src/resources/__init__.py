@@ -1,46 +1,17 @@
-from datetime import datetime
-
 import httpx
-from pydantic import BaseModel, Field
 
-
-class ApiRoutes:
-    class SignalSources:
-        List = "/api/v1/signal-sources"
-        Get = "/api/v1/signal-sources/{id}"
-
-
-class ErrorResponse(BaseModel):
-    type: str
-    title: str
-    detail: str
-    status: int
-
-
-class SignalSourceResponse(BaseModel):
-    id: str
-    name: str
-    description: str
-    visibility: str
-    status: str
-    created_time_utc: datetime = Field(alias="createdTimeUtc")
-
-    class Config:
-        frozen = True
-
-
-class SignalSourceDetailsResponse(SignalSourceResponse): ...
+from .contracts import ApiRoutes, ErrorResponse, SignalSourceDetailsResponse, SignalSourceResponse
+from .ResourceOptions import ResourceOptions
 
 
 class ResourceService:
-    BASE_ADDRESS = "https://localhost:10000"
-
-    def __init__(self) -> None: ...
+    def __init__(self, base_address: str) -> None:
+        self._base_address = base_address
 
     async def list_signal_sources(self) -> list[SignalSourceResponse] | ErrorResponse:
         async with httpx.AsyncClient(verify=False) as http_client:
             try:
-                response = await http_client.get(f"{self.BASE_ADDRESS}{ApiRoutes.SignalSources.List}")
+                response = await http_client.get(f"{self._base_address}{ApiRoutes.SignalSources.List}")
 
                 if response.status_code >= 400:
                     print(f"Error: {response.status_code}")
@@ -60,7 +31,7 @@ class ResourceService:
     async def get_signal_source(self, id: str) -> SignalSourceDetailsResponse | ErrorResponse:
         async with httpx.AsyncClient(verify=False) as http_client:
             try:
-                response = await http_client.get(f"{self.BASE_ADDRESS}{ApiRoutes.SignalSources.Get.format(id=id)}")
+                response = await http_client.get(f"{self._base_address}{ApiRoutes.SignalSources.Get.format(id=id)}")
 
                 if response.status_code >= 400:
                     print(f"Error: {response.status_code}")
@@ -76,3 +47,13 @@ class ResourceService:
                     detail=str(e),
                     status=500,
                 )
+
+
+__all__ = [
+    "ResourceService",
+    "ResourceOptions",
+    "ApiRoutes",
+    "ErrorResponse",
+    "SignalSourceDetailsResponse",
+    "SignalSourceResponse",
+]
