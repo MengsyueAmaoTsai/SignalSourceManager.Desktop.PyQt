@@ -19,7 +19,7 @@ resource_options: ResourceOptions
 
 with open(content_root_path / "appsettings.Development.json") as f:
     app_settings = json.load(f)
-    resource_options = ResourceOptions(**app_settings["Resources"])
+    resource_options = ResourceOptions(**app_settings[ResourceOptions.SECTION_KEY])
 resource_service = ResourceService(resource_options.base_address)
 
 # Presentation - MVVM
