@@ -309,9 +309,11 @@
   },
   "cSpell.words": [
     "assertpy",
+    "httpx",
     "levelname",
     "MVVM",
     "picologging",
+    "pydantic",
     "qtpy",
     "richillcapital"
   ]

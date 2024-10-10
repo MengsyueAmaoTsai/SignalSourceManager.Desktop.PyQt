@@ -8,40 +8,30 @@ from PySide6.QtCore import QObject, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
+from resources import ResourceService
+
 
 class MainViewModel(QObject):
     _signal_sources = []
 
-    def __init__(self) -> None:
+    def __init__(self, resource_service: ResourceService) -> None:
         super().__init__()
+        self._resource_service = resource_service
 
     @Slot()
     def load_data(self) -> None:
-        print("Loading data...")
         asyncio.run(self._load_data())
 
     async def _load_data(self) -> None:
-        url = "https://api.richillcapital.com/api/v1/signal-sources"
-
-        async with httpx.AsyncClient(verify=False) as http_client:
-            try:
-                response = await http_client.get(url)
-
-                if response.status_code >= 400:
-                    print(f"Error: {response.status_code}")
-                    return
-
-                self._signal_sources = response.json()
-                print("Signal source loaded!")
-
-            except Exception as e:
-                print(f"Error loading data: {e}")
+        self._signal_sources = await self._resource_service.list_signal_sources()
+        print(self._signal_sources)
 
 
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
 
-main_view_model = MainViewModel()
+resource_service = ResourceService()
+main_view_model = MainViewModel(resource_service)
 
 qml_file = Path(os.getcwd()) / "src" / "App.qml"
 
