@@ -21,8 +21,8 @@ dev-dependencies = [
 ]
 
 [tool.rye.scripts]
-start = "python ./src/main.py"
-dev = "python ./src/main.py"
+start = "python ./src/main.py -e Production"
+dev = "python ./src/main.py -e Development"
 
 lint = "ruff check ."
 lintq = "pyside6-qmllint"

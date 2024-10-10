@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+from argparse import ArgumentParser
 from pathlib import Path
 
 from PySide6.QtGui import QGuiApplication
@@ -8,6 +9,19 @@ from PySide6.QtQml import QQmlApplicationEngine
 
 from resources import ResourceOptions, ResourceService
 from view_models import MainViewModel
+
+parser = ArgumentParser(description="Run the application.")
+_ = parser.add_argument(
+    "--environment",
+    "-e",
+    type=str,
+    default="Development",
+    help="Specify the environment to run the application (default: Development)",
+)
+
+args = parser.parse_args()
+environment = args.environment
+print("Running in environment:", environment)
 
 content_root_path = Path(os.getcwd())
 
@@ -17,7 +31,9 @@ engine = QQmlApplicationEngine()
 ## Infrastructure - Resource services
 resource_options: ResourceOptions
 
-with open(content_root_path / "appsettings.Development.json") as f:
+appsettings_file = environment == "Production" and "appsettings.json" or f"appsettings.{environment}.json"
+
+with open(content_root_path / appsettings_file) as f:
     app_settings = json.load(f)
     resource_options = ResourceOptions(**app_settings[ResourceOptions.SECTION_KEY])
 resource_service = ResourceService(resource_options.base_address)
