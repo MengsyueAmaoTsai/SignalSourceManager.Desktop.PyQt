@@ -33,4 +33,6 @@ ApplicationWindow {
             }
         }
     }
+
+    Component.onCompleted: mainViewModel.load_data()
 }
