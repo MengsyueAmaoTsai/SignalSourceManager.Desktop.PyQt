@@ -36,6 +36,7 @@ appsettings_file = environment == "Production" and "appsettings.json" or f"appse
 with open(content_root_path / appsettings_file) as f:
     app_settings = json.load(f)
     resource_options = ResourceOptions(**app_settings[ResourceOptions.SECTION_KEY])
+
 resource_service = ResourceService(resource_options.base_address)
 
 # Presentation - MVVM

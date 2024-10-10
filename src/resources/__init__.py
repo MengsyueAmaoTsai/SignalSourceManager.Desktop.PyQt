@@ -1,3 +1,5 @@
+from typing import cast
+
 import httpx
 
 from .contracts import ApiRoutes, ErrorResponse, SignalSourceDetailsResponse, SignalSourceResponse
@@ -11,13 +13,9 @@ class ResourceService:
     async def list_signal_sources(self) -> list[SignalSourceResponse] | ErrorResponse:
         async with httpx.AsyncClient(verify=False) as http_client:
             try:
-                response = await http_client.get(f"{self._base_address}{ApiRoutes.SignalSources.List}")
-
-                if response.status_code >= 400:
-                    print(f"Error: {response.status_code}")
-                    return ErrorResponse.model_validate_json(response.json())
-
-                return [SignalSourceResponse(**data) for data in response.json()]
+                response = await http_client.get(self._combine_url(ApiRoutes.SignalSources.List))
+                result = self.handle_response(SignalSourceResponse, response, list)
+                return cast(list[SignalSourceResponse], result)
 
             except Exception as e:
                 print(f"Error loading data: {e}")
@@ -31,13 +29,13 @@ class ResourceService:
     async def get_signal_source(self, id: str) -> SignalSourceDetailsResponse | ErrorResponse:
         async with httpx.AsyncClient(verify=False) as http_client:
             try:
-                response = await http_client.get(f"{self._base_address}{ApiRoutes.SignalSources.Get.format(id=id)}")
+                response = await http_client.get(
+                    self._combine_url(ApiRoutes.SignalSources.Get.format(signal_source_id=id))
+                )
 
-                if response.status_code >= 400:
-                    print(f"Error: {response.status_code}")
-                    return ErrorResponse.model_validate_json(response.json())
+                result = self.handle_response(SignalSourceDetailsResponse, response)
 
-                return SignalSourceDetailsResponse(**response.json())
+                return cast(SignalSourceDetailsResponse, result)
 
             except Exception as e:
                 print(f"Error loading data: {e}")
@@ -47,6 +45,23 @@ class ResourceService:
                     detail=str(e),
                     status=500,
                 )
+
+    def handle_response[TResponse](
+        self,
+        response_type: type[TResponse],
+        response: httpx.Response,
+        container_type: type = dict,
+    ) -> TResponse | list[TResponse] | ErrorResponse:
+        if response.status_code >= 400:
+            print(f"Error: {response.status_code}")
+            return ErrorResponse.model_validate_json(response.json())
+
+        if container_type is list:
+            return [response_type(**data) for data in response.json()]
+        return response_type(**response.json())
+
+    def _combine_url(self, route: str) -> str:
+        return f"{self._base_address}{route}"
 
 
 __all__ = [
