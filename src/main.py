@@ -15,7 +15,7 @@ class MainViewModel(QObject):
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
 
-qml_file = Path(os.getcwd()) / "src" / "main.qml"
+qml_file = Path(os.getcwd()) / "src" / "App.qml"
 engine.load(str(qml_file))
 
 main_view_model = MainViewModel()
