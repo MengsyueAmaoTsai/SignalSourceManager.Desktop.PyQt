@@ -11,6 +11,12 @@ ApplicationWindow {
     menuBar: MenuBar {
         Menu {
             title: 'File'
+
+            MenuItem {
+                text: 'About'
+                onTriggered: aboutDialog.open()
+            }
+
             MenuItem {
                 text: 'Exit'
                 onTriggered: Qt.quit()
@@ -35,4 +41,24 @@ ApplicationWindow {
     }
 
     Component.onCompleted: mainViewModel.load_data()
+
+    Dialog {
+        id: aboutDialog
+        title: 'About'
+        modal: true
+        standardButtons: Dialog.Ok
+        anchors.centerIn: parent
+
+        Column {
+            spacing: 10
+            padding: 20
+
+            Text {
+                text: 'Python version: ' + mainViewModel.python_version
+            }
+            Text {
+                text: 'Qt version: ' + mainViewModel.qt_version
+            }
+        }
+    }
 }

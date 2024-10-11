@@ -26,6 +26,7 @@ print("Running in environment:", environment)
 content_root_path = Path(os.getcwd())
 
 app = QGuiApplication(sys.argv)
+
 engine = QQmlApplicationEngine()
 
 ## Infrastructure - Resource services
@@ -52,4 +53,7 @@ if __name__ == "__main__":
     if not engine.rootObjects():
         sys.exit(-1)
 
-    sys.exit(app.exec())
+    exit_code = app.exec()
+
+    del engine
+    sys.exit()
