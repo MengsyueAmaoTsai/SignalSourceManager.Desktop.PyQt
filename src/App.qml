@@ -28,16 +28,6 @@ ApplicationWindow {
         id: mainContainer
         anchors.fill: parent
         color: 'lightgray'
-
-        Column {
-            anchors.centerIn: parent
-            spacing: 10
-
-            Button {
-                text: 'Click me'
-                onClicked: console.log('Hello, World!')
-            }
-        }
     }
 
     Component.onCompleted: mainViewModel.load_data()
