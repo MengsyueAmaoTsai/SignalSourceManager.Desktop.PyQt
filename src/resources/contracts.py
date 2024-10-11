@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 class ApiRoutes:
     class SignalSources:
         List = "/api/v1/signal-sources"
+        Create = "/api/v1/signal-sources"
         Get = "/api/v1/signal-sources/{signal_source_id}"
 
 
@@ -14,6 +15,10 @@ class ErrorResponse(BaseModel):
     title: str
     detail: str
     status: int
+
+
+class CreatedResponse(BaseModel):
+    id: str
 
 
 class SignalSourceResponse(BaseModel):
@@ -29,3 +34,6 @@ class SignalSourceResponse(BaseModel):
 
 
 class SignalSourceDetailsResponse(SignalSourceResponse): ...
+
+
+class SignalSourceCreatedResponse(CreatedResponse): ...

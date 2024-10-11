@@ -2,7 +2,13 @@ from typing import cast
 
 import httpx
 
-from .contracts import ApiRoutes, ErrorResponse, SignalSourceDetailsResponse, SignalSourceResponse
+from .contracts import (
+    ApiRoutes,
+    ErrorResponse,
+    SignalSourceCreatedResponse,
+    SignalSourceDetailsResponse,
+    SignalSourceResponse,
+)
 from .ResourceOptions import ResourceOptions
 
 
@@ -36,6 +42,34 @@ class ResourceService:
                 result = self.handle_response(SignalSourceDetailsResponse, response)
 
                 return cast(SignalSourceDetailsResponse, result)
+
+            except Exception as e:
+                print(f"Error loading data: {e}")
+                return ErrorResponse(
+                    type="error",
+                    title="Error loading data",
+                    detail=str(e),
+                    status=500,
+                )
+
+    async def create_signal_source(
+        self, id: str, name: str, description: str, visibility: str
+    ) -> SignalSourceCreatedResponse | ErrorResponse:
+        async with httpx.AsyncClient(verify=False) as http_client:
+            try:
+                response = await http_client.post(
+                    self._combine_url(ApiRoutes.SignalSources.Create),
+                    json={
+                        "id": id,
+                        "name": name,
+                        "description": description,
+                        "visibility": visibility,
+                    },
+                )
+
+                result = self.handle_response(SignalSourceCreatedResponse, response)
+
+                return cast(SignalSourceCreatedResponse, result)
 
             except Exception as e:
                 print(f"Error loading data: {e}")
