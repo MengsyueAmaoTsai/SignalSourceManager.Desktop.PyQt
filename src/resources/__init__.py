@@ -12,7 +12,23 @@ from .contracts import (
 from .ResourceOptions import ResourceOptions
 
 
-class ResourceService:
+class HttpRequestHandler:
+    def _handle_response[TResponse](
+        self,
+        response_type: type[TResponse],
+        response: httpx.Response,
+        container_type: type = dict,
+    ) -> TResponse | list[TResponse] | ErrorResponse:
+        if response.status_code >= 400:
+            print(f"Error: {response.status_code}")
+            return ErrorResponse.model_validate_json(response.json())
+
+        if container_type is list:
+            return [response_type(**data) for data in response.json()]
+        return response_type(**response.json())
+
+
+class ResourceService(HttpRequestHandler):
     def __init__(self, base_address: str) -> None:
         self._base_address = base_address
 
@@ -20,7 +36,7 @@ class ResourceService:
         async with httpx.AsyncClient(verify=False) as http_client:
             try:
                 response = await http_client.get(self._combine_url(ApiRoutes.SignalSources.List))
-                result = self.handle_response(SignalSourceResponse, response, list)
+                result = self._handle_response(SignalSourceResponse, response, list)
                 return cast(list[SignalSourceResponse], result)
 
             except Exception as e:
@@ -39,7 +55,7 @@ class ResourceService:
                     self._combine_url(ApiRoutes.SignalSources.Get.format(signal_source_id=id))
                 )
 
-                result = self.handle_response(SignalSourceDetailsResponse, response)
+                result = self._handle_response(SignalSourceDetailsResponse, response)
 
                 return cast(SignalSourceDetailsResponse, result)
 
@@ -67,7 +83,7 @@ class ResourceService:
                     },
                 )
 
-                result = self.handle_response(SignalSourceCreatedResponse, response)
+                result = self._handle_response(SignalSourceCreatedResponse, response)
 
                 return cast(SignalSourceCreatedResponse, result)
 
@@ -79,20 +95,6 @@ class ResourceService:
                     detail=str(e),
                     status=500,
                 )
-
-    def handle_response[TResponse](
-        self,
-        response_type: type[TResponse],
-        response: httpx.Response,
-        container_type: type = dict,
-    ) -> TResponse | list[TResponse] | ErrorResponse:
-        if response.status_code >= 400:
-            print(f"Error: {response.status_code}")
-            return ErrorResponse.model_validate_json(response.json())
-
-        if container_type is list:
-            return [response_type(**data) for data in response.json()]
-        return response_type(**response.json())
 
     def _combine_url(self, route: str) -> str:
         return f"{self._base_address}{route}"
