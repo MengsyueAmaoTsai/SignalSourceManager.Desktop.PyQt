@@ -36,8 +36,7 @@ class ResourceService(HttpRequestHandler):
         async with httpx.AsyncClient(verify=False) as http_client:
             try:
                 response = await http_client.get(self._combine_url(ApiRoutes.SignalSources.List))
-                result = self._handle_response(SignalSourceResponse, response, list)
-                return cast(list[SignalSourceResponse], result)
+                return cast(list[SignalSourceResponse], self._handle_response(SignalSourceResponse, response, list))
 
             except Exception as e:
                 print(f"Error loading data: {e}")
@@ -55,9 +54,7 @@ class ResourceService(HttpRequestHandler):
                     self._combine_url(ApiRoutes.SignalSources.Get.format(signal_source_id=id))
                 )
 
-                result = self._handle_response(SignalSourceDetailsResponse, response)
-
-                return cast(SignalSourceDetailsResponse, result)
+                return cast(SignalSourceDetailsResponse, self._handle_response(SignalSourceDetailsResponse, response))
 
             except Exception as e:
                 print(f"Error loading data: {e}")
@@ -83,9 +80,7 @@ class ResourceService(HttpRequestHandler):
                     },
                 )
 
-                result = self._handle_response(SignalSourceCreatedResponse, response)
-
-                return cast(SignalSourceCreatedResponse, result)
+                return cast(SignalSourceCreatedResponse, self._handle_response(SignalSourceCreatedResponse, response))
 
             except Exception as e:
                 print(f"Error loading data: {e}")
