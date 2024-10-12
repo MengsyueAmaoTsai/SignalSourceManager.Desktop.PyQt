@@ -1,13 +1,14 @@
 import asyncio
-import sys
 
-import PySide6
-from PySide6.QtCore import Property, QObject, Slot
+from PySide6.QtCore import Property, QObject, Signal, Slot
 
+from constants import ApplicationInfo
 from resources import ResourceService
 
 
 class MainViewModel(QObject):
+    signal_sources_changed = Signal()
+
     _signal_sources = []
 
     def __init__(self, resource_service: ResourceService) -> None:
@@ -16,11 +17,11 @@ class MainViewModel(QObject):
 
     @Property(str)
     def python_version(self) -> str:
-        return f"{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
+        return ApplicationInfo.PYTHON_VERSION
 
     @Property(str)
     def qt_version(self) -> str:
-        return PySide6.__version__
+        return ApplicationInfo.QT_VERSION
 
     @Slot()
     def load_data(self) -> None:
