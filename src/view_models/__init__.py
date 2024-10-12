@@ -16,8 +16,12 @@ class MainViewModel(QObject):
         self._resource_service = resource_service
 
     @Property(str)
-    def python_version(self) -> str:
-        return ApplicationInfo.PYTHON_VERSION
+    def application_version(self) -> str:
+        return ApplicationInfo.VERSION
+
+    @Property(str)
+    def app_title(self) -> str:
+        return f"{ApplicationInfo.ID} {ApplicationInfo.VERSION}"
 
     @Property(str)
     def qt_version(self) -> str:
