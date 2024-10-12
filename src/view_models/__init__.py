@@ -24,9 +24,9 @@ class MainViewModel(QObject):
         return ApplicationInfo.QT_VERSION
 
     @Slot()
-    def load_data(self) -> None:
-        asyncio.run(self._load_data())
+    def initialize(self) -> None:
+        asyncio.run(self._fetch_initial_data())
 
-    async def _load_data(self) -> None:
+    async def _fetch_initial_data(self) -> None:
         self._signal_sources = await self._resource_service.list_signal_sources()
         print(self._signal_sources)
