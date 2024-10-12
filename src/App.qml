@@ -6,6 +6,7 @@ import QtQuick.Window
 import "./controls/LeftNavBar"
 import "./controls/Dashboard"
 import "./controls/LogConsole"
+import "./views/Home"
 
 ApplicationWindow {
     id: app
@@ -13,7 +14,15 @@ ApplicationWindow {
     visible: true
     width: Screen.width * 0.8
     height: Screen.height * 0.8
-    Component.onCompleted: mainViewModel.initialize()
+
+    Component.onCompleted: {
+        mainViewModel.initialize();
+        console.log('Application loaded');
+    }
+
+    Component.onDestruction: {
+        console.log('Application destroyed');
+    }
 
     Shortcut {
         sequence: "Ctrl+R"
@@ -55,12 +64,19 @@ ApplicationWindow {
             id: leftNavBar
         }
 
-        Text {
-            text: "Hello world"
-            anchors.fill: parent
+        StackView {
+            id: pageStack
+            initialItem: homePageComponent
         }
     }
 
+    // Pages
+    Component {
+        id: homePageComponent
+        Home {}
+    }
+
+    // Windows
     Dashboard {
         id: dashboard
     }
