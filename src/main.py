@@ -3,7 +3,9 @@ import os
 import sys
 from argparse import ArgumentParser
 from pathlib import Path
+from typing import cast
 
+from PySide6.QtCore import QObject, QTimer, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
@@ -21,17 +23,35 @@ _ = parser.add_argument(
 
 args = parser.parse_args()
 environment = args.environment
+content_root_path = Path(os.getcwd())
+
+
+class DevTool(QObject):
+    def __init__(self, engine: QQmlApplicationEngine) -> None:
+        super().__init__()
+        self._engine = engine
+
+    @Slot()
+    def reload(self) -> None:
+        for obj in self._engine.rootObjects():
+            obj.deleteLater()
+
+        self._engine.clearComponentCache()
+
+        self._engine.load(content_root_path / "src" / "App.qml")
 
 
 class DesktopApplication:
-    _content_root_path = Path(os.getcwd())
-
     _qt_application = QGuiApplication(sys.argv)
     _engine: QQmlApplicationEngine = QQmlApplicationEngine()
     _resource_service: ResourceService  # type: ignore
     _main_view_model: MainViewModel  # type: ignore
 
     def __init__(self) -> None:
+        if environment != "Production":
+            self._dev_tool = DevTool(self._engine)
+            self._engine.rootContext().setContextProperty("devTool", self._dev_tool)
+
         ## Infrastructure - Resource services
         self.__add_resources()
 
@@ -42,7 +62,7 @@ class DesktopApplication:
         resource_options: ResourceOptions
         appsettings_file = environment == "Production" and "appsettings.json" or f"appsettings.{environment}.json"
 
-        with open(self._content_root_path / appsettings_file) as f:
+        with open(content_root_path / appsettings_file) as f:
             app_settings = json.load(f)
             resource_options = ResourceOptions(**app_settings[ResourceOptions.SECTION_KEY])
 
@@ -53,7 +73,7 @@ class DesktopApplication:
         self._engine.rootContext().setContextProperty("mainViewModel", self._main_view_model)
 
     def __load_qml(self) -> None:
-        qml_file = self._content_root_path / "src" / "App.qml"
+        qml_file = content_root_path / "src" / "App.qml"
         self._engine.load(str(qml_file))
 
     def run(self) -> None:

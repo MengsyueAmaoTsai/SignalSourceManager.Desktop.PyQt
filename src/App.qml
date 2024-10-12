@@ -13,6 +13,11 @@ ApplicationWindow {
     height: Screen.height * 0.8
     Component.onCompleted: mainViewModel.initialize()
 
+    Shortcut {
+        sequence: "Ctrl+R"
+        onActivated: devTool.reload()
+    }
+
     RowLayout {
         id: appLayout
         anchors.fill: parent
@@ -21,6 +26,11 @@ ApplicationWindow {
         // LeftSideBar //
         LeftNavBar {
             id: leftNavBar
+        }
+
+        Text {
+            text: "sss "
+            anchors.fill: parent
         }
     }
 }
