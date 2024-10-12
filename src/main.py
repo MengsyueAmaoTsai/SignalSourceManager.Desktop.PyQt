@@ -3,9 +3,8 @@ import os
 import sys
 from argparse import ArgumentParser
 from pathlib import Path
-from typing import cast
 
-from PySide6.QtCore import QObject, QTimer, Slot
+from PySide6.QtCore import QObject, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 

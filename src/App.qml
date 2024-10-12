@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import QtQuick.Window
 
 import "./controls/LeftNavBar"
+import "./controls/LogConsole"
 
 ApplicationWindow {
     id: app
@@ -18,6 +19,26 @@ ApplicationWindow {
         onActivated: devTool.reload()
     }
 
+    Shortcut {
+        sequence: "Ctrl+Q"
+        onActivated: Qt.quit()
+    }
+
+    Shortcut {
+        sequence: "Ctrl+L"
+        onActivated: logConsole.visible = !logConsole.visible
+    }
+
+    menuBar: MenuBar {
+        Menu {
+            title: 'File'
+            Action {
+                text: 'Open Log Console'
+                onTriggered: logConsole.visible = true
+            }
+        }
+    }
+
     RowLayout {
         id: appLayout
         anchors.fill: parent
@@ -29,8 +50,12 @@ ApplicationWindow {
         }
 
         Text {
-            text: "sss "
+            text: "Hello world"
             anchors.fill: parent
         }
+    }
+
+    LogConsole {
+        id: logConsole
     }
 }
