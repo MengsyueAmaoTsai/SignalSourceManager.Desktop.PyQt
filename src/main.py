@@ -4,10 +4,10 @@ import sys
 from argparse import ArgumentParser
 from pathlib import Path
 
-from PySide6.QtCore import QObject, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
+from dev_tools import DevTool
 from resources import ResourceOptions, ResourceService
 from view_models import MainViewModel
 
@@ -23,21 +23,6 @@ _ = parser.add_argument(
 args = parser.parse_args()
 environment = args.environment
 content_root_path = Path(os.getcwd())
-
-
-class DevTool(QObject):
-    def __init__(self, engine: QQmlApplicationEngine) -> None:
-        super().__init__()
-        self._engine = engine
-
-    @Slot()
-    def reload(self) -> None:
-        for obj in self._engine.rootObjects():
-            obj.deleteLater()
-
-        self._engine.clearComponentCache()
-
-        self._engine.load(content_root_path / "src" / "App.qml")
 
 
 class DesktopApplication:
