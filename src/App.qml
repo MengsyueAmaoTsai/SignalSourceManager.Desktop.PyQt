@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import QtQuick.Window
 
 import "./controls/LeftNavBar"
+import "./controls/Dashboard"
 import "./controls/LogConsole"
 
 ApplicationWindow {
@@ -22,6 +23,11 @@ ApplicationWindow {
     Shortcut {
         sequence: "Ctrl+Q"
         onActivated: Qt.quit()
+    }
+
+    Shortcut {
+        sequence: "Ctrl+D"
+        onActivated: dashboard.visible = !dashboard.visible
     }
 
     Shortcut {
@@ -53,6 +59,10 @@ ApplicationWindow {
             text: "Hello world"
             anchors.fill: parent
         }
+    }
+
+    Dashboard {
+        id: dashboard
     }
 
     LogConsole {
