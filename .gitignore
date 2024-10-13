@@ -10,4 +10,4 @@ wheels/
 .venv
 
 # QRC generated files
-src/*_rc.py
+src/**/_rc.py
