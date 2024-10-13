@@ -3,6 +3,7 @@ import sys
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtQuickControls2 import QQuickStyle
 
 from dev_tools import DevTool
 from hosting import environment
@@ -48,6 +49,9 @@ class DesktopApplication:
         self._engine.load(str(qml_file))
 
     def run(self) -> None:
+        QQuickStyle.setStyle("Basic")
+        QQuickStyle.setFallbackStyle("Basic")
+
         self.__load_qml()
 
         if not self._engine.rootObjects():
