@@ -1,9 +1,23 @@
 import QtQuick.Controls
+import QtQuick.Layouts
+
+import "../../controls/base"
 
 Page {
     id: root
 
-    Label {
-        text: 'Home page'
+    ColumnLayout {
+        id: layout
+        width: root.width
+        height: root.height
+
+        RCText {
+            text: 'Fluent Text'
+        }
+
+        RCButton {
+            text: 'Fluent Button'
+            onClicked: console.log('Button clicked')
+        }
     }
 }
