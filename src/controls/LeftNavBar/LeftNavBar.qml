@@ -13,8 +13,16 @@ Item {
         }
 
         NavItem {
-            text: 'Settings'
+            text: 'Signal sources'
             icon: '../../../static/images/settings.svg'
+        }
+
+        CurrentUser {
+            id: currentUser
+        }
+
+        CurrentUserPopup {
+            id: currentUserPopup
         }
     }
 }

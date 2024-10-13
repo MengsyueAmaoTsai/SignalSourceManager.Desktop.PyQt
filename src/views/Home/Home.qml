@@ -1,11 +1,9 @@
-import QtQuick
 import QtQuick.Controls
 
 Page {
     id: root
 
-    Text {
+    Label {
         text: 'Home page'
-        anchors.centerIn: parent
     }
 }

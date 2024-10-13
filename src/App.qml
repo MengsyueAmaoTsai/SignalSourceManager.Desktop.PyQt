@@ -1,10 +1,11 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Layouts
 import QtQuick.Window
+import QtQuick.Layouts
 
 import "./controls/LeftNavBar"
 import "./views/Home"
+import "./views/SignalSources"
 import "./views/Settings"
 import "./views/About"
 
@@ -33,6 +34,13 @@ ApplicationWindow {
         sequence: "Ctrl+1"
         onActivated: {
             pageStack.replace(homePage);
+        }
+    }
+
+    Shortcut {
+        sequence: "Ctrl+2"
+        onActivated: {
+            pageStack.replace(signalSourcesPage);
         }
     }
 
@@ -70,6 +78,11 @@ ApplicationWindow {
     Component {
         id: homePage
         Home {}
+    }
+
+    Component {
+        id: signalSourcesPage
+        SignalSources {}
     }
 
     Component {
