@@ -3,7 +3,7 @@ import sys
 
 from PySide6.QtCore import QUrl
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
 
 import resources_rc  # type: ignore # noqa: F401
 from dev_tools import DevTool
@@ -19,15 +19,21 @@ class DesktopApplication:
     _main_view_model: MainViewModel  # type: ignore
 
     def __init__(self) -> None:
-        if not environment.is_production():
-            self._dev_tool = DevTool(self._engine)
-            self._engine.rootContext().setContextProperty("devTool", self._dev_tool)
+        self.__setup_dev_tool()
+        ## Domain
+
+        ## Application
 
         ## Infrastructure - Resource services
         self.__add_resources()
 
-        ## Presentation - MVVM
-        self.__add_mvvm()
+        ## Presentation - ViewModels
+        self.__add_view_models()
+
+    def __setup_dev_tool(self) -> None:
+        if not environment.is_production():
+            self._dev_tool = DevTool(self._engine)
+            self._engine.rootContext().setContextProperty("devTool", self._dev_tool)
 
     def __add_resources(self) -> None:
         resource_options: ResourceOptions
@@ -41,21 +47,34 @@ class DesktopApplication:
 
         self._resource_service = ResourceService(resource_options.base_address)
 
-    def __add_mvvm(self) -> None:
+    def __add_view_models(self) -> None:
         self._main_view_model = MainViewModel(self._resource_service)
         self._engine.rootContext().setContextProperty("mainViewModel", self._main_view_model)
 
-    def __load_qml(self) -> None:
-        url = QUrl("qrc:/src/App.qml")
-        self._engine.load(url)
-
     def run(self) -> None:
-        self.__load_qml()
+        self.__setup_qml()
 
         if not self._engine.rootObjects():
             sys.exit(-1)
 
         sys.exit(self._qt_application.exec())
+
+    def __setup_qml(self) -> None:
+        # Register qml types
+        self.__register_base_controls()
+
+        ## Load App.qml
+        url = QUrl("qrc:/src/App.qml")
+        self._engine.load(url)
+
+    def __register_base_controls(self) -> None:
+        module_name = "BaseControls"
+        version_major = 1
+        version_minor = 0
+
+        qmlRegisterType(
+            QUrl("qrc:/src/controls/base/Window.qml"), module_name, version_major, version_minor, "RCWindow"
+        )
 
 
 if __name__ == "__main__":

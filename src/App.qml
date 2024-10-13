@@ -2,7 +2,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Window
 
-ApplicationWindow {
+import BaseControls
+
+RCWindow {
     id: app
     title: mainViewModel.app_title
     visible: true
