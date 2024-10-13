@@ -73,27 +73,27 @@ class DesktopApplication:
         version_minor = 0
 
         qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Divider.qml"), module_name, version_major, version_minor, "RCDivider"
+            QUrl("qrc:/src/controls/base/Divider.qml"), module_name, version_major, version_minor, "BaseDivider"
         )
 
         qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Button.qml"), module_name, version_major, version_minor, "RCButton"
+            QUrl("qrc:/src/controls/base/Button.qml"), module_name, version_major, version_minor, "BaseButton"
         )
 
-        qmlRegisterType(QUrl("qrc:/src/controls/base/Text.qml"), module_name, version_major, version_minor, "RCText")
+        qmlRegisterType(QUrl("qrc:/src/controls/base/Text.qml"), module_name, version_major, version_minor, "BaseText")
 
-        qmlRegisterType(QUrl("qrc:/src/controls/base/Icon.qml"), module_name, version_major, version_minor, "RCIcon")
-
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/CheckBox.qml"), module_name, version_major, version_minor, "RCCheckBox"
-        )
+        qmlRegisterType(QUrl("qrc:/src/controls/base/Icon.qml"), module_name, version_major, version_minor, "BaseIcon")
 
         qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Rectangle.qml"), module_name, version_major, version_minor, "RCRectangle"
+            QUrl("qrc:/src/controls/base/CheckBox.qml"), module_name, version_major, version_minor, "BaseCheckBox"
         )
 
         qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Window.qml"), module_name, version_major, version_minor, "RCWindow"
+            QUrl("qrc:/src/controls/base/Rectangle.qml"), module_name, version_major, version_minor, "BaseRectangle"
+        )
+
+        qmlRegisterType(
+            QUrl("qrc:/src/controls/base/Window.qml"), module_name, version_major, version_minor, "BaseWindow"
         )
 
 

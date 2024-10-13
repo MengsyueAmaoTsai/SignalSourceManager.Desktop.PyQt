@@ -13,26 +13,26 @@ ApplicationWindow {
         id: baseLayout
         anchors.fill: parent
 
-        RCButton {
+        BaseButton {
             id: baseButton
             text: 'Fluent button'
         }
 
-        RCText {
+        BaseText {
             id: baseText
             text: 'Fluent text'
         }
 
-        RCIcon {
+        BaseIcon {
             id: baseIcon
         }
 
-        RCCheckBox {
+        BaseCheckBox {
             id: baseCheckBox
             text: 'Fluent checkbox'
         }
 
-        RCRectangle {
+        BaseRectangle {
             id: baseRectangle
         }
     }
