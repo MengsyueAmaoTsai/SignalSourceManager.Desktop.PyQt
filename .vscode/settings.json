@@ -291,7 +291,7 @@
   "qtForPython.rcc.liveExecution.glob": "**/*.qrc",
   "qtForPython.rcc.options": [
     "-o",
-    "${resourceDirname}${pathSeparator}${resourceBasenameNoExtension}_rc.py"
+    "${resourceDirname}${pathSeparator}src${pathSeparator}${resourceBasenameNoExtension}_rc.py"
   ],
   "qtForPython.rcc.path": "",
 

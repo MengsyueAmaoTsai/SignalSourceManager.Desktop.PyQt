@@ -1,10 +1,11 @@
 import json
 import sys
 
+from PySide6.QtCore import QUrl
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
-from PySide6.QtQuickControls2 import QQuickStyle
 
+import views_rc  # type: ignore # noqa: F401
 from dev_tools import DevTool
 from hosting import environment
 from resources import ResourceOptions, ResourceService
@@ -45,13 +46,10 @@ class DesktopApplication:
         self._engine.rootContext().setContextProperty("mainViewModel", self._main_view_model)
 
     def __load_qml(self) -> None:
-        qml_file = environment.content_root_path / "src" / "App.qml"
-        self._engine.load(str(qml_file))
+        url = QUrl("qrc:/src/App.qml")
+        self._engine.load(url)
 
     def run(self) -> None:
-        QQuickStyle.setStyle("Basic")
-        QQuickStyle.setFallbackStyle("Basic")
-
         self.__load_qml()
 
         if not self._engine.rootObjects():

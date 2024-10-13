@@ -24,6 +24,9 @@ dev-dependencies = [
 start = "python ./src/main.py -e Production"
 dev = "python ./src/main.py -e Development"
 
+build = { cmd = ["rye", "run", "build_qrc"] }
+build_qrc = "pyside6-rcc views.qrc -o ./src/views_rc.py"
+
 lint = "ruff check ."
 lintq = "pyside6-qmllint"
 format = "ruff format ."
