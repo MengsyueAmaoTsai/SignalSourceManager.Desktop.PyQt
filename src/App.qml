@@ -62,7 +62,7 @@ ApplicationWindow {
 
         StackView {
             id: pageStack
-            initialItem: aboutPage
+            initialItem: homePage
         }
     }
 
