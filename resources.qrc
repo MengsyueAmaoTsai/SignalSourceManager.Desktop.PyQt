@@ -4,6 +4,7 @@
         <file>src/App.qml</file>
         
         <!-- Base controls -->
+        <file>src/controls/base/Divider.qml</file>
         <file>src/controls/base/Button.qml</file>
 
         <file>src/controls/base/Text.qml</file>
@@ -11,6 +12,7 @@
 
         <file>src/controls/base/CheckBox.qml</file>
 
+        <file>src/controls/base/Rectangle.qml</file>
         <file>src/controls/base/Window.qml</file>
     </qresource>
 </RCC>

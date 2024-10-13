@@ -31,5 +31,9 @@ ApplicationWindow {
             id: baseCheckBox
             text: 'Fluent checkbox'
         }
+
+        RCRectangle {
+            id: baseRectangle
+        }
     }
 }
