@@ -5,6 +5,8 @@ import QtQuick.Window
 
 import "./controls/LeftNavBar"
 import "./views/Home"
+import "./views/Settings"
+import "./views/About"
 
 ApplicationWindow {
     id: app
@@ -27,6 +29,27 @@ ApplicationWindow {
         onActivated: devTool.reload()
     }
 
+    Shortcut {
+        sequence: "Ctrl+1"
+        onActivated: {
+            pageStack.replace(homePage);
+        }
+    }
+
+    Shortcut {
+        sequence: "Ctrl+9"
+        onActivated: {
+            pageStack.replace(settingsPage);
+        }
+    }
+
+    Shortcut {
+        sequence: "Ctrl+0"
+        onActivated: {
+            pageStack.replace(aboutPage);
+        }
+    }
+
     RowLayout {
         id: appLayout
         anchors.fill: parent
@@ -39,7 +62,7 @@ ApplicationWindow {
 
         StackView {
             id: pageStack
-            initialItem: homePage
+            initialItem: aboutPage
         }
     }
 
@@ -47,6 +70,16 @@ ApplicationWindow {
     Component {
         id: homePage
         Home {}
+    }
+
+    Component {
+        id: settingsPage
+        Settings {}
+    }
+
+    Component {
+        id: aboutPage
+        About {}
     }
 
     // Windows

@@ -5,7 +5,7 @@ Page {
     id: root
 
     Text {
-        text: 'Home page'
+        text: 'Settings page'
         anchors.centerIn: parent
     }
 }

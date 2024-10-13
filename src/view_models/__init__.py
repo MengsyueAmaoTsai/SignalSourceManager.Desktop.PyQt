@@ -24,6 +24,10 @@ class MainViewModel(QObject):
         return f"{ApplicationInfo.ID} {ApplicationInfo.VERSION}"
 
     @Property(str)
+    def python_version(self) -> str:
+        return ApplicationInfo.PYTHON_VERSION
+
+    @Property(str)
     def qt_version(self) -> str:
         return ApplicationInfo.QT_VERSION
 
