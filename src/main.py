@@ -95,6 +95,7 @@ class DesktopApplication:
         qmlRegisterType(
             QUrl("qrc:/src/controls/base/Window.qml"), module_name, version_major, version_minor, "BaseWindow"
         )
+        qmlRegisterType(QUrl("qrc:/src/controls/base/Page.qml"), module_name, version_major, version_minor, "BasePage")
 
 
 if __name__ == "__main__":
