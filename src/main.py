@@ -5,7 +5,7 @@ from PySide6.QtCore import QUrl
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
-import views_rc  # type: ignore # noqa: F401
+import resources_rc  # type: ignore # noqa: F401
 from dev_tools import DevTool
 from hosting import environment
 from resources import ResourceOptions, ResourceService
