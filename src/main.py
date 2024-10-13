@@ -73,13 +73,20 @@ class DesktopApplication:
         version_minor = 0
 
         qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Window.qml"), module_name, version_major, version_minor, "RCWindow"
-        )
-        qmlRegisterType(QUrl("qrc:/src/controls/base/Text.qml"), module_name, version_major, version_minor, "RCText")
-        qmlRegisterType(
             QUrl("qrc:/src/controls/base/Button.qml"), module_name, version_major, version_minor, "RCButton"
         )
+
+        qmlRegisterType(QUrl("qrc:/src/controls/base/Text.qml"), module_name, version_major, version_minor, "RCText")
+
         qmlRegisterType(QUrl("qrc:/src/controls/base/Icon.qml"), module_name, version_major, version_minor, "RCIcon")
+
+        qmlRegisterType(
+            QUrl("qrc:/src/controls/base/Window.qml"), module_name, version_major, version_minor, "RCWindow"
+        )
+
+        qmlRegisterType(
+            QUrl("qrc:/src/controls/base/CheckBox.qml"), module_name, version_major, version_minor, "RCCheckBox"
+        )
 
 
 if __name__ == "__main__":

@@ -13,18 +13,23 @@ ApplicationWindow {
         id: baseLayout
         anchors.fill: parent
 
-        RCText {
-            id: baseText
-            text: 'Fluent text'
-        }
-
         RCButton {
             id: baseButton
             text: 'Fluent button'
         }
 
+        RCText {
+            id: baseText
+            text: 'Fluent text'
+        }
+
         RCIcon {
             id: baseIcon
+        }
+
+        RCCheckBox {
+            id: baseCheckBox
+            text: 'Fluent checkbox'
         }
     }
 }
