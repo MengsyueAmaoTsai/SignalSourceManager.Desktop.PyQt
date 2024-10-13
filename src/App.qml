@@ -1,22 +1,30 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Window
+import QtQuick.Layouts
 
 import BaseControls
 
-RCWindow {
-    id: app
-    title: mainViewModel.app_title
+ApplicationWindow {
+    id: root
     visible: true
-    width: Screen.width * 0.8
-    height: Screen.height * 0.8
-    minimumHeight: 600
-    minimumWidth: 900
 
-    Component.onCompleted: {
-        mainViewModel.initialize();
-        console.log('Application loaded');
+    ColumnLayout {
+        id: baseLayout
+        anchors.fill: parent
+
+        RCText {
+            id: baseText
+            text: 'Fluent text'
+        }
+
+        RCButton {
+            id: baseButton
+            text: 'Fluent button'
+        }
+
+        RCIcon {
+            id: baseIcon
+        }
     }
-
-    Component.onDestruction: console.log('Application destroyed')
 }

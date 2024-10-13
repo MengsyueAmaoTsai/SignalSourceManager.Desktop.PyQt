@@ -1,7 +1,12 @@
 <RCC>
     <qresource prefix="/">
+        <!-- Core -->
         <file>src/App.qml</file>
         
+        <!-- Base controls -->
         <file>src/controls/base/Window.qml</file>
+        <file>src/controls/base/Text.qml</file>
+        <file>src/controls/base/Button.qml</file>
+        <file>src/controls/base/Icon.qml</file>
     </qresource>
 </RCC>
