@@ -19,7 +19,7 @@ class ServiceCollection:
     }
 
     SINGLETON_SERVICES = {
-        "WindowService": "qrc:/src/WindowService.qml",
+        "WindowService": "qrc:/src/controls/base/WindowService.qml",
     }
 
     @classmethod

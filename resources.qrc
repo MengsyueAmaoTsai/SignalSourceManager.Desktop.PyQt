@@ -4,7 +4,7 @@
         <file>src/App.qml</file>
 
         <!-- Services -->
-        <file>src/WindowService.qml</file>
+        <file>src/controls/base/WindowService.qml</file>
     
         <!-- Views -->
         <file>src/views/Home/Home.qml</file>
