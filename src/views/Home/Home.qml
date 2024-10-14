@@ -8,4 +8,9 @@ BaseWindow {
     title: 'FluentUI'
 
     appBar: BaseAppBar {}
+
+    Text {
+        text: 'Hello, World!'
+        anchors.centerIn: parent
+    }
 }

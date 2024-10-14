@@ -6,6 +6,31 @@ QtObject {
     property var routes: ({})
     property var windows: []
 
+    function addWindow(window) {
+        if (!window.transientParent) {
+            windows.push(window);
+        }
+    }
+
+    function removeWindow(window) {
+        if (!window.transientParent) {
+            var index = windows.indexOf(window);
+            if (index !== -1) {
+                windows.splice(index, 1);
+                window.deleteLater();
+            }
+        }
+    }
+
+    function quit(returnCode) {
+        for (var i = 0; i < windows.length; i++) {
+            var win = windows[i];
+            win.deleteLater();
+        }
+        windows = [];
+        Qt.exit(returnCode);
+    }
+
     function mapRoutes(routeMapping) {
         routes = routeMapping;
     }

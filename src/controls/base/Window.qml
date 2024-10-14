@@ -4,8 +4,9 @@ import QtQuick.Controls
 Window {
     id: control
 
-    property Item appBar: AppBar {
-    }
+    color: 'transparent'
+
+    property Item appBar: AppBar {}
 
     Component.onCompleted: {
         console.log('BaseWindow loaded');
