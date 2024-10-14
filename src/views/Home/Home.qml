@@ -1,4 +1,5 @@
 import QtQuick
+
 import QtQuick.Controls
 
 import BaseControls
@@ -6,11 +7,8 @@ import BaseControls
 BaseWindow {
     id: root
     title: 'FluentUI'
-
     appBar: BaseAppBar {}
+    Component.onCompleted: console.log('Home loaded')
 
-    Text {
-        text: 'Hello, World!'
-        anchors.centerIn: parent
-    }
+    Component.onDestruction: console.log('Home destroyed')
 }

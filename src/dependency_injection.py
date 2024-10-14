@@ -14,6 +14,8 @@ class ServiceCollection:
         "BaseLoader": "qrc:/src/controls/base/Loader.qml",
         "BaseWindow": "qrc:/src/controls/base/Window.qml",
         "BaseAppBar": "qrc:/src/controls/base/AppBar.qml",
+        "BaseText": "qrc:/src/controls/base/Text.qml",
+        "BaseButton": "qrc:/src/controls/base/Button.qml",
     }
 
     SINGLETON_SERVICES = {
