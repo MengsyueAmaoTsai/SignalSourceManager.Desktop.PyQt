@@ -35,5 +35,9 @@ ApplicationWindow {
         BaseRectangle {
             id: baseRectangle
         }
+
+        BaseTextBox {
+            id: baseTextBox
+        }
     }
 }

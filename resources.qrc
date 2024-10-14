@@ -1,11 +1,16 @@
 <RCC>
     <qresource prefix="/">
+        <!-- Fonts -->
+        <file>static/fonts/FluentIcons.ttf</file>
+        <!-- Images -->
+        
         <!-- Core -->
         <file>src/App.qml</file>
         
         <!-- Base controls -->
         <file>src/controls/base/Divider.qml</file>
         <file>src/controls/base/Button.qml</file>
+        <file>src/controls/base/TextBox.qml</file>
 
         <file>src/controls/base/Text.qml</file>
         <file>src/controls/base/Icon.qml</file>

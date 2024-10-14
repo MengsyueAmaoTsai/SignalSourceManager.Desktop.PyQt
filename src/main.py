@@ -80,6 +80,10 @@ class DesktopApplication:
             QUrl("qrc:/src/controls/base/Button.qml"), module_name, version_major, version_minor, "BaseButton"
         )
 
+        qmlRegisterType(
+            QUrl("qrc:/src/controls/base/TextBox.qml"), module_name, version_major, version_minor, "BaseTextBox"
+        )
+
         qmlRegisterType(QUrl("qrc:/src/controls/base/Text.qml"), module_name, version_major, version_minor, "BaseText")
 
         qmlRegisterType(QUrl("qrc:/src/controls/base/Icon.qml"), module_name, version_major, version_minor, "BaseIcon")
