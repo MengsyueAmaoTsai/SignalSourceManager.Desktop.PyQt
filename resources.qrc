@@ -11,6 +11,8 @@
         <file>src/controls/base/Divider.qml</file>
         <file>src/controls/base/Button.qml</file>
         <file>src/controls/base/TextBox.qml</file>
+        <file>src/controls/base/RadioButton.qml</file>
+        <file>src/controls/base/Switch.qml</file>
 
         <file>src/controls/base/Text.qml</file>
         <file>src/controls/base/Icon.qml</file>

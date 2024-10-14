@@ -83,6 +83,12 @@ class DesktopApplication:
         qmlRegisterType(
             QUrl("qrc:/src/controls/base/TextBox.qml"), module_name, version_major, version_minor, "BaseTextBox"
         )
+        qmlRegisterType(
+            QUrl("qrc:/src/controls/base/RadioButton.qml"), module_name, version_major, version_minor, "BaseRadioButton"
+        )
+        qmlRegisterType(
+            QUrl("qrc:/src/controls/base/Switch.qml"), module_name, version_major, version_minor, "BaseSwitch"
+        )
 
         qmlRegisterType(QUrl("qrc:/src/controls/base/Text.qml"), module_name, version_major, version_minor, "BaseText")
 

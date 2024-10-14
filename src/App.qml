@@ -39,5 +39,10 @@ ApplicationWindow {
         BaseTextBox {
             id: baseTextBox
         }
+
+        BaseRadioButton {
+            id: baseRadioButton
+            text: 'Fluent radio button'
+        }
     }
 }
