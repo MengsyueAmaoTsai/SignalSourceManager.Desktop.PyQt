@@ -1,6 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 
-Window {
+import BaseControls
+
+BaseWindow {
     id: root
 }

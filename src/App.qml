@@ -5,9 +5,9 @@ import QtQuick.Window
 
 ApplicationWindow {
     id: root
-    visible: true
     width: Screen.width * 0.8
     height: Screen.height * 0.8
+    visible: true
 
     Component.onCompleted: {
         const routeMapping = {

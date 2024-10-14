@@ -8,5 +8,8 @@
     
         <!-- Views -->
         <file>src/views/Home/Home.qml</file>
+
+        <!-- BaseControls -->
+        <file>src/controls/base/Window.qml</file>
     </qresource>
 </RCC>
