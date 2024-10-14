@@ -23,5 +23,8 @@
         <file>src/controls/base/Page.qml</file>
         <file>src/controls/base/Popup.qml</file>
         <file>src/controls/base/Window.qml</file>
+
+        <!-- Services -->
+        <file>src/RouteManager.qml</file>
     </qresource>
 </RCC>

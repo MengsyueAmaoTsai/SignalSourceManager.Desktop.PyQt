@@ -16,6 +16,10 @@ ApplicationWindow {
         BaseButton {
             id: baseButton
             text: 'Fluent button'
+            onClicked: {
+                basePopup.open();
+                console.log('Button clicked');
+            }
         }
 
         BaseText {
@@ -43,6 +47,10 @@ ApplicationWindow {
         BaseRadioButton {
             id: baseRadioButton
             text: 'Fluent radio button'
+        }
+
+        BasePopup {
+            id: basePopup
         }
     }
 }

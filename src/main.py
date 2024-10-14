@@ -3,7 +3,7 @@ import sys
 
 from PySide6.QtCore import QUrl
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
+from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType, qmlRegisterType
 
 import resources_rc  # type: ignore # noqa: F401
 from dev_tools import DevTool
@@ -62,6 +62,7 @@ class DesktopApplication:
     def __setup_qml(self) -> None:
         # Register qml types
         self.__register_base_controls()
+        self.__register_qml_services()
 
         ## Load App.qml
         url = QUrl("qrc:/src/App.qml")
@@ -108,6 +109,15 @@ class DesktopApplication:
         qmlRegisterType(QUrl("qrc:/src/controls/base/Page.qml"), module_name, version_major, version_minor, "BasePage")
         qmlRegisterType(
             QUrl("qrc:/src/controls/base/Popup.qml"), module_name, version_major, version_minor, "BasePopup"
+        )
+
+    def __register_qml_services(self) -> None:
+        module_name = "QmlServices"
+        version_major = 1
+        version_minor = 0
+
+        qmlRegisterSingletonType(
+            QUrl("qrc:/src/RouteManager.qml"), module_name, version_major, version_minor, "RouteManager"
         )
 
 

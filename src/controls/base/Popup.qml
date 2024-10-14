@@ -5,4 +5,6 @@ import QtQuick.Window
 
 Popup {
     id: control
+
+    modal: true
 }
