@@ -1,22 +1,15 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Window
 import QtQuick.Layouts
-
-import BaseControls
+import QtQuick.Window
 
 ApplicationWindow {
     id: root
     visible: true
-    width: 400
-    height: 400
+    width: Screen.width * 0.8
+    height: Screen.height * 0.8
 
     Component.onCompleted: {
-        console.log('[ApplicationWindow.OnCompleted]');
-        WindowManager.mapRoutes({
-            '/': 'qrc:/src/views/Home/Home.qml'
-        });
-        const args = Qt.application.arguments;
-        WindowManager.navigateTo('/');
+        console.log('AppInfo: ', AppInfo.qt_version);
     }
 }

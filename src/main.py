@@ -1,129 +1,40 @@
-import json
 import sys
 
-from PySide6.QtCore import QUrl
+from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType, qmlRegisterType
+from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
+from PySide6.QtQuickControls2 import QQuickStyle
 
-import resources_rc  # type: ignore # noqa: F401
-from dev_tools import DevTool
-from hosting import environment
-from resources import ResourceOptions, ResourceService
-from view_models import MainViewModel
+import resources_rc as resources  # type: ignore # noqa: F401
+from AppInfo import AppInfo
 
+app = QGuiApplication(sys.argv)
+engine = QQmlApplicationEngine()
 
-class DesktopApplication:
-    _qt_application = QGuiApplication(sys.argv)
-    _engine: QQmlApplicationEngine = QQmlApplicationEngine()
-    _resource_service: ResourceService  # type: ignore
-    _main_view_model: MainViewModel  # type: ignore
+app_info = AppInfo()
+engine.rootContext().setContextProperty("AppInfo", app_info)
 
-    def __init__(self) -> None:
-        self.__setup_dev_tool()
-        ## Domain
+for path in engine.importPathList():
+    print(f"Import path: {path}")
 
-        ## Application
+QQuickWindow.setGraphicsApi(QSGRendererInterface.GraphicsApi.OpenGL)
 
-        ## Infrastructure - Resource services
-        self.__add_resources()
+QQuickStyle.setStyle("Basic")
+QQuickStyle.setFallbackStyle("Basic")
 
-        ## Presentation - ViewModels
-        self.__add_view_models()
+QGuiApplication.setOrganizationName("RichillCapital")
+QGuiApplication.setOrganizationDomain("https://community.richillcapital.com")
+QGuiApplication.setApplicationName(f"RichillCapital.SignalSourceManager.Desktop - {app_info.version}")
 
-    def __setup_dev_tool(self) -> None:
-        if not environment.is_production():
-            self._dev_tool = DevTool(self._engine)
-            self._engine.rootContext().setContextProperty("devTool", self._dev_tool)
+engine.load("qrc:/src/App.qml")
 
-    def __add_resources(self) -> None:
-        resource_options: ResourceOptions
-        appsettings_file = (
-            environment.is_production() and "appsettings.json" or f"appsettings.{environment.environment_name}.json"
-        )
+if not engine.rootObjects():
+    sys.exit(-1)
 
-        with open(environment.content_root_path / appsettings_file) as f:
-            app_settings = json.load(f)
-            resource_options = ResourceOptions(**app_settings[ResourceOptions.SECTION_KEY])
+code = app.exec()
+if code == 931:
+    args = QGuiApplication.arguments()[1:]
+    _ = QProcess.startDetached(QGuiApplication.applicationFilePath(), args)
 
-        self._resource_service = ResourceService(resource_options.base_address)
-
-    def __add_view_models(self) -> None:
-        self._main_view_model = MainViewModel(self._resource_service)
-        self._engine.rootContext().setContextProperty("mainViewModel", self._main_view_model)
-
-    def run(self) -> None:
-        self.__setup_qml()
-
-        if not self._engine.rootObjects():
-            sys.exit(-1)
-
-        sys.exit(self._qt_application.exec())
-
-    def __setup_qml(self) -> None:
-        # Register qml types
-        self.__register_base_controls()
-        self.__register_qml_services()
-
-        ## Load App.qml
-        url = QUrl("qrc:/src/App.qml")
-        self._engine.load(url)
-
-    def __register_base_controls(self) -> None:
-        module_name = "BaseControls"
-        version_major = 1
-        version_minor = 0
-
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Divider.qml"), module_name, version_major, version_minor, "BaseDivider"
-        )
-
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Button.qml"), module_name, version_major, version_minor, "BaseButton"
-        )
-
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/TextBox.qml"), module_name, version_major, version_minor, "BaseTextBox"
-        )
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/RadioButton.qml"), module_name, version_major, version_minor, "BaseRadioButton"
-        )
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Switch.qml"), module_name, version_major, version_minor, "BaseSwitch"
-        )
-
-        qmlRegisterType(QUrl("qrc:/src/controls/base/Text.qml"), module_name, version_major, version_minor, "BaseText")
-
-        qmlRegisterType(QUrl("qrc:/src/controls/base/Icon.qml"), module_name, version_major, version_minor, "BaseIcon")
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/TableView.qml"), module_name, version_major, version_minor, "BaseTableView"
-        )
-
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/CheckBox.qml"), module_name, version_major, version_minor, "BaseCheckBox"
-        )
-
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Rectangle.qml"), module_name, version_major, version_minor, "BaseRectangle"
-        )
-
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Window.qml"), module_name, version_major, version_minor, "BaseWindow"
-        )
-        qmlRegisterType(QUrl("qrc:/src/controls/base/Page.qml"), module_name, version_major, version_minor, "BasePage")
-        qmlRegisterType(
-            QUrl("qrc:/src/controls/base/Popup.qml"), module_name, version_major, version_minor, "BasePopup"
-        )
-
-    def __register_qml_services(self) -> None:
-        module_name = "QmlServices"
-        version_major = 1
-        version_minor = 0
-
-        qmlRegisterSingletonType(
-            QUrl("qrc:/src/WindowManager.qml"), module_name, version_major, version_minor, "WindowManager"
-        )
-
-
-if __name__ == "__main__":
-    desktop = DesktopApplication()
-    desktop.run()
+sys.exit(code)

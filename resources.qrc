@@ -1,31 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <!-- Fonts -->
-        <file>static/fonts/FluentIcons.ttf</file>
-        <!-- Images -->
-        
         <!-- Core -->
         <file>src/App.qml</file>
-        
-        <!-- Base controls -->
-        <file>src/controls/base/Divider.qml</file>
-        <file>src/controls/base/Button.qml</file>
-        <file>src/controls/base/TextBox.qml</file>
-        <file>src/controls/base/RadioButton.qml</file>
-        <file>src/controls/base/Switch.qml</file>
-
-        <file>src/controls/base/Text.qml</file>
-        <file>src/controls/base/Icon.qml</file>
-        <file>src/controls/base/TableView.qml</file>
-
-        <file>src/controls/base/CheckBox.qml</file>
-
-        <file>src/controls/base/Rectangle.qml</file>
-        <file>src/controls/base/Page.qml</file>
-        <file>src/controls/base/Popup.qml</file>
-        <file>src/controls/base/Window.qml</file>
-
-        <!-- Services -->
-        <file>src/WindowManager.qml</file>
     </qresource>
 </RCC>
