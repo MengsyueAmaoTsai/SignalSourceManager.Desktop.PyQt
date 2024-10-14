@@ -94,6 +94,9 @@ class DesktopApplication:
         qmlRegisterType(QUrl("qrc:/src/controls/base/Text.qml"), module_name, version_major, version_minor, "BaseText")
 
         qmlRegisterType(QUrl("qrc:/src/controls/base/Icon.qml"), module_name, version_major, version_minor, "BaseIcon")
+        qmlRegisterType(
+            QUrl("qrc:/src/controls/base/TableView.qml"), module_name, version_major, version_minor, "BaseTableView"
+        )
 
         qmlRegisterType(
             QUrl("qrc:/src/controls/base/CheckBox.qml"), module_name, version_major, version_minor, "BaseCheckBox"

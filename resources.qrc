@@ -16,6 +16,7 @@
 
         <file>src/controls/base/Text.qml</file>
         <file>src/controls/base/Icon.qml</file>
+        <file>src/controls/base/TableView.qml</file>
 
         <file>src/controls/base/CheckBox.qml</file>
 
