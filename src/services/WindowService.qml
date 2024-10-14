@@ -6,8 +6,8 @@ QtObject {
     property var routes: ({})
     property var windows: []
 
-    Component.onCompleted: console.log('WindowService initialized')
-    Component.onDestruction: console.log('WindowService destroyed')
+    Component.onCompleted: console.log('WindowService.qml initialized')
+    Component.onDestruction: console.log('WindowService.qml destroyed')
 
     function addWindow(window) {
         if (!window.transientParent) {

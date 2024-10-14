@@ -20,11 +20,12 @@ version_major = 1
 version_minor = 0
 
 # Register presentation layer services
-ServiceCollection.register_singleton_services()
-ServiceCollection.register_base_controls()
-ServiceCollection.register_theme_manager()
-for path in engine.importPathList():
-    print(f"Import path: {path}")
+ServiceCollection.add_window_service()
+ServiceCollection.add_base_controls()
+ServiceCollection.add_color_provider()
+
+# for path in engine.importPathList():
+#     print(f"Import path: {path}")
 
 QQuickWindow.setGraphicsApi(QSGRendererInterface.GraphicsApi.OpenGL)
 

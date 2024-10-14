@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
 
+import BaseControls
 import Services
 
 ApplicationWindow {
@@ -12,10 +13,15 @@ ApplicationWindow {
     visible: true
 
     Component.onCompleted: {
+        console.log('App.qml loaded');
         const routeMapping = {
             '/': 'qrc:/src/views/Home/Home.qml'
         };
         WindowService.mapRoutes(routeMapping);
         WindowService.navigateTo('/');
+    }
+
+    Component.onDestruction: {
+        console.log('App.qml destroyed');
     }
 }
