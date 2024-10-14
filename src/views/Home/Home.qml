@@ -5,4 +5,7 @@ import BaseControls
 
 BaseWindow {
     id: root
+    title: 'FluentUI'
+
+    appBar: BaseAppBar {}
 }

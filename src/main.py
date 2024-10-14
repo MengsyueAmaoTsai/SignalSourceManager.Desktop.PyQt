@@ -25,6 +25,7 @@ qmlRegisterSingletonType("qrc:/src/WindowService.qml", service_module, version_m
 # Register base controls
 base_controls_module = "BaseControls"
 qmlRegisterType("qrc:/src/controls/base/Window.qml", base_controls_module, version_major, version_minor, "BaseWindow")
+qmlRegisterType("qrc:/src/controls/base/AppBar.qml", base_controls_module, version_major, version_minor, "BaseAppBar")
 
 for path in engine.importPathList():
     print(f"Import path: {path}")

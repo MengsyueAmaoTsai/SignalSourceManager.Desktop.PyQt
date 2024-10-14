@@ -11,5 +11,6 @@
 
         <!-- BaseControls -->
         <file>src/controls/base/Window.qml</file>
+        <file>src/controls/base/AppBar.qml</file>
     </qresource>
 </RCC>
