@@ -11,6 +11,7 @@ class ServiceCollection:
     VERSION_MINOR = 0
 
     BASE_CONTROLS = {
+        "BaseLoader": "qrc:/src/controls/base/Loader.qml",
         "BaseWindow": "qrc:/src/controls/base/Window.qml",
         "BaseAppBar": "qrc:/src/controls/base/AppBar.qml",
     }
