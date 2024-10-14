@@ -32,6 +32,7 @@ QQuickWindow.setGraphicsApi(QSGRendererInterface.GraphicsApi.OpenGL)
 QQuickStyle.setStyle("Basic")
 QQuickStyle.setFallbackStyle("Basic")
 
+QGuiApplication.setQuitOnLastWindowClosed(True)
 QGuiApplication.setOrganizationName("RichillCapital")
 QGuiApplication.setOrganizationDomain("https://community.richillcapital.com")
 QGuiApplication.setApplicationName(f"RichillCapital.SignalSourceManager.Desktop - {app_info.version}")
