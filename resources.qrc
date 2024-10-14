@@ -21,6 +21,7 @@
 
         <file>src/controls/base/Rectangle.qml</file>
         <file>src/controls/base/Page.qml</file>
+        <file>src/controls/base/Popup.qml</file>
         <file>src/controls/base/Window.qml</file>
     </qresource>
 </RCC>

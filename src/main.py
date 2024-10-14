@@ -106,6 +106,9 @@ class DesktopApplication:
             QUrl("qrc:/src/controls/base/Window.qml"), module_name, version_major, version_minor, "BaseWindow"
         )
         qmlRegisterType(QUrl("qrc:/src/controls/base/Page.qml"), module_name, version_major, version_minor, "BasePage")
+        qmlRegisterType(
+            QUrl("qrc:/src/controls/base/Popup.qml"), module_name, version_major, version_minor, "BasePopup"
+        )
 
 
 if __name__ == "__main__":
