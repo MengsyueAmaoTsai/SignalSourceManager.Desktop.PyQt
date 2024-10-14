@@ -22,7 +22,7 @@ version_minor = 0
 # Register presentation layer services
 ServiceCollection.register_singleton_services()
 ServiceCollection.register_base_controls()
-
+ServiceCollection.register_theme_manager()
 for path in engine.importPathList():
     print(f"Import path: {path}")
 

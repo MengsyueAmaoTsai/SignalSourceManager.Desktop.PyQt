@@ -15,7 +15,6 @@ ApplicationWindow {
         const routeMapping = {
             '/': 'qrc:/src/views/Home/Home.qml'
         };
-        
         WindowService.mapRoutes(routeMapping);
         WindowService.navigateTo('/');
     }
