@@ -10,6 +10,10 @@ ApplicationWindow {
     height: Screen.height * 0.8
 
     Component.onCompleted: {
-        console.log('AppInfo: ', AppInfo.qt_version);
+        const routeMapping = {
+            '/': 'qrc:/src/views/Home/Home.qml'
+        };
+        WindowService.mapRoutes(routeMapping);
+        WindowService.navigateTo('/');
     }
 }

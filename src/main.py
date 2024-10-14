@@ -2,7 +2,7 @@ import sys
 
 from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType
 from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
@@ -14,6 +14,12 @@ engine = QQmlApplicationEngine()
 
 app_info = AppInfo()
 engine.rootContext().setContextProperty("AppInfo", app_info)
+
+service_module = "Services"
+version_major = 1
+version_minor = 0
+
+qmlRegisterSingletonType("qrc:/src/WindowService.qml", service_module, version_major, version_minor, "WindowService")
 
 for path in engine.importPathList():
     print(f"Import path: {path}")
