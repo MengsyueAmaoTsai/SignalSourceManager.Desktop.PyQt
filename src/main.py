@@ -2,12 +2,13 @@ import sys
 
 from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType, qmlRegisterType
+from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType
 from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
 import resources_rc as resources  # type: ignore # noqa: F401
 from AppInfo import AppInfo
+from dependency_injection import ServiceCollection
 
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
@@ -18,14 +19,9 @@ engine.rootContext().setContextProperty("AppInfo", app_info)
 version_major = 1
 version_minor = 0
 
-# Register services
-service_module = "Services"
-qmlRegisterSingletonType("qrc:/src/WindowService.qml", service_module, version_major, version_minor, "WindowService")
-
-# Register base controls
-base_controls_module = "BaseControls"
-qmlRegisterType("qrc:/src/controls/base/Window.qml", base_controls_module, version_major, version_minor, "BaseWindow")
-qmlRegisterType("qrc:/src/controls/base/AppBar.qml", base_controls_module, version_major, version_minor, "BaseAppBar")
+# Register presentation layer services
+ServiceCollection.register_singleton_services()
+ServiceCollection.register_base_controls()
 
 for path in engine.importPathList():
     print(f"Import path: {path}")
