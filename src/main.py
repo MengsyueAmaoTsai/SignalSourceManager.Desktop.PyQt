@@ -117,7 +117,7 @@ class DesktopApplication:
         version_minor = 0
 
         qmlRegisterSingletonType(
-            QUrl("qrc:/src/RouteManager.qml"), module_name, version_major, version_minor, "RouteManager"
+            QUrl("qrc:/src/WindowManager.qml"), module_name, version_major, version_minor, "WindowManager"
         )
 
 

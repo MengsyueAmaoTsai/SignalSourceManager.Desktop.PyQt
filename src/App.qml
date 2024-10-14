@@ -8,49 +8,15 @@ import BaseControls
 ApplicationWindow {
     id: root
     visible: true
+    width: 400
+    height: 400
 
-    ColumnLayout {
-        id: baseLayout
-        anchors.fill: parent
-
-        BaseButton {
-            id: baseButton
-            text: 'Fluent button'
-            onClicked: {
-                basePopup.open();
-                console.log('Button clicked');
-            }
-        }
-
-        BaseText {
-            id: baseText
-            text: 'Fluent text'
-        }
-
-        BaseIcon {
-            id: baseIcon
-        }
-
-        BaseCheckBox {
-            id: baseCheckBox
-            text: 'Fluent checkbox'
-        }
-
-        BaseRectangle {
-            id: baseRectangle
-        }
-
-        BaseTextBox {
-            id: baseTextBox
-        }
-
-        BaseRadioButton {
-            id: baseRadioButton
-            text: 'Fluent radio button'
-        }
-
-        BasePopup {
-            id: basePopup
-        }
+    Component.onCompleted: {
+        console.log('[ApplicationWindow.OnCompleted]');
+        WindowManager.mapRoutes({
+            '/': 'qrc:/src/views/Home/Home.qml'
+        });
+        const args = Qt.application.arguments;
+        WindowManager.navigateTo('/');
     }
 }

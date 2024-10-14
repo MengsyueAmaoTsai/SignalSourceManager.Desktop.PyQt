@@ -25,6 +25,6 @@
         <file>src/controls/base/Window.qml</file>
 
         <!-- Services -->
-        <file>src/RouteManager.qml</file>
+        <file>src/WindowManager.qml</file>
     </qresource>
 </RCC>
