@@ -2,8 +2,8 @@ from PySide6.QtQml import qmlRegisterSingletonType, qmlRegisterType
 
 
 class QmlModuleNames:
-    SERVICES = "Services"
-    BASE_CONTROLS = "BaseControls"
+    SERVICES = "RichillCapital.SignalSourceManager.Desktop.Services"
+    BASE_CONTROLS = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
 
 
 class ServiceCollection:
@@ -34,7 +34,10 @@ class ServiceCollection:
     @classmethod
     def add_base_controls(cls) -> None:
         base_controls = {
+            "BaseText": "qrc:/src/controls/base/Text.qml",
+            "BaseButton": "qrc:/src/controls/base/Button.qml",
             "BaseTable": "qrc:/src/controls/base/Table.qml",
+            "Pagination": "qrc:/src/controls/base/Pagination.qml",
         }
         for qml_type_name, url in base_controls.items():
             qmlRegisterType(url, QmlModuleNames.BASE_CONTROLS, cls.VERSION_MAJOR, cls.VERSION_MINOR, qml_type_name)

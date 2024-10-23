@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
 
-import BaseControls
+import RichillCapital.SignalSourceManager.Desktop.Controls.Base
 
 ApplicationWindow {
     id: root
@@ -22,5 +22,12 @@ ApplicationWindow {
 
     BaseTable {
         id: logTable
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            bottom: parent.top
+        }
     }
 }
