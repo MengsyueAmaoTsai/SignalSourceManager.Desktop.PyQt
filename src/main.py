@@ -7,8 +7,9 @@ from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
 import resources_rc as resources  # type: ignore # noqa: F401
-from AppInfo import AppInfo
+from AppInfo import AppInfo, QtResources
 from dependency_injection import ServiceCollection
+from view_models import MainViewModel
 
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
@@ -24,6 +25,9 @@ version_minor = 0
 # for path in engine.importPathList():
 #     print(f"Import path: {path}")
 
+main_view_model = MainViewModel()
+engine.rootContext().setContextProperty("main_view_model", main_view_model)
+
 QQuickWindow.setGraphicsApi(QSGRendererInterface.GraphicsApi.OpenGL)
 
 QQuickStyle.setStyle("Basic")
@@ -34,12 +38,13 @@ QGuiApplication.setOrganizationName("RichillCapital")
 QGuiApplication.setOrganizationDomain("https://community.richillcapital.com")
 QGuiApplication.setApplicationName(f"RichillCapital.SignalSourceManager.Desktop - {app_info.version}")
 
-engine.load("qrc:/src/App.qml")
+engine.load(QtResources.APP)
 
 if not engine.rootObjects():
     sys.exit(-1)
 
 code = app.exec()
+
 if code == 931:
     args = QGuiApplication.arguments()[1:]
     _ = QProcess.startDetached(QGuiApplication.applicationFilePath(), args)

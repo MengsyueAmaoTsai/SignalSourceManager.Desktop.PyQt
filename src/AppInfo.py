@@ -19,3 +19,7 @@ class AppInfo(QObject):
     @Property(str, constant=True)
     def qt_version(self) -> str:
         return PySide6.__version__
+
+
+class QtResources:
+    APP = "qrc:/src/App.qml"
