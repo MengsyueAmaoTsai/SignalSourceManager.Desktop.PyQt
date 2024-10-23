@@ -1,9 +1,20 @@
 from PySide6.QtCore import QObject, Slot
 
 
+class LogModel:
+    pass
+
+
+class SignalSourceModel:
+    pass
+
+
 class MainViewModel(QObject):
-    _logs = []
-    _signal_sources = []
+    _logs: list[LogModel] = []
+    _signal_sources: list[SignalSourceModel] = []
+
+    _websocket_client = None  ## For signal notification service
+    _file_system_watcher = None  ## For file monitoring service
 
     def __init__(self) -> None:
         super().__init__()

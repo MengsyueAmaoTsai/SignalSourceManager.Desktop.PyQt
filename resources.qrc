@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>src/App.qml</file>
+
+        <!-- Base controls -->
+        <file>src/controls/base/Table.qml</file>
     </qresource>
 </RCC>

@@ -31,7 +31,10 @@ class ServiceCollection:
     #         lambda _: ColorProvider(),
     #     )
 
-    # @classmethod
-    # def add_base_controls(cls) -> None:
-    #     for qml_type_name, url in cls.BASE_CONTROLS.items():
-    #         qmlRegisterType(url, QmlModuleNames.BASE_CONTROLS, cls.VERSION_MAJOR, cls.VERSION_MINOR, qml_type_name)
+    @classmethod
+    def add_base_controls(cls) -> None:
+        base_controls = {
+            "BaseTable": "qrc:/src/controls/base/Table.qml",
+        }
+        for qml_type_name, url in base_controls.items():
+            qmlRegisterType(url, QmlModuleNames.BASE_CONTROLS, cls.VERSION_MAJOR, cls.VERSION_MINOR, qml_type_name)
