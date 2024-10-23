@@ -1,22 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <!-- Core -->
         <file>src/App.qml</file>
-
-        <!-- Services -->
-        <file>src/services/WindowService.qml</file>
-    
-        <!-- Views -->
-        <file>src/views/Home/Home.qml</file>
-
-        <file>src/controls/base/Loader.qml</file>
-        <file>src/controls/base/Window.qml</file>
-        <file>src/controls/base/AppBar.qml</file>
-
-        <file>src/controls/base/Text.qml</file>
-        <file>src/controls/base/Button.qml</file>
-
-        <!-- Images -->
-        <!-- Fonts -->
     </qresource>
 </RCC>

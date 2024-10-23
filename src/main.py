@@ -20,9 +20,6 @@ version_major = 1
 version_minor = 0
 
 # Register presentation layer services
-ServiceCollection.add_window_service()
-ServiceCollection.add_base_controls()
-ServiceCollection.add_color_provider()
 
 # for path in engine.importPathList():
 #     print(f"Import path: {path}")
