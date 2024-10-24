@@ -20,14 +20,8 @@ ApplicationWindow {
         console.log("ViewModel: " + main_view_model);
     }
 
-    BaseTable {
-        id: logTable
-
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-            bottom: parent.top
-        }
+    BaseText {
+        id: baseText
+        text: 'Hello, World!'
     }
 }
