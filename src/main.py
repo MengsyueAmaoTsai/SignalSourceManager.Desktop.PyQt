@@ -8,6 +8,7 @@ from PySide6.QtQuickControls2 import QQuickStyle
 
 import resources_rc as resources  # type: ignore # noqa: F401
 from AppInfo import AppInfo, QtResources
+from constants import ColorProvider, FontProvider
 from dependency_injection import ServiceCollection
 from view_models import MainViewModel
 
@@ -15,19 +16,21 @@ app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
 
 app_info = AppInfo()
-engine.rootContext().setContextProperty("AppInfo", app_info)
-
-version_major = 1
-version_minor = 0
 
 # Register presentation layer services
 ServiceCollection.add_base_controls()
 
-# for path in engine.importPathList():
-#     print(f"Import path: {path}")
+for path in engine.importPathList():
+    print(f"Import path: {path}")
 
 main_view_model = MainViewModel()
 engine.rootContext().setContextProperty("main_view_model", main_view_model)
+
+color_provider = ColorProvider()
+engine.rootContext().setContextProperty("color_provider", color_provider)
+
+font_provider = FontProvider()
+engine.rootContext().setContextProperty("font_provider", font_provider)
 
 QQuickWindow.setGraphicsApi(QSGRendererInterface.GraphicsApi.OpenGL)
 
