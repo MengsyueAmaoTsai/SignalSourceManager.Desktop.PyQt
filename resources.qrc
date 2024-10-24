@@ -25,6 +25,7 @@
         <file>src/controls/base/FluentCombobox.qml</file>
         <file>src/controls/base/FluentToggleSwitch.qml</file>
         
+        <file>src/controls/base/FluentNavigationView.qml</file>
         <file>src/controls/base/FluentTabView.qml</file>
         <file>src/controls/base/FluentTreeView.qml</file>
         <file>src/controls/base/FluentDataGrid.qml</file>

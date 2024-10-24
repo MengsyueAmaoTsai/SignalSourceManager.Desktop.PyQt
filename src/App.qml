@@ -24,7 +24,7 @@ Item {
             '/buttons': 'qrc:/src/windows/demo/ButtonsWindow.qml'
         };
         const args = Qt.application.arguments;
-        WindowManager.navigateTo('/pages');
+        WindowManager.navigateTo('/');
     }
 
     Component.onDestruction: console.log("ViewModel: " + main_view_model)

@@ -21,4 +21,32 @@ FluentWindow {
         WindowManager.exit();
         console.log('Main window desctruction');
     }
+
+    Flipable {
+        id: flipable
+
+        anchors.fill: parent
+        transform: Rotation {}
+        transitions: Transition {}
+
+        front: Item {
+            anchors.fill: flipable
+
+            FluentNavigationView {
+                id: navigationView
+                width: parent.width
+                height: parent.height
+            }
+        }
+
+        back: Item {
+            anchors.fill: flipable
+
+            Row {
+                Component.onCompleted: {
+                    console.log('Back row created!');
+                }
+            }
+        }
+    }
 }
