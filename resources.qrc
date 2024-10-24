@@ -3,13 +3,14 @@
         <file>src/App.qml</file>
 
         <!-- Services -->
-        <file>src/services/WindowManager.qml</file>
 
         <!-- Windows -->
         <file>src/windows/MainWindow.qml</file>
         <file>src/windows/AboutWindow.qml</file>
         
         <!-- Base controls -->
+        <file>src/controls/base/WindowManager.qml</file>
+
         <file>src/controls/base/Text.qml</file>
         <file>src/controls/base/Button.qml</file>
         <file>src/controls/base/TextBox.qml</file>

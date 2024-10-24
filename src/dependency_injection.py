@@ -13,8 +13,8 @@ class ServiceCollection:
     @classmethod
     def add_window_manager(cls) -> None:
         qmlRegisterSingletonType(
-            "qrc:/src/services/WindowManager.qml",
-            QmlModuleNames.SERVICES,
+            "qrc:/src/controls/base/WindowManager.qml",
+            QmlModuleNames.BASE_CONTROLS,
             cls.VERSION_MAJOR,
             cls.VERSION_MINOR,
             "WindowManager",

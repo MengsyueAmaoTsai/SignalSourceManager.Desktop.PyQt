@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Layouts
 
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base
-import RichillCapital.SignalSourceManager.Desktop.Services
 
 BaseWindow {
     id: window

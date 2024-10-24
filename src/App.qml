@@ -6,7 +6,6 @@ import QtQml
 import Qt.labs.platform
 
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base
-import RichillCapital.SignalSourceManager.Desktop.Services
 
 Item {
     id: root
@@ -22,7 +21,7 @@ Item {
         };
         const args = Qt.application.arguments;
         console.log('Arguments:', args);
-        WindowManager.navigateTo('/about');
+        WindowManager.navigateTo('/');
     }
 
     Component.onDestruction: console.log("ViewModel: " + main_view_model)
