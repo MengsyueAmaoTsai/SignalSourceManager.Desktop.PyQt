@@ -20,8 +20,12 @@ FluentWindow {
             content: 'A test signal source'
         }
 
+        FluentButton {
+            content: 'Upload historical data'
+        }
+
         RowLayout {
-            FluentTabView { }
+            FluentTabView {}
         }
     }
 
