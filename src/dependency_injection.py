@@ -37,6 +37,8 @@ class ServiceCollection:
             "BaseText": "qrc:/src/controls/base/Text.qml",
             "BaseButton": "qrc:/src/controls/base/Button.qml",
             "BaseTextBox": "qrc:/src/controls/base/TextBox.qml",
+            "BaseWindow": "qrc:/src/controls/base/Window.qml",
+            "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
         }
         for qml_type_name, url in base_controls.items():
             qmlRegisterType(url, QmlModuleNames.BASE_CONTROLS, cls.VERSION_MAJOR, cls.VERSION_MINOR, qml_type_name)

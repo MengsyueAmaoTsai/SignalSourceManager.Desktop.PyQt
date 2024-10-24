@@ -7,7 +7,7 @@ import Qt.labs.platform
 
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base
 
-ApplicationWindow {
+BaseWindow {
     id: root
     visible: true
 

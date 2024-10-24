@@ -6,5 +6,9 @@
         <file>src/controls/base/Text.qml</file>
         <file>src/controls/base/Button.qml</file>
         <file>src/controls/base/TextBox.qml</file>
+      
+        <file>src/controls/base/Window.qml</file>
+
+        <file>src/controls/base/ComponentLoader.qml</file>
     </qresource>
 </RCC>
