@@ -10,4 +10,18 @@ FluentWindow {
     title: 'Signal source details for '
     width: Screen.width * 0.8
     height: Screen.height * 0.8
+
+    ColumnLayout {
+        FluentTextBlock {
+            content: 'TV-Long-Task'
+        }
+    }
+
+    FileDialog {
+        id: fileDialog
+
+        onAccepted: {
+            console.log('Upload file: ', fileDialog.currentFile);
+        }
+    }
 }
