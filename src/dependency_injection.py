@@ -35,6 +35,7 @@ class ServiceCollection:
     def add_base_controls(cls) -> None:
         base_controls = {
             "FluentButton": "qrc:/src/controls/base/buttons/FluentButton.qml",
+            "FluentTextBlock": "qrc:/src/controls/base/FluentTextBlock.qml",
             "FluentWindow": "qrc:/src/controls/base/FluentWindow.qml",
             "FluentContentDialog": "qrc:/src/controls/base/FluentContentDialog.qml",
             "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",

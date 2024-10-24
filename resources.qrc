@@ -13,6 +13,8 @@
         <!-- Base controls - Buttons -->
         <file>src/controls/base/buttons/FluentButton.qml</file>
 
+        <file>src/controls/base/FluentTextBlock.qml</file>
+
         <file>src/controls/base/FluentWindow.qml</file>
         <file>src/controls/base/FluentContentDialog.qml</file>
 
