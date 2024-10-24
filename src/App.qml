@@ -18,12 +18,12 @@ Item {
         WindowManager.routes = {
             '/': 'qrc:/src/windows/MainWindow.qml',
             '/dev': 'qrc:/src/windows/DevelopmentWindow.qml',
-
+            '/signal-sources/details': 'qrc:/src/windows/SignalSourceDetailsWindow.qml',
             // Demo routes
             '/buttons': 'qrc:/src/windows/ButtonsWindow.qml'
         };
         const args = Qt.application.arguments;
-        WindowManager.navigateTo('/dev');
+        WindowManager.navigateTo('/signal-sources/details');
     }
 
     Component.onDestruction: console.log("ViewModel: " + main_view_model)

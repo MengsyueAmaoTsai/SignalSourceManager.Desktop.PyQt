@@ -8,6 +8,8 @@
         <file>src/windows/MainWindow.qml</file>
         <file>src/windows/DevelopmentWindow.qml</file>
         
+        <file>src/windows/SignalSourceDetailsWindow.qml</file>
+
         <file>src/windows/ButtonsWindow.qml</file>
 
         <!-- Base controls -->
