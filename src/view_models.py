@@ -20,7 +20,11 @@ class MainViewModel(QObject):
 
     def __init__(self) -> None:
         super().__init__()
-        self._signal_sources = [SignalSourceModel("TV-Long-Task", "Test")]
+        self._signal_sources = [
+            SignalSourceModel("TV-Long-Task", "Test"),
+            SignalSourceModel("TV-Short-Task", "Test short"),
+            SignalSourceModel("3", "3 test"),
+        ]
 
     @Property("QVariantList", constant=True)
     def signal_sources(self) -> list[SignalSourceModel]:

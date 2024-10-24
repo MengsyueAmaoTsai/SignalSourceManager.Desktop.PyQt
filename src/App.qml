@@ -14,7 +14,6 @@ ApplicationWindow {
 
     Component.onCompleted: {
         console.log("ViewModel: " + main_view_model);
-        loadData();
     }
 
     Component.onDestruction: {
@@ -30,23 +29,13 @@ ApplicationWindow {
             top: parent.top
             bottom: parent.bottom
         }
-
-        columnSource: [
-            {
-                title: 'Id',
-                dataIndex: 'id',
-                width: 80
-            },
-            {
-                title: 'Name',
-                dataIndex: 'name',
-                width: 100
-            },
-        ]
     }
 
-    function loadData() {
-        signalSourceTable.itemSource = main_view_model.signal_sources;
-        console.log('Item source: ', signalSourceTable.itemSource.length);
+    Pagination {
+        id: pagination
+        anchors {
+            bottom: parent.bottom
+            left: parent.left
+        }
     }
 }
