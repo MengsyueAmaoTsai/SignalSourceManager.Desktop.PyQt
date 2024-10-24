@@ -16,10 +16,11 @@ Item {
 
     Component.onCompleted: {
         WindowManager.routes = {
-            '/': 'qrc:/src/windows/MainWindow.qml'
+            '/': 'qrc:/src/windows/MainWindow.qml',
+            '/dev': 'qrc:/src/windows/DevelopmentWindow.qml'
         };
         const args = Qt.application.arguments;
-        WindowManager.navigateTo('/');
+        WindowManager.navigateTo('/dev');
     }
 
     Component.onDestruction: console.log("ViewModel: " + main_view_model)

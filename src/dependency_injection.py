@@ -36,6 +36,8 @@ class ServiceCollection:
         base_controls = {
             "FluentButton": "qrc:/src/controls/base/buttons/FluentButton.qml",
             "FluentTextBlock": "qrc:/src/controls/base/FluentTextBlock.qml",
+            "FluentTextBox": "qrc:/src/controls/base/FluentTextBox.qml",
+            "FluentCombobox": "qrc:/src/controls/base/FluentCombobox.qml",
             "FluentWindow": "qrc:/src/controls/base/FluentWindow.qml",
             "FluentContentDialog": "qrc:/src/controls/base/FluentContentDialog.qml",
             "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",

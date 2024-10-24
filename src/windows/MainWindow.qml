@@ -8,12 +8,10 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base
 
 FluentWindow {
     id: window
-    title: 'Main'
 
-    width: 1000
-    height: 668
-    minimumWidth: 668
-    minimumHeight: 320
+    title: 'Home'
+    width: Screen.width * 0.8
+    height: Screen.height * 0.8
 
     Component.onCompleted: console.log('MainWindow created')
     Component.onDestruction: WindowManager.exit()

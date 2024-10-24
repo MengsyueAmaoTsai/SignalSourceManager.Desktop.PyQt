@@ -6,6 +6,7 @@
 
         <!-- Windows -->
         <file>src/windows/MainWindow.qml</file>
+        <file>src/windows/DevelopmentWindow.qml</file>
 
         <!-- Base controls -->
         <file>src/controls/base/WindowManager.qml</file>
@@ -13,7 +14,9 @@
         <!-- Base controls - Buttons -->
         <file>src/controls/base/buttons/FluentButton.qml</file>
 
+        <file>src/controls/base/FluentTextBox.qml</file>
         <file>src/controls/base/FluentTextBlock.qml</file>
+        <file>src/controls/base/FluentCombobox.qml</file>
 
         <file>src/controls/base/FluentWindow.qml</file>
         <file>src/controls/base/FluentContentDialog.qml</file>
