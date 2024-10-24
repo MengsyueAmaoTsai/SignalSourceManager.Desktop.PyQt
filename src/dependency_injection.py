@@ -36,6 +36,7 @@ class ServiceCollection:
         base_controls = {
             "FluentButton": "qrc:/src/controls/base/buttons/FluentButton.qml",
             "FluentWindow": "qrc:/src/controls/base/FluentWindow.qml",
+            "FluentContentDialog": "qrc:/src/controls/base/FluentContentDialog.qml",
             "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
         }
         for qml_type_name, url in base_controls.items():
