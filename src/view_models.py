@@ -1,8 +1,13 @@
+from datetime import datetime
+
 from PySide6.QtCore import Property, QObject, Slot
 
 
 class LogModel:
-    pass
+    def __init__(self, time: datetime, level: str, message: str) -> None:
+        self.time = time
+        self.level = level
+        self.message = message
 
 
 class SignalSourceModel:

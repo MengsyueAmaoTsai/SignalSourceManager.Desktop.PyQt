@@ -36,8 +36,6 @@ class ServiceCollection:
         base_controls = {
             "BaseText": "qrc:/src/controls/base/Text.qml",
             "BaseButton": "qrc:/src/controls/base/Button.qml",
-            "BaseTable": "qrc:/src/controls/base/Table.qml",
-            "Pagination": "qrc:/src/controls/base/Pagination.qml",
             "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
         }
         for qml_type_name, url in base_controls.items():
