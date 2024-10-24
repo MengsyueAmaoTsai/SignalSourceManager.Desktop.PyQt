@@ -20,8 +20,14 @@ ApplicationWindow {
         console.log("ViewModel: " + main_view_model);
     }
 
-    BaseText {
-        id: baseText
-        text: 'Hello, World!'
+    BaseTable {
+        id: signalSourceTable
+
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            bottom: parent.bottom
+        }
     }
 }

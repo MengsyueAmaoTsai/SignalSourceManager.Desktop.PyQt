@@ -1,4 +1,4 @@
-from PySide6.QtCore import QObject, Slot
+from PySide6.QtCore import Property, QObject, Slot
 
 
 class LogModel:
@@ -6,7 +6,9 @@ class LogModel:
 
 
 class SignalSourceModel:
-    pass
+    def __init__(self, id: str, name: str) -> None:
+        self.id = id
+        self.name = name
 
 
 class MainViewModel(QObject):
@@ -18,6 +20,11 @@ class MainViewModel(QObject):
 
     def __init__(self) -> None:
         super().__init__()
+        self._signal_sources = [SignalSourceModel("TV-Long-Task", "Test")]
+
+    @Property("QVariantList", constant=True)
+    def signal_sources(self) -> list[SignalSourceModel]:
+        return self._signal_sources
 
     @Slot()
     def start_signal_r_connection(self) -> None:
