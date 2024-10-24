@@ -7,6 +7,8 @@
         <!-- Windows -->
         <file>src/windows/MainWindow.qml</file>
         <file>src/windows/DevelopmentWindow.qml</file>
+        
+        <file>src/windows/ButtonsWindow.qml</file>
 
         <!-- Base controls -->
         <file>src/controls/base/WindowManager.qml</file>
@@ -18,6 +20,7 @@
         <file>src/controls/base/FluentPasswordBox.qml</file>
         <file>src/controls/base/FluentTextBlock.qml</file>
         <file>src/controls/base/FluentCombobox.qml</file>
+        <file>src/controls/base/FluentToggleSwitch.qml</file>
 
         <file>src/controls/base/FluentWindow.qml</file>
         <file>src/controls/base/FluentContentDialog.qml</file>
