@@ -16,12 +16,6 @@ Item {
     height: Screen.height * 0.8
 
     Component.onCompleted: {
-        // NetworkManager.openLog = false;
-        // NetworkManager.setInterceptor(function(params) {
-        // params.addHeader('Token', '{token}');
-        // })
-
-        // App.init(app); (Register qml types)
         WindowManager.routes = {
             '/': 'qrc:/src/windows/MainWindow.qml'
         };

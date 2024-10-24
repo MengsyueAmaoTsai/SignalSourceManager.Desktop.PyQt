@@ -5,7 +5,32 @@ import QtQuick
 QtObject {
     property var routes: {}
     property var windows: []
-s
+
+    function addWindow(window) {
+        if (!window.transientParent) {
+            windows.push(window);
+        }
+    }
+
+    function removeWindow(win) {
+        if (!win.transientParent) {
+            var index = windows.indexOf(win);
+            if (index !== -1) {
+                windows.splice(index, 1);
+                win.deleteLater();
+            }
+        }
+    }
+
+    function exit(retCode) {
+        for (var i = 0; i < windows.length; i++) {
+            var win = windows[i];
+            win.deleteLater();
+        }
+        windows = [];
+        Qt.exit(retCode);
+    }
+
     function navigateTo(route, args = {}, windowRegister = undefined) {
         if (!routes.hasOwnProperty(route)) {
             console.error('Route not found: ', route);
