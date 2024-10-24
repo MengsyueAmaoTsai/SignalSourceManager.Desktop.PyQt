@@ -54,3 +54,27 @@ class FontProvider(QObject):
     @Property(QFont, constant=True)
     def body(self) -> QFont:
         return self._body
+
+    @Property(QFont, constant=True)
+    def body_strong(self) -> QFont:
+        return self._body_strong
+
+    @Property(QFont, constant=True)
+    def caption(self) -> QFont:
+        return self._caption
+
+    @Property(QFont, constant=True)
+    def display(self) -> QFont:
+        return self._display
+
+    @Property(QFont, constant=True)
+    def subtitle(self) -> QFont:
+        return self._subtitle
+
+    @Property(QFont, constant=True)
+    def title(self) -> QFont:
+        return self._title
+
+    @Property(QFont, constant=True)
+    def title_large(self) -> QFont:
+        return self._title_large

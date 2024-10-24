@@ -46,7 +46,7 @@ QtObject {
         const properties = {};
         properties.route = route;
         if (windowRegister) {
-            properties._windowRegister = windowRegister;
+            properties.windowRegister = windowRegister;
         }
         properties.argument = args;
         var win = undefined;

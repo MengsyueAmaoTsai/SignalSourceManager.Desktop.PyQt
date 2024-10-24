@@ -15,7 +15,6 @@ from view_models import MainViewModel
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
 
-app_info = AppInfo()
 
 # Register presentation layer services
 ServiceCollection.add_base_controls()
@@ -23,6 +22,9 @@ ServiceCollection.add_window_manager()
 
 for path in engine.importPathList():
     print(f"Import path: {path}")
+
+app_info = AppInfo()
+engine.rootContext().setContextProperty("app_info", app_info)
 
 main_view_model = MainViewModel()
 engine.rootContext().setContextProperty("main_view_model", main_view_model)
