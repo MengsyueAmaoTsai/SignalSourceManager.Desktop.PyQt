@@ -1,10 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Basic
-import QtQuick.Templates as Templates
+import QtQuick.Templates as T
 
-Templates.ComboBox {
+T.ComboBox {
     id: control
-
-    font: font_provider.body
 }

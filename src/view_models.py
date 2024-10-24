@@ -1,7 +1,9 @@
+import asyncio
 from datetime import datetime
 
 from PySide6.QtCore import Property, QObject, Slot
-from PySide6.QtWebSockets import QWebSocket
+
+from resources import ResourceService
 
 
 class LogModel:
@@ -23,8 +25,10 @@ class MainViewModel(QObject):
     _websocket_client = None  ## For SignalR connection
     _file_system_watcher = None  ## For file monitoring service
 
-    def __init__(self) -> None:
+    def __init__(self, resource_service: ResourceService) -> None:
         super().__init__()
+        self._resource_service = resource_service
+
         self._signal_sources = [
             SignalSourceModel("TV-Long-Task", "Test"),
             SignalSourceModel("TV-Short-Task", "Test short"),
@@ -54,3 +58,14 @@ class MainViewModel(QObject):
     @Slot()
     def stop_file_monitor_service(self) -> None:
         print("Stopping file watcher")
+
+    @Slot(str, str, str)
+    def create_signal_source(self, id: str, name: str, description: str) -> None:
+        asyncio.run(
+            self._resource_service.create_signal_source(
+                id=id,
+                name=name,
+                description=description,
+                visibility="Public",
+            )
+        )

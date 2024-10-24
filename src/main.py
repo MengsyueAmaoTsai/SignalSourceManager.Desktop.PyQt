@@ -10,6 +10,7 @@ import resources_rc as resources  # type: ignore # noqa: F401
 from AppInfo import AppInfo, QtResources
 from constants import ColorProvider, FontProvider
 from dependency_injection import ServiceCollection
+from resources import ResourceService
 from view_models import MainViewModel
 
 app = QGuiApplication(sys.argv)
@@ -26,7 +27,8 @@ for path in engine.importPathList():
 app_info = AppInfo()
 engine.rootContext().setContextProperty("app_info", app_info)
 
-main_view_model = MainViewModel()
+resource_service = ResourceService()
+main_view_model = MainViewModel(resource_service)
 engine.rootContext().setContextProperty("main_view_model", main_view_model)
 
 color_provider = ColorProvider()
