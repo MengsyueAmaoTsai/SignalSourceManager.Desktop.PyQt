@@ -24,13 +24,14 @@ QtObject {
         }
     }
 
-    function exit(retCode) {
-        for (var i = 0; i < windows.length; i++) {
-            var win = windows[i];
+    function exit(returnCode) {
+        for (let i = 0; i < windows.length; i++) {
+            const win = windows[i];
+            console.log('Closing window:', win.route);
             win.deleteLater();
         }
         windows = [];
-        Qt.exit(retCode);
+        Qt.exit(returnCode);
     }
 
     function navigateTo(route, args = {}, windowRegister = undefined) {

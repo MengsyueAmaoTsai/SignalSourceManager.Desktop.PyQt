@@ -6,25 +6,13 @@
 
         <!-- Windows -->
         <file>src/windows/MainWindow.qml</file>
-        <file>src/windows/CrashWindow.qml</file>
-        <file>src/windows/SignInWindow.qml</file>
-        <file>src/windows/HotloadWindow.qml</file>
-        <file>src/windows/HotkeyWindow.qml</file>
-        <file>src/windows/PageWindow.qml</file>
-        <file>src/windows/AboutWindow.qml</file>
-        <file>src/windows/SingleTaskWindow.qml</file>
-        <file>src/windows/SingleInstanceWindow.qml</file>
-        
+
         <!-- Base controls -->
         <file>src/controls/base/WindowManager.qml</file>
+        
+        <file>src/controls/base/FluentWindow.qml</file>
 
-        <file>src/controls/base/Text.qml</file>
-        <file>src/controls/base/Button.qml</file>
-        <file>src/controls/base/TextBox.qml</file>
-      
-        <file>src/controls/base/Window.qml</file>
-        <file>src/controls/base/AppBar.qml</file>
-
-        <file>src/controls/base/ComponentLoader.qml</file>
+        <!-- Images -->
+        <file>static/images/favicon.ico</file>
     </qresource>
 </RCC>

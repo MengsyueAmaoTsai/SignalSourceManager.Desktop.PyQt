@@ -34,11 +34,7 @@ class ServiceCollection:
     @classmethod
     def add_base_controls(cls) -> None:
         base_controls = {
-            "BaseText": "qrc:/src/controls/base/Text.qml",
-            "BaseButton": "qrc:/src/controls/base/Button.qml",
-            "BaseTextBox": "qrc:/src/controls/base/TextBox.qml",
-            "BaseWindow": "qrc:/src/controls/base/Window.qml",
-            "AppBar": "qrc:/src/controls/base/AppBar.qml",
+            "FluentWindow": "qrc:/src/controls/base/FluentWindow.qml",
             "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
         }
         for qml_type_name, url in base_controls.items():

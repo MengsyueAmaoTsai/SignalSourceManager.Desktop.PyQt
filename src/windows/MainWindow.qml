@@ -6,7 +6,7 @@ import QtQml
 import Qt.labs.platform
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base
 
-BaseWindow {
+FluentWindow {
     id: window
     title: 'Main'
 
@@ -15,11 +15,21 @@ BaseWindow {
     minimumWidth: 668
     minimumHeight: 320
 
-    // Component.onCompleted: console.log('MainWindow created.')
-    // Component.onDestruction: WindowManager.exit()
+    Component.onCompleted: console.log('MainWindow created')
+    Component.onDestruction: WindowManager.exit()
 
-    Flipable {
-        id: flipable
-        anchors.fill: parent
+    SystemTrayIcon {
+        id: trayIcon
+        visible: true
+        tooltip: 'RichillCapital.SignalSourceMananger.Desktop'
+
+        menu: Menu {
+            MenuItem {
+                text: 'Quit'
+                onTriggered: WindowManager.exit()
+            }
+        }
+
+        onActivated: reason => console.log('Not implemented trayIcon.onActivated', reason)
     }
 }
