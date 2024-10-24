@@ -9,6 +9,7 @@ QtObject {
     function addWindow(window) {
         if (!window.transientParent) {
             windows.push(window);
+            console.log('Window added:', window.route);
         }
     }
 
@@ -18,6 +19,7 @@ QtObject {
             if (index !== -1) {
                 windows.splice(index, 1);
                 win.deleteLater();
+                console.log('Window removed:', win.route);
             }
         }
     }
@@ -42,7 +44,7 @@ QtObject {
             return;
         }
         const properties = {};
-        properties._route = route;
+        properties.route = route;
         if (windowRegister) {
             properties._windowRegister = windowRegister;
         }
@@ -50,13 +52,14 @@ QtObject {
         var win = undefined;
         for (var i = 0; i < windows.length; i++) {
             var item = windows[i];
-            if (route === item._route) {
+            if (route === item.route) {
                 win = item;
                 break;
             }
         }
         if (win) {
             var launchMode = win.launchMode;
+            console.log('Navigate to existing window:', route, launchMode);
             if (launchMode === 1) {
                 win.argument = args;
                 win.show();
