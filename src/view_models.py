@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from PySide6.QtCore import Property, QObject, Slot
+from PySide6.QtWebSockets import QWebSocket
 
 
 class LogModel:
@@ -19,8 +20,7 @@ class SignalSourceModel:
 class MainViewModel(QObject):
     _logs: list[LogModel] = []
     _signal_sources: list[SignalSourceModel] = []
-
-    _websocket_client = None  ## For signal notification service
+    _websocket_client = None  ## For SignalR connection
     _file_system_watcher = None  ## For file monitoring service
 
     def __init__(self) -> None:

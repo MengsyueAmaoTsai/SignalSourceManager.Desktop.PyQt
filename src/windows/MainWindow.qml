@@ -13,21 +13,12 @@ FluentWindow {
     width: Screen.width * 0.8
     height: Screen.height * 0.8
 
-    Component.onCompleted: console.log('MainWindow created')
-    Component.onDestruction: WindowManager.exit()
+    Component.onCompleted: {
+        console.log('Main window completed');
+    }
 
-    SystemTrayIcon {
-        id: trayIcon
-        visible: true
-        tooltip: 'RichillCapital.SignalSourceMananger.Desktop'
-
-        menu: Menu {
-            MenuItem {
-                text: 'Quit'
-                onTriggered: WindowManager.exit()
-            }
-        }
-
-        onActivated: reason => console.log('Not implemented trayIcon.onActivated', reason)
+    Component.onDestruction: {
+        WindowManager.exit();
+        console.log('Main window desctruction');
     }
 }
