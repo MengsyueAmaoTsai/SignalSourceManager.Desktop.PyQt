@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 
-
 Window {
     id: window
 
@@ -19,6 +18,17 @@ Window {
     property bool showMinimize: true
     property bool showMaximize: true
     property bool showStayTop: false
+
+    property Item appBar: AppBar {
+        title: window.title
+        height: 30
+        showDark: window.showDark
+        showClose: window.showClose
+        showMinimize: window.showMinimize
+        showMaximize: window.showMaximize
+        showStayTop: window.showStayTop
+        // icon: window.windowIcon
+    }
 
     Component.onCompleted: {
         WindowManager.addWindow(window);
