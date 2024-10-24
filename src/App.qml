@@ -19,4 +19,9 @@ ApplicationWindow {
     Component.onDestruction: {
         console.log("ViewModel: " + main_view_model);
     }
+
+    BaseButton {
+        id: baseButton
+        text: "Base Button"
+    }
 }
