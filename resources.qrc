@@ -10,12 +10,12 @@
         
         <file>src/windows/SignalSourceDetailsWindow.qml</file>
 
-        <file>src/windows/ButtonsWindow.qml</file>
+        <file>src/windows/demo/ButtonsWindow.qml</file>
+        <file>src/windows/demo/PagesWindow.qml</file>
 
         <!-- Base controls -->
         <file>src/controls/base/WindowManager.qml</file>
         
-        <!-- Base controls - Buttons -->
         <file>src/controls/base/buttons/FluentButton.qml</file>
 
         <file>src/controls/base/FluentTextBox.qml</file>
@@ -32,6 +32,7 @@
         <file>src/controls/base/FluentWindow.qml</file>
         <file>src/controls/base/FluentContentDialog.qml</file>
 
+        <file>src/controls/base/ComponentLoader.qml</file>
         <!-- Images -->
         <file>static/images/favicon.ico</file>
     </qresource>
