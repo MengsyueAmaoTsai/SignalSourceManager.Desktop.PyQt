@@ -10,6 +10,9 @@
         <!-- Base controls -->
         <file>src/controls/base/WindowManager.qml</file>
         
+        <!-- Base controls - Buttons -->
+        <file>src/controls/base/buttons/FluentButton.qml</file>
+
         <file>src/controls/base/FluentWindow.qml</file>
 
         <!-- Images -->
