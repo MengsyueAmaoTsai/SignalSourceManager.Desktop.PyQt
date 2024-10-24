@@ -34,6 +34,7 @@ class ServiceCollection:
     @classmethod
     def add_base_controls(cls) -> None:
         base_controls = {
+            "BaseText": "qrc:/src/controls/base/Text.qml",
             "BaseButton": "qrc:/src/controls/base/Button.qml",
             "BaseTextBox": "qrc:/src/controls/base/TextBox.qml",
         }
