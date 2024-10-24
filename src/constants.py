@@ -12,6 +12,14 @@ class ColorProvider(QObject):
     def font_primary_color(self) -> QColor:
         return self._font_primary_color
 
+    @Property(QColor, constant=True)
+    def windowActiveBackgroundColor(self) -> QColor:
+        return QColor(26, 26, 26, 255)
+
+    @Property(QColor, constant=True)
+    def windowBackgroundColor(self) -> QColor:
+        return QColor(32, 32, 32, 255)
+
 
 class FontProvider(QObject):
     DEFAULT_FONT_FAMILY = "Microsoft YaHei"

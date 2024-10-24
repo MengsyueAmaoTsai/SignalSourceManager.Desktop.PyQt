@@ -5,4 +5,6 @@ import QtQuick.Controls.Basic
 
 TextField {
     id: control
+
+    property alias content: control.text
 }

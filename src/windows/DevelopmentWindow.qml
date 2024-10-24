@@ -37,7 +37,9 @@ FluentWindow {
                     content: 'Id'
                 }
 
-                FluentTextBox {}
+                FluentTextBox {
+                    id: idTextBox
+                }
             }
 
             RowLayout {
@@ -45,14 +47,18 @@ FluentWindow {
                     content: 'Name'
                 }
 
-                FluentTextBox {}
+                FluentTextBox {
+                    id: nameTextBox
+                }
             }
             RowLayout {
                 FluentTextBlock {
                     content: 'Description'
                 }
 
-                FluentTextBox {}
+                FluentTextBox {
+                    id: descriptionTextBox
+                }
             }
 
             RowLayout {
@@ -60,29 +66,22 @@ FluentWindow {
                     content: 'Visibility'
                 }
 
-                FluentCombobox {
-                    model: ListModel {
-                        ListElement {
-                            text: 'Public'
-                        }
-                        ListElement {
-                            text: 'Protected'
-                        }
-                        ListElement {
-                            text: 'Internal'
-                        }
-                        ListElement {
-                            text: 'Private'
-                        }
-                    }
-                }
+                FluentCombobox {}
             }
 
             RowLayout {
                 FluentButton {
                     content: 'Submit'
+
                     onClicked: {
-                        console.log('Submit');
+                        // Do client-side validation
+                        const id = idTextBox.content;
+                        const name = nameTextBox.content;
+                        const description = descriptionTextBox.content;
+                        console.log(`Submit. Id: ${id}, Name: ${name}, Description: ${description}`);
+
+                        // Send the request to the server
+                        newSignalSourceDialog.close();
                     }
                 }
 

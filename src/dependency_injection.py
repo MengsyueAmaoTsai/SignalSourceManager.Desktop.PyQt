@@ -37,6 +37,7 @@ class ServiceCollection:
             "FluentButton": "qrc:/src/controls/base/buttons/FluentButton.qml",
             "FluentTextBlock": "qrc:/src/controls/base/FluentTextBlock.qml",
             "FluentTextBox": "qrc:/src/controls/base/FluentTextBox.qml",
+            "FluentPasswordBox": "qrc:/src/controls/base/FluentPasswordBox.qml",
             "FluentCombobox": "qrc:/src/controls/base/FluentCombobox.qml",
             "FluentWindow": "qrc:/src/controls/base/FluentWindow.qml",
             "FluentContentDialog": "qrc:/src/controls/base/FluentContentDialog.qml",

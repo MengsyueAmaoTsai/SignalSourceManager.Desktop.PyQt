@@ -14,6 +14,7 @@ QtObject {
     }
 
     function removeWindow(win) {
+        console.log('Closing window: ', win.route);
         if (!win.transientParent) {
             var index = windows.indexOf(win);
             if (index !== -1) {

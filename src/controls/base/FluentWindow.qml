@@ -1,8 +1,11 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 
 Window {
     id: window
+
+    color: window.backgroundColor
 
     signal argumentsInitialized(var arguments)
     signal lazyLoaded
@@ -20,6 +23,19 @@ Window {
     property bool showClose: true
     property bool showMinimize: true
     property bool showMaximize: true
+
+    readonly property color backgroundColor: {
+        return color_provider.windowBackgroundColor;
+    }
+
+    property var closingHandler: function (event) {
+        if (autoDestroy) {
+            WindowManager.removeWindow(window);
+        } else {
+            window.visibility = Window.Hidden;
+            // event.accepted = false;
+        }
+    }
 
     Component.onCompleted: {
         WindowManager.addWindow(window);
