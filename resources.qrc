@@ -3,9 +3,5 @@
         <file>src/App.qml</file>
 
         <!-- Base controls -->
-        <file>src/controls/base/Text.qml</file>
-        <file>src/controls/base/Button.qml</file>
-        
-        <file>src/controls/base/ComponentLoader.qml</file>
     </qresource>
 </RCC>

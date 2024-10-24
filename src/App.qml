@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Window
 
-import RichillCapital.SignalSourceManager.Desktop.Controls.Base
+// import RichillCapital.SignalSourceManager.Desktop.Controls.Base
 
 ApplicationWindow {
     id: root
@@ -18,10 +18,5 @@ ApplicationWindow {
 
     Component.onDestruction: {
         console.log("ViewModel: " + main_view_model);
-    }
-
-    BaseButton {
-        id: baseButton
-        text: "Base Button"
     }
 }

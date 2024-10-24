@@ -33,10 +33,6 @@ class ServiceCollection:
 
     @classmethod
     def add_base_controls(cls) -> None:
-        base_controls = {
-            "BaseText": "qrc:/src/controls/base/Text.qml",
-            "BaseButton": "qrc:/src/controls/base/Button.qml",
-            "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
-        }
+        base_controls = {}
         for qml_type_name, url in base_controls.items():
             qmlRegisterType(url, QmlModuleNames.BASE_CONTROLS, cls.VERSION_MAJOR, cls.VERSION_MINOR, qml_type_name)
