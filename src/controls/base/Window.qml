@@ -4,9 +4,12 @@ import QtQuick.Controls
 Window {
     id: window
 
-    property var argument: {}
+    signal argumentsInitialized(var arguments)
+    signal lazyLoaded
+
     property var windowRegister: undefined
     property string route: ''
+    property var argument: {}
 
     property bool autoMaximize: false
     property bool autoVisible: true
@@ -32,6 +35,7 @@ Window {
 
     Component.onCompleted: {
         WindowManager.addWindow(window);
+        argumentsInitialized(argument);
         if (window.autoVisible) {
             if (window.autoMaximize) {
                 window.visibility = Window.Maximized;

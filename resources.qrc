@@ -6,7 +6,14 @@
 
         <!-- Windows -->
         <file>src/windows/MainWindow.qml</file>
+        <file>src/windows/CrashWindow.qml</file>
+        <file>src/windows/SignInWindow.qml</file>
+        <file>src/windows/HotloadWindow.qml</file>
+        <file>src/windows/HotkeyWindow.qml</file>
+        <file>src/windows/PageWindow.qml</file>
         <file>src/windows/AboutWindow.qml</file>
+        <file>src/windows/SingleTaskWindow.qml</file>
+        <file>src/windows/SingleInstanceWindow.qml</file>
         
         <!-- Base controls -->
         <file>src/controls/base/WindowManager.qml</file>
