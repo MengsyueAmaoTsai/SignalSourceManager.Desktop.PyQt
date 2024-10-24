@@ -10,15 +10,15 @@ class ServiceCollection:
     VERSION_MAJOR = 1
     VERSION_MINOR = 0
 
-    # @classmethod
-    # def add_window_service(cls) -> None:
-    #     qmlRegisterSingletonType(
-    #         "qrc:/src/services/WindowService.qml",
-    #         QmlModuleNames.SERVICES,
-    #         cls.VERSION_MAJOR,
-    #         cls.VERSION_MINOR,
-    #         "WindowService",
-    #     )
+    @classmethod
+    def add_window_manager(cls) -> None:
+        qmlRegisterSingletonType(
+            "qrc:/src/services/WindowManager.qml",
+            QmlModuleNames.SERVICES,
+            cls.VERSION_MAJOR,
+            cls.VERSION_MINOR,
+            "WindowManager",
+        )
 
     # @classmethod
     # def add_color_provider(cls) -> None:

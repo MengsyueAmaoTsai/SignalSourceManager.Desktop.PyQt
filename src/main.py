@@ -19,6 +19,7 @@ app_info = AppInfo()
 
 # Register presentation layer services
 ServiceCollection.add_base_controls()
+ServiceCollection.add_window_manager()
 
 for path in engine.importPathList():
     print(f"Import path: {path}")

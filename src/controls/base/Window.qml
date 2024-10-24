@@ -1,22 +1,10 @@
 import QtQuick
 import QtQuick.Controls
 
+
 Window {
-    id: control
-    color: 'transparent'
+    id: app
 
-    Component.onCompleted: console.log('BaseWindow loaded.')
-
-    Loader {}
-
-    Item {
-        ComponentLoader {}
-        ComponentLoader {}
-        Item {}
-        ComponentLoader {}
-        // InfoBar
-        // WindowLifecycle
-        Rectangle {
-        }
-    }
+    property var argument: {}
+    property string _route: ''
 }
