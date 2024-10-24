@@ -18,7 +18,7 @@ engine = QQmlApplicationEngine()
 
 # Register presentation layer services
 ServiceCollection.add_base_controls()
-ServiceCollection.add_window_manager()
+ServiceCollection.add_custom_controls()
 
 for path in engine.importPathList():
     print(f"Import path: {path}")

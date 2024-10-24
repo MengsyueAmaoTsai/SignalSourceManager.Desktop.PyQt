@@ -4,6 +4,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQml
 import Qt.labs.platform
+import RichillCapital.SignalSourceManager.Desktop.Controls
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base
 
 FluentWindow {
@@ -17,8 +18,12 @@ FluentWindow {
         FluentButton {
             id: newSignalSourceButton
             content: 'New signal source'
-            onClicked: newSignalSourceDialog.open()
+            onClicked: uploadHistoricalDataDialog.open()
         }
+    }
+
+    UploadHistoricalDataDialog {
+        id: uploadHistoricalDataDialog
     }
 
     Popup {

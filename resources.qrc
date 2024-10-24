@@ -13,6 +13,9 @@
         <file>src/windows/demo/ButtonsWindow.qml</file>
         <file>src/windows/demo/PagesWindow.qml</file>
 
+        <!-- Controls -->
+        <file>src/controls/UploadHistoricalDataDialog.qml</file>
+        
         <!-- Base controls -->
         <file>src/controls/base/WindowManager.qml</file>
         
