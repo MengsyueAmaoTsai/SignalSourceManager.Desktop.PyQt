@@ -21,6 +21,7 @@ FluentWindow {
         }
 
         RowLayout {
+            FluentTabView { }
         }
     }
 

@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Layoutsvv
+import QtQuick.Layouts
 
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base
 
@@ -12,5 +12,9 @@ Item {
             return parent;
         }
         return undefined;
+    }
+
+    ListModel {
+        id: tabListModel
     }
 }
