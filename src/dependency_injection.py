@@ -41,6 +41,7 @@ class ServiceCollection:
             "FluentAutoSuggestBox": "qrc:/src/controls/base/FluentAutoSuggestBox.qml",
             "FluentCombobox": "qrc:/src/controls/base/FluentCombobox.qml",
             "FluentToggleSwitch": "qrc:/src/controls/base/FluentToggleSwitch.qml",
+            "FluentTabView": "qrc:/src/controls/base/FluentTabView.qml",
             "FluentWindow": "qrc:/src/controls/base/FluentWindow.qml",
             "FluentContentDialog": "qrc:/src/controls/base/FluentContentDialog.qml",
             "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",

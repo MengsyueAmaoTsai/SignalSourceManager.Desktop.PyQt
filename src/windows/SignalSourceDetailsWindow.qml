@@ -15,6 +15,13 @@ FluentWindow {
         FluentTextBlock {
             content: 'TV-Long-Task'
         }
+
+        FluentTextBlock {
+            content: 'A test signal source'
+        }
+
+        RowLayout {
+        }
     }
 
     FileDialog {
