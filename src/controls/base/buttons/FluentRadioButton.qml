@@ -1,4 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 
-Button {}
+Item {
+    id: control
+}

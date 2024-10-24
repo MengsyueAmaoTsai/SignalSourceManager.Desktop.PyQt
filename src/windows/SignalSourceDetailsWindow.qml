@@ -11,6 +11,12 @@ FluentWindow {
     width: Screen.width * 0.8
     height: Screen.height * 0.8
 
+    property var signalSource: undefined
+
+    Component.onCompleted: {
+        console.log('SignalSourceDetailsWindow created');
+    }
+
     ColumnLayout {
         FluentTextBlock {
             content: 'TV-Long-Task'
