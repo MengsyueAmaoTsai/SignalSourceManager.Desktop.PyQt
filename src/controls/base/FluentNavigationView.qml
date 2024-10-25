@@ -109,15 +109,82 @@ Item {
         }
     }
 
-    // Component {}
-    ComponentLoader {}
-    MouseArea {}
+    Component {
+        id: stackComponent
+        Item {
+            StackView {
+                id: navStack
+                anchors.fill: parent
+                clip: true
+                visible: !navStack2.visible
+                popEnter: Transition {}
+                popExit: Transition {}
+                pushEnter: Transition {}
+                pushExit: Transition {}
+                replaceEnter: Transition {}
+                replaceExit: Transition {}
+            }
+
+            StackLayout {
+                id: navStack2
+                anchors.fill: navStack
+                clip: true
+                visible: {
+                    if (navStack.currentItem) {
+                        return false;
+                    }
+                    return true;
+                    // return navStack.currentItem.launchMode === FluentPageType.SingleInstance
+                }
+            }
+        }
+    }
+
+    ComponentLoader {
+        id: contentLoader
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            // top:
+            // leftMargin: {
+            //     if (d.isMinimal) {
+            //         return 0;
+            //     }
+
+            //     if (d.isCompact) {
+            //         return control.compactWidth;
+            //     }
+
+            //     return control.cellWidth;
+            // }
+        }
+        sourceComponent: stackComponent
+        // Behavior on anchors.leftMargin {
+        //     enabled: FluentTheme.animationEnabled && d.animationDisabled
+        //     NumberAnimation {
+        //         duration: 167
+        //         easing.type: Easing.OutCubic
+        //     }
+        // }
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        // visible: d.isMinimalAndPanel || d.isCompactAndPanel
+        hoverEnabled: true
+        onWheel: console.log('Wheel event')
+        onClicked: console.log('MouseArea clicked')
+    }
     Rectangle {}
     Popup {}
     ComponentLoader {}
     Connections {}
 
-    // Component {}
+    Component {
+        id: placeholderComponent
+        Item {}
+    }
 
     Component.onCompleted: console.log('FluentNavigationView.qml loaded')
 }
