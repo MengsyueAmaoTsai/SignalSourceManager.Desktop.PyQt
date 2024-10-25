@@ -2,7 +2,7 @@ import sys
 
 from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
+from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType, qmlRegisterType
 from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
@@ -21,6 +21,7 @@ BASE_CONTROLS = {
     "AppTitleBar": "qrc:/src/controls/base/AppTitleBar.qml",
     "Button": "qrc:/src/controls/base/Button.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
+    "WindowManager": "qrc:/src/controls/base/WindowManager.qml",
     "Window": "qrc:/src/controls/base/Window.qml",
     "ContentDialog": "qrc:/src/controls/base/ContentDialog.qml",
 }
@@ -28,6 +29,14 @@ BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls
 
 for control_name, url in BASE_CONTROLS.items():
     qmlRegisterType(url, BASE_CONTROLS_MODULE_NAME, MODULE_VERSION_MAJOR, MODULE_VERSION_MINOR, control_name)
+
+qmlRegisterSingletonType(
+    "qrc:/src/controls/base/WindowManager.qml",
+    BASE_CONTROLS_MODULE_NAME,
+    MODULE_VERSION_MAJOR,
+    MODULE_VERSION_MINOR,
+    "WindowManager",
+)
 
 # Register context properties or objects
 theme = AppTheme()
