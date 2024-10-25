@@ -25,7 +25,7 @@ Window {
     property bool showMaximize: true
 
     readonly property color backgroundColor: {
-        return color_provider.windowBackgroundColor;
+        return color_provider.windowActiveBackgroundColor;
     }
 
     property var closingHandler: function (event) {
