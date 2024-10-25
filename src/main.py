@@ -2,18 +2,30 @@ import sys
 
 from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine
+from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
 from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
 import resources_rc as resources  # type: ignore # noqa: F401
+from constants import AppColors
 
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
 
 # Register presentation layer services
+MODULE_VERSION_MAJOR = 1
+MODULE_VERSION_MINOR = 0
+## Add custom QML module: RichillCapital.SignalSourceManager.Desktop.Controls.Base
+BASE_CONTROLS = {"AppTitleBar": "qrc:/src/controls/base/AppTitleBar.qml"}
+BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
+
+for control_name, url in BASE_CONTROLS.items():
+    qmlRegisterType(url, BASE_CONTROLS_MODULE_NAME, MODULE_VERSION_MAJOR, MODULE_VERSION_MINOR, control_name)
 
 # Register context properties or objects
+app_colors = AppColors()
+engine.rootContext().setContextProperty("AppColors", app_colors)
+
 
 for path in engine.importPathList():
     print(f"Import path: {path}")

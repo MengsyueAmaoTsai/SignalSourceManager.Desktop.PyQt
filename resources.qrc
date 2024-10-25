@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/">
         <file>src/App.qml</file>
+        
+        <!-- Controls.Base -->
+        <file>src/controls/base/AppTitleBar.qml</file>
+
+        <!-- Images -->
+        <file>static/images/favicon.ico</file>
     </qresource>
 </RCC>
