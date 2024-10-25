@@ -75,11 +75,11 @@ QtObject {
     }
 
     function handleExistingWindow(window, arguments) {
-        console.log("Handling existing window for route:", window._route, "with launch mode:", window.launchMode);
+        console.log("Handling existing window for route:", window.route, "with launch mode:", window.launchMode);
         if (window.launchMode === 1) {
             updateWindowArguments(window, arguments);
         } else if (window.launchMode === 2) {
-            console.log("Closing existing window for route:", window._route);
+            console.log("Closing existing window for route:", window.route);
             window.close();
         }
     }
@@ -87,7 +87,7 @@ QtObject {
     function createAndRegisterNewWindow(component, route, arguments, windowRegister) {
         console.log("Creating new window for route:", route, "with arguments:", arguments);
         const properties = {
-            _route: route,
+            route: route,
             argument: arguments
         };
         if (windowRegister) {

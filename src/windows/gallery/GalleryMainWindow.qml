@@ -41,6 +41,74 @@ FluentWindow {
         }
     }
 
+    Flipable {
+        id: flipable
+
+        anchors.fill: parent
+        front: Item {
+            visible: flipable.flipAngel !== 180
+            anchors.fill: flipable
+
+            FluentNavigationView {
+                width: parent.width
+                height: parent.height
+                topPadding: {
+                    const isMacos = false;
+
+                    // if (window.useSystemAppTitleBar) {
+                    //     return 0;
+                    // }
+
+                    return isMacos ? 20 : 0;
+                }
+                title: 'Gallery'
+                logoSource: 'qrc:/static/images/favicon.ico'
+                // z: 999
+                // pageMode: NoStack
+                // items: NavigationItems
+                // footerItems: FooterItems
+                // displayMode: 'compact'
+                // onLogoClicked: {}
+                // autoSuggestBox: FluentAutoSuggestBox {}
+                Component.onCompleted: {
+                    console.warn('FluentNavigationView.qml Component.onCompleted');
+                }
+            }
+        }
+        back: Item {
+            visible: flipable.flipAngel !== 0
+            anchors.fill: flipable
+            Row {
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    topMargin: 5
+                    leftMargin: 5
+                }
+                FluentButton {
+                    content: 'Back'
+                    width: 30
+                    height: 30
+                    onClicked: flipable.flipped = false
+                }
+
+                FluentButton {
+                    content: 'Reload'
+                    width: 30
+                    height: 30
+                    onClicked: remoteLoader.reload()
+                }
+            }
+
+            // Item {
+            //     id: remoteLoader
+            // }
+        }
+
+        property bool flipped: false
+        property real flipAngel: 0
+    }
+
     Component.onCompleted: console.warn('GalleryMainWindow.qml Component.onCompleted')
     Component.onDestruction: WindowManager.closeAllWindowsAndExit()
 }
