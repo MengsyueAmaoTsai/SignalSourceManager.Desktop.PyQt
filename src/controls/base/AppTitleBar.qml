@@ -19,6 +19,12 @@ Rectangle {
     required property url iconSource
     readonly property int iconSize: 20
 
+    readonly property bool showSwitchThemeButton: true
+    readonly property bool showStayOnTopButton: true
+    readonly property bool showMinimizeButton: true
+    readonly property bool showMaximizeButton: true
+    readonly property bool showCloseButton: true
+
     // readonly property color textColor: AppTheme.font_primary_color
 
     Item {
@@ -61,9 +67,16 @@ Rectangle {
             Layout.preferredWidth: 40
             Layout.preferredHeight: 30
             Layout.alignment: Qt.AlignVCenter
-            text: 'Switch Theme'
             padding: 0
-
+            // verticalPadding: 0
+            // horizontalPadding: 0
+            // radius: 0
+            visible: showSwitchThemeButton
+            // text: FluTheme.dark ? 'Light' : 'Dark
+            // color
+            // iconColor
+            // iconSize: 10
+            // iconSource
             onClicked: {
                 console.warn('Button clicked');
             }
@@ -73,12 +86,22 @@ Rectangle {
             Layout.preferredWidth: 40
             Layout.preferredHeight: 30
             Layout.alignment: Qt.AlignVCenter
-            text: 'Stay On Top'
             padding: 0
 
             // verticalPadding: 0
             // horizontalPadding: 0
-
+            // radius: 0
+            // visible: {
+            //     if (!(context.win instanceof FluWindow)) {
+            //         return false;
+            //     }
+            //     return showStayOnTopButton;
+            // }
+            // text: context.stayOnTop ? 'Sticky on Top cancelled' : 'Sticky on Top'
+            // color
+            // iconColor
+            // iconSize: 10
+            // iconSource
             onClicked: {
                 console.warn('Button clicked');
             }
@@ -88,12 +111,17 @@ Rectangle {
             Layout.preferredWidth: 40
             Layout.preferredHeight: 30
             Layout.alignment: Qt.AlignVCenter
-            text: 'Minimize'
             padding: 0
-
             // verticalPadding: 0
             // horizontalPadding: 0
+            // radius: 0
+            visible: showMinimizeButton
+            text: 'Minimize'
 
+            // color
+            // iconColor
+            // iconSize: 10
+            // iconSource
             onClicked: {
                 console.warn('Button clicked');
             }
@@ -103,12 +131,18 @@ Rectangle {
             Layout.preferredWidth: 40
             Layout.preferredHeight: 30
             Layout.alignment: Qt.AlignVCenter
-            text: 'Maximize'
             padding: 0
 
             // verticalPadding: 0
             // horizontalPadding: 0
-
+            // radius: 0
+            visible: showMaximizeButton // && context.resizable
+            // text: context.isRestore ? 'Restore' : 'Maximize'
+            text: 'Maximize'
+            // color
+            // iconColor
+            // iconSize: 10
+            // iconSource
             onClicked: {
                 console.warn('Button clicked');
             }
@@ -118,10 +152,17 @@ Rectangle {
             Layout.preferredWidth: 40
             Layout.preferredHeight: 30
             Layout.alignment: Qt.AlignVCenter
-            text: 'Quit'
             padding: 0
             // verticalPadding: 0
             // horizontalPadding: 0
+            // radius: 0
+            visible: showCloseButton
+            text: 'Close'
+
+            // color
+            // iconColor
+            // iconSize: 10
+            // iconSource
             onClicked: {
                 console.warn('Button clicked');
             }
