@@ -15,7 +15,13 @@ BaseControls.Window {
     height: Screen.height * 0.8
     minimumWidth: 668
     minimumHeight: 320
+
     // launchMode:
     // firstAppTitleBarWindow: true
     // appTitleBar: BaseControls.AppTitleBar {}
+
+    Component.onDestruction: {
+        BaseControls.WindowManager.closeAllWindows();
+        BaseControls.WindowManager.quit();
+    }
 }
