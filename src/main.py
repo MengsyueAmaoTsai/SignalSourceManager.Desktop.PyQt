@@ -15,11 +15,13 @@ engine = QQmlApplicationEngine()
 # Register presentation layer services
 MODULE_VERSION_MAJOR = 1
 MODULE_VERSION_MINOR = 0
+
 ## Add custom QML module: RichillCapital.SignalSourceManager.Desktop.Controls.Base
 BASE_CONTROLS = {
     "AppTitleBar": "qrc:/src/controls/base/AppTitleBar.qml",
     "Button": "qrc:/src/controls/base/Button.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
+    "ContentDialog": "qrc:/src/controls/base/ContentDialog.qml",
 }
 BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
 

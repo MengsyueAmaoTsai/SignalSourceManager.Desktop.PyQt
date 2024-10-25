@@ -54,6 +54,4 @@ Button {
             return Qt.rgba(0, 0, 0, 1);
         }
     }
-
-    property color defaultBackground
 }

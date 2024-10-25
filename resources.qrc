@@ -9,6 +9,7 @@
         
         <file>src/controls/base/TextBlock.qml</file>
 
+        <file>src/controls/base/ContentDialog.qml</file>
         <!-- Images -->
         <file>static/images/favicon.ico</file>
     </qresource>
