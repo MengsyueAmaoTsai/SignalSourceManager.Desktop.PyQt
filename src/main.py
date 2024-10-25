@@ -9,7 +9,7 @@ from PySide6.QtQuickControls2 import QQuickStyle
 import resources_rc as resources  # type: ignore # noqa: F401
 from AppInfo import AppInfo, QtResources
 from constants import ColorProvider, FontProvider
-from dependency_injection import ServiceCollection
+from dependency_injection import DependencyInjector
 from resources import ResourceService
 from view_models import MainViewModel
 
@@ -18,8 +18,8 @@ engine = QQmlApplicationEngine()
 
 
 # Register presentation layer services
-ServiceCollection.add_base_controls()
-ServiceCollection.add_custom_controls()
+DependencyInjector.add_base_controls()
+DependencyInjector.add_custom_controls()
 
 for path in engine.importPathList():
     print(f"Import path: {path}")

@@ -8,7 +8,7 @@ class QmlModuleNames:
     BASE_CONTROLS = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
 
 
-class ServiceCollection:
+class DependencyInjector:
     VERSION_MAJOR = 1
     VERSION_MINOR = 0
     # @classmethod
