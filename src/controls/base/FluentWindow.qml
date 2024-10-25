@@ -14,7 +14,7 @@ Window {
 
     property var windowRegister: undefined
     property string route: ''
-    property var argument: {}
+    property var arguments: {}
 
     property bool autoMaximize: false
     property bool autoVisible: true
@@ -31,18 +31,9 @@ Window {
         return color_provider.windowActiveBackgroundColor;
     }
 
-    property var closingHandler: function (event) {
-        if (autoDestroy) {
-            WindowManager.removeWindow(window);
-        } else {
-            window.visibility = Window.Hidden;
-            // event.accepted = false;
-        }
-    }
-
     Component.onCompleted: {
         WindowManager.addWindow(window);
-        argumentsInitialized(argument);
+        argumentsInitialized(arguments);
         if (window.autoVisible) {
             if (window.autoMaximize) {
                 window.visibility = Window.Maximized;

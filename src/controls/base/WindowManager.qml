@@ -88,7 +88,7 @@ QtObject {
         console.log("Creating new window for route:", route, "with arguments:", arguments);
         const properties = {
             route: route,
-            argument: arguments
+            arguments: arguments
         };
         if (windowRegister) {
             properties._windowRegister = windowRegister;
