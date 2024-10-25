@@ -45,8 +45,32 @@ FluentWindow {
         id: flipable
 
         anchors.fill: parent
+        transitions: Transition {
+            NumberAnimation {
+                target: flipable
+                property: "flipAngle"
+                duration: 1000
+                easing.type: Easing.OutCubic
+            }
+        }
+        transform: Rotation {
+            id: roation
+            origin.x: flipable.width / 2
+            origin.y: flipable.height / 2
+            axis.x: 0
+            axis.y: 1
+            axis.z: 0
+            angle: flipable.flipAngle
+        }
+        states: State {
+            PropertyChanges {
+                target: flipable
+                flipAngle: 180
+            }
+            when: flipable.flipped
+        }
         front: Item {
-            visible: flipable.flipAngel !== 180
+            visible: flipable.flipAngle !== 180
             anchors.fill: flipable
 
             FluentNavigationView {
@@ -76,7 +100,7 @@ FluentWindow {
             }
         }
         back: Item {
-            visible: flipable.flipAngel !== 0
+            visible: flipable.flipAngle !== 0
             anchors.fill: flipable
             Row {
                 anchors {
@@ -106,7 +130,17 @@ FluentWindow {
         }
 
         property bool flipped: false
-        property real flipAngel: 0
+        property real flipAngle: 0
+    }
+
+    // Component {
+    //     id: revealComponent
+    // CircularReveal {}
+    // }
+
+    ComponentLoader {
+        id: revealLoader
+        anchors.fill: parent
     }
 
     Component.onCompleted: console.warn('GalleryMainWindow.qml Component.onCompleted')
