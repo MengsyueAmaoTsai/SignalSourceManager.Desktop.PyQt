@@ -31,8 +31,17 @@ Window {
         return color_provider.windowActiveBackgroundColor;
     }
 
-    QtObject {}
-    Connections {}
+    QtObject {
+        id: dataContext
+    }
+
+    Connections {
+        target: window
+        function onClosing(event) {
+            console.log('onClosing', event);
+        }
+    }
+
     // FluentFrameless {}
     // Component {}
     // Component {}
@@ -53,6 +62,8 @@ Window {
             }
         }
     }
+
+    onVisibleChanged: console.log('visibleChanged', visible)
 
     function moveToDesktopCenter() {
         console.log('moveToDesktopCenter');
