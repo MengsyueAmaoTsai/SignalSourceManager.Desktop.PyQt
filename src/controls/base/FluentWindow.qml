@@ -26,14 +26,14 @@ Window {
     property bool showMinimize: true
     property bool showMaximize: true
 
-    property Item appTitleBar: FluentAppTitleBar {}
-
     property int resizeBorderWidth: 1
     property color resizeBorderColor: window.active ? Qt.rgba(51 / 255, 51 / 255, 51 / 255, 1) : Qt.rgba(61 / 255, 61 / 255, 61 / 255, 1)
 
     readonly property color backgroundColor: {
         return color_provider.windowActiveBackgroundColor;
     }
+
+    property Item appTitleBar: FluentAppTitleBar {}
 
     QtObject {
         id: dataContext
