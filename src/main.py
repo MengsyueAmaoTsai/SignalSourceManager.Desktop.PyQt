@@ -7,7 +7,7 @@ from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
 import resources_rc as resources  # type: ignore # noqa: F401
-from constants import AppTheme
+from constants import AppFont, AppTheme
 
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
@@ -30,6 +30,8 @@ for control_name, url in BASE_CONTROLS.items():
 theme = AppTheme()
 engine.rootContext().setContextProperty("AppTheme", theme)
 
+font = AppFont()
+engine.rootContext().setContextProperty("AppFont", font)
 
 for path in engine.importPathList():
     print(f"Import path: {path}")

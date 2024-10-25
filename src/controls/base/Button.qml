@@ -21,18 +21,39 @@ Button {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         // font:
-        // color:
+        color: control.textColor
     }
 
     background: Item {
         id: buttonBackground
         Rectangle {
             id: context
-
         }
         Rectangle {}
         Rectangle {}
     }
 
     property string description: ''
+
+    property color textColor: {
+        if (AppTheme.theme === 'Dark') {
+            if (!enabled) {
+                return Qt.rgba(131 / 255, 131 / 255, 131 / 255, 1);
+            }
+            if (pressed) {
+                return Qt.rgba(162 / 255, 162 / 255, 162 / 255, 1);
+            }
+            return Qt.rgba(1, 1, 1, 1);
+        } else {
+            if (!enabled) {
+                return Qt.rgba(160 / 255, 160 / 255, 160 / 255, 1);
+            }
+            if (pressed) {
+                return Qt.rgba(96 / 255, 96 / 255, 96 / 255, 1);
+            }
+            return Qt.rgba(0, 0, 0, 1);
+        }
+    }
+
+    property color defaultBackground
 }

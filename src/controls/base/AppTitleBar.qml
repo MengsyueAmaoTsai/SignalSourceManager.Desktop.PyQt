@@ -25,7 +25,7 @@ Rectangle {
     readonly property bool showMaximizeButton: true
     readonly property bool showCloseButton: true
 
-    // readonly property color textColor: AppTheme.font_primary_color
+    readonly property color textColor: AppTheme.font_primary_color
 
     Item {
         id: context
@@ -159,7 +159,6 @@ Rectangle {
             visible: showCloseButton
             text: 'Close'
 
-            // color
             // iconColor
             // iconSize: 10
             // iconSource
