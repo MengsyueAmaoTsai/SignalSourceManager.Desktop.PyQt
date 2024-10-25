@@ -31,9 +31,20 @@ Window {
         return color_provider.windowActiveBackgroundColor;
     }
 
+    QtObject {}
+    Connections {}
+    // FluentFrameless {}
+    // Component {}
+    // Component {}
+    // Component {}
+    // Component {}
+    Item {}
+
     Component.onCompleted: {
         WindowManager.addWindow(window);
         argumentsInitialized(arguments);
+        moveToDesktopCenter();
+        fixWindowSize();
         if (window.autoVisible) {
             if (window.autoMaximize) {
                 window.visibility = Window.Maximized;
@@ -41,5 +52,16 @@ Window {
                 window.show();
             }
         }
+    }
+
+    function moveToDesktopCenter() {
+        console.log('moveToDesktopCenter');
+    }
+
+    function fixWindowSize() {
+        window.maximumWidth = window.width;
+        window.maximumHeight = window.height;
+        window.minimumWidth = window.width;
+        window.minimumHeight = window.height;
     }
 }
