@@ -49,17 +49,99 @@ Window {
     // FluentFrameless {}
     Component {
         id: backgroundComponent
-        Item {}
+        Item {
+            Rectangle {
+                anchors.fill: parent
+            }
+
+            Image {
+                visible: false
+                cache: false
+                asynchronous: true
+
+                Connections {}
+                Connections {}
+                Timer {}
+                Component.onCompleted: {
+                    console.log('backgroundComponent', window.backgroundImage);
+                }
+            }
+
+            // FluentAcrylic {}
+        }
     }
 
     Component {
         id: appTitleBarComponent
-        Item {}
+        Item {
+            data: window.appTitleBar
+            Component.onCompleted: {
+                window.appTitleBar.width = Qt.binding(function () {
+                    return this.parent.width;
+                });
+            }
+        }
     }
 
     Component {
         id: loadingComponent
-        Popup {}
+        Popup {
+            Overlay.modal: Item {}
+            focus: true
+            width: window.width
+            height: window.height
+            anchors.centerIn: Overlay.overlay
+            closePolicy: {
+                if (cancel) {
+                    return Popup.CloseOnEscape | Popup.CloseOnPressOutside;
+                }
+                return Popup.NoAutoClose;
+            }
+            padding: 0
+            opacity: 0
+            visible: true
+
+            background: Rectangle {
+                color: '#44000000'
+            }
+
+            contentItem: Item {
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log('onClicked');
+                    }
+                }
+                ColumnLayout {
+                    spacing: 8
+                    anchors.centerIn: parent
+                    // FluentProgressRing {}
+                    FluentTextBlock {
+                        text: 'Loading...'
+                        Layout.alignment: Qt.AlignHCenter
+                    }
+                }
+            }
+
+            Behavior on opacity {
+                SequentialAnimation {
+                    PauseAnimation {
+                        duration: 83
+                    }
+                    NumberAnimation {
+                        duration: 67
+                    }
+                }
+            }
+
+            Component.onCompleted: opacity = 1
+
+            onVisibleChanged: {
+                if (!visible) {
+                    loadingLoader.sourceComponent = undefined;
+                }
+            }
+        }
     }
 
     Component {
@@ -114,6 +196,7 @@ Window {
         // FluentInfoBar
 
         ComponentLoader {
+            id: borderLoader
             sourceComponent: borderComponent
             anchors.fill: parent
         }
