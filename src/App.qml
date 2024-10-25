@@ -19,7 +19,7 @@ Item {
             '/': 'qrc:/src/windows/MainWindow.qml'
         };
         const args = Qt.application.arguments;
-        WindowManager.navigateTo('/dev');
+        WindowManager.navigateTo('/');
     }
 
     Component.onDestruction: console.log("ViewModel: " + main_view_model)
