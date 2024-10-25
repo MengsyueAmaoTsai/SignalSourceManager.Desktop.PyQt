@@ -25,6 +25,22 @@ FluentWindow {
     //     z:7
     // }
 
+    SystemTrayIcon {
+        id: systemTray
+        visible: true
+        icon.source: 'qrc:/static/images/favicon.ico'
+        tooltip: 'Gallery'
+        menu: Menu {
+            MenuItem {
+                text: 'Exit'
+                onTriggered: WindowManager.closeAllWindowsAndExit()
+            }
+        }
+        onActivated: reason => {
+            console.log('SystemTrayIcon.onActivated. Reason:', reason);
+        }
+    }
+
     Component.onCompleted: console.warn('GalleryMainWindow.qml Component.onCompleted')
     Component.onDestruction: WindowManager.closeAllWindowsAndExit()
 }
