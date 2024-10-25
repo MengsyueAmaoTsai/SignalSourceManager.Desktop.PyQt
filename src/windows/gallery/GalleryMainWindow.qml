@@ -63,7 +63,7 @@ FluentWindow {
                 }
                 title: 'Gallery'
                 logoSource: 'qrc:/static/images/favicon.ico'
-                // z: 999
+                z: 999
                 // pageMode: NoStack
                 // items: NavigationItems
                 // footerItems: FooterItems

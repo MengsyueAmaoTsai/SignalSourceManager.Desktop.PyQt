@@ -30,7 +30,7 @@ Item {
             topMargin: control.topPadding
         }
         visible: !control.hideNavBar
-        // z: 999
+        z: 999
         RowLayout {
             height: parent.height
             spacing: 0
