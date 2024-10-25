@@ -14,6 +14,7 @@ FluentWindow {
     height: 668
     minimumWidth: 668
     minimumHeight: 320
+
     // launchMode: WindowLaunchMode.SingleTask
     // fitsAppBarWindows: true
     // appTitleBar: FluentAppTitleBar {
@@ -23,4 +24,7 @@ FluentWindow {
     //     closeClickListener: ()=>{dialog_close.open()}
     //     z:7
     // }
+
+    Component.onCompleted: console.warn('GalleryMainWindow.qml Component.onCompleted')
+    Component.onDestruction: WindowManager.closeAllWindowsAndExit()
 }
