@@ -43,11 +43,68 @@ Window {
     }
 
     // FluentFrameless {}
-    // Component {}
-    // Component {}
-    // Component {}
-    // Component {}
-    Item {}
+    Component {
+        id: backgroundComponent
+        Item {}
+    }
+
+    Component {
+        id: appTitleBarComponent
+        Item {}
+    }
+
+    Component {
+        id: loadingComponent
+        Popup {}
+    }
+
+    Component {
+        id: borderComponent
+        Rectangle {
+            color: 'transparent'
+            border.width: window.resizeBorderWidth
+            border.color: window.resizeBorderColor
+        }
+    }
+
+    Item {
+        ComponentLoader {
+            sourceComponent: backgroundComponent
+            anchors.fill: parent
+        }
+
+        ComponentLoader {
+            id: appTitleBarLoader
+            sourceComponent: appTitleBarComponent
+            anchors {
+                top: parent.top
+                left: parent.left
+                right: parent.right
+            }
+
+            height: {
+                // if (window.useSystemAppTitleBar) {
+                //     return 0
+                // }
+                return window.appTitleBar.height;
+            }
+        }
+
+        Item {
+            clip: true
+        }
+
+        ComponentLoader {
+            anchors.fill: parent
+        }
+
+        // FluentInfoBar
+
+        ComponentLoader {
+            sourceComponent: borderComponent
+            anchors.fill: parent
+        }
+    }
 
     Component.onCompleted: {
         WindowManager.addWindow(window);
