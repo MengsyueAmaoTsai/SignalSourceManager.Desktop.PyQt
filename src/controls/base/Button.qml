@@ -24,7 +24,15 @@ Button {
         // color:
     }
 
-    // background:
+    background: Item {
+        id: buttonBackground
+        Rectangle {
+            id: context
+
+        }
+        Rectangle {}
+        Rectangle {}
+    }
 
     property string description: ''
 }
