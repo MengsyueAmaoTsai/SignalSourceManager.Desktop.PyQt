@@ -8,19 +8,19 @@ import Qt.labs.platform
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base
 
 Item {
-    id: root
-    visible: true
+    id: app
 
+    visible: true
     width: Screen.width * 0.8
     height: Screen.height * 0.8
 
     Component.onCompleted: {
         WindowManager.routes = {
-            '/': 'qrc:/src/windows/MainWindow.qml'
+            '/': 'qrc:/src/windows/MainWindow.qml',
+            // Gallery
+            '/gallery': 'qrc:/src/windows/gallery/GalleryMainWindow.qml'
         };
         const args = Qt.application.arguments;
-        WindowManager.navigateTo('/');
+        WindowManager.navigateTo('/gallery');
     }
-
-    Component.onDestruction: console.log("ViewModel: " + main_view_model)
 }

@@ -6,6 +6,9 @@
 
         <!-- Windows -->
         <file>src/windows/MainWindow.qml</file>
+
+        <!-- Windows.Gallery -->
+        <file>src/windows/gallery/GalleryMainWindow.qml</file>
         
         <!-- Controls -->
         <file>src/controls/UploadHistoricalDataDialog.qml</file>
