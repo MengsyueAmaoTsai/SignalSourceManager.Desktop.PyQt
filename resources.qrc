@@ -6,13 +6,7 @@
 
         <!-- Windows -->
         <file>src/windows/MainWindow.qml</file>
-        <file>src/windows/DevelopmentWindow.qml</file>
         
-        <file>src/windows/SignalSourceDetailsWindow.qml</file>
-
-        <file>src/windows/demo/ButtonsWindow.qml</file>
-        <file>src/windows/demo/PagesWindow.qml</file>
-
         <!-- Controls -->
         <file>src/controls/UploadHistoricalDataDialog.qml</file>
         

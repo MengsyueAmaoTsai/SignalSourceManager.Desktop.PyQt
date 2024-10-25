@@ -16,12 +16,7 @@ Item {
 
     Component.onCompleted: {
         WindowManager.routes = {
-            '/': 'qrc:/src/windows/MainWindow.qml',
-            '/dev': 'qrc:/src/windows/DevelopmentWindow.qml',
-            '/signal-sources/details': 'qrc:/src/windows/SignalSourceDetailsWindow.qml',
-            // Demo routes
-            '/pages': 'qrc:/src/windows/demo/PagesWindow.qml',
-            '/buttons': 'qrc:/src/windows/demo/ButtonsWindow.qml'
+            '/': 'qrc:/src/windows/MainWindow.qml'
         };
         const args = Qt.application.arguments;
         WindowManager.navigateTo('/dev');
