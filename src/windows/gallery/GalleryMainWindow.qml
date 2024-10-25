@@ -15,17 +15,18 @@ FluentWindow {
     minimumWidth: 668
     minimumHeight: 320
 
+    appTitleBar: FluentAppTitleBar {
+        height: 30
+        z: 7
+        // showDark: true
+        // darkButtonClicked: (button) =>
+        // closebuttonClicked: () => {
+        //     quitDialog.open();
+        // }
+    }
+
     // launchMode: WindowLaunchMode.SingleTask
     // fitsAppBarWindows: true
-    // appTitleBar: FluentAppTitleBar {
-        // height: 30
-        // showDark: true
-        // darkClickListener: button => handleDarkChanged(button)
-        // closeClickListener: () => {
-        //     dialog_close.open();
-        // }
-        // z: 7
-    // }
 
     SystemTrayIcon {
         id: systemTray
@@ -41,6 +42,10 @@ FluentWindow {
         onActivated: reason => {
             console.log('SystemTrayIcon.onActivated. Reason:', reason);
         }
+    }
+
+    FluentContentDialog {
+        id: quitDialog
     }
 
     Flipable {

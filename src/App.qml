@@ -22,9 +22,6 @@ Item {
             '/gallery/page': 'qrc:/src/windows/gallery/PageWindow.qml'
         };
         const args = Qt.application.arguments;
-        WindowManager.navigateTo('/gallery/page', {
-            title: 'test',
-            url: 'abc'
-        });
+        WindowManager.navigateTo('/gallery');
     }
 }

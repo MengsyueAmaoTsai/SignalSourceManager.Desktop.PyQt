@@ -72,6 +72,8 @@ Window {
     }
 
     Item {
+        anchors.fill: parent
+        anchors.margins: 0
         ComponentLoader {
             sourceComponent: backgroundComponent
             anchors.fill: parent
@@ -95,10 +97,17 @@ Window {
         }
 
         Item {
+            anchors {
+                top: appTitleBarLoader.bottom
+                left: parent.left
+                right: parent.right
+                bottom: parent.bottom
+            }
             clip: true
         }
 
         ComponentLoader {
+            id: loadingLoader
             anchors.fill: parent
         }
 
