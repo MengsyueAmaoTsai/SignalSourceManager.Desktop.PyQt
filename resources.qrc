@@ -4,6 +4,10 @@
         
         <!-- Controls.Base -->
         <file>src/controls/base/AppTitleBar.qml</file>
+        
+        <file>src/controls/base/Button.qml</file>
+        
+        <file>src/controls/base/TextBlock.qml</file>
 
         <!-- Images -->
         <file>static/images/favicon.ico</file>

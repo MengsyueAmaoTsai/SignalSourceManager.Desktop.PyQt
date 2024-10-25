@@ -3,6 +3,8 @@ import QtQuick.Controls
 import QtQuick.Window
 import QtQuick.Layouts
 
+import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
+
 Rectangle {
     id: control
 
@@ -17,7 +19,7 @@ Rectangle {
     required property url iconSource
     readonly property int iconSize: 20
 
-    readonly property color textColor: AppColors.font_primary_color
+    // readonly property color textColor: AppTheme.font_primary_color
 
     Item {
         id: context
@@ -40,12 +42,89 @@ Rectangle {
             source: control.iconSource
         }
 
-        Text {
+        BaseControls.TextBlock {
             text: control.title
             visible: control.titleVisible
+            // color: control.textColor
             anchors.verticalCenter: parent.verticalCenter
         }
     }
 
-    RowLayout {}
+    RowLayout {
+        spacing: 0
+        anchors.right: parent.right
+        height: parent.height
+
+        BaseControls.Button {
+            id: switchThemeButton
+
+            Layout.preferredWidth: 40
+            Layout.preferredHeight: 30
+            Layout.alignment: Qt.AlignVCenter
+            text: 'Switch Theme'
+            padding: 0
+
+            onClicked: {
+                console.warn('Button clicked');
+            }
+        }
+        BaseControls.Button {
+            id: stayOnTopButton
+            Layout.preferredWidth: 40
+            Layout.preferredHeight: 30
+            Layout.alignment: Qt.AlignVCenter
+            text: 'Stay On Top'
+            padding: 0
+
+            // verticalPadding: 0
+            // horizontalPadding: 0
+
+            onClicked: {
+                console.warn('Button clicked');
+            }
+        }
+        BaseControls.Button {
+            id: minimizeButton
+            Layout.preferredWidth: 40
+            Layout.preferredHeight: 30
+            Layout.alignment: Qt.AlignVCenter
+            text: 'Minimize'
+            padding: 0
+
+            // verticalPadding: 0
+            // horizontalPadding: 0
+
+            onClicked: {
+                console.warn('Button clicked');
+            }
+        }
+        BaseControls.Button {
+            id: maximizeButton
+            Layout.preferredWidth: 40
+            Layout.preferredHeight: 30
+            Layout.alignment: Qt.AlignVCenter
+            text: 'Maximize'
+            padding: 0
+
+            // verticalPadding: 0
+            // horizontalPadding: 0
+
+            onClicked: {
+                console.warn('Button clicked');
+            }
+        }
+        BaseControls.Button {
+            id: quitButton
+            Layout.preferredWidth: 40
+            Layout.preferredHeight: 30
+            Layout.alignment: Qt.AlignVCenter
+            text: 'Quit'
+            padding: 0
+            // verticalPadding: 0
+            // horizontalPadding: 0
+            onClicked: {
+                console.warn('Button clicked');
+            }
+        }
+    }
 }
