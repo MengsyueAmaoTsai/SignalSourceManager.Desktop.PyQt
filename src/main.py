@@ -7,35 +7,16 @@ from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
 import resources_rc as resources  # type: ignore # noqa: F401
-from AppInfo import AppInfo, QtResources
-from constants import ColorProvider, FontProvider
-from dependency_injection import DependencyInjector
-from resources import ResourceService
-from view_models import MainViewModel
 
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
 
-
 # Register presentation layer services
-DependencyInjector.add_base_controls()
-DependencyInjector.add_custom_controls()
+
+# Register context properties or objects
 
 for path in engine.importPathList():
     print(f"Import path: {path}")
-
-app_info = AppInfo()
-engine.rootContext().setContextProperty("app_info", app_info)
-
-resource_service = ResourceService()
-main_view_model = MainViewModel(resource_service)
-engine.rootContext().setContextProperty("main_view_model", main_view_model)
-
-color_provider = ColorProvider()
-engine.rootContext().setContextProperty("color_provider", color_provider)
-
-font_provider = FontProvider()
-engine.rootContext().setContextProperty("font_provider", font_provider)
 
 QQuickWindow.setGraphicsApi(QSGRendererInterface.GraphicsApi.OpenGL)
 
@@ -45,9 +26,9 @@ QQuickStyle.setFallbackStyle("Basic")
 QGuiApplication.setQuitOnLastWindowClosed(True)
 QGuiApplication.setOrganizationName("RichillCapital")
 QGuiApplication.setOrganizationDomain("https://community.richillcapital.com")
-QGuiApplication.setApplicationName(f"RichillCapital.SignalSourceManager.Desktop - {app_info.version}")
+QGuiApplication.setApplicationName("RichillCapital.SignalSourceManager.Desktop")
 
-engine.load(QtResources.APP)
+engine.load("qrc:/src/App.qml")
 
 if not engine.rootObjects():
     sys.exit(-1)
