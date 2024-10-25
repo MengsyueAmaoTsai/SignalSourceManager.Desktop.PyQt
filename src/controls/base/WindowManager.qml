@@ -86,7 +86,7 @@ QtObject {
 
     function createAndRegisterNewWindow(component, route, arguments, windowRegister) {
         console.log("Creating new window for route:", route, "with arguments:", arguments);
-        var properties = {
+        const properties = {
             _route: route,
             argument: arguments
         };
@@ -94,7 +94,7 @@ QtObject {
             properties._windowRegister = windowRegister;
             console.log("Window register provided for new window.");
         }
-        var newWindow = component.createObject(null, properties);
+        const newWindow = component.createObject(null, properties);
         if (newWindow) {
             console.log("New window created for route:", route);
             addWindow(newWindow);
