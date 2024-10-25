@@ -9,6 +9,7 @@
 
         <!-- Windows.Gallery -->
         <file>src/windows/gallery/GalleryMainWindow.qml</file>
+        <file>src/windows/gallery/PageWindow.qml</file>
         
         <!-- Controls -->
         <file>src/controls/UploadHistoricalDataDialog.qml</file>

@@ -14,7 +14,7 @@ Window {
 
     property var windowRegister: undefined
     property string route: ''
-    property var arguments: {}
+    property var arguments: ({})
 
     property bool autoMaximize: false
     property bool autoVisible: true
@@ -25,7 +25,11 @@ Window {
     property bool showClose: true
     property bool showMinimize: true
     property bool showMaximize: true
+
     property Item appTitleBar: FluentAppTitleBar {}
+
+    property int resizeBorderWidth: 1
+    property color resizeBorderColor: window.active ? Qt.rgba(51 / 255, 51 / 255, 51 / 255, 1) : Qt.rgba(61 / 255, 61 / 255, 61 / 255, 1)
 
     readonly property color backgroundColor: {
         return color_provider.windowActiveBackgroundColor;
@@ -108,7 +112,7 @@ Window {
 
     Component.onCompleted: {
         WindowManager.addWindow(window);
-        argumentsInitialized(arguments);
+        argumentsInitialized(window.arguments);
         moveToDesktopCenter();
         fixWindowSize();
         if (window.autoVisible) {

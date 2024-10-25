@@ -44,8 +44,17 @@ QtObject {
         Qt.exit(exitCode);
     }
 
-    function navigateTo(route, arguments = {}, windowRegister = undefined) {
-        console.log("Navigating to route:", route, "with arguments:", arguments, 'and windowRegister:', windowRegister);
+    function navigateTo(route, args = {}, windowRegister = undefined) {
+        console.log("Navigating to route:", route, "with arguments:", args, 'and windowRegister:', windowRegister);
+        const argumentKeys = Object.keys(args);
+        argumentKeys.forEach(key => {
+            if (typeof args[key] === 'object') {
+                console.log('Argument:', key, '=', JSON.stringify(args[key]));
+                return;
+            } else {
+                console.log('Argument:', key, '=', args[key]);
+            }
+        });
         if (!routes.hasOwnProperty(route)) {
             console.error('Route not found: ', route);
             return;
@@ -58,10 +67,10 @@ QtObject {
         const existingWindow = findWindowByRoute(route);
         if (existingWindow) {
             console.log('Found existing window for route:', route);
-            handleExistingWindow(existingWindow, arguments);
+            handleExistingWindow(existingWindow, args);
             return;
         }
-        createAndRegisterNewWindow(windowComponent, route, arguments, windowRegister);
+        createAndRegisterNewWindow(windowComponent, route, args, windowRegister);
     }
 
     function findWindowByRoute(route) {
@@ -74,24 +83,24 @@ QtObject {
         return window || null;
     }
 
-    function handleExistingWindow(window, arguments) {
+    function handleExistingWindow(window, args) {
         console.log("Handling existing window for route:", window.route, "with launch mode:", window.launchMode);
         if (window.launchMode === 1) {
-            updateWindowArguments(window, arguments);
+            updateWindowArguments(window, args);
         } else if (window.launchMode === 2) {
             console.log("Closing existing window for route:", window.route);
             window.close();
         }
     }
 
-    function createAndRegisterNewWindow(component, route, arguments, windowRegister) {
-        console.log("Creating new window for route:", route, "with arguments:", arguments);
+    function createAndRegisterNewWindow(component, route, args, windowRegister) {
+        console.log("Creating new window for route:", route, "with arguments:", args);
         const properties = {
             route: route,
-            arguments: arguments
+            arguments: args
         };
         if (windowRegister) {
-            properties._windowRegister = windowRegister;
+            properties.windowRegister = windowRegister;
             console.log("Window register provided for new window.");
         }
         const newWindow = component.createObject(null, properties);

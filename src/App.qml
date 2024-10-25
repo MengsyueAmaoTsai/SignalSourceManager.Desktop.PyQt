@@ -18,9 +18,13 @@ Item {
         WindowManager.routes = {
             '/': 'qrc:/src/windows/MainWindow.qml',
             // Gallery
-            '/gallery': 'qrc:/src/windows/gallery/GalleryMainWindow.qml'
+            '/gallery': 'qrc:/src/windows/gallery/GalleryMainWindow.qml',
+            '/gallery/page': 'qrc:/src/windows/gallery/PageWindow.qml'
         };
         const args = Qt.application.arguments;
-        WindowManager.navigateTo('/gallery');
+        WindowManager.navigateTo('/gallery/page', {
+            title: 'test',
+            url: 'abc'
+        });
     }
 }
