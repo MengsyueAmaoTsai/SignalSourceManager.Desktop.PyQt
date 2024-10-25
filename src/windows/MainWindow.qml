@@ -18,7 +18,7 @@ FluentWindow {
     }
 
     Component.onDestruction: {
-        WindowManager.exit();
+        WindowManager.closeAllWindowsAndExit();
         console.log('Main window desctruction');
     }
 
