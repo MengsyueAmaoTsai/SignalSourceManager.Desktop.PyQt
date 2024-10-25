@@ -31,6 +31,7 @@
         <file>src/controls/base/FluentDataGrid.qml</file>
 
         <file>src/controls/base/FluentWindow.qml</file>
+        <file>src/controls/base/FluentAppTitleBar.qml</file>
         <file>src/controls/base/FluentContentDialog.qml</file>
 
         <file>src/controls/base/ComponentLoader.qml</file>

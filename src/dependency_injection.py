@@ -36,6 +36,7 @@ class ServiceCollection:
             "FluentTabView": "qrc:/src/controls/base/FluentTabView.qml",
             "FluentTreeView": "qrc:/src/controls/base/FluentTreeView.qml",
             "FluentDataGrid": "qrc:/src/controls/base/FluentDataGrid.qml",
+            "FluentAppTitleBar": "qrc:/src/controls/base/FluentAppTitleBar.qml",
             "FluentWindow": "qrc:/src/controls/base/FluentWindow.qml",
             "FluentContentDialog": "qrc:/src/controls/base/FluentContentDialog.qml",
             "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",

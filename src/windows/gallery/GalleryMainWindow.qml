@@ -18,11 +18,13 @@ FluentWindow {
     // launchMode: WindowLaunchMode.SingleTask
     // fitsAppBarWindows: true
     // appTitleBar: FluentAppTitleBar {
-    //     height: 30
-    //     showDark: true
-    //     darkClickListener:(button)=>handleDarkChanged(button)
-    //     closeClickListener: ()=>{dialog_close.open()}
-    //     z:7
+        // height: 30
+        // showDark: true
+        // darkClickListener: button => handleDarkChanged(button)
+        // closeClickListener: () => {
+        //     dialog_close.open();
+        // }
+        // z: 7
     // }
 
     SystemTrayIcon {

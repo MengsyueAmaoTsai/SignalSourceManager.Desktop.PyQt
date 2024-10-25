@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 
+import RichillCapital.SignalSourceManager.Desktop.Controls.Base
+
 Window {
     id: window
 
@@ -23,6 +25,7 @@ Window {
     property bool showClose: true
     property bool showMinimize: true
     property bool showMaximize: true
+    property Item appTitleBar: FluentAppTitleBar {}
 
     readonly property color backgroundColor: {
         return color_provider.windowActiveBackgroundColor;
