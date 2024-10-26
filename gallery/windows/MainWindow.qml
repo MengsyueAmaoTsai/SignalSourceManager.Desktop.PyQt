@@ -39,6 +39,19 @@ BaseControls.Window {
         }
     }
 
+    Menu {
+        id: menu
+        // width: 130
+        MenuItem {
+            text: 'Open in Separate Window'
+            visible: true
+            // onClicked: BaseControls.WindowManager.navigateTo('/page', {
+            //     title: 'Page',
+            //     url: 'qrc:/gallery/pages/HomePage.qml'
+            // })
+        }
+    }
+
     Component.onCompleted: {
         console.log('TODO: Implement check update on startup');
         // QmlEventBus.registerEvent(checkUpdateEvent);

@@ -47,15 +47,6 @@ QtObject {
 
     function navigateTo(route, args = {}, windowRegister = undefined) {
         console.log("Navigating to route:", route, "with arguments:", args, 'and windowRegister:', windowRegister);
-        const argumentKeys = Object.keys(args);
-        argumentKeys.forEach(key => {
-            if (typeof args[key] === 'object') {
-                console.log('Argument:', key, '=', JSON.stringify(args[key]));
-                return;
-            } else {
-                console.log('Argument:', key, '=', args[key]);
-            }
-        });
         if (!routes.hasOwnProperty(route)) {
             console.error('Route not found: ', route);
             return;
