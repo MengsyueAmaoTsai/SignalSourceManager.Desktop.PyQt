@@ -3,6 +3,7 @@
         <file>gallery/App.qml</file>
 
         <file>gallery/windows/MainWindow.qml</file>
+        <file>gallery/windows/AboutWindow.qml</file>
 
         <file>static/images/favicon.ico</file>
 
