@@ -34,3 +34,8 @@ lint = { chain = ["lint:qml", "lint:ruff"] }
 format = { chain = ["format:ruff", "format:qml"] }
 "format:ruff" = "ruff format ."
 "format:qml" = "pyside6-qmlformat"
+
+# Gallery scripts
+"dev:gallery" = { chain = ["build:gallery", "python ./gallery/main.py -e Development"] }
+"build:gallery" = { chain = ["build:qrc:gallery"] }
+"build:qrc:gallery" = "pyside6-rcc gallery.resources.qrc -o ./gallery/resources_rc.py"

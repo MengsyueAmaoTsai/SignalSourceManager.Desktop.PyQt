@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/">
+        <file>gallery/App.qml</file>
+
+        <file>gallery/windows/MainWindow.qml</file>
+
+        <file>static/images/favicon.ico</file>
+
+        <!-- Controls.Base -->
+        <file>src/controls/base/AppTitleBar.qml</file>
+        
+        <file>src/controls/base/Button.qml</file>
+        
+        <file>src/controls/base/TextBlock.qml</file>
+
+        <file>src/controls/base/NavigationView.qml</file>
+
+        <file>src/controls/base/WindowManager.qml</file>
+        <file>src/controls/base/Window.qml</file>
+        <file>src/controls/base/ContentDialog.qml</file>
+
+        <file>src/controls/base/ComponentLoader.qml</file>
+
+    </qresource>
+</RCC>

@@ -8,6 +8,5 @@ Text {
     color: textColor
 
     // font:
-
     property color textColor: AppTheme.font_primary_color
 }
