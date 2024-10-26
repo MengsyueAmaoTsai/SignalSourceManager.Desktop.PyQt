@@ -14,6 +14,14 @@ Window {
     property var arguments: ({})
     property var windowRegister
 
+    property bool showSwitchThemeButton: true
+    property bool showStayOnTopButton: true
+    property bool showMinimizeButton: true
+    property bool showMaximizeButton: true
+    property bool showCloseButton: true
+
+    property string windowIcon: 'qrc:/static/images/favicon.ico'
+
     readonly property color backgroundColor: {
         // TODO other cases
 
@@ -25,8 +33,13 @@ Window {
 
     property Item appTitleBar: BaseControls.AppTitleBar {
         title: 'RichillCapital.SignalSourceManager.Desktop'
-        iconSource: 'qrc:/static/images/favicon.ico'
         height: 30
+        showSwitchThemeButton: control.showSwitchThemeButton
+        showStayOnTopButton: control.showStayOnTopButton
+        showMinimizeButton: control.showMinimizeButton
+        showMaximizeButton: control.showMaximizeButton
+        showCloseButton: control.showCloseButton
+        iconSource: control.windowIcon
     }
 
     Component {

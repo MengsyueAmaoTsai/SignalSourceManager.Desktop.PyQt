@@ -19,11 +19,11 @@ Rectangle {
     required property url iconSource
     readonly property int iconSize: 20
 
-    readonly property bool showSwitchThemeButton: true
-    readonly property bool showStayOnTopButton: true
-    readonly property bool showMinimizeButton: true
-    readonly property bool showMaximizeButton: true
-    readonly property bool showCloseButton: true
+    property bool showSwitchThemeButton: true
+    property bool showStayOnTopButton: true
+    property bool showMinimizeButton: true
+    property bool showMaximizeButton: true
+    property bool showCloseButton: true
 
     readonly property color textColor: AppTheme.font_primary_color
 

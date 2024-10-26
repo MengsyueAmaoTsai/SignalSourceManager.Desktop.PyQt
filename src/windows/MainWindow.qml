@@ -18,7 +18,11 @@ BaseControls.Window {
 
     // launchMode:
     // firstAppTitleBarWindow: true
-    // appTitleBar: BaseControls.AppTitleBar {}
+    appTitleBar: BaseControls.AppTitleBar {
+        z: 7
+        height: 30
+        showSwitchThemeButton: true
+    }
 
     Component.onDestruction: {
         BaseControls.WindowManager.closeAllWindows();
