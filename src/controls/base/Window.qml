@@ -13,6 +13,12 @@ Window {
     property string route: ''
     property var arguments: ({})
 
+    Connections {
+        target: control
+        function onClosing(event) {
+            console.log('TODO: Implement Window.qml onClosing');
+        }
+    }
     Component.onCompleted: {
         WindowManager.addWindow(control);
         // useSystemAppTitleBar = FluentApp.useSystemAppTitleBar;

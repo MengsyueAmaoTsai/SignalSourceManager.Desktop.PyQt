@@ -12,4 +12,10 @@ Rectangle {
     height: visible ? 30 : 0
     opacity: visible
     z: 65535
+
+    RowLayout {
+        spacing: 0
+        anchors.right: parent.right
+        height: parent.height
+    }
 }
