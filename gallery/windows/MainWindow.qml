@@ -47,25 +47,31 @@ BaseControls.Window {
             }
         }
 
-        property bool flipped: false
-        property real flipAngle: 0
-
-        BaseControls.NavigationView {
-            // title: ''
-            // logo: 'qrc:/static/images/favicon.ico'
-            width: parent.width
-            height: parent.height
-            z: 999
-            // pageMode:
-            // items:
-            // footerItems
-            // topPadding:
-            // displayMode:
-            // onLogoClicked:
-            Component.onCompleted: {
-                console.log('TODO: MainWindow.NavigationView.Component.onCompleted');
+        front: Item {
+            visible: flipable.flipAngle !== 180
+            anchors.fill: flipable
+            BaseControls.NavigationView {
+                width: parent.width
+                height: parent.height
+                z: 999
+                // pageMode:
+                // items:
+                // footerItems:
+                // topPadding:
+                // displayMode:
+                // logo:
+                // title:
+                // onLogoClicked:
+                // autoSuggestBox:
+                Component.onCompleted: {
+                    console.log('TODO: Implement NavigationView.qml Component.onCompleted');
+                }
             }
         }
+        back: Item {}
+
+        property bool flipped: false
+        property real flipAngle: 0
     }
 
     SystemTrayIcon {
