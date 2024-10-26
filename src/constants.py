@@ -35,6 +35,7 @@ class AppTheme(QObject):
         self._background_color = QColor(0, 0, 0) if is_dark else QColor(255, 255, 255)
         self._divider_color = QColor(80, 80, 80) if is_dark else QColor(210, 210, 210)
         self._window_background_color = QColor(32, 32, 32) if is_dark else QColor(237, 237, 237)
+        self._window_active_background_color = QColor(26, 26, 26) if is_dark else QColor(243, 243, 243)
         self._font_primary_color = QColor(248, 248, 248) if is_dark else QColor(7, 7, 7)
         self._item_hover_color = QColor(255, 255, 255, 15) if is_dark else QColor(0, 0, 0, 8)
         # Connect signals
@@ -63,6 +64,14 @@ class AppTheme(QObject):
     @Property(QColor, constant=True)
     def font_primary_color(self) -> QColor:
         return self._font_primary_color
+
+    @Property(QColor, constant=True)
+    def window_background_color(self) -> QColor:
+        return self._window_background_color
+
+    @Property(QColor, constant=True)
+    def window_active_background_color(self) -> QColor:
+        return self._window_active_background_color
 
 
 class AppFont(QObject):

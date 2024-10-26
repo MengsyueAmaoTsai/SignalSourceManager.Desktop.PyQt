@@ -13,6 +13,8 @@
         <file>src/controls/base/Window.qml</file>
         <file>src/controls/base/ContentDialog.qml</file>
 
+        <file>src/controls/base/ComponentLoader.qml</file>
+
         <!-- Images -->
         <file>static/images/favicon.ico</file>
     
