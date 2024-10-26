@@ -36,6 +36,6 @@ format = { chain = ["format:ruff", "format:qml"] }
 "format:qml" = "pyside6-qmlformat"
 
 # Gallery scripts
-"dev:gallery" = { chain = ["build:gallery", "python ./gallery/main.py -e Development"] }
+gallery = { chain = ["build:gallery", "python ./gallery/main.py"] }
 "build:gallery" = { chain = ["build:qrc:gallery"] }
 "build:qrc:gallery" = "pyside6-rcc gallery.resources.qrc -o ./gallery/resources_rc.py"
