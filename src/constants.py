@@ -28,16 +28,25 @@ class AppTheme(QObject):
         self._mutex = Lock()
 
         QGuiApplication.instance().installEventFilter(self)
-
         is_dark = self._theme is Themes.Dark
-
         self._primary_color = self._accent_color.lighter() if is_dark else self._accent_color.darker()
         self._background_color = QColor(0, 0, 0) if is_dark else QColor(255, 255, 255)
         self._divider_color = QColor(80, 80, 80) if is_dark else QColor(210, 210, 210)
+
         self._window_background_color = QColor(32, 32, 32) if is_dark else QColor(237, 237, 237)
         self._window_active_background_color = QColor(26, 26, 26) if is_dark else QColor(243, 243, 243)
+
         self._font_primary_color = QColor(248, 248, 248) if is_dark else QColor(7, 7, 7)
+        self._font_secondary_color = QColor(222, 222, 222) if is_dark else QColor(102, 102, 102)
+        self._font_tertiary_color = QColor(200, 200, 200) if is_dark else QColor(153, 153, 153)
+
+        self._item_normal_color = QColor(255, 255, 255, 0) if is_dark else QColor(0, 0, 0, 0)
         self._item_hover_color = QColor(255, 255, 255, 15) if is_dark else QColor(0, 0, 0, 8)
+        self._item_press_color = QColor(255, 255, 255, 23) if is_dark else QColor(0, 0, 0, 15)
+        self._item_check_color = QColor(255, 255, 255, 31) if is_dark else QColor(0, 0, 0, 23)
+
+        self._frame_color = QColor(56, 56, 56, 204) if is_dark else QColor(243, 243, 243, 204)
+        self._frame_active_color = QColor(48, 48, 48, 204) if is_dark else QColor(255, 255, 255, 204)
         # Connect signals
 
         # Timer
@@ -61,9 +70,17 @@ class AppTheme(QObject):
     def render_native_text(self) -> bool:
         return self._render_native_text
 
-    @Property(QColor, constant=True)
-    def font_primary_color(self) -> QColor:
-        return self._font_primary_color
+    @Property(bool, constant=True)
+    def primary_color(self) -> QColor:
+        return self._primary_color
+
+    @Property(bool, constant=True)
+    def background_color(self) -> QColor:
+        return self._background_color
+
+    @Property(bool, constant=True)
+    def divider_color(self) -> QColor:
+        return self._divider_color
 
     @Property(QColor, constant=True)
     def window_background_color(self) -> QColor:
@@ -72,6 +89,42 @@ class AppTheme(QObject):
     @Property(QColor, constant=True)
     def window_active_background_color(self) -> QColor:
         return self._window_active_background_color
+
+    @Property(QColor, constant=True)
+    def font_primary_color(self) -> QColor:
+        return self._font_primary_color
+
+    @Property(QColor, constant=True)
+    def font_secondary_color(self) -> QColor:
+        return self._font_secondary_color
+
+    @Property(QColor, constant=True)
+    def font_tertiary_color(self) -> QColor:
+        return self._font_tertiary_color
+
+    @Property(QColor, constant=True)
+    def item_normal_color(self) -> QColor:
+        return self._item_normal_color
+
+    @Property(QColor, constant=True)
+    def item_hover_color(self) -> QColor:
+        return self._item_hover_color
+
+    @Property(QColor, constant=True)
+    def item_press_color(self) -> QColor:
+        return self._item_press_color
+
+    @Property(QColor, constant=True)
+    def item_check_color(self) -> QColor:
+        return self._item_check_color
+
+    @Property(QColor, constant=True)
+    def frame_color(self) -> QColor:
+        return self._frame_color
+
+    @Property(QColor, constant=True)
+    def frame_active_color(self) -> QColor:
+        return self._frame_active_color
 
 
 class AppFont(QObject):
