@@ -451,7 +451,7 @@ thubLink.text)\x0d\x0a\
             }\x0d\x0a \
        }\x0d\x0a    }\x0d\
 \x0a}\x0d\x0a\
-\x00\x00\x0b\xa6\
+\x00\x00\x0c\xea\
 i\
 mport QtQuick\x0d\x0ai\
 mport QtQuick.Wi\
@@ -559,87 +559,107 @@ logo:\x0d\x0a         \
 \x0d\x0a              \
   // onLogoClick\
 ed:\x0d\x0a           \
-     // autoSugg\
-estBox:\x0d\x0a       \
-         Compone\
-nt.onCompleted: \
-{\x0d\x0a             \
-       console.l\
-og('TODO: Implem\
-ent NavigationVi\
-ew.qml Component\
-.onCompleted');\x0d\
-\x0a               \
- }\x0d\x0a            \
-}\x0d\x0a        }\x0d\x0a  \
-      back: Item\
- {}\x0d\x0a\x0d\x0a        p\
-roperty bool fli\
-pped: false\x0d\x0a   \
-     property re\
-al flipAngle: 0\x0d\
-\x0a    }\x0d\x0a\x0d\x0a    Sy\
-stemTrayIcon {\x0d\x0a\
-        id: tray\
-Icon\x0d\x0a        vi\
-sible: true\x0d\x0a   \
-     icon.source\
-: 'qrc:/static/i\
-mages/favicon.ic\
-o'\x0d\x0a        tool\
-tip: 'QML Contro\
-l Gallery'\x0d\x0a    \
-    menu: Menu {\
-\x0d\x0a            Me\
-nuItem {\x0d\x0a      \
-          text: \
-'Quit'\x0d\x0a        \
-        onTrigge\
-red: {\x0d\x0a        \
-            Base\
-Controls.WindowM\
-anager.closeAllW\
-indows();\x0d\x0a     \
-               B\
-aseControls.Wind\
-owManager.quit()\
-;\x0d\x0a             \
-   }\x0d\x0a          \
-  }\x0d\x0a        }\x0d\x0a\
-        onActiva\
-ted: reason => {\
-\x0d\x0a            if\
- (reason === Sys\
-temTrayIcon.Trig\
-ger) {\x0d\x0a        \
-        window.s\
-how();\x0d\x0a        \
-        window.r\
-aise();\x0d\x0a       \
-         window.\
-requestActivate(\
-);\x0d\x0a            \
-}\x0d\x0a        }\x0d\x0a  \
-  }\x0d\x0a\x0d\x0a    Compo\
+     autoSuggest\
+Box: BaseControl\
+s.AutoSuggestBox\
+ {\x0d\x0a            \
+        placehol\
+der: 'Search'\x0d\x0a \
+                \
+   // iconSource\
+: FluentIcons.Se\
+arch\x0d\x0a          \
+          // ite\
+ms: ItemsOrigina\
+l.getSearchData(\
+)\x0d\x0a             \
+       // onItem\
+Clicked: console\
+.log('TODO: Impl\
+ement Navigation\
+View.qml autoSug\
+gestBox.onItemCl\
+icked');\x0d\x0a      \
+          }\x0d\x0a   \
+             Com\
+ponent.onComplet\
+ed: {\x0d\x0a         \
+           conso\
+le.log('TODO: Im\
+plement Navigati\
+onView.qml Compo\
 nent.onCompleted\
-: {\x0d\x0a        con\
-sole.log('TODO: \
-Implement check \
-update on startu\
-p');\x0d\x0a        //\
- QmlEventBus.reg\
-isterEvent(check\
-UpdateEvent);\x0d\x0a \
-   }\x0d\x0a\x0d\x0a    Comp\
-onent.onDestruct\
-ion: {\x0d\x0a        \
+');\x0d\x0a           \
+     }\x0d\x0a        \
+    }\x0d\x0a        }\
+\x0d\x0a        back: \
+Item {}\x0d\x0a\x0d\x0a     \
+   property bool\
+ flipped: false\x0d\
+\x0a        propert\
+y real flipAngle\
+: 0\x0d\x0a    }\x0d\x0a\x0d\x0a  \
+  SystemTrayIcon\
+ {\x0d\x0a        id: \
+trayIcon\x0d\x0a      \
+  visible: true\x0d\
+\x0a        icon.so\
+urce: 'qrc:/stat\
+ic/images/favico\
+n.ico'\x0d\x0a        \
+tooltip: 'QML Co\
+ntrol Gallery'\x0d\x0a\
+        menu: Me\
+nu {\x0d\x0a          \
+  MenuItem {\x0d\x0a  \
+              te\
+xt: 'Quit'\x0d\x0a    \
+            onTr\
+iggered: {\x0d\x0a    \
+                \
 BaseControls.Win\
 dowManager.close\
 AllWindows();\x0d\x0a \
-       BaseContr\
-ols.WindowManage\
-r.quit();\x0d\x0a    }\
-\x0d\x0a}\x0d\x0a\
+                \
+   BaseControls.\
+WindowManager.qu\
+it();\x0d\x0a         \
+       }\x0d\x0a      \
+      }\x0d\x0a       \
+ }\x0d\x0a        onAc\
+tivated: reason \
+=> {\x0d\x0a          \
+  if (reason ===\
+ SystemTrayIcon.\
+Trigger) {\x0d\x0a    \
+            wind\
+ow.show();\x0d\x0a    \
+            wind\
+ow.raise();\x0d\x0a   \
+             win\
+dow.requestActiv\
+ate();\x0d\x0a        \
+    }\x0d\x0a        }\
+\x0d\x0a    }\x0d\x0a\x0d\x0a    C\
+omponent.onCompl\
+eted: {\x0d\x0a       \
+ console.log('TO\
+DO: Implement ch\
+eck update on st\
+artup');\x0d\x0a      \
+  // QmlEventBus\
+.registerEvent(c\
+heckUpdateEvent)\
+;\x0d\x0a    }\x0d\x0a\x0d\x0a    \
+Component.onDest\
+ruction: {\x0d\x0a    \
+    BaseControls\
+.WindowManager.c\
+loseAllWindows()\
+;\x0d\x0a        BaseC\
+ontrols.WindowMa\
+nager.quit();\x0d\x0a \
+   }\x0d\x0a}\x0d\x0a\
 \x00\x00\x02\x1d\
 i\
 mport QtQuick\x0d\x0ai\
@@ -974,7 +994,7 @@ nReturnPressed: \
 event => console\
 .log('Return pre\
 ssed')\x0d\x0a}\x0d\x0a\
-\x00\x00\x06j\
+\x00\x00\x06\x9e\
 i\
 mport QtQuick\x0d\x0ai\
 mport QtQuick.Wi\
@@ -990,95 +1010,98 @@ r.Desktop.Contro\
 ls.Base as BaseC\
 ontrols\x0d\x0a\x0d\x0aItem \
 {\x0d\x0a    id: contr\
-ol\x0d\x0a\x0d\x0a    Item {\
-\x0d\x0a        width:\
- parent.width\x0d\x0a \
-       height: v\
-isible ? 40 : 0\x0d\
-\x0a        anchors\
+ol\x0d\x0a\x0d\x0a    proper\
+ty Component aut\
+oSuggestBox: und\
+efined\x0d\x0a\x0d\x0a    It\
+em {\x0d\x0a        wi\
+dth: parent.widt\
+h\x0d\x0a        heigh\
+t: visible ? 40 \
+: 0\x0d\x0a        anc\
+hors {\x0d\x0a        \
+    top: parent.\
+top\x0d\x0a           \
+ topMargin: cont\
+rol.topPadding\x0d\x0a\
+        }\x0d\x0a     \
+   z: 999\x0d\x0a     \
+   // visible\x0d\x0a \
+       RowLayout\
  {\x0d\x0a            \
-top: parent.top\x0d\
-\x0a            top\
-Margin: control.\
-topPadding\x0d\x0a    \
-    }\x0d\x0a        z\
-: 999\x0d\x0a        /\
-/ visible\x0d\x0a     \
-   RowLayout {\x0d\x0a\
-            heig\
-ht: parent.heigh\
-t\x0d\x0a            s\
-pacing: 0\x0d\x0a\x0d\x0a   \
+height: parent.h\
+eight\x0d\x0a         \
+   spacing: 0\x0d\x0a\x0d\
+\x0a            Bas\
+eControls.Button\
+ {\x0d\x0a            \
+    id: backButt\
+on\x0d\x0a\x0d\x0a          \
+      onClicked:\
+ {\x0d\x0a            \
+        console.\
+log('TODO: Imple\
+ment NavigationV\
+iew.qml backButt\
+on.onClicked');\x0d\
+\x0a               \
+ }\x0d\x0a            \
+}\x0d\x0a            B\
+aseControls.Butt\
+on {}\x0d\x0a         \
+   Image {}\x0d\x0a   \
          BaseCon\
-trols.Button {\x0d\x0a\
-                \
-id: backButton\x0d\x0a\
-\x0d\x0a              \
-  onClicked: {\x0d\x0a\
-                \
-    console.log(\
-'TODO: Implement\
- NavigationView.\
-qml backButton.o\
-nClicked');\x0d\x0a   \
-             }\x0d\x0a\
-            }\x0d\x0a \
-           BaseC\
-ontrols.Button {\
-}\x0d\x0a            I\
-mage {}\x0d\x0a       \
-     BaseControl\
-s.TextBlock {\x0d\x0a \
-               t\
-ext: 'control.ti\
-tle'\x0d\x0a          \
-      Layout.ali\
-gnment: Qt.Align\
-VCenter\x0d\x0a       \
-         Layout.\
-leftMargin: 12\x0d\x0a\
-                \
-font: AppFont.bo\
-dy\x0d\x0a            \
-}\x0d\x0a        }\x0d\x0a  \
-      Item {\x0d\x0a  \
-          anchor\
-s.right: parent.\
-right\x0d\x0a         \
-   height: paren\
-t.height\x0d\x0a      \
-      // width: \
+trols.TextBlock \
+{\x0d\x0a             \
+   text: 'contro\
+l.title'\x0d\x0a      \
+          Layout\
+.alignment: Qt.A\
+lignVCenter\x0d\x0a   \
+             Lay\
+out.leftMargin: \
+12\x0d\x0a            \
+    font: AppFon\
+t.body\x0d\x0a        \
+    }\x0d\x0a        }\
+\x0d\x0a        Item {\
+\x0d\x0a            an\
+chors.right: par\
+ent.right\x0d\x0a     \
+       height: p\
+arent.height\x0d\x0a  \
+          // wid\
+th: {\x0d\x0a         \
+   //     if(loa\
+der_action.item)\
 {\x0d\x0a            /\
-/     if(loader_\
-action.item){\x0d\x0a \
-           //   \
-      return loa\
-der_action.item.\
-width\x0d\x0a         \
-   //     }\x0d\x0a   \
-         //     \
-return 0\x0d\x0a      \
-      // }\x0d\x0a    \
-        BaseCont\
-rols.ComponentLo\
-ader {\x0d\x0a        \
-        id: acti\
-onLoader\x0d\x0a      \
-          anchor\
-s.centerIn: pare\
-nt\x0d\x0a            \
-    // sourceCom\
-ponent: control.\
-actionWrapper\x0d\x0a \
-           }\x0d\x0a  \
-      }\x0d\x0a    }\x0d\x0a\
-\x0d\x0a    Component.\
-onCompleted: con\
-sole.log('TODO: \
-Implement Naviga\
-tionView.qml Com\
-ponent.onComplet\
-ed')\x0d\x0a}\x0d\x0a\
+/         return\
+ loader_action.i\
+tem.width\x0d\x0a     \
+       //     }\x0d\
+\x0a            // \
+    return 0\x0d\x0a  \
+          // }\x0d\x0a\
+            Base\
+Controls.Compone\
+ntLoader {\x0d\x0a    \
+            id: \
+actionLoader\x0d\x0a  \
+              an\
+chors.centerIn: \
+parent\x0d\x0a        \
+        // sourc\
+eComponent: cont\
+rol.actionWrappe\
+r\x0d\x0a            }\
+\x0d\x0a        }\x0d\x0a   \
+ }\x0d\x0a\x0d\x0a    Compon\
+ent.onCompleted:\
+ console.log('TO\
+DO: Implement Na\
+vigationView.qml\
+ Component.onCom\
+pleted')\x0d\x0a}\x0d\x0a\
 \x00\x00\x05|\
 i\
 mport QtQuick\x0d\x0ai\
@@ -8870,55 +8893,55 @@ qt_resource_struct = b"\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x00\xce\x00\x00\x00\x00\x00\x01\x00\x00\x11\xbe\
 \x00\x00\x01\x92\xca\xe5\xee\x18\
-\x00\x00\x01<\x00\x00\x00\x00\x00\x01\x00\x00&\xaa\
+\x00\x00\x01<\x00\x00\x00\x00\x00\x01\x00\x00'\xee\
 \x00\x00\x01\x92\xca\xf1A\xc3\
 \x00\x00\x00\xf6\x00\x00\x00\x00\x00\x01\x00\x00\x13W\
 \x00\x00\x01\x92\xca\xc9\x03{\
-\x00\x00\x01^\x00\x00\x00\x00\x00\x01\x00\x00(\xcb\
+\x00\x00\x01^\x00\x00\x00\x00\x00\x01\x00\x00*\x0f\
 \x00\x00\x01\x92\xca\xeey\xcb\
 \x00\x00\x00\xaa\x00\x00\x00\x00\x00\x01\x00\x00\x0b\x18\
 \x00\x00\x01\x92\xca\xed\x8a\xe3\
-\x00\x00\x01\x94\x00\x00\x00\x00\x00\x01\x00\x00)\xdc\
+\x00\x00\x01\x94\x00\x00\x00\x00\x00\x01\x00\x00+ \
 \x00\x00\x01\x92\xca\xeey\xcb\
 \x00\x00\x01\x1a\x00\x00\x00\x00\x00\x01\x00\x00\x1b\x00\
-\x00\x00\x01\x92\xcb7\xc2\x9d\
+\x00\x00\x01\x92\xcb9\xdb\x89\
 \x00\x00\x00Z\x00\x00\x00\x00\x00\x01\x00\x00\x04\x04\
 \x00\x00\x01\x92\xca\xeey\xcb\
 \x00\x00\x00\x84\x00\x00\x00\x00\x00\x01\x00\x00\x05\x15\
 \x00\x00\x01\x92\xca\xd4-\xf2\
 \x00\x00\x03\x9a\x00\x02\x00\x00\x00\x01\x00\x00\x00\x10\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x03\xac\x00\x00\x00\x00\x00\x01\x00\x00L\x10\
+\x00\x00\x03\xac\x00\x00\x00\x00\x00\x01\x00\x00M\x88\
 \x00\x00\x01\x92\x8a\x06\x13%\
 \x00\x00\x01\xc2\x00\x02\x00\x00\x00\x01\x00\x00\x00\x12\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x01\xd8\x00\x02\x00\x00\x00\x0d\x00\x00\x00\x13\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x02~\x00\x00\x00\x00\x00\x01\x00\x00.\xd2\
+\x00\x00\x02~\x00\x00\x00\x00\x00\x01\x00\x000\x16\
 \x00\x00\x01\x92\xc8Hp\xb7\
-\x00\x00\x03r\x00\x01\x00\x00\x00\x01\x00\x00H\x14\
+\x00\x00\x03r\x00\x01\x00\x00\x00\x01\x00\x00I\x8c\
 \x00\x00\x01\x92\xcb\x1aS\xfa\
-\x00\x00\x01\xe6\x00\x00\x00\x00\x00\x01\x00\x00*\xed\
+\x00\x00\x01\xe6\x00\x00\x00\x00\x00\x01\x00\x00,1\
 \x00\x00\x01\x92\xc8+\xc6\x8f\
-\x00\x00\x02\xf8\x00\x00\x00\x00\x00\x01\x00\x001\xd5\
+\x00\x00\x02\xf8\x00\x00\x00\x00\x00\x01\x00\x003\x19\
 \x00\x00\x01\x92\xca\xdf\x18/\
-\x00\x00\x026\x00\x00\x00\x00\x00\x01\x00\x00,\xf2\
+\x00\x00\x026\x00\x00\x00\x00\x00\x01\x00\x00.6\
 \x00\x00\x01\x92\xc5\x81\x8e\x1e\
-\x00\x00\x02^\x00\x00\x00\x00\x00\x01\x00\x00-\x80\
+\x00\x00\x02^\x00\x00\x00\x00\x00\x01\x00\x00.\xc4\
 \x00\x00\x01\x92\xc8u\x1c\x13\
-\x00\x00\x03\x14\x00\x00\x00\x00\x00\x01\x00\x009\xf5\
-\x00\x00\x01\x92\xcb2\xe3\xe6\
-\x00\x00\x03>\x00\x00\x00\x00\x00\x01\x00\x00@c\
+\x00\x00\x03\x14\x00\x00\x00\x00\x00\x01\x00\x00;9\
+\x00\x00\x01\x92\xcb8\xb5/\
+\x00\x00\x03>\x00\x00\x00\x00\x00\x01\x00\x00A\xdb\
 \x00\x00\x01\x92\xc8+\x8e{\
-\x00\x00\x03X\x00\x00\x00\x00\x00\x01\x00\x00E\xe3\
+\x00\x00\x03X\x00\x00\x00\x00\x00\x01\x00\x00G[\
 \x00\x00\x01\x92\xc8H\x22\xd4\
-\x00\x00\x02\x9e\x00\x00\x00\x00\x00\x01\x00\x00/\xd7\
+\x00\x00\x02\x9e\x00\x00\x00\x00\x00\x01\x00\x001\x1b\
 \x00\x00\x01\x92\xcb\x17\xee\xc5\
-\x00\x00\x02\x0a\x00\x00\x00\x00\x00\x01\x00\x00,\x95\
+\x00\x00\x02\x0a\x00\x00\x00\x00\x00\x01\x00\x00-\xd9\
 \x00\x00\x01\x92\xc7\xeb\x0d`\
-\x00\x00\x02\xe2\x00\x00\x00\x00\x00\x01\x00\x001X\
+\x00\x00\x02\xe2\x00\x00\x00\x00\x00\x01\x00\x002\x9c\
 \x00\x00\x01\x92\xcb K\xa1\
-\x00\x00\x02\xb8\x00\x00\x00\x00\x00\x01\x00\x000T\
+\x00\x00\x02\xb8\x00\x00\x00\x00\x00\x01\x00\x001\x98\
 \x00\x00\x01\x92\xca\xe3\x07\xfa\
 "
 

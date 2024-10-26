@@ -9,6 +9,8 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 Item {
     id: control
 
+    property Component autoSuggestBox: undefined
+
     Item {
         width: parent.width
         height: visible ? 40 : 0

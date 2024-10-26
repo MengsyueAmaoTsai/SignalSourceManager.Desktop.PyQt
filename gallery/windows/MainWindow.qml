@@ -62,7 +62,12 @@ BaseControls.Window {
                 // logo:
                 // title:
                 // onLogoClicked:
-                // autoSuggestBox:
+                autoSuggestBox: BaseControls.AutoSuggestBox {
+                    placeholder: 'Search'
+                    // iconSource: FluentIcons.Search
+                    // items: ItemsOriginal.getSearchData()
+                    // onItemClicked: console.log('TODO: Implement NavigationView.qml autoSuggestBox.onItemClicked');
+                }
                 Component.onCompleted: {
                     console.log('TODO: Implement NavigationView.qml Component.onCompleted');
                 }
