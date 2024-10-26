@@ -13,8 +13,9 @@ Item {
             '/': 'qrc:/gallery/windows/MainWindow.qml',
             '/about': 'qrc:/gallery/windows/AboutWindow.qml',
             '/sign-in': 'qrc:/gallery/windows/SignInWindow.qml',
-            '/hotload': 'qrc:/gallery/windows/HotloadWindow.qml'
+            '/hotload': 'qrc:/gallery/windows/HotloadWindow.qml',
+            '/crash': 'qrc:/gallery/windows/CrashWindow.qml'
         };
-        BaseControls.WindowManager.navigateTo('/hotload');
+        BaseControls.WindowManager.navigateTo('/crash');
     }
 }
