@@ -39,7 +39,18 @@ BaseControls.Window {
             text: 'Sign in'
             Layout.alignment: Qt.AlignHCenter
             Layout.topMargin: 20
-            onClicked: {}
+            onClicked: {
+                if (passwordTextBox.text === '') {
+                    // showError('Password is required');
+                    return;
+                }
+
+                // onResult({
+                //     password: passwordTextBox.text
+                // });
+
+                window.close();
+            }
         }
     }
 
