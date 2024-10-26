@@ -448,86 +448,152 @@ olor textColor: \
 AppTheme.font_pr\
 imary_color\x0d\x0a}\x0d\x0a\
 \
-\x00\x00\x00\x9f\
+\x00\x00\x00\xba\
 i\
 mport QtQuick\x0d\x0ai\
 mport QtQuick.Co\
-ntrols\x0d\x0a\x0d\x0aTextFi\
-eld {\x0d\x0a    id: c\
-ontrol\x0d\x0a\x0d\x0a    pl\
-aceholderText: c\
-ontrol.placehold\
-er\x0d\x0a\x0d\x0a    proper\
-ty string placeh\
-older: ''\x0d\x0a}\x0d\x0a\
-\x00\x00\x04\x1f\
+ntrols\x0d\x0a\x0d\x0aimport\
+ RichillCapital.\
+SignalSourceMana\
+ger.Desktop.Cont\
+rols.Base as Bas\
+eControls\x0d\x0a\x0d\x0aBas\
+eControls.TextBo\
+x {\x0d\x0a    id: con\
+trol\x0d\x0a\x0d\x0a    Popu\
+p {}\x0d\x0a}\x0d\x0a\
+\x00\x00\x08\x1c\
 i\
 mport QtQuick\x0d\x0ai\
 mport QtQuick.Co\
 ntrols\x0d\x0aimport Q\
 tQuick.Layouts\x0d\x0a\
-\x0d\x0aTextField {\x0d\x0a \
-   id: control\x0d\x0a\
-\x0d\x0a    width: 240\
-\x0d\x0a    padding: 7\
-\x0d\x0a    leftPaddin\
-g: padding + 4\x0d\x0a\
-    placeholderT\
-ext: control.pla\
-ceholder\x0d\x0a    fo\
-nt: AppFont.body\
-\x0d\x0a    renderType\
-: AppTheme.rende\
-r_native_text ? \
-Text.NativeRende\
-ring : Text.QtRe\
-ndering\x0d\x0a    sel\
-ectByMouse: true\
-\x0d\x0a    // color:\x0d\
-\x0a    // enabled:\
-\x0d\x0a    // selecti\
-onColor:\x0d\x0a    //\
- selectedTextCol\
-or:\x0d\x0a    // plac\
-eholderTextColor\
-:\x0d\x0a    // rightP\
-adding:\x0d\x0a    // \
-background:\x0d\x0a   \
- property string\
- placeholder: ''\
-\x0d\x0a\x0d\x0a    RowLayou\
-t {\x0d\x0a        hei\
-ght: parent.heig\
-ht\x0d\x0a        anch\
-ors {\x0d\x0a         \
-   right: parent\
-.right\x0d\x0a        \
-    rightMargin:\
- 5\x0d\x0a        }\x0d\x0a \
-       spacing: \
-4\x0d\x0a    }\x0d\x0a\x0d\x0a    \
-MouseArea {\x0d\x0a   \
-     anchors.fil\
-l: parent\x0d\x0a     \
-   cursorShape: \
-Qt.IBeamCursor\x0d\x0a\
-        accepted\
-Buttons: Qt.Righ\
-tButton\x0d\x0a       \
- onClicked: {\x0d\x0a \
-           conso\
-le.log('TextBox \
-mouse area click\
-ed');\x0d\x0a        }\
-\x0d\x0a    }\x0d\x0a    Key\
-s.onEnterPressed\
-: event => conso\
-le.log('Enter pr\
-essed')\x0d\x0a    Key\
-s.onReturnPresse\
-d: event => cons\
-ole.log('Return \
-pressed')\x0d\x0a}\x0d\x0a\
+\x0d\x0aimport Richill\
+Capital.SignalSo\
+urceManager.Desk\
+top.Controls.Bas\
+e as BaseControl\
+s\x0d\x0a\x0d\x0aTextField {\
+\x0d\x0a    id: contro\
+l\x0d\x0a\x0d\x0a    width: \
+240\x0d\x0a    padding\
+: 7\x0d\x0a    leftPad\
+ding: padding + \
+4\x0d\x0a    placehold\
+erText: control.\
+placeholder\x0d\x0a   \
+ font: AppFont.b\
+ody\x0d\x0a    renderT\
+ype: AppTheme.re\
+nder_native_text\
+ ? Text.NativeRe\
+ndering : Text.Q\
+tRendering\x0d\x0a    \
+selectByMouse: t\
+rue\x0d\x0a    // colo\
+r:\x0d\x0a    // enabl\
+ed:\x0d\x0a    // sele\
+ctionColor:\x0d\x0a   \
+ // selectedText\
+Color:\x0d\x0a    // p\
+laceholderTextCo\
+lor:\x0d\x0a    // rig\
+htPadding:\x0d\x0a    \
+// background:\x0d\x0a\
+    property str\
+ing placeholder:\
+ ''\x0d\x0a\x0d\x0a    RowLa\
+yout {\x0d\x0a        \
+height: parent.h\
+eight\x0d\x0a        a\
+nchors {\x0d\x0a      \
+      right: par\
+ent.right\x0d\x0a     \
+       rightMarg\
+in: 5\x0d\x0a        }\
+\x0d\x0a        spacin\
+g: 4\x0d\x0a\x0d\x0a        \
+BaseControls.But\
+ton {\x0d\x0a         \
+   // iconSource\
+: FluentIcons.Ca\
+ncel\x0d\x0a          \
+  // iconSize: 1\
+2\x0d\x0a            /\
+/ iconColor: App\
+Theme.theme === \
+'Dark' ? Qt.rgba\
+(222/255,222/255\
+,222/255,1) : Qt\
+.rgba(97/255,97/\
+255,97/255,1)\x0d\x0a \
+           // ve\
+rticalPadding: 0\
+\x0d\x0a            //\
+ horizontalPaddi\
+ng: 0\x0d\x0a         \
+   // visible:\x0d\x0a\
+            // d\
+escription: 'Cle\
+an'\x0d\x0a           \
+ Layout.preferre\
+dWidth: 30\x0d\x0a    \
+        Layout.p\
+referredHeight: \
+20\x0d\x0a            \
+Layout.alignment\
+: Qt.AlignVCente\
+r\x0d\x0a            o\
+nClicked: consol\
+e.log('Clear but\
+ton clicked')\x0d\x0a \
+       }\x0d\x0a\x0d\x0a    \
+    // This cont\
+rol will be repl\
+ace by a FluentI\
+con\x0d\x0a        Ite\
+m {\x0d\x0a           \
+ // iconSource:\x0d\
+\x0a            // \
+iconSize: 12\x0d\x0a  \
+          // ico\
+nColor: AppTheme\
+.theme === 'Dark\
+' ? Qt.rgba(222/\
+255,222/255,222/\
+255,1) : Qt.rgba\
+(97/255,97/255,9\
+7/255,1)\x0d\x0a      \
+      // visible\
+:\x0d\x0a            L\
+ayout.alignment:\
+ Qt.AlignVCenter\
+\x0d\x0a            La\
+yout.rightMargin\
+: 7\x0d\x0a        }\x0d\x0a\
+    }\x0d\x0a\x0d\x0a    Mou\
+seArea {\x0d\x0a      \
+  anchors.fill: \
+parent\x0d\x0a        \
+cursorShape: Qt.\
+IBeamCursor\x0d\x0a   \
+     acceptedBut\
+tons: Qt.RightBu\
+tton\x0d\x0a        on\
+Clicked: {\x0d\x0a    \
+        console.\
+log('TextBox mou\
+se area clicked'\
+);\x0d\x0a        }\x0d\x0a \
+   }\x0d\x0a    Keys.o\
+nEnterPressed: e\
+vent => console.\
+log('Enter press\
+ed')\x0d\x0a    Keys.o\
+nReturnPressed: \
+event => console\
+.log('Return pre\
+ssed')\x0d\x0a}\x0d\x0a\
 \x00\x00\x01N\
 i\
 mport QtQuick\x0d\x0ai\
@@ -8318,7 +8384,7 @@ qt_resource_struct = b"\
 \x00\x00\x01\x92\xca\xd4-\xf2\
 \x00\x00\x02n\x00\x02\x00\x00\x00\x01\x00\x00\x00\x0a\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x02\x80\x00\x00\x00\x00\x00\x01\x00\x00,\x85\
+\x00\x00\x02\x80\x00\x00\x00\x00\x00\x01\x00\x000\x9d\
 \x00\x00\x01\x92\x8a\x06\x13%\
 \x00\x00\x00\xc6\x00\x02\x00\x00\x00\x01\x00\x00\x00\x0c\
 \x00\x00\x00\x00\x00\x00\x00\x00\
@@ -8326,26 +8392,26 @@ qt_resource_struct = b"\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x01\x82\x00\x00\x00\x00\x00\x01\x00\x00\x19[\
 \x00\x00\x01\x92\xc8Hp\xb7\
-\x00\x00\x02F\x00\x01\x00\x00\x00\x01\x00\x00()\
+\x00\x00\x02F\x00\x01\x00\x00\x00\x01\x00\x00,A\
 \x00\x00\x01\x92\xc7\xeb\x0d`\
 \x00\x00\x00\xea\x00\x00\x00\x00\x00\x01\x00\x00\x15v\
 \x00\x00\x01\x92\xc8+\xc6\x8f\
-\x00\x00\x01\xcc\x00\x00\x00\x00\x00\x01\x00\x00\x1b\x03\
-\x00\x00\x01\x92\xca\xdasH\
+\x00\x00\x01\xcc\x00\x00\x00\x00\x00\x01\x00\x00\x1b\x1e\
+\x00\x00\x01\x92\xca\xdf\x18/\
 \x00\x00\x01:\x00\x00\x00\x00\x00\x01\x00\x00\x17{\
 \x00\x00\x01\x92\xc5\x81\x8e\x1e\
 \x00\x00\x01b\x00\x00\x00\x00\x00\x01\x00\x00\x18\x09\
 \x00\x00\x01\x92\xc8u\x1c\x13\
-\x00\x00\x01\xe8\x00\x00\x00\x00\x00\x01\x00\x00\x1f&\
+\x00\x00\x01\xe8\x00\x00\x00\x00\x00\x01\x00\x00#>\
 \x00\x00\x01\x92\xc8\x1b+\x0c\
-\x00\x00\x02\x12\x00\x00\x00\x00\x00\x01\x00\x00 x\
+\x00\x00\x02\x12\x00\x00\x00\x00\x00\x01\x00\x00$\x90\
 \x00\x00\x01\x92\xc8+\x8e{\
-\x00\x00\x02,\x00\x00\x00\x00\x00\x01\x00\x00%\xf8\
+\x00\x00\x02,\x00\x00\x00\x00\x00\x01\x00\x00*\x10\
 \x00\x00\x01\x92\xc8H\x22\xd4\
 \x00\x00\x01\x0e\x00\x00\x00\x00\x00\x01\x00\x00\x17\x1e\
 \x00\x00\x01\x92\xc7\xeb\x0d`\
 \x00\x00\x01\xa2\x00\x00\x00\x00\x00\x01\x00\x00\x1a`\
-\x00\x00\x01\x92\xca\xd2R\x16\
+\x00\x00\x01\x92\xca\xe1U\xb5\
 "
 
 def qInitResources():

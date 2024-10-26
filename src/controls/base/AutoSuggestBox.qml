@@ -1,10 +1,12 @@
 import QtQuick
 import QtQuick.Controls
 
-TextField {
+import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
+
+BaseControls.TextBox {
     id: control
 
-    placeholderText: control.placeholder
+    Popup {}
 
-    property string placeholder: ''
+    Component.onComplated: console.log('AutoSuggestBox is loaded')
 }
