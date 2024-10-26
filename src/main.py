@@ -10,7 +10,7 @@ import resources_rc as resources  # type: ignore # noqa: F401
 from constants import AppFont, AppTheme
 
 
-def add_base_controls(
+def services_add_base_controls(
     module_name: str = "RichillCapital.SignalSourceManager.Desktop.Controls.Base",
     version_major: int = 1,
     version_minor: int = 0,
@@ -31,6 +31,7 @@ def add_base_controls(
         "WindowManager": "qrc:/src/controls/base/WindowManager.qml",
         "Window": "qrc:/src/controls/base/Window.qml",
         "ContentDialog": "qrc:/src/controls/base/ContentDialog.qml",
+        "TableView": "qrc:/src/controls/base/TableView.qml",
         "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
     }
 
@@ -42,6 +43,7 @@ app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
 
 # Register presentation layer services
+services_add_base_controls()
 
 # Register context properties or objects
 theme = AppTheme()

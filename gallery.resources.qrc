@@ -19,7 +19,8 @@
         <file>src/controls/base/Window.qml</file>
         <file>src/controls/base/ContentDialog.qml</file>
 
-        <file>src/controls/base/ComponentLoader.qml</file>
+        <file>src/controls/base/TableView.qml</file>
 
+        <file>src/controls/base/ComponentLoader.qml</file>
     </qresource>
 </RCC>
