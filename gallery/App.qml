@@ -12,8 +12,9 @@ Item {
         BaseControls.WindowManager.routes = {
             '/': 'qrc:/gallery/windows/MainWindow.qml',
             '/about': 'qrc:/gallery/windows/AboutWindow.qml',
-            '/sign-in': 'qrc:/gallery/windows/SignInWindow.qml'
+            '/sign-in': 'qrc:/gallery/windows/SignInWindow.qml',
+            '/hotload': 'qrc:/gallery/windows/HotloadWindow.qml'
         };
-        BaseControls.WindowManager.navigateTo('/sign-in');
+        BaseControls.WindowManager.navigateTo('/hotload');
     }
 }

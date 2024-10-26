@@ -5,6 +5,7 @@
         <file>gallery/windows/MainWindow.qml</file>
         <file>gallery/windows/AboutWindow.qml</file>
         <file>gallery/windows/SignInWindow.qml</file>
+        <file>gallery/windows/HotloadWindow.qml</file>
 
         <file>static/images/favicon.ico</file>
 
