@@ -30,6 +30,7 @@ BASE_CONTROLS = {
     "TableView": "qrc:/src/controls/base/TableView.qml",
     "Menu": "qrc:/src/controls/base/Menu.qml",
     "Object": "qrc:/src/controls/base/Object.qml",
+    "Shadow": "qrc:/src/controls/base/Shadow.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
 }
 BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
