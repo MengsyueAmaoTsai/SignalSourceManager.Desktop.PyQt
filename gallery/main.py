@@ -21,6 +21,8 @@ BASE_CONTROLS = {
     "AppTitleBar": "qrc:/src/controls/base/AppTitleBar.qml",
     "Button": "qrc:/src/controls/base/Button.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
+    "TextBox": "qrc:/src/controls/base/TextBox.qml",
+    "AutoSuggestBox": "qrc:/src/controls/base/AutoSuggestBox.qml",
     "NavigationView": "qrc:/src/controls/base/NavigationView.qml",
     "WindowManager": "qrc:/src/controls/base/WindowManager.qml",
     "Window": "qrc:/src/controls/base/Window.qml",
