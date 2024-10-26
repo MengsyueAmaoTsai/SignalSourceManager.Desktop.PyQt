@@ -11,3 +11,4 @@ wheels/
 
 # QRC generated files
 src/**/*_rc.py
+gallery/**/*_rc.py

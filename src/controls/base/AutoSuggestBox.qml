@@ -8,5 +8,5 @@ BaseControls.TextBox {
 
     Popup {}
 
-    Component.onComplated: console.log('AutoSuggestBox is loaded')
+    Component.onCompleted: console.log('AutoSuggestBox is loaded')
 }
