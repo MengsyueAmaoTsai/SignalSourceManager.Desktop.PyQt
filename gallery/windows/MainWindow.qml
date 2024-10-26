@@ -16,6 +16,58 @@ BaseControls.Window {
     minimumWidth: 668
     minimumHeight: 320
 
+    Flipable {
+        id: flipable
+        anchors.fill: parent
+        transform: Rotation {
+            id: rotation
+            origin.x: flipable.width / 2
+            origin.y: flipable.height / 2
+            axis {
+                x: 0
+                y: 1
+                z: 0
+            }
+            angle: flipable.flipAngle
+        }
+        states: State {
+            PropertyChanges {
+                target: flipable
+                flipAngle: 180
+            }
+            when: flipable.flipped
+        }
+
+        transitions: Transition {
+            NumberAnimation {
+                target: flipable
+                property: "flipAngle"
+                duration: 1000
+                easing.type: Easing.OutCubic
+            }
+        }
+
+        property bool flipped: false
+        property real flipAngle: 0
+
+        BaseControls.NavigationView {
+            // title: ''
+            // logo: 'qrc:/static/images/favicon.ico'
+            width: parent.width
+            height: parent.height
+            z: 999
+            // pageMode:
+            // items:
+            // footerItems
+            // topPadding:
+            // displayMode:
+            // onLogoClicked:
+            Component.onCompleted: {
+                console.log('TODO: MainWindow.NavigationView.Component.onCompleted');
+            }
+        }
+    }
+
     SystemTrayIcon {
         id: trayIcon
         visible: true
@@ -36,19 +88,6 @@ BaseControls.Window {
                 window.raise();
                 window.requestActivate();
             }
-        }
-    }
-
-    Menu {
-        id: menu
-        // width: 130
-        MenuItem {
-            text: 'Open in Separate Window'
-            visible: true
-            // onClicked: BaseControls.WindowManager.navigateTo('/page', {
-            //     title: 'Page',
-            //     url: 'qrc:/gallery/pages/HomePage.qml'
-            // })
         }
     }
 
