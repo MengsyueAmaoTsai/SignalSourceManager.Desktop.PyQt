@@ -7,6 +7,10 @@
         <file>gallery/windows/SignInWindow.qml</file>
         <file>gallery/windows/HotloadWindow.qml</file>
         <file>gallery/windows/CrashWindow.qml</file>
+        <file>gallery/windows/StandardWindow.qml</file>
+        <file>gallery/windows/SingleTaskWindow.qml</file>
+        <file>gallery/windows/SingleInstanceWindow.qml</file>
+        <file>gallery/windows/PageWindow.qml</file>
 
         <file>static/images/favicon.ico</file>
 
