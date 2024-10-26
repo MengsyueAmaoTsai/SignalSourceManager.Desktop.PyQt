@@ -1,8 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 
-import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
-
 ApplicationWindow {
     id: app
 
