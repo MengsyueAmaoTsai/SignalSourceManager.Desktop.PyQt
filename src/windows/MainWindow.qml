@@ -16,13 +16,8 @@ BaseControls.Window {
     minimumWidth: 668
     minimumHeight: 320
 
-    // launchMode:
-    // firstAppTitleBarWindow: true
-    appTitleBar: BaseControls.AppTitleBar {
-        z: 7
-        height: 30
-        showSwitchThemeButton: true
-    }
+    // launchMode: FluWindowType.SingleTask
+    // fitsAppBarWindows: true
 
     Component.onDestruction: {
         BaseControls.WindowManager.closeAllWindows();
