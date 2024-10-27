@@ -26,6 +26,7 @@
         <file>src/controls/base/Clip.qml</file>
         <file>src/controls/base/Acrylic.qml</file>
         
+        <file>src/controls/base/Icon.qml</file>
         <file>src/controls/base/TextBlock.qml</file>
         <file>src/controls/base/Button.qml</file>
         <file>src/controls/base/TextBox.qml</file>
@@ -34,5 +35,8 @@
         <file>src/controls/base/Tooltip.qml</file>
 
         <file>static/images/favicon.ico</file>
+        
+        <!-- Fonts -->
+        <file>static/fonts/FluentIcons.ttf</file>
     </qresource>
 </RCC>

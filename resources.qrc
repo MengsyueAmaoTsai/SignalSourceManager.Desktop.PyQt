@@ -3,6 +3,7 @@
         <file>src/App.qml</file>
 
         <!-- BaseControls -->
+        <file>src/controls/base/Icon.qml</file>
         <file>src/controls/base/TextBlock.qml</file>
         <file>src/controls/base/Button.qml</file>
         <file>src/controls/base/TextBox.qml</file>
@@ -18,5 +19,8 @@
         <file>src/controls/base/Background.qml</file>
         <file>src/controls/base/TextBoxBackground.qml</file>
         <file>src/controls/base/ItemDelegate.qml</file>
+
+        <!-- Fonts -->
+        <file>static/fonts/FluentIcons.ttf</file>
     </qresource>
 </RCC>

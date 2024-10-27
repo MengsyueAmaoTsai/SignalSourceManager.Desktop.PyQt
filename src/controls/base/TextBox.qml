@@ -100,15 +100,15 @@ TextField {
         //         control.clear();
         //     }
         // }
-        // FluIcon {
-        //     id: icon_end
-        //     iconSource: control.iconSource
-        //     iconSize: 12
-        //     Layout.alignment: Qt.AlignVCenter
-        //     Layout.rightMargin: 7
-        //     iconColor: AppTheme.theme === 'Dark' ? Qt.rgba(222 / 255, 222 / 255, 222 / 255, 1) : Qt.rgba(97 / 255, 97 / 255, 97 / 255, 1)
-        //                                visible: control.iconSource != 0
-        // }
+        BaseControls.Icon {
+            id: icon_end
+            iconSource: control.iconSource
+            iconSize: 12
+            Layout.alignment: Qt.AlignVCenter
+            Layout.rightMargin: 7
+            iconColor: AppTheme.theme === 'Dark' ? Qt.rgba(222 / 255, 222 / 255, 222 / 255, 1) : Qt.rgba(97 / 255, 97 / 255, 97 / 255, 1)
+            visible: control.iconSource != 0
+        }
     }
     BaseControls.ComponentLoader {
         id: menu_loader

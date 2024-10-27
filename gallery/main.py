@@ -33,6 +33,7 @@ BASE_CONTROLS = {
     "Frame": "qrc:/src/controls/base/Frame.qml",
     "Clip": "qrc:/src/controls/base/Clip.qml",
     "Acrylic": "qrc:/src/controls/base/Acrylic.qml",
+    "Icon": "qrc:/src/controls/base/Icon.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
     "Button": "qrc:/src/controls/base/Button.qml",
     "TextBox": "qrc:/src/controls/base/TextBox.qml",

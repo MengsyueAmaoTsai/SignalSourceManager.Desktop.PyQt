@@ -28,14 +28,14 @@ T.ComboBox {
         hoverEnabled: control.hoverEnabled
     }
     focusPolicy: Qt.TabFocus
-    // indicator: FluIcon {
-    //     x: control.mirrored ? control.padding : control.width - width - control.padding
-    //     y: control.topPadding + (control.availableHeight - height) / 2
-    //     width: 28
-    //     iconSource: FluentIcons.ChevronDown
-    //     iconSize: 15
-    //     opacity: enabled ? 1 : 0.3
-    // }
+    indicator: BaseControls.Icon {
+        x: control.mirrored ? control.padding : control.width - width - control.padding
+        y: control.topPadding + (control.availableHeight - height) / 2
+        width: 28
+        iconSource: FluentIcons.ChevronDown
+        iconSize: 15
+        opacity: enabled ? 1 : 0.3
+    }
     contentItem: T.TextField {
         id: text_field
         property bool disabled: !control.editable
