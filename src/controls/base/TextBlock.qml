@@ -6,7 +6,7 @@ Text {
 
     renderType: AppTheme.render_native_text ? Text.NativeRendering : Text.QtRendering
     color: textColor
+    font: AppFont.body
 
-    // font:
     property color textColor: AppTheme.font_primary_color
 }
