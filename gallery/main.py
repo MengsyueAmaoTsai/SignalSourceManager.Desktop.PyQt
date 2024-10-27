@@ -28,6 +28,8 @@ BASE_CONTROLS = {
     "Window": "qrc:/src/controls/base/Window.qml",
     "ContentDialog": "qrc:/src/controls/base/ContentDialog.qml",
     "TableView": "qrc:/src/controls/base/TableView.qml",
+    "MenuBar": "qrc:/src/controls/base/MenuBar.qml",
+    "MenuBarItem": "qrc:/src/controls/base/MenuBarItem.qml",
     "Menu": "qrc:/src/controls/base/Menu.qml",
     "Object": "qrc:/src/controls/base/Object.qml",
     "Shadow": "qrc:/src/controls/base/Shadow.qml",

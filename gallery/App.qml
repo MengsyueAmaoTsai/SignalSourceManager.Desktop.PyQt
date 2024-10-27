@@ -20,6 +20,6 @@ Item {
             '/single-instance': 'qrc:/gallery/windows/SingleInstanceWindow.qml',
             '/page': 'qrc:/gallery/windows/PageWindow.qml'
         };
-        BaseControls.WindowManager.navigateTo('/');
+        BaseControls.WindowManager.navigateTo('/standard');
     }
 }

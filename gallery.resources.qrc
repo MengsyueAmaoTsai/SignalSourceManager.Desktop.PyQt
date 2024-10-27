@@ -31,6 +31,8 @@
 
         <file>src/controls/base/TableView.qml</file>
 
+        <file>src/controls/base/MenuBar.qml</file>
+        <file>src/controls/base/MenuBarItem.qml</file>
         <file>src/controls/base/Menu.qml</file>
         
         <file>src/controls/base/Object.qml</file>
