@@ -43,6 +43,10 @@
 
         <!-- Images -->
         <file>static/images/favicon.ico</file>
+        <file>static/images/noise.png</file>
+        
+        <file>gallery/assets/images/qrcode_wx.jpg</file>
+        <file>gallery/assets/images/qrcode_zfb.jpg</file>
         
         <!-- Fonts -->
         <file>static/fonts/FluentIcons.ttf</file>
