@@ -22,9 +22,9 @@ Item {
             //     '/standard': 'qrc:/gallery/windows/StandardWindow.qml',
             '/single-task': 'qrc:/gallery/windows/SingleTaskWindow.qml',
             '/single-instance': 'qrc:/gallery/windows/SingleInstanceWindow.qml',
-            //     '/page': 'qrc:/gallery/windows/PageWindow.qml',
+            '/page': 'qrc:/gallery/windows/PageWindow.qml'
             //     '/controls': 'qrc:/gallery/windows/ControlsWindow.qml'
         };
-        BaseControls.WindowManager.navigateTo('/crash');
+        BaseControls.WindowManager.navigateTo('/page');
     }
 }
