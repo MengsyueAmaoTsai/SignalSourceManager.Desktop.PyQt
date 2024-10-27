@@ -3,6 +3,7 @@
         <file>gallery/App.qml</file>
         
         <!-- Windows -->
+        <file>gallery/windows/MainWindow.qml</file>
         <file>gallery/windows/AboutWindow.qml</file>
         <file>gallery/windows/SingleTaskWindow.qml</file>
         <file>gallery/windows/SingleInstanceWindow.qml</file>
