@@ -6,7 +6,7 @@
 from PySide6 import QtCore
 
 qt_resource_data = b"\
-\x00\x00\x05n\
+\x00\x00\x051\
 i\
 mport QtQuick\x0d\x0ai\
 mport QtQuick.Co\
@@ -23,78 +23,123 @@ Window {\x0d\x0a    id\
 le: true\x0d\x0a\x0d\x0a    \
 RowLayout {\x0d\x0a   \
      BaseControl\
-s.TextBlock {\x0d\x0a \
-           id: f\
-luentTextBlock\x0d\x0a\
-            text\
-: 'Text block'\x0d\x0a\
-        }\x0d\x0a\x0d\x0a   \
-     Text {\x0d\x0a   \
-         text: '\
-Qt Text'\x0d\x0a      \
-  }\x0d\x0a    }\x0d\x0a\x0d\x0a  \
-  Component.onCo\
-mpleted: {\x0d\x0a    \
-    console.log(\
-'Theme:', AppThe\
-me.theme);\x0d\x0a    \
-    console.log(\
-'Render native t\
-ext:', AppTheme.\
-render_native_te\
-xt);\x0d\x0a        //\
- BaseControls.Wi\
-ndowManager.rout\
-es = {\x0d\x0a        \
-//     '/': 'qrc\
-:/gallery/window\
-s/MainWindow.qml\
-',\x0d\x0a        //  \
-   '/about': 'qr\
-c:/gallery/windo\
-ws/AboutWindow.q\
-ml',\x0d\x0a        //\
-     '/sign-in':\
- 'qrc:/gallery/w\
-indows/SignInWin\
-dow.qml',\x0d\x0a     \
-   //     '/hotl\
-oad': 'qrc:/gall\
-ery/windows/Hotl\
-oadWindow.qml',\x0d\
-\x0a        //     \
-'/crash': 'qrc:/\
-gallery/windows/\
-CrashWindow.qml'\
-,\x0d\x0a        //   \
-  '/standard': '\
+s.Tooltip {\x0d\x0a   \
+         visible\
+: true\x0d\x0a        \
+    text: 'Hello\
+, tool tip'\x0d\x0a   \
+     }\x0d\x0a    }\x0d\x0a\x0d\
+\x0a    Component.o\
+nCompleted: {\x0d\x0a \
+       console.l\
+og('Theme:', App\
+Theme.theme);\x0d\x0a \
+       console.l\
+og('Render nativ\
+e text:', AppThe\
+me.render_native\
+_text);\x0d\x0a       \
+ // BaseControls\
+.WindowManager.r\
+outes = {\x0d\x0a     \
+   //     '/': '\
 qrc:/gallery/win\
-dows/StandardWin\
+dows/MainWindow.\
+qml',\x0d\x0a        /\
+/     '/about': \
+'qrc:/gallery/wi\
+ndows/AboutWindo\
+w.qml',\x0d\x0a       \
+ //     '/sign-i\
+n': 'qrc:/galler\
+y/windows/SignIn\
+Window.qml',\x0d\x0a  \
+      //     '/h\
+otload': 'qrc:/g\
+allery/windows/H\
+otloadWindow.qml\
+',\x0d\x0a        //  \
+   '/crash': 'qr\
+c:/gallery/windo\
+ws/CrashWindow.q\
+ml',\x0d\x0a        //\
+     '/standard'\
+: 'qrc:/gallery/\
+windows/Standard\
+Window.qml',\x0d\x0a  \
+      //     '/s\
+ingle-task': 'qr\
+c:/gallery/windo\
+ws/SingleTaskWin\
 dow.qml',\x0d\x0a     \
    //     '/sing\
-le-task': 'qrc:/\
-gallery/windows/\
-SingleTaskWindow\
-.qml',\x0d\x0a        \
-//     '/single-\
-instance': 'qrc:\
-/gallery/windows\
-/SingleInstanceW\
-indow.qml',\x0d\x0a   \
-     //     '/pa\
-ge': 'qrc:/galle\
-ry/windows/PageW\
-indow.qml',\x0d\x0a   \
-     //     '/co\
-ntrols': 'qrc:/g\
-allery/windows/C\
-ontrolsWindow.qm\
-l'\x0d\x0a        // }\
-;\x0d\x0a        // Ba\
-seControls.Windo\
-wManager.navigat\
-eTo('/controls')\
-;\x0d\x0a    }\x0d\x0a}\x0d\x0a\
+le-instance': 'q\
+rc:/gallery/wind\
+ows/SingleInstan\
+ceWindow.qml',\x0d\x0a\
+        //     '\
+/page': 'qrc:/ga\
+llery/windows/Pa\
+geWindow.qml',\x0d\x0a\
+        //     '\
+/controls': 'qrc\
+:/gallery/window\
+s/ControlsWindow\
+.qml'\x0d\x0a        /\
+/ };\x0d\x0a        //\
+ BaseControls.Wi\
+ndowManager.navi\
+gateTo('/control\
+s');\x0d\x0a    }\x0d\x0a}\x0d\x0a\
+\
+\x00\x00\x02R\
+i\
+mport QtQuick\x0d\x0ai\
+mport QtQuick.Co\
+ntrols\x0d\x0a\x0d\x0aItem {\
+\x0d\x0a    id: contro\
+l\x0d\x0a\x0d\x0a    anchors\
+.fill: parent\x0d\x0a\x0d\
+\x0a    property co\
+lor color: AppTh\
+eme.theme === 'D\
+ark' ? \x22#000000\x22\
+ : \x22#999999\x22\x0d\x0a  \
+  property int e\
+levation: 5\x0d\x0a   \
+ property int ra\
+dius: 4\x0d\x0a\x0d\x0a    R\
+epeater {\x0d\x0a     \
+   model: elevat\
+ion\x0d\x0a        Rec\
+tangle {\x0d\x0a      \
+      anchors.fi\
+ll: parent\x0d\x0a    \
+        color: \x22\
+#00000000\x22\x0d\x0a    \
+        opacity:\
+ 0.01 * (elevati\
+on - index + 1)\x0d\
+\x0a            anc\
+hors.margins: -i\
+ndex\x0d\x0a          \
+  radius: contro\
+l.radius + index\
+\x0d\x0a            bo\
+rder.width: inde\
+x\x0d\x0a            b\
+order.color: con\
+trol.color\x0d\x0a    \
+    }\x0d\x0a    }\x0d\x0a}\x0d\
+\x0a\
+\x00\x00\x00Y\
+i\
+mport QtQuick\x0d\x0a\x0d\
+\x0aLoader {\x0d\x0a    C\
+omponent.onDestr\
+uction: sourceCo\
+mponent = undefi\
+ned\x0d\x0a}\x0d\x0a\
 \x00\x00\x01\x0b\
 i\
 mport QtQuick\x0d\x0ai\
@@ -114,6 +159,137 @@ property color t\
 extColor: AppThe\
 me.font_primary_\
 color\x0d\x0a}\x0d\x0a\
+\x00\x00\x00y\
+i\
+mport QtQuick\x0d\x0ai\
+mport QtQuick.Co\
+ntrols\x0d\x0a\x0d\x0aQtObje\
+ct {\x0d\x0a    id: co\
+ntrol\x0d\x0a    defau\
+lt property list\
+<QtObject> child\
+ren\x0d\x0a}\x0d\x0a\
+\x00\x00\x03\x1d\
+i\
+mport QtQuick\x0d\x0ai\
+mport QtQuick.Co\
+ntrols.impl\x0d\x0aimp\
+ort QtQuick.Temp\
+lates as T\x0d\x0a\x0d\x0aT.\
+Frame {\x0d\x0a    id:\
+ control\x0d\x0a    im\
+plicitWidth: Mat\
+h.max(implicitBa\
+ckgroundWidth + \
+leftInset + righ\
+tInset, contentW\
+idth + leftPaddi\
+ng + rightPaddin\
+g)\x0d\x0a    implicit\
+Height: Math.max\
+(implicitBackgro\
+undHeight + topI\
+nset + bottomIns\
+et, contentHeigh\
+t + topPadding +\
+ bottomPadding)\x0d\
+\x0a    padding: 0\x0d\
+\x0a    background:\
+ Rectangle {\x0d\x0a  \
+      id: contex\
+t\x0d\x0a        radiu\
+s: 4\x0d\x0a        bo\
+rder.color: AppT\
+heme.divider_col\
+or\x0d\x0a        colo\
+r: {\x0d\x0a          \
+  if (Window.act\
+ive) {\x0d\x0a        \
+        return A\
+ppTheme.frame_ac\
+tive_color;\x0d\x0a   \
+         }\x0d\x0a    \
+        return A\
+ppTheme.frame_co\
+lor;\x0d\x0a        }\x0d\
+\x0a    }\x0d\x0a\x0d\x0a    pr\
+operty alias bor\
+der: context.bor\
+der\x0d\x0a    propert\
+y alias color: c\
+ontext.color\x0d\x0a  \
+  property alias\
+ radius: context\
+.radius\x0d\x0a}\x0d\x0a\
+\x00\x00\x04\x22\
+i\
+mport QtQuick\x0d\x0ai\
+mport QtQuick.Co\
+ntrols.impl\x0d\x0aimp\
+ort QtQuick.Temp\
+lates as T\x0d\x0a\x0d\x0aim\
+port RichillCapi\
+tal.SignalSource\
+Manager.Desktop.\
+Controls.Base as\
+ BaseControls\x0d\x0a\x0d\
+\x0aT.ToolTip {\x0d\x0a  \
+  id: control\x0d\x0a \
+   x: parent ? (\
+parent.width - i\
+mplicitWidth) / \
+2 : 0\x0d\x0a    y: -i\
+mplicitHeight - \
+3\x0d\x0a    implicitW\
+idth: Math.max(i\
+mplicitBackgroun\
+dWidth + leftIns\
+et + rightInset,\
+ contentWidth + \
+leftPadding + ri\
+ghtPadding)\x0d\x0a   \
+ implicitHeight:\
+ Math.max(implic\
+itBackgroundHeig\
+ht + topInset + \
+bottomInset, con\
+tentHeight + top\
+Padding + bottom\
+Padding)\x0d\x0a    ma\
+rgins: 6\x0d\x0a    pa\
+dding: 6\x0d\x0a    fo\
+nt: AppFont.body\
+\x0d\x0a    closePolic\
+y: T.Popup.Close\
+OnEscape | T.Pop\
+up.CloseOnPressO\
+utsideParent | T\
+.Popup.CloseOnRe\
+leaseOutsidePare\
+nt\x0d\x0a    contentI\
+tem: BaseControl\
+s.TextBlock {\x0d\x0a \
+       text: con\
+trol.text\x0d\x0a     \
+   font: control\
+.font\x0d\x0a        w\
+rapMode: Text.Wr\
+ap\x0d\x0a    }\x0d\x0a    b\
+ackground: Recta\
+ngle {\x0d\x0a        \
+color: AppTheme.\
+theme === 'Dark'\
+ ? Qt.rgba(50 / \
+255, 49 / 255, 4\
+8 / 255, 1) : Qt\
+.rgba(1, 1, 1, 1\
+)\x0d\x0a        radiu\
+s: 3\x0d\x0a        Ba\
+seControls.Shado\
+w {\x0d\x0a           \
+ radius: 3\x0d\x0a    \
+    }\x0d\x0a    }\x0d\x0a}\x0d\
+\x0a\
 \x00\x00\x03\xf8\
 \x00\
 \x00\x0fzx\xda\xb5W\xdbn\x1b7\x10}7\xe0\x7f\
@@ -7652,10 +7828,31 @@ qt_resource_name = b"\
 \x00\x06\x88\x95\
 \x00b\
 \x00a\x00s\x00e\
+\x00\x0a\
+\x0bel\xdc\
+\x00S\
+\x00h\x00a\x00d\x00o\x00w\x00.\x00q\x00m\x00l\
+\x00\x13\
+\x0b\xe6\xe9\x5c\
+\x00C\
+\x00o\x00m\x00p\x00o\x00n\x00e\x00n\x00t\x00L\x00o\x00a\x00d\x00e\x00r\x00.\x00q\
+\x00m\x00l\
 \x00\x0d\
 \x00\x05G<\
 \x00T\
 \x00e\x00x\x00t\x00B\x00l\x00o\x00c\x00k\x00.\x00q\x00m\x00l\
+\x00\x0a\
+\x0b\xad\xe6<\
+\x00O\
+\x00b\x00j\x00e\x00c\x00t\x00.\x00q\x00m\x00l\
+\x00\x09\
+\x088\xcf<\
+\x00F\
+\x00r\x00a\x00m\x00e\x00.\x00q\x00m\x00l\
+\x00\x0b\
+\x0b\xb5\x9c\x5c\
+\x00T\
+\x00o\x00o\x00l\x00t\x00i\x00p\x00.\x00q\x00m\x00l\
 \x00\x11\
 \x01\xbaN\x1c\
 \x00W\
@@ -7681,19 +7878,29 @@ qt_resource_struct = b"\
 \x00\x00\x00\x1e\x00\x02\x00\x00\x00\x01\x00\x00\x00\x04\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x002\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\
-\x00\x00\x01\x92\xce\xc0I\xd9\
-\x00\x00\x00\xb2\x00\x02\x00\x00\x00\x01\x00\x00\x00\x06\
+\x00\x00\x01\x92\xce\xddjC\
+\x00\x00\x01F\x00\x02\x00\x00\x00\x01\x00\x00\x00\x06\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\xc4\x00\x00\x00\x00\x00\x01\x00\x00\x0a}\
+\x00\x00\x01X\x00\x00\x00\x00\x00\x01\x00\x00\x14\xb7\
 \x00\x00\x01\x92\x8c\x95\x9e\x0a\
 \x00\x00\x00F\x00\x02\x00\x00\x00\x01\x00\x00\x00\x08\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\x5c\x00\x02\x00\x00\x00\x02\x00\x00\x00\x09\
+\x00\x00\x00\x5c\x00\x02\x00\x00\x00\x07\x00\x00\x00\x09\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00j\x00\x00\x00\x00\x00\x01\x00\x00\x05r\
+\x00\x00\x00\xb0\x00\x00\x00\x00\x00\x01\x00\x00\x07\xe8\
 \x00\x00\x01\x92\xce\xc4\x85\x7f\
-\x00\x00\x00\x8a\x00\x01\x00\x00\x00\x01\x00\x00\x06\x81\
+\x00\x00\x01\x1e\x00\x01\x00\x00\x00\x01\x00\x00\x10\xbb\
 \x00\x00\x01\x92\xce\x06\xc1J\
+\x00\x00\x00\xea\x00\x00\x00\x00\x00\x01\x00\x00\x09t\
+\x00\x00\x01\x92\xce\xd5S\xfb\
+\x00\x00\x00j\x00\x00\x00\x00\x00\x01\x00\x00\x055\
+\x00\x00\x01\x92\xce\xdb})\
+\x00\x00\x00\xd0\x00\x00\x00\x00\x00\x01\x00\x00\x08\xf7\
+\x00\x00\x01\x92\xce\xd2Q\xd1\
+\x00\x00\x01\x02\x00\x00\x00\x00\x00\x01\x00\x00\x0c\x95\
+\x00\x00\x01\x92\xce\xdd,\x90\
+\x00\x00\x00\x84\x00\x00\x00\x00\x00\x01\x00\x00\x07\x8b\
+\x00\x00\x01\x92\xce\xc8\x86\xbd\
 "
 
 def qInitResources():

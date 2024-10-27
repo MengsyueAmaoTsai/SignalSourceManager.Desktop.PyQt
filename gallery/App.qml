@@ -8,7 +8,10 @@ ApplicationWindow {
     id: app
     visible: true
 
-    RowLayout {}
+    RowLayout {
+        BaseControls.Tooltip {
+        }
+    }
 
     Component.onCompleted: {
         console.log('Theme:', AppTheme.theme);

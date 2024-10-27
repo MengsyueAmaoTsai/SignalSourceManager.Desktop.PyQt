@@ -3,6 +3,5 @@
         <file>src/App.qml</file>
 
         <!-- BaseControls -->
-        <file>src/controls/base/TableView.qml</file>
     </qresource>
 </RCC>
