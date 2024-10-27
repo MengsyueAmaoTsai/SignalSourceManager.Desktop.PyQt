@@ -33,6 +33,8 @@
         <file>src/controls/base/Window.qml</file>
         <file>src/controls/base/ContentDialog.qml</file>
         <file>src/controls/base/Page.qml</file>
+        <file>src/controls/base/Frame.qml</file>
+        <file>src/controls/base/ScrollablePage.qml</file>
         <file>src/controls/base/Stack.qml</file>
         <file>src/controls/base/ScrollView.qml</file>
         <file>src/controls/base/ScrollViewer.qml</file>
@@ -45,6 +47,7 @@
         <file>src/controls/base/Object.qml</file>
         <file>src/controls/base/Shadow.qml</file>
         <file>src/controls/base/ScrollBar.qml</file>
+        <file>src/controls/base/Divider.qml</file>
         <file>src/controls/base/ComponentLoader.qml</file>
     </qresource>
 </RCC>
