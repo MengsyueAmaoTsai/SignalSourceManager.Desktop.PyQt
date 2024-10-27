@@ -9,7 +9,9 @@
         <file>src/controls/base/WindowManager.qml</file>
 
         <file>src/controls/base/Object.qml</file>
+        <file>src/controls/base/FocusRectangle.qml</file>
         <file>src/controls/base/Shadow.qml</file>
+        <file>src/controls/base/Background.qml</file>
         <file>src/controls/base/ItemDelegate.qml</file>
         <file>src/controls/base/Divider.qml</file>
 

@@ -30,7 +30,9 @@ def services_add_base_controls(
         "ComboBox": "qrc:/src/controls/base/ComboBox.qml",
         "Popup": "qrc:/src/controls/base/Popup.qml",
         "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
+        "FocusRectangle": "qrc:/src/controls/base/FocusRectangle.qml",
         "Shadow": "qrc:/src/controls/base/Shadow.qml",
+        "Background": "qrc:/src/controls/base/Background.qml",
         "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
     }
 

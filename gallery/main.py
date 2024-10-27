@@ -19,7 +19,9 @@ MODULE_VERSION_MINOR = 0
 ## Add custom QML module: RichillCapital.SignalSourceManager.Desktop.Controls.Base
 BASE_CONTROLS = {
     "Object": "qrc:/src/controls/base/Object.qml",
+    "FocusRectangle": "qrc:/src/controls/base/FocusRectangle.qml",
     "Shadow": "qrc:/src/controls/base/Shadow.qml",
+    "Background": "qrc:/src/controls/base/Background.qml",
     "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
     "Divider": "qrc:/src/controls/base/Divider.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",

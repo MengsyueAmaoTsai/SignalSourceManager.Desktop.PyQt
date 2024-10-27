@@ -9,64 +9,91 @@ Page {
 
         property bool isLoading: false
     }
-    Column {
-        spacing: 10
-        anchors.centerIn: parent
 
-        // Basic button
-        BaseControls.Button {
-            id: basicButton
-            text: 'Button'
-            onClicked: console.log('Button clicked')
+    ColumnLayout {
+        id: pageLayout
+
+        BaseControls.TextBlock {
+            text: 'Button Examples'
+            font: AppFont.title
         }
 
-        // Accent button
-        BaseControls.Button {
-            id: accentButton
-            text: 'Accent Button'
-            appearance: 'Accent'
-            onClicked: console.log('Accent button clicked')
-        }
+        ColumnLayout {
+            id: contentLayout
 
-        // Lightweight button
-        BaseControls.Button {
-            id: lightweightButton
-            text: 'Lightweight Button'
-            appearance: 'Lightweight'
-            onClicked: console.log('Lightweight button clicked')
-        }
+            BaseControls.TextBlock {
+                text: 'Simple button examples'
+                font: AppFont.subtitle
+            }
 
-        // Outline button
-        BaseControls.Button {
-            id: outlineButton
-            text: 'Outline Button'
-            appearance: 'Outline'
-            onClicked: console.log('Outline button clicked')
-        }
+            RowLayout {
+                // Basic
+                BaseControls.Button {
+                    id: basicButton
+                    text: 'Button'
+                    onClicked: console.log('Basic button clicked')
+                }
 
-        // Stealth button
-        BaseControls.Button {
-            id: stealthButton
-            text: 'Stealth Button'
-            appearance: 'Stealth'
-            onClicked: console.log('Stealth button clicked')
-        }
+                // Accent
+                BaseControls.Button {
+                    id: accentButton
+                    text: 'Accent'
+                    appearance: 'Accent'
+                    onClicked: console.log('Accent button clicked')
+                }
 
-        // Colored button
-        BaseControls.Button {
-            id: coloredButton
-            text: 'Colored Button'
-            backgroundColor: 'red'
-            color: 'red'
-            onClicked: console.log('Colored button clicked')
-        }
+                // Colored
+                BaseControls.Button {
+                    id: coloredButton
+                    text: 'Colored'
+                    textColor: 'red'
+                    // backgroundColor: 'blue'
+                    onClicked: console.log(`Colored button with text color: ${textColor} clicked`)
+                }
+            }
 
-        // Loading button
-        BaseControls.Button {
-            id: loadingButton
-            text: 'Loading Button'
-            loading: context.isLoading
-            onClicked: console.log('Loading button clicked', context.isLoading)
+            BaseControls.TextBlock {
+                text: 'With content and icon'
+                font: AppFont.subtitle
+            }
+
+            RowLayout {
+                BaseControls.Button {
+                    text: 'Button'
+                    iconStart: 'qrc:/static/images/favicon.ico'
+                }
+                BaseControls.Button {
+                    text: 'Button'
+                    iconStart: 'qrc:/static/images/favicon.ico'
+                    appearance: 'Accent'
+                }
+                BaseControls.Button {
+                    text: 'Button'
+                    iconEnd: 'qrc:/static/images/favicon.ico'
+                }
+                BaseControls.Button {
+                    text: 'Button'
+                    iconEnd: 'qrc:/static/images/favicon.ico'
+                    appearance: 'Accent'
+                }
+                BaseControls.Button {
+                    iconEnd: 'qrc:/static/images/favicon.ico'
+                    // title: 'Globe'
+                }
+                BaseControls.Button {
+                    text: 'Refresh'
+                    iconStart: 'qrc:/static/images/favicon.ico'
+                    loading: context.isLoading
+                    onClicked: console.log('StartLoadingAsync')
+                }
+                BaseControls.Button {
+                    text: 'Refresh'
+                    iconStart: 'qrc:/static/images/favicon.ico'
+                    loading: context.isLoading
+                    appearance: 'Accent'
+                    onClicked: consol.log('StartLoadingAsync')
+                }
+            }
         }
     }
 }

@@ -15,22 +15,22 @@ Button {
     horizontalPadding: 12
     font: AppFont.body
     focusPolicy: Qt.TabFocus
-    // background: FluControlBackground {
-    //     implicitWidth: 30
-    //     implicitHeight: 30
-    //     radius: 4
-    //     color: {
-    //         if (!enabled) {
-    //             return disableColor;
-    //         }
-    //         return hovered ? hoverColor : normalColor;
-    //     }
-    //     shadow: !pressed && enabled
-    //     FluFocusRectangle {
-    //         visible: control.activeFocus
-    //         radius: 4
-    //     }
-    // }
+    background: BaseControls.Background {
+        implicitWidth: 30
+        implicitHeight: 30
+        radius: 4
+        color: {
+            if (!enabled) {
+                return disableColor;
+            }
+            return hovered ? hoverColor : normalColor;
+        }
+        shadow: !pressed && enabled
+        BaseControls.FocusRectangle {
+            visible: control.activeFocus
+            radius: 4
+        }
+    }
     contentItem: BaseControls.TextBlock {
         text: control.text
         horizontalAlignment: Text.AlignHCenter
@@ -41,8 +41,9 @@ Button {
 
     property string appearance: 'Basic'
     property bool loading: false
-    property color color: control.color
     property color backgroundColor
+    property string iconStart: undefined
+    property string iconEnd: undefined
 
     property bool disabled: false
     property string contentDescription: ""
