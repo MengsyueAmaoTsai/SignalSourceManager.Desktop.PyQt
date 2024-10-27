@@ -14,6 +14,7 @@
         <file>src/controls/base/Frame.qml</file>
         
         <file>src/controls/base/TextBlock.qml</file>
+        <file>src/controls/base/Button.qml</file>
         <file>src/controls/base/Tooltip.qml</file>
 
         <file>static/images/favicon.ico</file>

@@ -8,8 +8,12 @@ ApplicationWindow {
     id: app
     visible: true
 
-    RowLayout {}
-    BaseControls.ContentDialog {}
+    RowLayout {
+        BaseControls.Button {
+            text: 'Default button'
+            onClicked: console.log('Default btn clicked');
+        }
+    }
 
     Component.onCompleted: {
         console.log('Theme:', AppTheme.theme);
@@ -27,5 +31,6 @@ ApplicationWindow {
         //     '/controls': 'qrc:/gallery/windows/ControlsWindow.qml'
         // };
         // BaseControls.WindowManager.navigateTo('/controls');
+        dialog.open();
     }
 }

@@ -26,6 +26,7 @@ BASE_CONTROLS = {
     "Page": "qrc:/src/controls/base/Page.qml",
     "Frame": "qrc:/src/controls/base/Frame.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
+    "Button": "qrc:/src/controls/base/Button.qml",
     "Tooltip": "qrc:/src/controls/base/Tooltip.qml",
 }
 BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
