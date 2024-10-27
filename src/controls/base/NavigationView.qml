@@ -10,5 +10,9 @@ Item {
     id: control
 
     property Component autoSuggestBox: undefined
+
+    //#region FluentUI properties
+    property string paneDisplayMode: 'Auto' // Auto | Top | Left | LeftCompact | LeftMinimal
+    //#endregion
     Component.onCompleted: console.log('TODO: Implement NavigationView.qml Component.onCompleted')
 }
