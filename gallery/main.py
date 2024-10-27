@@ -20,6 +20,7 @@ MODULE_VERSION_MINOR = 0
 BASE_CONTROLS = {
     "Object": "qrc:/src/controls/base/Object.qml",
     "Shadow": "qrc:/src/controls/base/Shadow.qml",
+    "Divider": "qrc:/src/controls/base/Divider.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
     "Popup": "qrc:/src/controls/base/Popup.qml",
     "ContentDialog": "qrc:/src/controls/base/ContentDialog.qml",
@@ -27,6 +28,7 @@ BASE_CONTROLS = {
     "Frame": "qrc:/src/controls/base/Frame.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
     "Button": "qrc:/src/controls/base/Button.qml",
+    "Badge": "qrc:/src/controls/base/Badge.qml",
     "Tooltip": "qrc:/src/controls/base/Tooltip.qml",
 }
 BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"

@@ -6,6 +6,7 @@
 
         <file>src/controls/base/Object.qml</file>
         <file>src/controls/base/Shadow.qml</file>
+        <file>src/controls/base/Divider.qml</file>
 
         <file>src/controls/base/ComponentLoader.qml</file>
         <file>src/controls/base/Popup.qml</file>
@@ -15,6 +16,7 @@
         
         <file>src/controls/base/TextBlock.qml</file>
         <file>src/controls/base/Button.qml</file>
+        <file>src/controls/base/Badge.qml</file>
         <file>src/controls/base/Tooltip.qml</file>
 
         <file>static/images/favicon.ico</file>

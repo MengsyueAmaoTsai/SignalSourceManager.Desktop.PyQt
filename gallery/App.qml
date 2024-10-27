@@ -7,14 +7,6 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 ApplicationWindow {
     id: app
     visible: true
-
-    RowLayout {
-        BaseControls.Button {
-            text: 'Default button'
-            onClicked: console.log('Default btn clicked');
-        }
-    }
-
     Component.onCompleted: {
         console.log('Theme:', AppTheme.theme);
         console.log('Render native text:', AppTheme.render_native_text);
@@ -31,6 +23,5 @@ ApplicationWindow {
         //     '/controls': 'qrc:/gallery/windows/ControlsWindow.qml'
         // };
         // BaseControls.WindowManager.navigateTo('/controls');
-        dialog.open();
     }
 }
