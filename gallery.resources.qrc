@@ -4,6 +4,7 @@
         
         <!-- Windows -->
         <file>gallery/windows/AboutWindow.qml</file>
+        <file>gallery/windows/SingleTaskWindow.qml</file>
 
         <!-- Pages -->
         <file>gallery/pages/TextBlockPage.qml</file>
