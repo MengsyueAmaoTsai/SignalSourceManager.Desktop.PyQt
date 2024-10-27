@@ -6,6 +6,7 @@ import QtQuick.Controls
 import QtQuick.Controls.Basic
 import QtQuick.Layouts
 import Qt.labs.qmlmodels
+import Qt.labs.platform
 
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
@@ -17,126 +18,103 @@ ApplicationWindow {
     width: Screen.width * 0.8
     height: Screen.height * 0.8
 
-    ColumnLayout {
-        anchors.fill: parent
-        Button {
-            id: newSignalSourceButton
+    RowLayout {
+        BaseControls.Button {
             text: 'New signal source'
-            onClicked: {
-                newSignalSourceDialog.open();
-            }
+            onClicked: newSignalSourcePopup.open()
         }
 
-        TableView {
-            id: table
-            width: parent.width
-            anchors {
-                top: newSignalSourceButton.bottom
-                left: parent.left
-                right: parent.right
-                bottom: parent.bottom
+        BaseControls.Button {
+            text: 'Upload historical data'
+            onClicked: fileDialog.open()
+        }
+    }
+
+    BaseControls.Popup {
+        id: newSignalSourcePopup
+
+        ColumnLayout {
+            RowLayout {
+                BaseControls.TextBlock {
+                    text: 'Id'
+                }
+                BaseControls.TextBox {
+                    id: idTextBox
+                    placeholderText: 'Enter id'
+                }
+            }
+            RowLayout {
+                BaseControls.TextBlock {
+                    text: 'Name'
+                }
+                BaseControls.TextBox {
+                    id: nameTextBox
+                    placeholderText: 'Enter name'
+                }
             }
 
-            clip: true
-            rowSpacing: 1
-            columnSpacing: 1
+            RowLayout {
+                BaseControls.TextBlock {
+                    text: 'Description'
+                }
+                BaseControls.TextBox {
+                    id: descriptionTextBox
+                    placeholderText: 'Enter description'
+                }
+            }
 
-            model: TableModel {
-                id: tableModel
-                TableModelColumn {
-                    display: 'id'
+            RowLayout {
+                BaseControls.TextBlock {
+                    text: 'Visibility'
                 }
-                TableModelColumn {
-                    display: 'name'
-                }
-                TableModelColumn {
-                    display: 'description'
-                }
-                TableModelColumn {
-                    display: 'visible'
-                }
-                TableModelColumn {
-                    display: 'createdTimeUtc'
-                }
+                BaseControls.ComboBox {}
+            }
 
-                rows: [
-                    {
-                        id: '1',
-                        name: 'Signal source 1',
-                        description: 'Signal source 1 description',
-                        visible: 'Public',
-                        createdTimeUtc: '2021-01-01 00:00:00'
+            RowLayout {
+                BaseControls.Button {
+                    text: 'Submit'
+                    onClicked: {
+                        const id = idTextBox.text;
+                        const name = nameTextBox.text;
+                        const description = descriptionTextBox.text;
+                        console.log(`Id: ${id}, Name: ${name}, Description: ${description}`);
+                        newSignalSourcePopup.close();
                     }
-                ]
-            }
-            delegate: Rectangle {
-                implicitWidth: 100
-                implicitHeight: 50
-                border.width: 1
+                }
 
-                Text {
-                    text: display
-                    anchors.centerIn: parent
+                BaseControls.Button {
+                    text: 'Cancel'
+                    onClicked: {
+                        idTextBox.text = '';
+                        nameTextBox.text = '';
+                        descriptionTextBox.text = '';
+                        newSignalSourcePopup.close();
+                    }
                 }
             }
         }
     }
 
-    Popup {
-        id: newSignalSourceDialog
+    FileDialog {
+        id: fileDialog
 
-        anchors.centerIn: parent
-        focus: true
-        closePolicy: Popup.NoAutoClose
+        fileMode: FileDialog.OpenFile
 
-        ColumnLayout {
-            RowLayout {
-                Text {
-                    text: 'Id'
-                }
-                TextField {
-                    placeholderText: 'Unique signal source id'
-                }
-            }
-            RowLayout {
-                Text {
-                    text: 'Name'
-                }
-                TextField {
-                    placeholderText: ''
-                }
-            }
-            RowLayout {
-                Text {
-                    text: 'Description'
-                }
-                TextField {
-                    placeholderText: 'Unique signal source id'
-                }
-            }
-            RowLayout {
-                Text {
-                    text: 'Visibility'
-                }
-                ComboBox {
-                    model: ['Public', 'Protected', 'Internal', 'Private']
-                }
-            }
-            RowLayout {
-                Button {
-                    text: 'Submit'
-                    onClicked: {
-                        console.log('Submit');
-                    }
-                }
-
-                Button {
-                    text: 'Cancel'
-                    onClicked: {
-                        newSignalSourceDialog.close();
-                    }
-                }
-            }
+        onAccepted: {
+            const filePath = context.getAbsolutePath(fileDialog.file);
+            console.log(`Upload historical data => ${filePath}`);
         }
+    }
+
+    QtObject {
+        id: context
+
+        function getAbsolutePath(url) {
+            return url.toString().replace("file:///", "");
+        }
+    }
+
+    Component.onCompleted: {
+        console.log('Application started');
     }
 }

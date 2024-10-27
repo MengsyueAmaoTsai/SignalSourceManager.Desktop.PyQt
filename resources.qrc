@@ -3,5 +3,17 @@
         <file>src/App.qml</file>
 
         <!-- BaseControls -->
+        <file>src/controls/base/TextBlock.qml</file>
+        <file>src/controls/base/Button.qml</file>
+        <file>src/controls/base/TextBox.qml</file>
+        <file>src/controls/base/ComboBox.qml</file>
+        
+        <!-- BaseControls.Containers -->
+        <file>src/controls/base/Popup.qml</file>
+
+        <!-- BaseControls -->
+        <file>src/controls/base/ComponentLoader.qml</file>
+        <file>src/controls/base/Shadow.qml</file>
+        <file>src/controls/base/ItemDelegate.qml</file>
     </qresource>
 </RCC>

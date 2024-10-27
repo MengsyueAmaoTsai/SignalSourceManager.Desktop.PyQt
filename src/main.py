@@ -23,7 +23,16 @@ def services_add_base_controls(
     #     "WindowManager",
     # )
 
-    controls = {}
+    controls = {
+        "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
+        "Button": "qrc:/src/controls/base/Button.qml",
+        "TextBox": "qrc:/src/controls/base/TextBox.qml",
+        "ComboBox": "qrc:/src/controls/base/ComboBox.qml",
+        "Popup": "qrc:/src/controls/base/Popup.qml",
+        "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
+        "Shadow": "qrc:/src/controls/base/Shadow.qml",
+        "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
+    }
 
     for control_name, url in controls.items():
         qmlRegisterType(url, module_name, version_major, version_minor, control_name)

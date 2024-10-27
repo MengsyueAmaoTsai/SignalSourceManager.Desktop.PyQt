@@ -20,6 +20,7 @@ MODULE_VERSION_MINOR = 0
 BASE_CONTROLS = {
     "Object": "qrc:/src/controls/base/Object.qml",
     "Shadow": "qrc:/src/controls/base/Shadow.qml",
+    "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
     "Divider": "qrc:/src/controls/base/Divider.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
     "Popup": "qrc:/src/controls/base/Popup.qml",
@@ -31,6 +32,8 @@ BASE_CONTROLS = {
     "Acrylic": "qrc:/src/controls/base/Acrylic.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
     "Button": "qrc:/src/controls/base/Button.qml",
+    "TextBox": "qrc:/src/controls/base/TextBox.qml",
+    "ComboBox": "qrc:/src/controls/base/ComboBox.qml",
     "Badge": "qrc:/src/controls/base/Badge.qml",
     "Tooltip": "qrc:/src/controls/base/Tooltip.qml",
 }
