@@ -8,16 +8,7 @@ ApplicationWindow {
     id: app
     visible: true
 
-    RowLayout {
-        BaseControls.TextBlock {
-            id: fluentTextBlock
-            text: 'Text block'
-        }
-
-        Text {
-            text: 'Qt Text'
-        }
-    }
+    RowLayout {}
 
     Component.onCompleted: {
         console.log('Theme:', AppTheme.theme);

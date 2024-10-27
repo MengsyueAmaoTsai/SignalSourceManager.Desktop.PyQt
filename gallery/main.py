@@ -18,6 +18,7 @@ MODULE_VERSION_MINOR = 0
 
 ## Add custom QML module: RichillCapital.SignalSourceManager.Desktop.Controls.Base
 BASE_CONTROLS = {
+    "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
 }
 BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"

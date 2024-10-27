@@ -3,6 +3,7 @@
         <file>gallery/App.qml</file>
 
         <file>src/controls/base/WindowManager.qml</file>
+        <file>src/controls/base/ComponentLoader.qml</file>
         
         <file>src/controls/base/TextBlock.qml</file>
 
