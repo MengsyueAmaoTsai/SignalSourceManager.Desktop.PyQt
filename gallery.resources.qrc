@@ -12,7 +12,10 @@
         <file>src/controls/base/Popup.qml</file>
         <file>src/controls/base/ContentDialog.qml</file>
         <file>src/controls/base/Page.qml</file>
+        <file>src/controls/base/ScrollablePage.qml</file>
         <file>src/controls/base/Frame.qml</file>
+        <file>src/controls/base/Clip.qml</file>
+        <file>src/controls/base/Acrylic.qml</file>
         
         <file>src/controls/base/TextBlock.qml</file>
         <file>src/controls/base/Button.qml</file>

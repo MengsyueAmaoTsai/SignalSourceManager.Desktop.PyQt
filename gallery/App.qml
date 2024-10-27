@@ -7,6 +7,10 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 ApplicationWindow {
     id: app
     visible: true
+
+    height: Screen.height * .7
+    width: Screen.width * .7
+
     Component.onCompleted: {
         console.log('Theme:', AppTheme.theme);
         console.log('Render native text:', AppTheme.render_native_text);
