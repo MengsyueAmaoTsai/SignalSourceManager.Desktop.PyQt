@@ -20,6 +20,7 @@ MODULE_VERSION_MINOR = 0
 BASE_CONTROLS = {
     "AppTitleBar": "qrc:/src/controls/base/AppTitleBar.qml",
     "Button": "qrc:/src/controls/base/Button.qml",
+    "Tooltip": "qrc:/src/controls/base/Tooltip.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
     "TextBox": "qrc:/src/controls/base/TextBox.qml",
     "AutoSuggestBox": "qrc:/src/controls/base/AutoSuggestBox.qml",

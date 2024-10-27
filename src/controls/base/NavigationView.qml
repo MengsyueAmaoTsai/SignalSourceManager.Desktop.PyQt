@@ -294,8 +294,8 @@ Item {
                     topMargin: 2
                     bottomMargin: 2
                 }
-                // iconSize: 15
-                // iconSource: {
+                iconSize: 15
+                // iconStart: {
                 //     if(loader_auto_suggest_box.item){
                 //         return loader_auto_suggest_box.item.autoSuggestBoxReplacement
                 //     }
@@ -496,6 +496,10 @@ Item {
                     duration: 167
                     easing.type: Easing.OutCubic
                 }
+            }
+
+            Text {
+                text: 'Item'
             }
         }
     }
