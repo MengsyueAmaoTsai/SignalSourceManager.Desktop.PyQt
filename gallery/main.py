@@ -21,6 +21,7 @@ BASE_CONTROLS = {
     "Object": "qrc:/src/controls/base/Object.qml",
     "Shadow": "qrc:/src/controls/base/Shadow.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
+    "Popup": "qrc:/src/controls/base/Popup.qml",
     "Page": "qrc:/src/controls/base/Page.qml",
     "Frame": "qrc:/src/controls/base/Frame.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",

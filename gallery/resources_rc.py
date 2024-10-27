@@ -6,7 +6,7 @@
 from PySide6 import QtCore
 
 qt_resource_data = b"\
-\x00\x00\x05I\
+\x00\x00\x04\xdb\
 i\
 mport QtQuick\x0d\x0ai\
 mport QtQuick.Co\
@@ -23,76 +23,170 @@ Window {\x0d\x0a    id\
 le: true\x0d\x0a\x0d\x0a    \
 RowLayout {}\x0d\x0a  \
   BaseControls.P\
-age {\x0d\x0a        i\
-d: page\x0d\x0a       \
- visible: true\x0d\x0a\
-        Text {\x0d\x0a\
-            text\
-: 'Page is worki\
-ng'\x0d\x0a        }\x0d\x0a\
-    }\x0d\x0a\x0d\x0a    Com\
-ponent.onComplet\
-ed: {\x0d\x0a        c\
-onsole.log('Them\
-e:', AppTheme.th\
-eme);\x0d\x0a        c\
-onsole.log('Rend\
-er native text:'\
-, AppTheme.rende\
-r_native_text);\x0d\
-\x0a        // Base\
-Controls.WindowM\
-anager.routes = \
-{\x0d\x0a        //   \
-  '/': 'qrc:/gal\
-lery/windows/Mai\
-nWindow.qml',\x0d\x0a \
-       //     '/\
-about': 'qrc:/ga\
-llery/windows/Ab\
-outWindow.qml',\x0d\
+opup {}\x0d\x0a\x0d\x0a    C\
+omponent.onCompl\
+eted: {\x0d\x0a       \
+ console.log('Th\
+eme:', AppTheme.\
+theme);\x0d\x0a       \
+ console.log('Re\
+nder native text\
+:', AppTheme.ren\
+der_native_text)\
+;\x0d\x0a        // Ba\
+seControls.Windo\
+wManager.routes \
+= {\x0d\x0a        // \
+    '/': 'qrc:/g\
+allery/windows/M\
+ainWindow.qml',\x0d\
 \x0a        //     \
-'/sign-in': 'qrc\
-:/gallery/window\
-s/SignInWindow.q\
-ml',\x0d\x0a        //\
-     '/hotload':\
- 'qrc:/gallery/w\
-indows/HotloadWi\
-ndow.qml',\x0d\x0a    \
-    //     '/cra\
-sh': 'qrc:/galle\
-ry/windows/Crash\
-Window.qml',\x0d\x0a  \
-      //     '/s\
-tandard': 'qrc:/\
+'/about': 'qrc:/\
 gallery/windows/\
-StandardWindow.q\
-ml',\x0d\x0a        //\
-     '/single-ta\
-sk': 'qrc:/galle\
-ry/windows/Singl\
-eTaskWindow.qml'\
+AboutWindow.qml'\
 ,\x0d\x0a        //   \
-  '/single-insta\
-nce': 'qrc:/gall\
-ery/windows/Sing\
-leInstanceWindow\
+  '/sign-in': 'q\
+rc:/gallery/wind\
+ows/SignInWindow\
 .qml',\x0d\x0a        \
-//     '/page': \
-'qrc:/gallery/wi\
-ndows/PageWindow\
+//     '/hotload\
+': 'qrc:/gallery\
+/windows/Hotload\
+Window.qml',\x0d\x0a  \
+      //     '/c\
+rash': 'qrc:/gal\
+lery/windows/Cra\
+shWindow.qml',\x0d\x0a\
+        //     '\
+/standard': 'qrc\
+:/gallery/window\
+s/StandardWindow\
 .qml',\x0d\x0a        \
-//     '/control\
-s': 'qrc:/galler\
-y/windows/Contro\
-lsWindow.qml'\x0d\x0a \
-       // };\x0d\x0a  \
-      // BaseCon\
-trols.WindowMana\
-ger.navigateTo('\
-/controls');\x0d\x0a  \
-  }\x0d\x0a}\x0d\x0a\
+//     '/single-\
+task': 'qrc:/gal\
+lery/windows/Sin\
+gleTaskWindow.qm\
+l',\x0d\x0a        // \
+    '/single-ins\
+tance': 'qrc:/ga\
+llery/windows/Si\
+ngleInstanceWind\
+ow.qml',\x0d\x0a      \
+  //     '/page'\
+: 'qrc:/gallery/\
+windows/PageWind\
+ow.qml',\x0d\x0a      \
+  //     '/contr\
+ols': 'qrc:/gall\
+ery/windows/Cont\
+rolsWindow.qml'\x0d\
+\x0a        // };\x0d\x0a\
+        // BaseC\
+ontrols.WindowMa\
+nager.navigateTo\
+('/controls');\x0d\x0a\
+    }\x0d\x0a}\x0d\x0a\
+\x00\x00\x06#\
+i\
+mport QtQuick\x0d\x0ai\
+mport QtQuick.La\
+youts\x0d\x0aimport Qt\
+Quick.Controls\x0d\x0a\
+import QtQuick.W\
+indow\x0d\x0aimport Ri\
+chillCapital.Sig\
+nalSourceManager\
+.Desktop.Control\
+s.Base as BaseCo\
+ntrols\x0d\x0a\x0d\x0aPopup \
+{\x0d\x0a    id: contr\
+ol\x0d\x0a\x0d\x0a    paddin\
+g: 0\x0d\x0a    modal:\
+ true\x0d\x0a    paren\
+t: Overlay.overl\
+ay\x0d\x0a    x: Math.\
+round((context.p\
+arentWidth - wid\
+th) / 2)\x0d\x0a    y:\
+ Math.round((con\
+text.parentHeigh\
+t - height) / 2)\
+\x0d\x0a    closePolic\
+y: Popup.NoAutoC\
+lose\x0d\x0a\x0d\x0a    ente\
+r: Transition {\x0d\
+\x0a        NumberA\
+nimation {\x0d\x0a    \
+        property\
+: \x22opacity\x22\x0d\x0a   \
+         duratio\
+n: AppTheme.anim\
+tation_enbaled ?\
+ 83 : 0\x0d\x0a       \
+     from: 0\x0d\x0a  \
+          to: 1\x0d\
+\x0a        }\x0d\x0a    \
+}\x0d\x0a    height: M\
+ath.min(implicit\
+Height, context.\
+parentHeight)\x0d\x0a \
+   exit: Transit\
+ion {\x0d\x0a        N\
+umberAnimation {\
+\x0d\x0a            pr\
+operty: \x22opacity\
+\x22\x0d\x0a            d\
+uration: AppThem\
+e.animtation_enb\
+aled ? 83 : 0\x0d\x0a \
+           from:\
+ 1\x0d\x0a            \
+to: 0\x0d\x0a        }\
+\x0d\x0a    }\x0d\x0a    bac\
+kground: Rectang\
+le {\x0d\x0a        //\
+ will replace wi\
+th a custom Rect\
+angle\x0d\x0a        r\
+adius: [5, 5, 5,\
+ 5]\x0d\x0a        col\
+or: AppTheme.the\
+me === 'Dark' ? \
+Qt.rgba(43 / 255\
+, 43 / 255, 43 /\
+ 255, 1) : Qt.rg\
+ba(1, 1, 1, 1)\x0d\x0a\
+        BaseCont\
+rols.Shadow {\x0d\x0a \
+           radiu\
+s: 5\x0d\x0a        }\x0d\
+\x0a    }\x0d\x0a\x0d\x0a    Qt\
+Object {\x0d\x0a      \
+  id: context\x0d\x0a \
+       property \
+int parentHeight\
+: {\x0d\x0a           \
+ if (control.par\
+ent) {\x0d\x0a        \
+        return c\
+ontrol.parent.he\
+ight;\x0d\x0a         \
+   }\x0d\x0a          \
+  return control\
+.height;\x0d\x0a      \
+  }\x0d\x0a        pro\
+perty int parent\
+Width: {\x0d\x0a      \
+      if (contro\
+l.parent) {\x0d\x0a   \
+             ret\
+urn control.pare\
+nt.width;\x0d\x0a     \
+       }\x0d\x0a      \
+      return con\
+trol.width;\x0d\x0a   \
+     }\x0d\x0a    }\x0d\x0a}\
+\x0d\x0a\
 \x00\x00\x02R\
 i\
 mport QtQuick\x0d\x0ai\
@@ -7928,6 +8022,10 @@ qt_resource_name = b"\
 \x00\x06\x88\x95\
 \x00b\
 \x00a\x00s\x00e\
+\x00\x09\
+\x07\xc3\xfa\xfc\
+\x00P\
+\x00o\x00p\x00u\x00p\x00.\x00q\x00m\x00l\
 \x00\x0a\
 \x0bel\xdc\
 \x00S\
@@ -7982,30 +8080,32 @@ qt_resource_struct = b"\
 \x00\x00\x00\x1e\x00\x02\x00\x00\x00\x01\x00\x00\x00\x04\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x002\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\
-\x00\x00\x01\x92\xce\xe2\xbf\xa2\
-\x00\x00\x01\x5c\x00\x02\x00\x00\x00\x01\x00\x00\x00\x06\
+\x00\x00\x01\x92\xce\xee)\xd6\
+\x00\x00\x01t\x00\x02\x00\x00\x00\x01\x00\x00\x00\x06\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x01n\x00\x00\x00\x00\x00\x01\x00\x00\x1a\xd4\
+\x00\x00\x01\x86\x00\x00\x00\x00\x00\x01\x00\x00 \x8d\
 \x00\x00\x01\x92\x8c\x95\x9e\x0a\
 \x00\x00\x00F\x00\x02\x00\x00\x00\x01\x00\x00\x00\x08\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\x5c\x00\x02\x00\x00\x00\x08\x00\x00\x00\x09\
+\x00\x00\x00\x5c\x00\x02\x00\x00\x00\x09\x00\x00\x00\x09\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\xc6\x00\x00\x00\x00\x00\x01\x00\x00\x0e\x05\
+\x00\x00\x00\xde\x00\x00\x00\x00\x00\x01\x00\x00\x13\xbe\
 \x00\x00\x01\x92\xce\xc4\x85\x7f\
-\x00\x00\x014\x00\x01\x00\x00\x00\x01\x00\x00\x16\xd8\
+\x00\x00\x01L\x00\x01\x00\x00\x00\x01\x00\x00\x1c\x91\
 \x00\x00\x01\x92\xce\x06\xc1J\
-\x00\x00\x00\x84\x00\x00\x00\x00\x00\x01\x00\x00\x07\xa3\
+\x00\x00\x00j\x00\x00\x00\x00\x00\x01\x00\x00\x04\xdf\
+\x00\x00\x01\x92\xce\xef\xae%\
+\x00\x00\x00\x9c\x00\x00\x00\x00\x00\x01\x00\x00\x0d\x5c\
 \x00\x00\x01\x92\xce\xe2>\xcc\
-\x00\x00\x01\x00\x00\x00\x00\x00\x00\x01\x00\x00\x0f\x91\
+\x00\x00\x01\x18\x00\x00\x00\x00\x00\x01\x00\x00\x15J\
 \x00\x00\x01\x92\xce\xd5S\xfb\
-\x00\x00\x00j\x00\x00\x00\x00\x00\x01\x00\x00\x05M\
+\x00\x00\x00\x82\x00\x00\x00\x00\x00\x01\x00\x00\x0b\x06\
 \x00\x00\x01\x92\xce\xdb})\
-\x00\x00\x00\xe6\x00\x00\x00\x00\x00\x01\x00\x00\x0f\x14\
+\x00\x00\x00\xfe\x00\x00\x00\x00\x00\x01\x00\x00\x14\xcd\
 \x00\x00\x01\x92\xce\xd2Q\xd1\
-\x00\x00\x01\x18\x00\x00\x00\x00\x00\x01\x00\x00\x12\xb2\
+\x00\x00\x010\x00\x00\x00\x00\x00\x01\x00\x00\x18k\
 \x00\x00\x01\x92\xce\xdd,\x90\
-\x00\x00\x00\x9a\x00\x00\x00\x00\x00\x01\x00\x00\x0d\xa8\
+\x00\x00\x00\xb2\x00\x00\x00\x00\x00\x01\x00\x00\x13a\
 \x00\x00\x01\x92\xce\xc8\x86\xbd\
 "
 

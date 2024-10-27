@@ -9,13 +9,7 @@ ApplicationWindow {
     visible: true
 
     RowLayout {}
-    BaseControls.Page {
-        id: page
-        visible: true
-        Text {
-            text: 'Page is working'
-        }
-    }
+    BaseControls.Popup {}
 
     Component.onCompleted: {
         console.log('Theme:', AppTheme.theme);
