@@ -1,12 +1,15 @@
 import QtQuick
+import QtQuick.Controls
+import QtQuick.Templates as T
+import QtQuick.Controls.impl
 
-import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
+import "../"
 
-MenuBar {
+T.MenuBar {
     id: control
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset, contentWidth + leftPadding + rightPadding)
     implicitHeight: Math.max(implicitBackgroundHeight + topInset + bottomInset, contentHeight + topPadding + bottomPadding)
-    delegate: BaseControls.MenuBarItem {}
+    delegate: MenuBarItem {}
 
     contentItem: Row {
         spacing: control.spacing

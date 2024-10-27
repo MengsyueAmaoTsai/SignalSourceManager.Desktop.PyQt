@@ -15,45 +15,6 @@ BaseControls.Window {
 
     // fixedSize: true
     // launchMode:
-    MenuBar {
-        Menu {
-            title: 'File'
-            Action {
-                text: 'New...'
-            }
-            Action {
-                text: 'Open...'
-            }
-            Action {
-                text: 'Save'
-            }
-            Action {
-                text: 'Save As...'
-            }
-            MenuSeparator {}
-            Action {
-                text: 'Quit'
-            }
-        }
-        Menu {
-            title: 'Edit'
-            Action {
-                text: 'Cut'
-            }
-            Action {
-                text: 'Copy'
-            }
-            Action {
-                text: 'Paste'
-            }
-        }
-        Menu {
-            title: 'Help'
-            Action {
-                text: 'About'
-            }
-        }
-    }
     BaseControls.TextBlock {
         anchors.centerIn: parent
         text: 'I am a Standard mode window, and every time I create a new window'
