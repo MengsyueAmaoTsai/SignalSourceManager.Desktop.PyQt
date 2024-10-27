@@ -22,6 +22,7 @@ BASE_CONTROLS = {
     "Shadow": "qrc:/src/controls/base/Shadow.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
     "Popup": "qrc:/src/controls/base/Popup.qml",
+    "ContentDialog": "qrc:/src/controls/base/ContentDialog.qml",
     "Page": "qrc:/src/controls/base/Page.qml",
     "Frame": "qrc:/src/controls/base/Frame.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",

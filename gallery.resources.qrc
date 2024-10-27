@@ -9,6 +9,7 @@
 
         <file>src/controls/base/ComponentLoader.qml</file>
         <file>src/controls/base/Popup.qml</file>
+        <file>src/controls/base/ContentDialog.qml</file>
         <file>src/controls/base/Page.qml</file>
         <file>src/controls/base/Frame.qml</file>
         

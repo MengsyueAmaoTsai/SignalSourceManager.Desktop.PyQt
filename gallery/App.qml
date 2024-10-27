@@ -9,7 +9,7 @@ ApplicationWindow {
     visible: true
 
     RowLayout {}
-    BaseControls.Popup {}
+    BaseControls.ContentDialog {}
 
     Component.onCompleted: {
         console.log('Theme:', AppTheme.theme);
