@@ -62,6 +62,10 @@ class AppTheme(QObject):
             else Themes.Light
         )
 
+    @Property(bool, constant=True)
+    def blur_behind_window_enabled(self) -> bool:
+        return self._blur_behind_window_enabled
+
     @Property(str, constant=True)
     def theme(self) -> str:
         return self._theme.value

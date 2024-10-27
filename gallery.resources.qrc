@@ -1,12 +1,16 @@
 <RCC>
     <qresource prefix="/">
         <file>gallery/App.qml</file>
+        
+        <!-- Windows -->
+        <file>gallery/windows/AboutWindow.qml</file>
 
         <!-- Pages -->
         <file>gallery/pages/TextBlockPage.qml</file>
         <file>gallery/pages/ButtonPage.qml</file>
         <file>gallery/pages/ComboBoxPage.qml</file>
 
+        <!-- Controls.Base -->
         <file>src/controls/base/WindowManager.qml</file>
 
         <file>src/controls/base/Object.qml</file>
@@ -18,6 +22,7 @@
         <file>src/controls/base/Divider.qml</file>
         <file>src/controls/base/ScrollBar.qml</file>
 
+        <file>src/controls/base/Window.qml</file>
         <file>src/controls/base/ComponentLoader.qml</file>
         <file>src/controls/base/Popup.qml</file>
         <file>src/controls/base/ContentDialog.qml</file>
@@ -36,6 +41,7 @@
         <file>src/controls/base/Badge.qml</file>
         <file>src/controls/base/Tooltip.qml</file>
 
+        <!-- Images -->
         <file>static/images/favicon.ico</file>
         
         <!-- Fonts -->

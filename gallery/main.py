@@ -26,6 +26,7 @@ BASE_CONTROLS = {
     "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
     "Divider": "qrc:/src/controls/base/Divider.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
+    "Window": "qrc:/src/controls/base/Window.qml",
     "Popup": "qrc:/src/controls/base/Popup.qml",
     "ContentDialog": "qrc:/src/controls/base/ContentDialog.qml",
     "Page": "qrc:/src/controls/base/Page.qml",

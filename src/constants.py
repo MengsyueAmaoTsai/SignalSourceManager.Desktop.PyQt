@@ -67,6 +67,10 @@ class AppTheme(QObject):
         return self._theme.value
 
     @Property(bool, constant=True)
+    def blur_behind_window_enabled(self) -> bool:
+        return self._blur_behind_window_enabled
+
+    @Property(bool, constant=True)
     def render_native_text(self) -> bool:
         return self._render_native_text
 
