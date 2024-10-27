@@ -21,10 +21,10 @@ Item {
             //     '/crash': 'qrc:/gallery/windows/CrashWindow.qml',
             //     '/standard': 'qrc:/gallery/windows/StandardWindow.qml',
             '/single-task': 'qrc:/gallery/windows/SingleTaskWindow.qml',
-            //     '/single-instance': 'qrc:/gallery/windows/SingleInstanceWindow.qml',
+            '/single-instance': 'qrc:/gallery/windows/SingleInstanceWindow.qml',
             //     '/page': 'qrc:/gallery/windows/PageWindow.qml',
             //     '/controls': 'qrc:/gallery/windows/ControlsWindow.qml'
         };
-        BaseControls.WindowManager.navigateTo('/single-task');
+        BaseControls.WindowManager.navigateTo('/single-instance');
     }
 }
