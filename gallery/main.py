@@ -24,6 +24,7 @@ BASE_CONTROLS = {
     "TextBox": "qrc:/src/controls/base/TextBox.qml",
     "AutoSuggestBox": "qrc:/src/controls/base/AutoSuggestBox.qml",
     "NavigationView": "qrc:/src/controls/base/NavigationView.qml",
+    "NavigationViewItem": "qrc:/src/controls/base/NavigationViewItem.qml",
     "WindowManager": "qrc:/src/controls/base/WindowManager.qml",
     "Window": "qrc:/src/controls/base/Window.qml",
     "ContentDialog": "qrc:/src/controls/base/ContentDialog.qml",

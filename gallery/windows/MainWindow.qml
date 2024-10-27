@@ -51,17 +51,23 @@ BaseControls.Window {
             visible: flipable.flipAngle !== 180
             anchors.fill: flipable
             BaseControls.NavigationView {
+                id: navigationView
+                title: 'FluentUI'
+                logo: 'qrc:/static/images/favicon.ico'
+                paneDisplayMode: 'Auto'
                 width: parent.width
                 height: parent.height
+                topPadding: 0
                 z: 999
                 // pageMode:
-                // items:
                 // footerItems:
-                // topPadding:
-                // displayMode:
-                // logo:
-                // title:
                 // onLogoClicked:
+                menuItems: [
+                    BaseControls.NavigationViewItem {
+                        content: 'Home'
+                        url: 'qrc:/gallery/pages/HomePage.qml'
+                    }
+                ]
                 autoSuggestBox: BaseControls.AutoSuggestBox {
                     placeholder: 'Search'
                     // iconSource: FluentIcons.Search
@@ -70,6 +76,7 @@ BaseControls.Window {
                 }
                 Component.onCompleted: {
                     console.log('TODO: Implement NavigationView.qml Component.onCompleted');
+                    navigationView.setCurrentIndex(0);
                 }
             }
         }

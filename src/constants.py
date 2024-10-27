@@ -71,6 +71,10 @@ class AppTheme(QObject):
         return self._render_native_text
 
     @Property(bool, constant=True)
+    def animation_enabled(self) -> bool:
+        return self._animation_enabled
+
+    @Property(bool, constant=True)
     def primary_color(self) -> QColor:
         return self._primary_color
 
