@@ -5,8 +5,8 @@ Text {
     id: control
 
     renderType: AppTheme.render_native_text ? Text.NativeRendering : Text.QtRendering
-    color: textColor
     font: AppFont.body
+    color: textColor
 
     property color textColor: AppTheme.font_primary_color
 }
