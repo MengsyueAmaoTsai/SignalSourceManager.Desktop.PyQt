@@ -38,6 +38,7 @@ BASE_CONTROLS = {
     "Button": "qrc:/src/controls/base/Button.qml",
     "TextBox": "qrc:/src/controls/base/TextBox.qml",
     "ComboBox": "qrc:/src/controls/base/ComboBox.qml",
+    "Progress": "qrc:/src/controls/base/Progress.qml",
     "Badge": "qrc:/src/controls/base/Badge.qml",
     "Tooltip": "qrc:/src/controls/base/Tooltip.qml",
     "ScrollBar": "qrc:/src/controls/base/ScrollBar.qml",

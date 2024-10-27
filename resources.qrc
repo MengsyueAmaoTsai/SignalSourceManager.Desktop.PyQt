@@ -8,6 +8,7 @@
         <file>src/controls/base/Button.qml</file>
         <file>src/controls/base/TextBox.qml</file>
         <file>src/controls/base/ComboBox.qml</file>
+        <file>src/controls/base/Progress.qml</file>
         
         <!-- BaseControls.Containers -->
         <file>src/controls/base/Popup.qml</file>
