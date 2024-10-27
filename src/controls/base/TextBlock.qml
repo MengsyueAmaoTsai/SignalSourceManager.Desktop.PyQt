@@ -9,4 +9,5 @@ Text {
     color: textColor
 
     property color textColor: AppTheme.font_primary_color
+    property string typo: ''
 }

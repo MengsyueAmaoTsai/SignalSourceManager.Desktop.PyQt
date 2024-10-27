@@ -2,6 +2,9 @@
     <qresource prefix="/">
         <file>gallery/App.qml</file>
 
+        <!-- Pages -->
+        <file>gallery/pages/TextBlockPage.qml</file>
+
         <file>src/controls/base/WindowManager.qml</file>
 
         <file>src/controls/base/Object.qml</file>

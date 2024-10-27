@@ -36,6 +36,8 @@ BASE_CONTROLS = {
     "ComboBox": "qrc:/src/controls/base/ComboBox.qml",
     "Badge": "qrc:/src/controls/base/Badge.qml",
     "Tooltip": "qrc:/src/controls/base/Tooltip.qml",
+    ## Pages
+    "TextBlockPage": "qrc:/gallery/pages/TextBlockPage.qml",
 }
 BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
 
