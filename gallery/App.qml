@@ -11,7 +11,7 @@ ApplicationWindow {
     height: Screen.height * .7
     width: Screen.width * .7
 
-    BaseControls.ButtonPage {
+    BaseControls.ComboBoxPage {
         anchors.centerIn: parent
     }
 

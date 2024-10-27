@@ -33,6 +33,7 @@ def services_add_base_controls(
         "FocusRectangle": "qrc:/src/controls/base/FocusRectangle.qml",
         "Shadow": "qrc:/src/controls/base/Shadow.qml",
         "Background": "qrc:/src/controls/base/Background.qml",
+        "TextBoxBackground": "qrc:/src/controls/base/TextBoxBackground.qml",
         "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
     }
 

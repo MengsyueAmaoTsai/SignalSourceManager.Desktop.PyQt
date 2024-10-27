@@ -61,16 +61,16 @@ T.ComboBox {
         validator: control.validator
         selectByMouse: true
         verticalAlignment: Text.AlignVCenter
-        // background: FluTextBoxBackground {
-        //     border.width: 1
-        //     bottomMargin: {
-        //         if (!control.editable) {
-        //             return 1;
-        //         }
-        //         return contentItem && contentItem.activeFocus ? 2 : 1;
-        //     }
-        //     inputItem: contentItem
-        // }
+        background: BaseControls.TextBoxBackground {
+            border.width: 1
+            bottomMargin: {
+                if (!control.editable) {
+                    return 1;
+                }
+                return contentItem && contentItem.activeFocus ? 2 : 1;
+            }
+            inputItem: contentItem
+        }
         Component.onCompleted: {
             forceActiveFocus();
         }
@@ -93,11 +93,11 @@ T.ComboBox {
             radius: 4
             anchors.margins: -2
         }
-        // FluFocusRectangle {
-        //     visible: control.visualFocus
-        //     radius: 4
-        //     anchors.margins: -2
-        // }
+        BaseControls.FocusRectangle {
+            visible: control.visualFocus
+            radius: 4
+            anchors.margins: -2
+        }
         color: {
             if (disabled) {
                 return disableColor;

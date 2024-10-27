@@ -16,6 +16,7 @@
         <file>src/controls/base/FocusRectangle.qml</file>
         <file>src/controls/base/Shadow.qml</file>
         <file>src/controls/base/Background.qml</file>
+        <file>src/controls/base/TextBoxBackground.qml</file>
         <file>src/controls/base/ItemDelegate.qml</file>
     </qresource>
 </RCC>

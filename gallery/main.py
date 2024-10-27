@@ -22,6 +22,7 @@ BASE_CONTROLS = {
     "FocusRectangle": "qrc:/src/controls/base/FocusRectangle.qml",
     "Shadow": "qrc:/src/controls/base/Shadow.qml",
     "Background": "qrc:/src/controls/base/Background.qml",
+    "TextBoxBackground": "qrc:/src/controls/base/TextBoxBackground.qml",
     "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
     "Divider": "qrc:/src/controls/base/Divider.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
@@ -41,6 +42,7 @@ BASE_CONTROLS = {
     ## Pages
     "TextBlockPage": "qrc:/gallery/pages/TextBlockPage.qml",
     "ButtonPage": "qrc:/gallery/pages/ButtonPage.qml",
+    "ComboBoxPage": "qrc:/gallery/pages/ComboBoxPage.qml",
 }
 BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
 

@@ -5,6 +5,7 @@
         <!-- Pages -->
         <file>gallery/pages/TextBlockPage.qml</file>
         <file>gallery/pages/ButtonPage.qml</file>
+        <file>gallery/pages/ComboBoxPage.qml</file>
 
         <file>src/controls/base/WindowManager.qml</file>
 
@@ -12,6 +13,7 @@
         <file>src/controls/base/FocusRectangle.qml</file>
         <file>src/controls/base/Shadow.qml</file>
         <file>src/controls/base/Background.qml</file>
+        <file>src/controls/base/TextBoxBackground.qml</file>
         <file>src/controls/base/ItemDelegate.qml</file>
         <file>src/controls/base/Divider.qml</file>
 
