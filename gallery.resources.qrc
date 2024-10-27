@@ -11,6 +11,7 @@
         <file>gallery/windows/SingleTaskWindow.qml</file>
         <file>gallery/windows/SingleInstanceWindow.qml</file>
         <file>gallery/windows/PageWindow.qml</file>
+        <file>gallery/windows/ControlsWindow.qml</file>
 
         <file>static/images/favicon.ico</file>
 
@@ -18,6 +19,7 @@
         <file>src/controls/base/AppTitleBar.qml</file>
         
         <file>src/controls/base/Button.qml</file>
+        <file>src/controls/base/ToggleSwitch.qml</file>
         <file>src/controls/base/Tooltip.qml</file>
 
         <file>src/controls/base/TextBlock.qml</file>
@@ -30,7 +32,7 @@
         <file>src/controls/base/WindowManager.qml</file>
         <file>src/controls/base/Window.qml</file>
         <file>src/controls/base/ContentDialog.qml</file>
-
+        <file>src/controls/base/Stack.qml</file>
         <file>src/controls/base/TableView.qml</file>
 
         <file>src/controls/base/MenuBar.qml</file>

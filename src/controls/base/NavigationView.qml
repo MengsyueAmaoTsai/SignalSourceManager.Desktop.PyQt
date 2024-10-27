@@ -46,6 +46,7 @@ Item {
             spacing: 0
             BaseControls.Button {
                 id: backButton
+                text: 'Back'
                 Layout.leftMargin: 5
                 Layout.alignment: Qt.AlignVCenter
                 iconSize: 13
@@ -86,6 +87,7 @@ Item {
 
             BaseControls.Button {
                 id: navButton
+                text: 'Nav'
                 clip: true
                 visible: opacity
                 // iconSize: 15
