@@ -10,8 +10,7 @@ BaseControls.Page {
     Flickable {
         clip: true
         anchors.fill: parent
-        // ScrollBar.vertical: FluScrollBar {}
-        ScrollBar.vertical: ScrollBar {}
+        ScrollBar.vertical: BaseControls.ScrollBar {}
 
         boundsBehavior: Flickable.StopAtBounds
         contentHeight: container.height

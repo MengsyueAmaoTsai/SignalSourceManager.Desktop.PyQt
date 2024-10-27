@@ -38,8 +38,7 @@ BaseControls.Popup {
             boundsBehavior: Flickable.StopAtBounds
             width: parent.width
             height: message === "" ? 0 : Math.min(text_message.height, 300)
-            // ScrollBar.vertical: FluScrollBar {}
-            ScrollBar.vertical: ScrollBar {}
+            ScrollBar.vertical: BaseControls.ScrollBar {}
             BaseControls.TextBlock {
                 id: text_message
                 font: AppFont.body
@@ -103,40 +102,40 @@ BaseControls.Popup {
                     Item {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        // FluButton {
-                        //     id: neutral_btn
-                        //     visible: control.buttonFlags & FluContentDialogType.NeutralButton
-                        //     text: neutralText
-                        //     width: parent.width
-                        //     anchors.centerIn: parent
-                        //     onClicked: {
-                        //         if (control.onNeutralClickListener) {
-                        //             control.onNeutralClickListener();
-                        //         } else {
-                        //             neutralClicked();
-                        //             control.close();
-                        //         }
-                        //     }
-                        // }
+                        BaseControls.Button {
+                            id: neutral_btn
+                            visible: control.buttonFlags & FluContentDialogType.NeutralButton
+                            text: neutralText
+                            width: parent.width
+                            anchors.centerIn: parent
+                            onClicked: {
+                                if (control.onNeutralClickListener) {
+                                    control.onNeutralClickListener();
+                                } else {
+                                    neutralClicked();
+                                    control.close();
+                                }
+                            }
+                        }
                     }
                     Item {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        // FluButton {
-                        //     id: negative_btn
-                        //     visible: control.buttonFlags & FluContentDialogType.NegativeButton
-                        //     width: parent.width
-                        //     anchors.centerIn: parent
-                        //     text: negativeText
-                        //     onClicked: {
-                        //         if (control.onNegativeClickListener) {
-                        //             control.onNegativeClickListener();
-                        //         } else {
-                        //             negativeClicked();
-                        //             control.close();
-                        //         }
-                        //     }
-                        // }
+                        BaseControls.Button {
+                            id: negative_btn
+                            visible: control.buttonFlags & FluContentDialogType.NegativeButton
+                            width: parent.width
+                            anchors.centerIn: parent
+                            text: negativeText
+                            onClicked: {
+                                if (control.onNegativeClickListener) {
+                                    control.onNegativeClickListener();
+                                } else {
+                                    negativeClicked();
+                                    control.close();
+                                }
+                            }
+                        }
                     }
                     Item {
                         Layout.fillWidth: true

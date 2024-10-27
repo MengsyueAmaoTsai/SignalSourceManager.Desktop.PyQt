@@ -36,6 +36,7 @@ def services_add_base_controls(
         "Background": "qrc:/src/controls/base/Background.qml",
         "TextBoxBackground": "qrc:/src/controls/base/TextBoxBackground.qml",
         "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
+        "ScrollBar": "qrc:/src/controls/base/ScrollBar.qml",
     }
 
     for control_name, url in controls.items():

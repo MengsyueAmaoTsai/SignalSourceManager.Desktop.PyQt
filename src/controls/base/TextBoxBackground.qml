@@ -44,15 +44,15 @@ BaseControls.Background {
             return AppTheme.theme === 'Dark' ? Qt.rgba(123 / 255, 123 / 255, 123 / 255, 1) : Qt.rgba(132 / 255, 132 / 255, 132 / 255, 1);
         }
     }
-    // FluClip {
-    //     anchors.fill: parent
-    //     radius: [control.radius, control.radius, control.radius, control.radius]
-    //     visible: inputItem && inputItem.activeFocus
-    //     Rectangle {
-    //         width: parent.width
-    //         height: 2
-    //         anchors.bottom: parent.bottom
-    //         color: FluTheme.primaryColor
-    //     }
-    // }
+    BaseControls.Clip {
+        anchors.fill: parent
+        radius: [control.radius, control.radius, control.radius, control.radius]
+        visible: inputItem && inputItem.activeFocus
+        Rectangle {
+            width: parent.width
+            height: 2
+            anchors.bottom: parent.bottom
+            color: AppTheme.primary_color
+        }
+    }
 }

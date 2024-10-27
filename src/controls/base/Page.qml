@@ -7,7 +7,7 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
 Page {
     id: control
-    
+
     // property int launchMode: FluPageType.SingleTop
     StackView.onRemoved: destroy()
     padding: 5

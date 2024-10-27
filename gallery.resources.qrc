@@ -16,6 +16,7 @@
         <file>src/controls/base/TextBoxBackground.qml</file>
         <file>src/controls/base/ItemDelegate.qml</file>
         <file>src/controls/base/Divider.qml</file>
+        <file>src/controls/base/ScrollBar.qml</file>
 
         <file>src/controls/base/ComponentLoader.qml</file>
         <file>src/controls/base/Popup.qml</file>

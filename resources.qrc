@@ -19,6 +19,7 @@
         <file>src/controls/base/Background.qml</file>
         <file>src/controls/base/TextBoxBackground.qml</file>
         <file>src/controls/base/ItemDelegate.qml</file>
+        <file>src/controls/base/ScrollBar.qml</file>
 
         <!-- Fonts -->
         <file>static/fonts/FluentIcons.ttf</file>
