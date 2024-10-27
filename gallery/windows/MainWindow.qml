@@ -73,7 +73,37 @@ BaseControls.Window {
                 }
             }
         }
-        back: Item {}
+        back: Item {
+            anchors.fill: flipable
+            visible: flipable.flipAngle !== 0
+
+            Row {
+                z: 8
+                anchors {
+                    top: parent.top
+                    left: parent.left
+                    topMargin: 5
+                    leftMargin: 5
+                }
+
+                BaseControls.Button {
+                    width: 30
+                    height: 30
+                    // iconSize: 13
+                    // iconSource: FluentIcons.ChromeBack
+                    onClicked: flipable.flipped = false
+                }
+                BaseControls.Button {
+                    width: 30
+                    height: 30
+                    // iconSize: 13
+                    // iconSource: FluentIcons.Sync
+                    // onClicked: loader.reload()
+                }
+            }
+
+            // RemoteLoader {}
+        }
 
         property bool flipped: false
         property real flipAngle: 0
