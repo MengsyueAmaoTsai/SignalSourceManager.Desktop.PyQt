@@ -4,6 +4,7 @@
 
         <!-- Pages -->
         <file>gallery/pages/TextBlockPage.qml</file>
+        <file>gallery/pages/ButtonPage.qml</file>
 
         <file>src/controls/base/WindowManager.qml</file>
 

@@ -11,7 +11,7 @@ ApplicationWindow {
     height: Screen.height * .7
     width: Screen.width * .7
 
-    BaseControls.TextBlockPage {
+    BaseControls.ButtonPage {
         anchors.centerIn: parent
     }
 
