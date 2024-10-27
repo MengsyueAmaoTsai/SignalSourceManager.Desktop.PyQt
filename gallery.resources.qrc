@@ -8,6 +8,7 @@
         <file>gallery/windows/SingleInstanceWindow.qml</file>
         <file>gallery/windows/CrashWindow.qml</file>
         <file>gallery/windows/PageWindow.qml</file>
+        <file>gallery/windows/SignInWindow.qml</file>
 
         <!-- Pages -->
         <file>gallery/pages/TextBlockPage.qml</file>
