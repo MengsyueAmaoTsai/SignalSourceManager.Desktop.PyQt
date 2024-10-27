@@ -30,13 +30,17 @@ BASE_CONTROLS = {
     "WindowManager": "qrc:/src/controls/base/WindowManager.qml",
     "Window": "qrc:/src/controls/base/Window.qml",
     "ContentDialog": "qrc:/src/controls/base/ContentDialog.qml",
+    "Page": "qrc:/src/controls/base/Page.qml",
     "Stack": "qrc:/src/controls/base/Stack.qml",
+    "ScrollView": "qrc:/src/controls/base/ScrollView.qml",
+    "ScrollViewer": "qrc:/src/controls/base/ScrollViewer.qml",
     "TableView": "qrc:/src/controls/base/TableView.qml",
     "MenuBar": "qrc:/src/controls/base/MenuBar.qml",
     "MenuBarItem": "qrc:/src/controls/base/MenuBarItem.qml",
     "Menu": "qrc:/src/controls/base/Menu.qml",
     "Object": "qrc:/src/controls/base/Object.qml",
     "Shadow": "qrc:/src/controls/base/Shadow.qml",
+    "ScrollBar": "qrc:/src/controls/base/ScrollBar.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
 }
 BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
