@@ -6,6 +6,7 @@
         <file>gallery/windows/AboutWindow.qml</file>
         <file>gallery/windows/SingleTaskWindow.qml</file>
         <file>gallery/windows/SingleInstanceWindow.qml</file>
+        <file>gallery/windows/CrashWindow.qml</file>
 
         <!-- Pages -->
         <file>gallery/pages/TextBlockPage.qml</file>
@@ -49,6 +50,7 @@
         
         <file>gallery/assets/images/qrcode_wx.jpg</file>
         <file>gallery/assets/images/qrcode_zfb.jpg</file>
+        <file>gallery/assets/images/ic_crash.png</file>
         
         <!-- Fonts -->
         <file>static/fonts/FluentIcons.ttf</file>

@@ -18,13 +18,13 @@ Item {
             '/about': 'qrc:/gallery/windows/AboutWindow.qml',
             //     '/sign-in': 'qrc:/gallery/windows/SignInWindow.qml',
             //     '/hotload': 'qrc:/gallery/windows/HotloadWindow.qml',
-            //     '/crash': 'qrc:/gallery/windows/CrashWindow.qml',
+            '/crash': 'qrc:/gallery/windows/CrashWindow.qml',
             //     '/standard': 'qrc:/gallery/windows/StandardWindow.qml',
             '/single-task': 'qrc:/gallery/windows/SingleTaskWindow.qml',
             '/single-instance': 'qrc:/gallery/windows/SingleInstanceWindow.qml',
             //     '/page': 'qrc:/gallery/windows/PageWindow.qml',
             //     '/controls': 'qrc:/gallery/windows/ControlsWindow.qml'
         };
-        BaseControls.WindowManager.navigateTo('/single-instance');
+        BaseControls.WindowManager.navigateTo('/crash');
     }
 }

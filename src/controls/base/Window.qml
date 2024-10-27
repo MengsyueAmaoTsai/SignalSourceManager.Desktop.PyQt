@@ -389,7 +389,7 @@ Window {
         frameless.setHitTestVisible(val);
     }
     function deleteLater() {
-        FluTools.deleteLater(window);
+    // FluTools.deleteLater(window);
     }
     function containerItem() {
         return layout_container;
