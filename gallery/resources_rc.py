@@ -6,7 +6,7 @@
 from PySide6 import QtCore
 
 qt_resource_data = b"\
-\x00\x00\x051\
+\x00\x00\x05I\
 i\
 mport QtQuick\x0d\x0ai\
 mport QtQuick.Co\
@@ -21,77 +21,78 @@ s\x0d\x0a\x0d\x0aApplication\
 Window {\x0d\x0a    id\
 : app\x0d\x0a    visib\
 le: true\x0d\x0a\x0d\x0a    \
-RowLayout {\x0d\x0a   \
-     BaseControl\
-s.Tooltip {\x0d\x0a   \
-         visible\
-: true\x0d\x0a        \
-    text: 'Hello\
-, tool tip'\x0d\x0a   \
-     }\x0d\x0a    }\x0d\x0a\x0d\
-\x0a    Component.o\
-nCompleted: {\x0d\x0a \
-       console.l\
-og('Theme:', App\
-Theme.theme);\x0d\x0a \
-       console.l\
-og('Render nativ\
-e text:', AppThe\
-me.render_native\
-_text);\x0d\x0a       \
- // BaseControls\
-.WindowManager.r\
-outes = {\x0d\x0a     \
-   //     '/': '\
-qrc:/gallery/win\
-dows/MainWindow.\
-qml',\x0d\x0a        /\
-/     '/about': \
-'qrc:/gallery/wi\
-ndows/AboutWindo\
-w.qml',\x0d\x0a       \
- //     '/sign-i\
-n': 'qrc:/galler\
-y/windows/SignIn\
-Window.qml',\x0d\x0a  \
-      //     '/h\
-otload': 'qrc:/g\
-allery/windows/H\
-otloadWindow.qml\
-',\x0d\x0a        //  \
-   '/crash': 'qr\
-c:/gallery/windo\
-ws/CrashWindow.q\
+RowLayout {}\x0d\x0a  \
+  BaseControls.P\
+age {\x0d\x0a        i\
+d: page\x0d\x0a       \
+ visible: true\x0d\x0a\
+        Text {\x0d\x0a\
+            text\
+: 'Page is worki\
+ng'\x0d\x0a        }\x0d\x0a\
+    }\x0d\x0a\x0d\x0a    Com\
+ponent.onComplet\
+ed: {\x0d\x0a        c\
+onsole.log('Them\
+e:', AppTheme.th\
+eme);\x0d\x0a        c\
+onsole.log('Rend\
+er native text:'\
+, AppTheme.rende\
+r_native_text);\x0d\
+\x0a        // Base\
+Controls.WindowM\
+anager.routes = \
+{\x0d\x0a        //   \
+  '/': 'qrc:/gal\
+lery/windows/Mai\
+nWindow.qml',\x0d\x0a \
+       //     '/\
+about': 'qrc:/ga\
+llery/windows/Ab\
+outWindow.qml',\x0d\
+\x0a        //     \
+'/sign-in': 'qrc\
+:/gallery/window\
+s/SignInWindow.q\
 ml',\x0d\x0a        //\
-     '/standard'\
-: 'qrc:/gallery/\
-windows/Standard\
+     '/hotload':\
+ 'qrc:/gallery/w\
+indows/HotloadWi\
+ndow.qml',\x0d\x0a    \
+    //     '/cra\
+sh': 'qrc:/galle\
+ry/windows/Crash\
 Window.qml',\x0d\x0a  \
       //     '/s\
-ingle-task': 'qr\
-c:/gallery/windo\
-ws/SingleTaskWin\
-dow.qml',\x0d\x0a     \
-   //     '/sing\
-le-instance': 'q\
-rc:/gallery/wind\
-ows/SingleInstan\
-ceWindow.qml',\x0d\x0a\
-        //     '\
-/page': 'qrc:/ga\
-llery/windows/Pa\
-geWindow.qml',\x0d\x0a\
-        //     '\
-/controls': 'qrc\
-:/gallery/window\
-s/ControlsWindow\
-.qml'\x0d\x0a        /\
-/ };\x0d\x0a        //\
- BaseControls.Wi\
-ndowManager.navi\
-gateTo('/control\
-s');\x0d\x0a    }\x0d\x0a}\x0d\x0a\
-\
+tandard': 'qrc:/\
+gallery/windows/\
+StandardWindow.q\
+ml',\x0d\x0a        //\
+     '/single-ta\
+sk': 'qrc:/galle\
+ry/windows/Singl\
+eTaskWindow.qml'\
+,\x0d\x0a        //   \
+  '/single-insta\
+nce': 'qrc:/gall\
+ery/windows/Sing\
+leInstanceWindow\
+.qml',\x0d\x0a        \
+//     '/page': \
+'qrc:/gallery/wi\
+ndows/PageWindow\
+.qml',\x0d\x0a        \
+//     '/control\
+s': 'qrc:/galler\
+y/windows/Contro\
+lsWindow.qml'\x0d\x0a \
+       // };\x0d\x0a  \
+      // BaseCon\
+trols.WindowMana\
+ger.navigateTo('\
+/controls');\x0d\x0a  \
+  }\x0d\x0a}\x0d\x0a\
 \x00\x00\x02R\
 i\
 mport QtQuick\x0d\x0ai\
@@ -132,6 +133,105 @@ order.color: con\
 trol.color\x0d\x0a    \
     }\x0d\x0a    }\x0d\x0a}\x0d\
 \x0a\
+\x00\x00\x06\x01\
+i\
+mport QtQuick\x0d\x0ai\
+mport QtQuick.La\
+youts\x0d\x0aimport Qt\
+Quick.Controls\x0d\x0a\
+import QtQuick.W\
+indow\x0d\x0a\x0d\x0aimport \
+RichillCapital.S\
+ignalSourceManag\
+er.Desktop.Contr\
+ols.Base as Base\
+Controls\x0d\x0a\x0d\x0aPage\
+ {\x0d\x0a    id: cont\
+rol\x0d\x0a    \x0d\x0a    /\
+/ property int l\
+aunchMode: FluPa\
+geType.SingleTop\
+\x0d\x0a    StackView.\
+onRemoved: destr\
+oy()\x0d\x0a    paddin\
+g: 5\x0d\x0a    visibl\
+e: false\x0d\x0a    op\
+acity: visible\x0d\x0a\
+    transform: T\
+ranslate {\x0d\x0a    \
+    y: control.v\
+isible ? 0 : 80\x0d\
+\x0a        Behavio\
+r on y {\x0d\x0a      \
+      enabled: c\
+ontrol.animation\
+Enabled && AppTh\
+eme.animation_en\
+abled\x0d\x0a         \
+   NumberAnimati\
+on {\x0d\x0a          \
+      duration: \
+167\x0d\x0a           \
+     easing.type\
+: Easing.OutCubi\
+c\x0d\x0a            }\
+\x0d\x0a        }\x0d\x0a   \
+ }\x0d\x0a    header: \
+BaseControls.Com\
+ponentLoader {\x0d\x0a\
+        sourceCo\
+mponent: control\
+.title === \x22\x22 ? \
+undefined : head\
+erComponent\x0d\x0a   \
+ }\x0d\x0a    backgrou\
+nd: Item {}\x0d\x0a   \
+ Behavior on opa\
+city {\x0d\x0a        \
+enabled: control\
+.animationEnable\
+d && AppTheme.an\
+imation_enabled\x0d\
+\x0a        NumberA\
+nimation {\x0d\x0a    \
+        duration\
+: 83\x0d\x0a        }\x0d\
+\x0a    }\x0d\x0a\x0d\x0a    pr\
+operty string ur\
+l: \x22\x22\x0d\x0a    prope\
+rty bool animati\
+onEnabled: AppTh\
+eme.animation_en\
+abled\x0d\x0a\x0d\x0a    Com\
+ponent {\x0d\x0a      \
+  id: headerComp\
+onent\x0d\x0a\x0d\x0a       \
+ Item {\x0d\x0a       \
+     implicitHei\
+ght: 40\x0d\x0a       \
+     BaseControl\
+s.TextBlock {\x0d\x0a \
+               i\
+d: titleTextBloc\
+k\x0d\x0a\x0d\x0a           \
+     text: contr\
+ol.title\x0d\x0a      \
+          font: \
+AppFont.title\x0d\x0a \
+               a\
+nchors {\x0d\x0a      \
+              le\
+ft: parent.left\x0d\
+\x0a               \
+     leftMargin:\
+ 5\x0d\x0a            \
+    }\x0d\x0a         \
+   }\x0d\x0a        }\x0d\
+\x0a    }\x0d\x0a\x0d\x0a    Co\
+mponent.onComple\
+ted: console.vis\
+ible = true\x0d\x0a}\x0d\x0a\
+\
 \x00\x00\x00Y\
 i\
 mport QtQuick\x0d\x0a\x0d\
@@ -7832,6 +7932,10 @@ qt_resource_name = b"\
 \x0bel\xdc\
 \x00S\
 \x00h\x00a\x00d\x00o\x00w\x00.\x00q\x00m\x00l\
+\x00\x08\
+\x07\xd8^\xfc\
+\x00P\
+\x00a\x00g\x00e\x00.\x00q\x00m\x00l\
 \x00\x13\
 \x0b\xe6\xe9\x5c\
 \x00C\
@@ -7878,28 +7982,30 @@ qt_resource_struct = b"\
 \x00\x00\x00\x1e\x00\x02\x00\x00\x00\x01\x00\x00\x00\x04\
 \x00\x00\x00\x00\x00\x00\x00\x00\
 \x00\x00\x002\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\
-\x00\x00\x01\x92\xce\xddjC\
-\x00\x00\x01F\x00\x02\x00\x00\x00\x01\x00\x00\x00\x06\
+\x00\x00\x01\x92\xce\xe2\xbf\xa2\
+\x00\x00\x01\x5c\x00\x02\x00\x00\x00\x01\x00\x00\x00\x06\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x01X\x00\x00\x00\x00\x00\x01\x00\x00\x14\xb7\
+\x00\x00\x01n\x00\x00\x00\x00\x00\x01\x00\x00\x1a\xd4\
 \x00\x00\x01\x92\x8c\x95\x9e\x0a\
 \x00\x00\x00F\x00\x02\x00\x00\x00\x01\x00\x00\x00\x08\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\x5c\x00\x02\x00\x00\x00\x07\x00\x00\x00\x09\
+\x00\x00\x00\x5c\x00\x02\x00\x00\x00\x08\x00\x00\x00\x09\
 \x00\x00\x00\x00\x00\x00\x00\x00\
-\x00\x00\x00\xb0\x00\x00\x00\x00\x00\x01\x00\x00\x07\xe8\
+\x00\x00\x00\xc6\x00\x00\x00\x00\x00\x01\x00\x00\x0e\x05\
 \x00\x00\x01\x92\xce\xc4\x85\x7f\
-\x00\x00\x01\x1e\x00\x01\x00\x00\x00\x01\x00\x00\x10\xbb\
+\x00\x00\x014\x00\x01\x00\x00\x00\x01\x00\x00\x16\xd8\
 \x00\x00\x01\x92\xce\x06\xc1J\
-\x00\x00\x00\xea\x00\x00\x00\x00\x00\x01\x00\x00\x09t\
+\x00\x00\x00\x84\x00\x00\x00\x00\x00\x01\x00\x00\x07\xa3\
+\x00\x00\x01\x92\xce\xe2>\xcc\
+\x00\x00\x01\x00\x00\x00\x00\x00\x00\x01\x00\x00\x0f\x91\
 \x00\x00\x01\x92\xce\xd5S\xfb\
-\x00\x00\x00j\x00\x00\x00\x00\x00\x01\x00\x00\x055\
+\x00\x00\x00j\x00\x00\x00\x00\x00\x01\x00\x00\x05M\
 \x00\x00\x01\x92\xce\xdb})\
-\x00\x00\x00\xd0\x00\x00\x00\x00\x00\x01\x00\x00\x08\xf7\
+\x00\x00\x00\xe6\x00\x00\x00\x00\x00\x01\x00\x00\x0f\x14\
 \x00\x00\x01\x92\xce\xd2Q\xd1\
-\x00\x00\x01\x02\x00\x00\x00\x00\x00\x01\x00\x00\x0c\x95\
+\x00\x00\x01\x18\x00\x00\x00\x00\x00\x01\x00\x00\x12\xb2\
 \x00\x00\x01\x92\xce\xdd,\x90\
-\x00\x00\x00\x84\x00\x00\x00\x00\x00\x01\x00\x00\x07\x8b\
+\x00\x00\x00\x9a\x00\x00\x00\x00\x00\x01\x00\x00\x0d\xa8\
 \x00\x00\x01\x92\xce\xc8\x86\xbd\
 "
 

@@ -8,8 +8,12 @@ ApplicationWindow {
     id: app
     visible: true
 
-    RowLayout {
-        BaseControls.Tooltip {
+    RowLayout {}
+    BaseControls.Page {
+        id: page
+        visible: true
+        Text {
+            text: 'Page is working'
         }
     }
 

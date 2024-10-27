@@ -2,15 +2,17 @@
     <qresource prefix="/">
         <file>gallery/App.qml</file>
 
+        <file>src/controls/base/WindowManager.qml</file>
+
         <file>src/controls/base/Object.qml</file>
         <file>src/controls/base/Shadow.qml</file>
-        <file>src/controls/base/WindowManager.qml</file>
+
         <file>src/controls/base/ComponentLoader.qml</file>
+        <file>src/controls/base/Page.qml</file>
+        <file>src/controls/base/Frame.qml</file>
         
         <file>src/controls/base/TextBlock.qml</file>
         <file>src/controls/base/Tooltip.qml</file>
-        
-        <file>src/controls/base/Frame.qml</file>
 
         <file>static/images/favicon.ico</file>
     </qresource>

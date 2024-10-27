@@ -21,9 +21,10 @@ BASE_CONTROLS = {
     "Object": "qrc:/src/controls/base/Object.qml",
     "Shadow": "qrc:/src/controls/base/Shadow.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
+    "Page": "qrc:/src/controls/base/Page.qml",
+    "Frame": "qrc:/src/controls/base/Frame.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
     "Tooltip": "qrc:/src/controls/base/Tooltip.qml",
-    "Frame": "qrc:/src/controls/base/Frame.qml",
 }
 BASE_CONTROLS_MODULE_NAME = "RichillCapital.SignalSourceManager.Desktop.Controls.Base"
 
