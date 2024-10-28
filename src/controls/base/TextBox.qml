@@ -9,8 +9,11 @@ TextField {
     signal commit(string text)
     property bool disabled: false
     property int iconSource: 0
-    property color normalColor: AppTheme.theme === 'Dark' ? Qt.rgba(255 / 255, 255 / 255, 255 / 255, 1) : Qt.rgba(27 / 255, 27 / 255, 27 / 255, 1)
-    property color disableColor: AppTheme.theme === 'Dark' ? Qt.rgba(131 / 255, 131 / 255, 131 / 255, 1) : Qt.rgba(160 / 255, 160 / 255, 160 / 255, 1)
+    property color normalColor: AppTheme.theme === 'Dark' ?  Qt.rgba(255/255,255/255,255/255,1) : Qt.rgba(27/255,27/255,27/255,1)
+    property color disableColor: AppTheme.theme === 'Dark' ? Qt.rgba(131/255,131/255,131/255,1) : Qt.rgba(160/255,160/255,160/255,1)
+    property color placeholderNormalColor: AppTheme.theme === 'Dark' ? Qt.rgba(210/255,210/255,210/255,1) : Qt.rgba(96/255,96/255,96/255,1)
+    property color placeholderFocusColor: AppTheme.theme === 'Dark' ? Qt.rgba(152/255,152/255,152/255,1) : Qt.rgba(141/255,141/255,141/255,1)
+    property color placeholderDisableColor: AppTheme.theme === 'Dark' ? Qt.rgba(131/255,131/255,131/255,1) : Qt.rgba(160/255,160/255,160/255,1)
     property bool cleanEnabled: true
 
     padding: 7
@@ -27,13 +30,13 @@ TextField {
     // selectionColor: FluTools.withOpacity(AppTheme.primary_color, 0.5)
     selectedTextColor: color
     placeholderTextColor: {
-        if (!enabled) {
-            return disableColor;
+        if(!enabled){
+            return placeholderDisableColor
         }
-        if (focus) {
-            return placeholderFocusColor;
+        if(focus){
+            return placeholderFocusColor
         }
-        return normalColor;
+        return placeholderNormalColor
     }
     selectByMouse: true
     rightPadding: {

@@ -21,18 +21,16 @@ Window {
     // property alias effect: frameless.effect
     // readonly property alias effective: frameless.effective
     // readonly property alias availableEffects: frameless.availableEffects
-    // property Item appBar: FluAppBar {
-    //     title: window.title
-    //     height: 30
-    //     showDark: window.showDark
-    //     showClose: window.showClose
-    //     showMinimize: window.showMinimize
-    //     showMaximize: window.showMaximize
-    //     showStayTop: window.showStayTop
-    //     icon: window.windowIcon
-    // }
-    property Item appBar: Item {}
-
+    property Item appBar: BaseControls.AppTitleBar {
+        title: window.title
+        height: 30
+        showDark: window.showDark
+        showClose: window.showClose
+        showMinimize: window.showMinimize
+        showMaximize: window.showMaximize
+        showStayTop: window.showStayTop
+        icon: window.windowIcon
+    }
     property color backgroundColor: {
         // if (frameless.effective && active) {
         //     var backcolor;

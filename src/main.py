@@ -35,6 +35,7 @@ def services_add_base_controls(
         "MenuItem": "qrc:/src/controls/base/MenuItem.qml",
         "Window": "qrc:/src/controls/base/Window.qml",
         "NavigationView": "qrc:/src/controls/base/NavigationView.qml",
+        "AppTitleBar": "qrc:/src/controls/base/AppTitleBar.qml",
         "Popup": "qrc:/src/controls/base/Popup.qml",
         "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
         "Control": "qrc:/src/controls/base/Control.qml",

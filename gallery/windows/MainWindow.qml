@@ -13,9 +13,8 @@ BaseControls.Window {
     height: 668
     minimumWidth: 668
     minimumHeight: 320
-    // launchMode: FluWindowType.SingleTask
+    launchMode: 'SingleTask'
     fitsAppBarWindows: true
-
     // appBar: FluAppBar {
     //     height: 30
     //     showDark: true
@@ -25,96 +24,9 @@ BaseControls.Window {
     //     }
     //     z: 7
     // }
-
-    // FluentInitializrWindow {
-    //     id: fluent_Initializr
-    // }
-
-    // FluEvent {
-    //     name: "checkUpdate"
-    //     onTriggered: {
-    //         checkUpdate(false);
-    //     }
-    // }
-
-    onLazyLoad: console.log('lazy load')
-
-    Component.onCompleted: {
-        checkUpdate(true);
-    }
-
-    Component.onDestruction: {
-        BaseControls.WindowManager.closeAllWindows();
-        BaseControls.WindowManager.quit();
-    }
-
-    SystemTrayIcon {
-        id: system_tray
-        visible: true
-        icon.source: "qrc:/example/res/image/favicon.ico"
-        tooltip: "FluentUI"
-        menu: Menu {
-            MenuItem {
-                text: "退出"
-                onTriggered: {
-                    BaseControls.WindowManager.closeAllWindows();
-                    BaseControls.WindowManager.quit();
-                }
-            }
-        }
-        onActivated: reason => {
-            if (reason === SystemTrayIcon.Trigger) {
-                window.show();
-                window.raise();
-                window.requestActivate();
-            }
-        }
-    }
-
-    Timer {
-        id: timer_window_hide_delay
-        interval: 150
-        onTriggered: {
-            window.hide();
-        }
-    }
-
-    BaseControls.ContentDialog {
-        id: dialog_close
-        title: qsTr("Quit")
-        message: qsTr("Are you sure you want to exit the program?")
-        negativeText: qsTr("Minimize")
-        // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.NeutralButton | FluContentDialogType.PositiveButton
-        onNegativeClicked: {
-            system_tray.showMessage(qsTr("Friendly Reminder"), qsTr("FluentUI is hidden from the tray, click on the tray to activate the window again"));
-            timer_window_hide_delay.restart();
-        }
-        positiveText: qsTr("Quit")
-        neutralText: qsTr("Cancel")
-        onPositiveClicked: {
-            FluRouter.exit(0);
-        }
-    }
-
-    Component {
-        id: nav_item_right_menu
-        BaseControls.Menu {
-            width: 186
-            BaseControls.MenuItem {
-                text: qsTr("Open in Separate Window")
-                font: AppFont.caption
-                onClicked: {
-                    FluRouter.navigate("/pageWindow", {
-                        title: modelData.title,
-                        url: modelData.url
-                    });
-                }
-            }
-        }
-    }
-
     Flipable {
         id: flipable
+
         anchors.fill: parent
         property bool flipped: false
         property real flipAngle: 0
@@ -241,6 +153,131 @@ BaseControls.Window {
         }
     }
 
+    BaseControls.ComponentLoader {
+        id: loader_reveal
+        anchors.fill: parent
+    }
+
+    BaseControls.TextBlock {
+        text: "fps %1".arg('{Fps}')
+        opacity: 0.3
+        anchors {
+            bottom: parent.bottom
+            right: parent.right
+            bottomMargin: 5
+            rightMargin: 5
+        }
+    }
+
+    BaseControls.ContentDialog {
+        id: dialog_close
+        title: qsTr("Quit")
+        message: qsTr("Are you sure you want to exit the program?")
+        negativeText: qsTr("Minimize")
+        // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.NeutralButton | FluContentDialogType.PositiveButton
+        onNegativeClicked: {
+            system_tray.showMessage(qsTr("Friendly Reminder"), qsTr("FluentUI is hidden from the tray, click on the tray to activate the window again"));
+            timer_window_hide_delay.restart();
+        }
+        positiveText: qsTr("Quit")
+        neutralText: qsTr("Cancel")
+        onPositiveClicked: {
+            FluRouter.exit(0);
+        }
+    }
+
+    BaseControls.ContentDialog {
+        id: dialog_update
+
+        property string newVerson
+        property string body
+
+        title: qsTr("Upgrade Tips")
+        message: `FluentUI is currently up to date {newVersion} -- The current app version {currentVersion}` + " \nNow go and download the new version？\n\nUpdated content: \n" + body
+        // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
+        negativeText: 'Cancel'
+        positiveText: 'OK'
+        onPositiveClicked: {
+            Qt.openUrlExternally("https://github.com/zhuzichu520/FluentUI/releases/latest");
+        }
+    }
+
+    Component {
+        id: nav_item_right_menu
+        BaseControls.Menu {
+            width: 186
+            BaseControls.MenuItem {
+                text: qsTr("Open in Separate Window")
+                font: AppFont.caption
+                onClicked: {
+                    FluRouter.navigate("/page", {
+                        title: modelData.title,
+                        url: modelData.url
+                    });
+                }
+            }
+        }
+    }
+
+    Timer {
+        id: timer_window_hide_delay
+        interval: 150
+        onTriggered: {
+            window.hide();
+        }
+    }
+
+    SystemTrayIcon {
+        id: system_tray
+        visible: true
+        icon.source: "qrc:/example/res/image/favicon.ico"
+        tooltip: "FluentUI"
+        menu: Menu {
+            MenuItem {
+                text: "退出"
+                onTriggered: {
+                    BaseControls.WindowManager.closeAllWindows();
+                    BaseControls.WindowManager.quit();
+                }
+            }
+        }
+        onActivated: reason => {
+            if (reason === SystemTrayIcon.Trigger) {
+                window.show();
+                window.raise();
+                window.requestActivate();
+            }
+        }
+    }
+
+    Shortcut {
+        sequence: "F5"
+        context: Qt.WindowShortcut
+        onActivated: {
+            if (flipable.flipped) {
+                loader.reload();
+            }
+        }
+    }
+
+    Shortcut {
+        sequence: "F6"
+        context: Qt.WindowShortcut
+        onActivated: {
+            tour.open();
+        }
+    }
+
+    // FluentInitializrWindow {
+    //     id: fluent_Initializr
+    // }
+
+    // FluEvent {
+    //     name: "checkUpdate"
+    //     onTriggered: {
+    //         checkUpdate(false);
+    //     }
+    // }
     // Component {
     //     id: com_reveal
     //     CircularReveal {
@@ -258,10 +295,71 @@ BaseControls.Window {
     //     }
     // }
 
-    BaseControls.ComponentLoader {
-        id: loader_reveal
-        anchors.fill: parent
+    // FpsItem {
+    //     id: fps_item
+    // }
+
+    // FluTour {
+    //     id: tour
+    //     finishText: qsTr("Finish")
+    //     nextText: qsTr("Next")
+    //     previousText: qsTr("Previous")
+    //     steps: {
+    //         var data = [];
+    //         if (!window.useSystemAppBar) {
+    //             data.push({
+    //                 title: qsTr("Dark Mode"),
+    //                 description: qsTr("Here you can switch to night mode."),
+    //                 target: () => appBar.buttonDark
+    //             });
+    //         }
+    //         data.push({
+    //             title: qsTr("Hide Easter eggs"),
+    //             description: qsTr("Try a few more clicks!!"),
+    //             target: () => nav_view.imageLogo
+    //         });
+    //         return data;
+    //     }
+    // }
+
+    // NetworkCallable {
+    //     id: callable
+    //     property bool silent: true
+    //     onStart: {
+    //         console.debug("start check update...");
+    //     }
+    //     onFinish: {
+    //         console.debug("check update finish");
+    //         FluEventBus.post("checkUpdateFinish");
+    //     }
+    //     onSuccess: result => {
+    //                    var data = JSON.parse(result);
+    //                    console.debug("current version " + AppInfo.version);
+    //                    console.debug("new version " + data.tag_name);
+    //                    if (data.tag_name !== AppInfo.version) {
+    //                        dialog_update.newVerson = data.tag_name;
+    //                        dialog_update.body = data.body;
+    //                        dialog_update.open();
+    //                    } else {
+    //                        if (!silent) {
+    //                            showInfo(qsTr("The current version is already the latest"));
+    //                        }
+    //                    }
+    //                }
+    //     onError: (status, errorString) => {
+    //                  if (!silent) {
+    //                      showError(qsTr("The network is abnormal"));
+    //                  }
+    //                  console.debug(status + ";" + errorString);
+    //              }
+    // }
+
+    Component.onCompleted: checkUpdate(true)
+    Component.onDestruction: {
+        BaseControls.WindowManager.closeAllWindows();
+        BaseControls.WindowManager.quit();
     }
+    onLazyLoad: console.log('lazy load')
 
     function distance(x1, y1, x2, y2) {
         return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
@@ -289,111 +387,6 @@ BaseControls.Window {
             FluTheme.darkMode = FluThemeType.Dark;
         }
     }
-
-    Shortcut {
-        sequence: "F5"
-        context: Qt.WindowShortcut
-        onActivated: {
-            if (flipable.flipped) {
-                loader.reload();
-            }
-        }
-    }
-
-    Shortcut {
-        sequence: "F6"
-        context: Qt.WindowShortcut
-        onActivated: {
-            tour.open();
-        }
-    }
-
-    // FluTour {
-    //     id: tour
-    //     finishText: qsTr("Finish")
-    //     nextText: qsTr("Next")
-    //     previousText: qsTr("Previous")
-    //     steps: {
-    //         var data = [];
-    //         if (!window.useSystemAppBar) {
-    //             data.push({
-    //                 title: qsTr("Dark Mode"),
-    //                 description: qsTr("Here you can switch to night mode."),
-    //                 target: () => appBar.buttonDark
-    //             });
-    //         }
-    //         data.push({
-    //             title: qsTr("Hide Easter eggs"),
-    //             description: qsTr("Try a few more clicks!!"),
-    //             target: () => nav_view.imageLogo
-    //         });
-    //         return data;
-    //     }
-    // }
-
-    // FpsItem {
-    //     id: fps_item
-    // }
-
-    BaseControls.TextBlock {
-        text: "fps %1".arg('{Fps}')
-        opacity: 0.3
-        anchors {
-            bottom: parent.bottom
-            right: parent.right
-            bottomMargin: 5
-            rightMargin: 5
-        }
-    }
-
-    BaseControls.ContentDialog {
-        id: dialog_update
-
-        property string newVerson
-        property string body
-
-        title: qsTr("Upgrade Tips")
-        message: qsTr("FluentUI is currently up to date ") + '{NewVersion}' + qsTr(" -- The current app version") + '{CurrentVersion}' + qsTr(" \nNow go and download the new version？\n\nUpdated content: \n") + body
-        // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
-        negativeText: qsTr("Cancel")
-        positiveText: qsTr("OK")
-        onPositiveClicked: {
-            Qt.openUrlExternally("https://github.com/zhuzichu520/FluentUI/releases/latest");
-        }
-    }
-
-    // NetworkCallable {
-    //     id: callable
-    //     property bool silent: true
-    //     onStart: {
-    //         console.debug("start check update...");
-    //     }
-    //     onFinish: {
-    //         console.debug("check update finish");
-    //         FluEventBus.post("checkUpdateFinish");
-    //     }
-    //     onSuccess: result => {
-    //         var data = JSON.parse(result);
-    //         console.debug("current version " + AppInfo.version);
-    //         console.debug("new version " + data.tag_name);
-    //         if (data.tag_name !== AppInfo.version) {
-    //             dialog_update.newVerson = data.tag_name;
-    //             dialog_update.body = data.body;
-    //             dialog_update.open();
-    //         } else {
-    //             if (!silent) {
-    //                 showInfo(qsTr("The current version is already the latest"));
-    //             }
-    //         }
-    //     }
-    //     onError: (status, errorString) => {
-    //         if (!silent) {
-    //             showError(qsTr("The network is abnormal"));
-    //         }
-    //         console.debug(status + ";" + errorString);
-    //     }
-    // }
-
     function checkUpdate(silent) {
         console.log('Checking update');
     // callable.silent = silent;

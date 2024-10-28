@@ -30,6 +30,7 @@
 
         <file>src/controls/base/Window.qml</file>
         <file>src/controls/base/NavigationView.qml</file>
+        <file>src/controls/base/AppTitleBar.qml</file>
         <file>src/controls/base/ComponentLoader.qml</file>
         <file>src/controls/base/Control.qml</file>
         <file>src/controls/base/Popup.qml</file>
