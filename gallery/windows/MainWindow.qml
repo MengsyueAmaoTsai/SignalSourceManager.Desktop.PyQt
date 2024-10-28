@@ -8,19 +8,20 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
 BaseControls.Window {
     id: window
+
+    launchMode: 'SingleTask'
+    fitsAppBarWindows: true
     title: "Control Gallery"
     width: 1000
     height: 668
     minimumWidth: 668
     minimumHeight: 320
-    launchMode: 'SingleTask'
-    fitsAppBarWindows: true
     appBar: BaseControls.AppTitleBar {
         height: 30
         showDark: true
         darkClickListener: button => handleDarkChanged(button)
         closeClickListener: () => {
-            dialog_close.open();
+            quitDialog.open();
         }
         z: 7
     }
@@ -28,8 +29,6 @@ BaseControls.Window {
         id: flipable
 
         anchors.fill: parent
-        property bool flipped: false
-        property real flipAngle: 0
         transform: Rotation {
             id: rotation
             origin.x: flipable.width / 2
@@ -59,6 +58,7 @@ BaseControls.Window {
         back: Item {
             anchors.fill: flipable
             visible: flipable.flipAngle !== 0
+
             Row {
                 id: layout_back_buttons
                 z: 8
@@ -68,55 +68,71 @@ BaseControls.Window {
                     topMargin: 5
                     leftMargin: 5
                 }
-                // FluIconButton {
-                //     iconSource: FluentIcons.ChromeBack
-                //     width: 30
-                //     height: 30
-                //     iconSize: 13
-                //     onClicked: {
-                //         flipable.flipped = false;
-                //     }
-                // }
-                // FluIconButton {
-                //     iconSource: FluentIcons.Sync
-                //     width: 30
-                //     height: 30
-                //     iconSize: 13
-                //     onClicked: {
-                //         loader.reload();
-                //     }
-                // }
-                Component.onCompleted: {
-                    window.setHitTestVisible(layout_back_buttons);
+                BaseControls.Button {
+                    // iconSource: FluentIcons.ChromeBack
+                    // iconSize: 13
+                    width: 30
+                    height: 30
+                    onClicked: flipable.flipped = false
                 }
+                BaseControls.Button {
+                    // iconSource: FluentIcons.Sync
+                    // iconSize: 13
+                    width: 30
+                    height: 30
+                    onClicked: loader.reload()
+                }
+                Component.onCompleted: window.setHitTestVisible(layout_back_buttons)
             }
             BaseControls.RemoteComponentLoader {
                 id: loader
-                
+
                 lazy: true
                 anchors.fill: parent
                 source: "https://zhu-zichu.gitee.io/Qt_174_LieflatPage.qml"
             }
         }
         front: Item {
-            id: page_front
             visible: flipable.flipAngle !== 180
             anchors.fill: flipable
             BaseControls.NavigationView {
-                id: nav_view
-                property int clickCount: 0
+                id: navigationView
+
+                pageMode: 'NoStack'
+                displayMode: 'Auto'
+                title: "FluentUI"
+                logo: "qrc:/static/images/favicon.ico"
                 width: parent.width
                 height: parent.height
                 z: 999
                 //Stack模式，每次切换都会将页面压入栈中，随着栈的页面增多，消耗的内存也越多，内存消耗多就会卡顿，这时候就需要按返回将页面pop掉，释放内存。该模式可以配合FluPage中的launchMode属性，设置页面的启动模式
                 //                pageMode: FluNavigationViewType.Stack
                 //NoStack模式，每次切换都会销毁之前的页面然后创建一个新的页面，只需消耗少量内存
-                pageMode: 'NoStack'
-                displayMode: 'Auto'
+
                 // items: ItemsOriginal
                 // footerItems: ItemsFooter
-                title: "FluentUI"
-                logo: "qrc:/static/images/favicon.ico"
+                autoSuggestBox: BaseControls.AutoSuggestBox {
+                    // iconSource: FluentIcons.Search
+                    // items: ItemsOriginal.getSearchData()
+                    placeholderText: qsTr("Search")
+                    onItemClicked: data => {
+                        ItemsOriginal.startPageByItem(data);
+                    }
+                }
+
+                property int clickCount: 0
+
+                Component.onCompleted: {
+                    // ItemsOriginal.navigationView = navigationView;
+                    // ItemsOriginal.paneItemMenu = nav_item_right_menu;
+                    // ItemsFooter.navigationView = navigationView;
+                    // ItemsFooter.paneItemMenu = nav_item_right_menu;
+                    window.setHitTestVisible(navigationView.buttonMenu);
+                    window.setHitTestVisible(navigationView.buttonBack);
+                    window.setHitTestVisible(navigationView.imageLogo);
+                    setCurrentIndex(0);
+                }
+
                 onLogoClicked: {
                     clickCount += 1;
                     showSuccess("%1:%2".arg(qsTr("Click Time")).arg(clickCount));
@@ -126,30 +142,15 @@ BaseControls.Window {
                         clickCount = 0;
                     }
                 }
-                autoSuggestBox: BaseControls.AutoSuggestBox {
-                    // iconSource: FluentIcons.Search
-                    // items: ItemsOriginal.getSearchData()
-                    placeholderText: qsTr("Search")
-                    onItemClicked: data => {
-                        ItemsOriginal.startPageByItem(data);
-                    }
-                }
-                Component.onCompleted: {
-                    // ItemsOriginal.navigationView = nav_view;
-                    // ItemsOriginal.paneItemMenu = nav_item_right_menu;
-                    // ItemsFooter.navigationView = nav_view;
-                    // ItemsFooter.paneItemMenu = nav_item_right_menu;
-                    window.setHitTestVisible(nav_view.buttonMenu);
-                    window.setHitTestVisible(nav_view.buttonBack);
-                    window.setHitTestVisible(nav_view.imageLogo);
-                    setCurrentIndex(0);
-                }
             }
         }
+
+        property bool flipped: false
+        property real flipAngle: 0
     }
 
     BaseControls.ComponentLoader {
-        id: loader_reveal
+        id: revealLoader
         anchors.fill: parent
     }
 
@@ -165,47 +166,49 @@ BaseControls.Window {
     }
 
     BaseControls.ContentDialog {
-        id: dialog_close
-        title: qsTr("Quit")
-        message: qsTr("Are you sure you want to exit the program?")
-        negativeText: qsTr("Minimize")
+        id: quitDialog
+
+        title: "Quit"
+        message: "Are you sure you want to exit the application?"
+        negativeText: "Minimize"
+        positiveText: "Quit"
+        neutralText: "Cancel"
         // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.NeutralButton | FluContentDialogType.PositiveButton
         onNegativeClicked: {
-            system_tray.showMessage(qsTr("Friendly Reminder"), qsTr("FluentUI is hidden from the tray, click on the tray to activate the window again"));
-            timer_window_hide_delay.restart();
+            .showMessage(qsTr("Friendly Reminder"), qsTr("FluentUI is hidden from the tray, click on the tray to activate the window again"));
+            hideWindowTimer.restart();
         }
-        positiveText: qsTr("Quit")
-        neutralText: qsTr("Cancel")
         onPositiveClicked: {
-            FluRouter.exit(0);
+            BaseControls.WindowManager.closeAllWindows();
+            BaseControls.WindowManager.quit();
         }
     }
 
     BaseControls.ContentDialog {
-        id: dialog_update
+        id: updateDialog
 
-        property string newVerson
-        property string body
-
-        title: qsTr("Upgrade Tips")
+        title: "Upgrade Tips"
         message: `FluentUI is currently up to date {newVersion} -- The current app version {currentVersion}` + " \nNow go and download the new version？\n\nUpdated content: \n" + body
-        // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
         negativeText: 'Cancel'
         positiveText: 'OK'
-        onPositiveClicked: {
-            Qt.openUrlExternally("https://github.com/zhuzichu520/FluentUI/releases/latest");
-        }
+        // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
+
+        property string body
+        property string newVerson
+        
+        onPositiveClicked: Qt.openUrlExternally("https://github.com/zhuzichu520/FluentUI/releases/latest")
     }
 
     Component {
         id: nav_item_right_menu
+
         BaseControls.Menu {
             width: 186
             BaseControls.MenuItem {
-                text: qsTr("Open in Separate Window")
+                text: "Open in Separate Window"
                 font: AppFont.caption
                 onClicked: {
-                    FluRouter.navigate("/page", {
+                    BaseControls.WindowManager.navigateTo("/page", {
                         title: modelData.title,
                         url: modelData.url
                     });
@@ -215,21 +218,19 @@ BaseControls.Window {
     }
 
     Timer {
-        id: timer_window_hide_delay
+        id: hideWindowTimer
+       
         interval: 150
-        onTriggered: {
-            window.hide();
-        }
+        onTriggered: window.hide()
     }
 
     SystemTrayIcon {
-        id: system_tray
         visible: true
-        icon.source: "qrc:/example/res/image/favicon.ico"
+        icon.source: "qrc:/static/images/favicon.ico"
         tooltip: "FluentUI"
         menu: Menu {
             MenuItem {
-                text: "退出"
+                text: "Quit"
                 onTriggered: {
                     BaseControls.WindowManager.closeAllWindows();
                     BaseControls.WindowManager.quit();
@@ -258,9 +259,7 @@ BaseControls.Window {
     Shortcut {
         sequence: "F6"
         context: Qt.WindowShortcut
-        onActivated: {
-            tour.open();
-        }
+        onActivated: tour.open();
     }
 
     // FluentInitializrWindow {
@@ -273,8 +272,9 @@ BaseControls.Window {
     //         checkUpdate(false);
     //     }
     // }
+
     // Component {
-    //     id: com_reveal
+    //     id: revealWrapper
     //     CircularReveal {
     //         id: reveal
     //         target: window.containerItem()
@@ -282,7 +282,7 @@ BaseControls.Window {
     //         darkToLight: FluTheme.dark
     //         onAnimationFinished: {
     //             //动画结束后释放资源
-    //             loader_reveal.sourceComponent = undefined;
+    //             revealLoader.sourceComponent = undefined;
     //         }
     //         onImageChanged: {
     //             changeDark();
@@ -311,7 +311,7 @@ BaseControls.Window {
     //         data.push({
     //             title: qsTr("Hide Easter eggs"),
     //             description: qsTr("Try a few more clicks!!"),
-    //             target: () => nav_view.imageLogo
+    //             target: () => navigationView.imageLogo
     //         });
     //         return data;
     //     }
@@ -332,9 +332,9 @@ BaseControls.Window {
     //                    console.debug("current version " + AppInfo.version);
     //                    console.debug("new version " + data.tag_name);
     //                    if (data.tag_name !== AppInfo.version) {
-    //                        dialog_update.newVerson = data.tag_name;
-    //                        dialog_update.body = data.body;
-    //                        dialog_update.open();
+    //                        updateDialog.newVerson = data.tag_name;
+    //                        updateDialog.body = data.body;
+    //                        updateDialog.open();
     //                    } else {
     //                        if (!silent) {
     //                            showInfo(qsTr("The current version is already the latest"));
@@ -364,13 +364,13 @@ BaseControls.Window {
         if (FluTools.isMacos() || !FluTheme.animationEnabled) {
             changeDark();
         } else {
-            loader_reveal.sourceComponent = com_reveal;
+            revealLoader.sourceComponent = revealWrapper;
             var target = window.containerItem();
             var pos = button.mapToItem(target, 0, 0);
             var mouseX = pos.x + button.width / 2;
             var mouseY = pos.y + button.height / 2;
             var radius = Math.max(distance(mouseX, mouseY, 0, 0), distance(mouseX, mouseY, target.width, 0), distance(mouseX, mouseY, 0, target.height), distance(mouseX, mouseY, target.width, target.height));
-            var reveal = loader_reveal.item;
+            var reveal = revealLoader.item;
             reveal.start(reveal.width * Screen.devicePixelRatio, reveal.height * Screen.devicePixelRatio, Qt.point(mouseX, mouseY), radius);
         }
     }
