@@ -5,7 +5,7 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
 Window {
     id: window
-    
+
     property var arguments: ({})
     property var windowRegister: undefined
     property string route: ''
@@ -316,10 +316,10 @@ Window {
             property bool cancel: false
             anchors.fill: parent
         }
-        // FluInfoBar {
-        //     id: info_bar
-        //     root: layout_container
-        // }
+        BaseControls.InfoBar {
+            id: info_bar
+            root: layout_container
+        }
         BaseControls.ComponentLoader {
             id: loader_border
             anchors.fill: parent

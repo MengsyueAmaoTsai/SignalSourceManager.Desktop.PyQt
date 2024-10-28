@@ -25,6 +25,7 @@ def services_add_base_controls(
     )
 
     controls = {
+        "InfoBar": "qrc:/src/controls/base/InfoBar.qml",
         "Icon": "qrc:/src/controls/base/Icon.qml",
         "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
         "Button": "qrc:/src/controls/base/Button.qml",

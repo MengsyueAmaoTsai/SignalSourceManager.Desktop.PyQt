@@ -20,6 +20,7 @@
 
         <!-- Controls.Base -->
         <file>src/controls/base/WindowManager.qml</file>
+        <file>src/controls/base/InfoBar.qml</file>
 
         <file>src/controls/base/Object.qml</file>
         <file>src/controls/base/FocusRectangle.qml</file>
