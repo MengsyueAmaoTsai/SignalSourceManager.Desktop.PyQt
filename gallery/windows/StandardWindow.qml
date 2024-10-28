@@ -6,53 +6,53 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 BaseControls.Window {
     id: window
     title: "Standard"
-    width: 500
+    width: 800
     height: 600
     fixSize: true
     launchMode: 'Standard'
 
     BaseControls.MenuBar {
         BaseControls.Menu {
-            title: qsTr("File")
+            title: "File"
             Action {
-                text: qsTr("New...")
+                text: "New..."
             }
             Action {
-                text: qsTr("Open...")
+                text: "Open..."
             }
             Action {
-                text: qsTr("Save")
+                text: "Save"
             }
             Action {
-                text: qsTr("Save As...")
+                text: "Save A..."
             }
             BaseControls.MenuSeparator {}
             Action {
-                text: qsTr("Quit")
+                text: "Quit"
             }
         }
         BaseControls.Menu {
-            title: qsTr("Edit")
+            title: "Edit"
             Action {
-                text: qsTr("Cut")
+                text: "Cut"
             }
             Action {
-                text: qsTr("Copy")
+                text: "Copy"
             }
             Action {
-                text: qsTr("Paste")
+                text: "Paste"
             }
         }
         BaseControls.Menu {
-            title: qsTr("Help")
+            title: "Help"
             Action {
-                text: qsTr("About")
+                text: "About"
             }
         }
     }
 
     BaseControls.TextBlock {
         anchors.centerIn: parent
-        text: qsTr("I'm a Standard mode window, and every time I create a new window")
+        text: "I' a Standard mode window, and every time I create a new window"
     }
 }

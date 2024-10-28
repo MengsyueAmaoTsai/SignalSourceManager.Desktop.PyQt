@@ -1,6 +1,6 @@
-import QtQuick 
-import QtQuick.Controls 
-import QtQuick.Layouts 
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import Qt.labs.platform
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
@@ -27,7 +27,6 @@ BaseControls.Window {
     }
 
     BaseControls.TextBlock {
-        id: text_info
         anchors {
             top: parent.top
             topMargin: 240
@@ -48,6 +47,7 @@ BaseControls.Window {
             bottom: parent.bottom
             bottomMargin: 20
         }
+
         BaseControls.Button {
             text: "Report Logs"
             onClicked: console.log('FluTools.showFileInFolder(crashFilePath)')
@@ -57,9 +57,10 @@ BaseControls.Window {
             height: 1
         }
         BaseControls.Button {
-            text: "Restart Program"
+            text: "Restart application"
             onClicked: {
-                FluRouter.exit(931);
+                BaseControls.WindowManager.closeAllWindows();
+                BaseControls.WindowManager.quit(931);
             }
         }
     }
@@ -67,8 +68,5 @@ BaseControls.Window {
     Component.onCompleted: {
         window.stayTop = true;
     }
-
-    onInitArgument: argument => {
-        crashFilePath = argument.crashFilePath;
-    }
+    onInitArgument: argument => crashFilePath = argument.crashFilePath;
 }

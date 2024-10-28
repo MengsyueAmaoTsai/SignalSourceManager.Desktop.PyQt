@@ -6,7 +6,7 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 BaseControls.Window {
     id: window
 
-    title: qsTr("SingleInstance")
+    title: "SingleInstance"
     width: 500
     height: 600
     fixSize: true
@@ -29,6 +29,6 @@ BaseControls.Window {
             rightMargin: 20
             verticalCenter: parent.verticalCenter
         }
-        text: qsTr("I'm a SingleInstance window, and if I exist, I'll destroy the previous window and create a new one")
+        text: "I'm a SingleInstance window, and if I exist, I'll destroy the previous window and create a new one"
     }
 }

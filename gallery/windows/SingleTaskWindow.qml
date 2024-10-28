@@ -6,8 +6,8 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 BaseControls.Window {
     id: window
 
-    title: qsTr("SingleTask")
-    width: 500
+    title: "SingleTask"
+    width: 800
     height: 600
     fixSize: true
 
@@ -15,6 +15,6 @@ BaseControls.Window {
 
     BaseControls.TextBlock {
         anchors.centerIn: parent
-        text: qsTr("I'm a SingleTask mode window, and if I exist, I activate the window")
+        text: "I'm a SingleTask mode window, and if I exist, I activate the window"
     }
 }

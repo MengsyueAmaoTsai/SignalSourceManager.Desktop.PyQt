@@ -6,16 +6,11 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 BaseControls.Window {
     id: window
 
-    title: qsTr("Sign in")
+    title: "Sign in"
     width: 400
     height: 400
     fixSize: true
     modality: Qt.ApplicationModal
-
-    onInitArgument: argument => {
-        emailTextBox.updateText(argument.username);
-        passwordTextBox.focus = true;
-    }
 
     ColumnLayout {
         anchors {
@@ -34,18 +29,19 @@ BaseControls.Window {
                     title: "User"
                 }
             ]
-            placeholderText: qsTr("Please enter the account")
+            placeholderText: "Please enter the account"
             Layout.preferredWidth: 260
             Layout.alignment: Qt.AlignHCenter
         }
 
         BaseControls.TextBox {
             id: passwordTextBox
+
             Layout.topMargin: 20
             Layout.preferredWidth: 260
-            placeholderText: qsTr("Please enter your password")
-            echoMode: TextInput.Password
             Layout.alignment: Qt.AlignHCenter
+            placeholderText: "Please enter your password"
+            echoMode: TextInput.Password
         }
 
         BaseControls.Button {
@@ -63,5 +59,10 @@ BaseControls.Window {
                 window.close();
             }
         }
+    }
+
+    onInitArgument: argument => {
+        emailTextBox.updateText(argument.username);
+        passwordTextBox.focus = true;
     }
 }

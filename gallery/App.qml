@@ -24,6 +24,6 @@ Item {
             '/standard': 'qrc:/gallery/windows/StandardWindow.qml',
             '/hotload': 'qrc:/gallery/windows/HotloadWindow.qml'
         };
-        BaseControls.WindowManager.navigateTo('/about');
+        BaseControls.WindowManager.navigateTo('/single-task');
     }
 }
