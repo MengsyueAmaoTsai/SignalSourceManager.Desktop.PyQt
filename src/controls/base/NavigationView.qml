@@ -7,17 +7,16 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
 Item {
     id: control
+
+    signal logoClicked
+
     property url logo
-    property string title: ""
-    property BaseControls.Object items
-    property BaseControls.Object footerItems
-    // property int displayMode: FluNavigationViewType.Auto
-    property Component autoSuggestBox
-    property Component actionItem
+    property string title: 'Untitled'
+
+    property string displayMode: 'Auto'
+    property string pageMode: 'Stack'
+
     property int topPadding: 0
-    // property int pageMode: FluNavigationViewType.Stack
-    property BaseControls.Menu navItemRightMenu
-    property BaseControls.Menu navItemExpanderRightMenu
     property int navCompactWidth: 50
     property int navTopMargin: 0
     property int cellHeight: 38
@@ -26,18 +25,25 @@ Item {
     // property alias buttonMenu: btn_menu
     // property alias buttonBack: btn_back
     property alias imageLogo: image_logo
-    signal logoClicked
+
+    property BaseControls.Menu navItemRightMenu
+    property BaseControls.Menu navItemExpanderRightMenu
+    property Component autoSuggestBox
+    property Component actionItem
+    property BaseControls.Object items
+    property BaseControls.Object footerItems
+
     Item {
         id: d
         property bool animDisabled: false
         property var stackItems: []
-        property int displayMode: control.displayMode
+        property string displayMode: control.displayMode
         property bool enableNavigationPanel: false
-        // property bool isCompact: d.displayMode === FluNavigationViewType.Compact
-        // property bool isMinimal: d.displayMode === FluNavigationViewType.Minimal
-        // property bool isCompactAndPanel: d.displayMode === FluNavigationViewType.Compact && d.enableNavigationPanel
-        // property bool isCompactAndNotPanel: d.displayMode === FluNavigationViewType.Compact && !d.enableNavigationPanel
-        // property bool isMinimalAndPanel: d.displayMode === FluNavigationViewType.Minimal && d.enableNavigationPanel
+        property bool isCompact: d.displayMode === 'Compact'
+        property bool isMinimal: d.displayMode === 'Minimal'
+        property bool isCompactAndPanel: d.displayMode === 'Compact' && d.enableNavigationPanel
+        property bool isCompactAndNotPanel: d.displayMode === 'Compact' && !d.enableNavigationPanel
+        property bool isMinimalAndPanel: d.displayMode === 'Minimal' && d.enableNavigationPanel
         property color itemDisableColor: AppTheme.theme === 'Dark' ? Qt.rgba(131 / 255, 131 / 255, 131 / 255, 1) : Qt.rgba(160 / 255, 160 / 255, 160 / 255, 1)
         // onIsCompactAndNotPanelChanged: {
         //     collapseAll();
@@ -99,21 +105,23 @@ Item {
             return data;
         }
     }
+
     Component.onCompleted: {
-        // d.displayMode = Qt.binding(function () {
-        //     if (control.displayMode !== FluNavigationViewType.Auto) {
-        //         return control.displayMode;
-        //     }
-        //     if (control.width <= 700) {
-        //         return FluNavigationViewType.Minimal;
-        //     } else if (control.width <= 900) {
-        //         return FluNavigationViewType.Compact;
-        //     } else {
-        //         return FluNavigationViewType.Open;
-        //     }
-        // });
+        d.displayMode = Qt.binding(function () {
+            if (control.displayMode !== 'Auto') {
+                return control.displayMode;
+            }
+            if (control.width <= 700) {
+                return 'Minimal';
+            } else if (control.width <= 900) {
+                return 'Compact';
+            } else {
+                return 'Open';
+            }
+        });
         timer_anim_delay.restart();
     }
+
     Timer {
         id: timer_anim_delay
         interval: 200
@@ -121,24 +129,27 @@ Item {
             d.animDisabled = true;
         }
     }
+
     Connections {
         target: d
         function onDisplayModeChanged() {
-            // if (d.displayMode === FluNavigationViewType.Compact) {
-            //     collapseAll();
-            // }
+            if (d.displayMode === 'Compact') {
+                collapseAll();
+            }
             d.enableNavigationPanel = false;
             if (loader_auto_suggest_box.item) {
                 loader_auto_suggest_box.item.focus = false;
             }
         }
     }
+
     Component {
         id: com_panel_item_empty
         Item {
             visible: false
         }
     }
+
     Component {
         id: com_panel_item_separatorr
         BaseControls.Divider {
@@ -706,6 +717,7 @@ Item {
             }
         }
     }
+
     Item {
         id: nav_app_bar
         width: parent.width
@@ -737,7 +749,7 @@ Item {
             //             layout_footer.currentIndex = item._idx - (nav_list.count - layout_footer.count);
             //         }
             //         nav_list.currentIndex = item._idx;
-            //         if (pageMode === FluNavigationViewType.Stack) {
+            //         if (pageMode === 'Stack') {
             //             var nav_stack = loader_content.item.navStack();
             //             var nav_stack2 = loader_content.item.navStack2();
             //             nav_stack.pop();
@@ -755,7 +767,7 @@ Item {
             //                     nav_stack2.currentIndex = pageIndex;
             //                 }
             //             }
-            //         } else if (pageMode === FluNavigationViewType.NoStack) {
+            //         } else if (pageMode === 'NoStack') {
             //             loader_content.setSource(item._ext.url, item._ext.argument);
             //         }
             //     }
@@ -941,8 +953,8 @@ Item {
             }
         }
         visible: {
-            // if (d.displayMode !== FluNavigationViewType.Minimal)
-            //     return true;
+            if (d.displayMode !== 'Minimal')
+                return true;
             return d.isMinimalAndPanel ? true : false;
         }
         Item {
@@ -1219,7 +1231,7 @@ Item {
     Component {
         id: com_placeholder
         Item {
-            property int launchMode: FluPageType.SingleInstance
+            property string launchMode: 'SingleInstance'
             property string url
         }
     }
@@ -1249,14 +1261,14 @@ Item {
         return nav_list.currentIndex;
     }
     function getCurrentUrl() {
-        // if (pageMode === FluNavigationViewType.Stack) {
-        //     var nav_stack = loader_content.item.navStack();
-        //     if (nav_stack.currentItem) {
-        //         return nav_stack.currentItem.url;
-        //     }
-        // } else if (pageMode === FluNavigationViewType.NoStack) {
-        //     return loader_content.source.toString();
-        // }
+        if (pageMode === 'Stack') {
+            var nav_stack = loader_content.item.navStack();
+            if (nav_stack.currentItem) {
+                return nav_stack.currentItem.url;
+            }
+        } else if (pageMode === 'NoStack') {
+            return loader_content.source.toString();
+        }
         return undefined;
     }
     function push(url, argument = {}) {
@@ -1326,11 +1338,11 @@ Item {
             };
             d.stackItems = d.stackItems.concat(obj);
         }
-    // if (pageMode === FluNavigationViewType.Stack) {
-    //     stackPush();
-    // } else if (pageMode === FluNavigationViewType.NoStack) {
-    //     noStackPush();
-    // }
+        if (pageMode === 'Stack') {
+            stackPush();
+        } else if (pageMode === 'NoStack') {
+            noStackPush();
+        }
     }
     function startPageByItem(data) {
         var items = getItems();

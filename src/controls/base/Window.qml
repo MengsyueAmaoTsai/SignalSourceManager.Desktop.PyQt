@@ -10,9 +10,8 @@ Window {
     property string route: ''
 
     default property alias contentData: layout_content.data
-    // property string windowIcon: FluApp.windowIcon
     property string windowIcon: 'qrc:/static/images/favicon.ico'
-    // property int launchMode: FluWindowType.Standard
+    property string launchMode: 'Standard'
     property var background: com_background
     property bool fixSize: false
     property Component loadingItem: com_loading
@@ -326,9 +325,9 @@ Window {
             id: loader_border
             anchors.fill: parent
             sourceComponent: {
-                // if (window.useSystemAppBar || FluTools.isWin() || window.visibility === Window.Maximized || window.visibility === Window.FullScreen) {
-                //     return undefined;
-                // }
+                if (window.useSystemAppBar || window.visibility === Window.Maximized || window.visibility === Window.FullScreen) {
+                    return undefined;
+                }
                 return com_border;
             }
         }

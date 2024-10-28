@@ -138,6 +138,10 @@ class AppTheme(QObject):
 class AppFont(QObject):
     DEFAULT_FONT_FAMILY = "Microsoft YaHei UI"
 
+    class NavigationDisplayModel(Enum):
+        Compact = "Compact"
+        Expanded = "Expanded"
+
     def __init__(self) -> None:
         super().__init__()
         self._caption = QFont(self.DEFAULT_FONT_FAMILY, 12)

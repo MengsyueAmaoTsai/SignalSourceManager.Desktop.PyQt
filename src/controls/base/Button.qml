@@ -42,8 +42,8 @@ Button {
     property string appearance: 'Basic'
     property bool loading: false
     property color backgroundColor
-    property string iconStart: undefined
-    property string iconEnd: undefined
+    property string iconStart: ''
+    property string iconEnd: ''
 
     property bool disabled: false
     property string contentDescription: ""

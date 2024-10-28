@@ -28,12 +28,12 @@ TextField {
     selectedTextColor: color
     placeholderTextColor: {
         if (!enabled) {
-            return placeholderDisableColor;
+            return disableColor;
         }
         if (focus) {
             return placeholderFocusColor;
         }
-        return placeholderNormalColor;
+        return normalColor;
     }
     selectByMouse: true
     rightPadding: {
