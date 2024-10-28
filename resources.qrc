@@ -7,6 +7,7 @@
         <file>src/controls/base/TextBlock.qml</file>
         <file>src/controls/base/Button.qml</file>
         <file>src/controls/base/TextBox.qml</file>
+        <file>src/controls/base/AutoSuggestBox.qml</file>
         <file>src/controls/base/ComboBox.qml</file>
         <file>src/controls/base/Progress.qml</file>
         <file>src/controls/base/Menu.qml</file>
@@ -14,8 +15,10 @@
         
         <!-- Controls.Base.Containers -->
         <file>src/controls/base/Window.qml</file>
+        <file>src/controls/base/NavigationView.qml</file>
         <file>src/controls/base/Popup.qml</file>
         <file>src/controls/base/ComponentLoader.qml</file>
+        <file>src/controls/base/Control.qml</file>
         <file>src/controls/base/FocusRectangle.qml</file>
         <file>src/controls/base/Shadow.qml</file>
         <file>src/controls/base/Background.qml</file>
