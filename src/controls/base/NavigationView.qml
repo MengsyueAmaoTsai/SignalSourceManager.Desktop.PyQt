@@ -16,14 +16,13 @@ Item {
     property string displayMode: 'Auto'
     property string pageMode: 'Stack'
 
-    property int topPadding: 0
     property int navCompactWidth: 50
     property int navTopMargin: 0
     property int cellHeight: 38
     property int cellWidth: 300
     property bool hideNavAppBar: false
-    // property alias buttonMenu: btn_menu
-    // property alias buttonBack: btn_back
+    // property alias buttonMenu: menuButton
+    // property alias buttonBack: backButton
     property alias imageLogo: image_logo
 
     property BaseControls.Menu navItemRightMenu
@@ -724,119 +723,103 @@ Item {
         height: visible ? 40 : 0
         anchors {
             top: parent.top
-            topMargin: control.topPadding
+            topMargin: 0
         }
         visible: !control.hideNavAppBar
         z: 999
         RowLayout {
             height: parent.height
             spacing: 0
-            // FluIconButton {
-            //     id: btn_back
-            //     iconSource: FluentIcons.ChromeBack
-            //     Layout.leftMargin: 5
-            //     Layout.alignment: Qt.AlignVCenter
-            //     disabled: {
-            //         return d.stackItems.length <= 1;
-            //     }
-            //     iconSize: 13
-            //     onClicked: {
-            //         d.stackItems = d.stackItems.slice(0, -1);
-            //         var item = d.stackItems[d.stackItems.length - 1];
-            //         if (item._idx < (nav_list.count - layout_footer.count)) {
-            //             layout_footer.currentIndex = -1;
-            //         } else {
-            //             layout_footer.currentIndex = item._idx - (nav_list.count - layout_footer.count);
-            //         }
-            //         nav_list.currentIndex = item._idx;
-            //         if (pageMode === 'Stack') {
-            //             var nav_stack = loader_content.item.navStack();
-            //             var nav_stack2 = loader_content.item.navStack2();
-            //             nav_stack.pop();
-            //             if (nav_stack.currentItem.launchMode === FluPageType.SingleInstance) {
-            //                 var url = nav_stack.currentItem.url;
-            //                 var pageIndex = -1;
-            //                 for (var i = 0; i < nav_stack2.children.length; i++) {
-            //                     var obj = nav_stack2.children[i];
-            //                     if (obj.url === url) {
-            //                         pageIndex = i;
-            //                         break;
-            //                     }
-            //                 }
-            //                 if (pageIndex !== -1) {
-            //                     nav_stack2.currentIndex = pageIndex;
-            //                 }
-            //             }
-            //         } else if (pageMode === 'NoStack') {
-            //             loader_content.setSource(item._ext.url, item._ext.argument);
-            //         }
-            //     }
-            // }
-            // FluIconButton {
-            //     id: btn_menu
-            //     iconSource: FluentIcons.GlobalNavButton
-            //     iconSize: 15
-            //     Layout.preferredWidth: d.isMinimal ? 30 : 0
-            //     Layout.preferredHeight: 30
-            //     Layout.alignment: Qt.AlignVCenter
-            //     clip: true
-            //     onClicked: {
-            //         d.enableNavigationPanel = !d.enableNavigationPanel;
-            //     }
-            //     visible: opacity
-            //     opacity: d.isMinimal
-            //     Behavior on opacity {
-            //         enabled: AppTheme.animation_enbaled && d.animDisabled
-            //         NumberAnimation {
-            //             duration: 83
-            //         }
-            //     }
-            //     Behavior on Layout.preferredWidth {
-            //         enabled: AppTheme.animation_enbaled && d.animDisabled
-            //         NumberAnimation {
-            //             duration: 167
-            //             easing.type: Easing.OutCubic
-            //         }
-            //     }
-            // }
+            BaseControls.Button {
+                id: backButton
+                // iconSource: FluentIcons.ChromeBack
+                // iconSize: 13
+                Layout.leftMargin: 5
+                Layout.alignment: Qt.AlignVCenter
+                disabled: d.stackItems.length <= 1
+                onClicked: {
+                    d.stackItems = d.stackItems.slice(0, -1);
+                    var item = d.stackItems[d.stackItems.length - 1];
+                    if (item._idx < (nav_list.count - layout_footer.count)) {
+                        layout_footer.currentIndex = -1;
+                    } else {
+                        layout_footer.currentIndex = item._idx - (nav_list.count - layout_footer.count);
+                    }
+                    nav_list.currentIndex = item._idx;
+                    if (pageMode === 'Stack') {
+                        var nav_stack = loader_content.item.navStack();
+                        var nav_stack2 = loader_content.item.navStack2();
+                        nav_stack.pop();
+                        if (nav_stack.currentItem.launchMode === FluPageType.SingleInstance) {
+                            var url = nav_stack.currentItem.url;
+                            var pageIndex = -1;
+                            for (var i = 0; i < nav_stack2.children.length; i++) {
+                                var obj = nav_stack2.children[i];
+                                if (obj.url === url) {
+                                    pageIndex = i;
+                                    break;
+                                }
+                            }
+                            if (pageIndex !== -1) {
+                                nav_stack2.currentIndex = pageIndex;
+                            }
+                        }
+                    } else if (pageMode === 'NoStack') {
+                        loader_content.setSource(item._ext.url, item._ext.argument);
+                    }
+                }
+            }
+            BaseControls.Button {
+                id: menuButton
+                // iconSource: FluentIcons.GlobalNavButton
+                // iconSize: 15
+                Layout.preferredWidth: d.isMinimal ? 30 : 0
+                Layout.preferredHeight: 30
+                Layout.alignment: Qt.AlignVCenter
+                clip: true
+                visible: opacity
+                opacity: d.isMinimal
+                Behavior on opacity {
+                    enabled: AppTheme.animation_enbaled && d.animDisabled
+                    NumberAnimation {
+                        duration: 83
+                    }
+                }
+                Behavior on Layout.preferredWidth {
+                    enabled: AppTheme.animation_enbaled && d.animDisabled
+                    NumberAnimation {
+                        duration: 167
+                        easing.type: Easing.OutCubic
+                    }
+                }
+                onClicked: d.enableNavigationPanel = !d.enableNavigationPanel
+            }
             Image {
                 id: image_logo
                 Layout.preferredHeight: 20
                 Layout.preferredWidth: 20
                 source: control.logo
-                Layout.leftMargin: {
-                    // if (btn_menu.visible) {
-                    //     return 12;
-                    // }
-                    return 5;
-                }
+                Layout.leftMargin: menuButton.visible ? 12 : 5
                 sourceSize: Qt.size(40, 40)
                 Layout.alignment: Qt.AlignVCenter
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: {
-                        logoClicked();
-                    }
+                    onClicked: logoClicked()
                 }
             }
             BaseControls.TextBlock {
                 Layout.alignment: Qt.AlignVCenter
-                text: control.title
                 Layout.leftMargin: 12
+                text: control.title
                 font: AppFont.body
             }
         }
         Item {
             anchors.right: parent.right
             height: parent.height
-            width: {
-                if (loader_action.item) {
-                    return loader_action.item.width;
-                }
-                return 0;
-            }
+            width: actionLoader.item ? actionLoader.item.width : 0
             BaseControls.ComponentLoader {
-                id: loader_action
+                id: actionLoader
                 anchors.centerIn: parent
                 sourceComponent: actionItem
             }
@@ -844,7 +827,7 @@ Item {
     }
 
     Component {
-        id: com_stack_content
+        id: stackContentWrapper
         Item {
             StackView {
                 id: nav_stack
@@ -901,7 +884,7 @@ Item {
                 easing.type: Easing.OutCubic
             }
         }
-        sourceComponent: com_stack_content
+        sourceComponent: stackContentWrapper
     }
     MouseArea {
         anchors.fill: parent
@@ -961,7 +944,7 @@ Item {
             id: layout_header
             width: layout_list.width
             clip: true
-            y: nav_app_bar.height + control.topPadding
+            y: nav_app_bar.height + 0
             height: autoSuggestBox ? 38 : 0
             BaseControls.ComponentLoader {
                 id: loader_auto_suggest_box
@@ -1124,14 +1107,6 @@ Item {
                 duration: 83
             }
         }
-        Connections {
-            target: d
-            function onIsCompactChanged() {
-                if (!d.isCompact) {
-                    control_popup.close();
-                }
-            }
-        }
         padding: 0
         focus: true
         contentItem: BaseControls.Clip {
@@ -1150,12 +1125,7 @@ Item {
                     height: 38
                     focusPolicy: Qt.TabFocus
                     background: Rectangle {
-                        color: {
-                            if (item_button.hovered) {
-                                return FluTheme.itemHoverColor;
-                            }
-                            return FluTheme.itemNormalColor;
-                        }
+                        color: item_button.hovered ? AppTheme.item_hover_color : AppTheme.item_normal_color
                         BaseControls.FocusRectangle {
                             visible: item_button.activeFocus
                             radius: 4
@@ -1220,6 +1190,13 @@ Item {
         id: loader_item_menu
         property var modelData
     }
+    Component {
+        id: placeholderWrapper
+        Item {
+            property string launchMode: 'SingleInstance'
+            property string url
+        }
+    }
     Connections {
         id: connection_item_menu
         function onVisibleChanged(visible) {
@@ -1228,13 +1205,7 @@ Item {
             }
         }
     }
-    Component {
-        id: com_placeholder
-        Item {
-            property string launchMode: 'SingleInstance'
-            property string url
-        }
-    }
+    
     function collapseAll() {
         for (var i = 0; i < nav_list.model.length; i++) {
             var item = nav_list.model[i];
@@ -1308,13 +1279,13 @@ Item {
             });
             if (pageIndex !== -1) {
                 nav_stack2.currentIndex = pageIndex;
-                nav_stack.push(com_placeholder, options);
+                nav_stack.push(placeholderWrapper, options);
             } else {
                 var comp = Qt.createComponent(url);
                 if (comp.status === Component.Ready) {
                     var obj = comp.createObject(nav_stack, options);
                     if (obj.launchMode === FluPageType.SingleInstance) {
-                        nav_stack.push(com_placeholder, options);
+                        nav_stack.push(placeholderWrapper, options);
                         nav_stack2.children.push(obj);
                         nav_stack2.currentIndex = nav_stack2.count - 1;
                     } else {

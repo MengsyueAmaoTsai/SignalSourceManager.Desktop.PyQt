@@ -15,15 +15,15 @@ BaseControls.Window {
     minimumHeight: 320
     launchMode: 'SingleTask'
     fitsAppBarWindows: true
-    // appBar: FluAppBar {
-    //     height: 30
-    //     showDark: true
-    //     darkClickListener: button => handleDarkChanged(button)
-    //     closeClickListener: () => {
-    //         dialog_close.open();
-    //     }
-    //     z: 7
-    // }
+    appBar: BaseControls.AppTitleBar {
+        height: 30
+        showDark: true
+        darkClickListener: button => handleDarkChanged(button)
+        closeClickListener: () => {
+            dialog_close.open();
+        }
+        z: 7
+    }
     Flipable {
         id: flipable
 
@@ -114,12 +114,6 @@ BaseControls.Window {
                 displayMode: 'Auto'
                 // items: ItemsOriginal
                 // footerItems: ItemsFooter
-                topPadding: {
-                    if (window.useSystemAppBar) {
-                        return 0;
-                    }
-                    return FluTools.isMacos() ? 20 : 0;
-                }
                 title: "FluentUI"
                 logo: "qrc:/static/images/favicon.ico"
                 onLogoClicked: {
