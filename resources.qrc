@@ -9,6 +9,8 @@
         <file>src/controls/base/TextBox.qml</file>
         <file>src/controls/base/ComboBox.qml</file>
         <file>src/controls/base/Progress.qml</file>
+        <file>src/controls/base/Menu.qml</file>
+        <file>src/controls/base/MenuItem.qml</file>
         
         <!-- Controls.Base.Containers -->
         <file>src/controls/base/Window.qml</file>

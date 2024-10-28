@@ -386,7 +386,7 @@ Window {
         loader_loading.sourceComponent = com_loading;
     }
     function setHitTestVisible(val) {
-        frameless.setHitTestVisible(val);
+    // frameless.setHitTestVisible(val);
     }
     function deleteLater() {
     // FluTools.deleteLater(window);

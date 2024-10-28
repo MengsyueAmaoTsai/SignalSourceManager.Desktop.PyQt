@@ -104,7 +104,7 @@ BaseControls.Popup {
                         Layout.fillHeight: true
                         BaseControls.Button {
                             id: neutral_btn
-                            visible: control.buttonFlags & FluContentDialogType.NeutralButton
+                            // visible: control.buttonFlags & FluContentDialogType.NeutralButton
                             text: neutralText
                             width: parent.width
                             anchors.centerIn: parent
@@ -123,7 +123,7 @@ BaseControls.Popup {
                         Layout.fillHeight: true
                         BaseControls.Button {
                             id: negative_btn
-                            visible: control.buttonFlags & FluContentDialogType.NegativeButton
+                            // visible: control.buttonFlags & FluContentDialogType.NegativeButton
                             width: parent.width
                             anchors.centerIn: parent
                             text: negativeText

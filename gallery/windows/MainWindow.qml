@@ -37,16 +37,15 @@ BaseControls.Window {
     //     }
     // }
 
-    onLazyLoad: {
-        tour.open();
-    }
+    onLazyLoad: console.log('lazy load')
 
     Component.onCompleted: {
         checkUpdate(true);
     }
 
     Component.onDestruction: {
-        FluRouter.exit();
+        BaseControls.WindowManager.closeAllWindows();
+        BaseControls.WindowManager.quit();
     }
 
     SystemTrayIcon {
@@ -58,7 +57,8 @@ BaseControls.Window {
             MenuItem {
                 text: "退出"
                 onTriggered: {
-                    FluRouter.exit();
+                    BaseControls.WindowManager.closeAllWindows();
+                    BaseControls.WindowManager.quit();
                 }
             }
         }
@@ -96,22 +96,22 @@ BaseControls.Window {
         }
     }
 
-    // Component {
-    // id: nav_item_right_menu
-    // FluMenu {
-    //     width: 186
-    //     FluMenuItem {
-    //         text: qsTr("Open in Separate Window")
-    //         font: AppFont.caption
-    //         onClicked: {
-    //             FluRouter.navigate("/pageWindow", {
-    //                 title: modelData.title,
-    //                 url: modelData.url
-    //             });
-    //         }
-    //     }
-    // }
-    // }
+    Component {
+        id: nav_item_right_menu
+        BaseControls.Menu {
+            width: 186
+            BaseControls.MenuItem {
+                text: qsTr("Open in Separate Window")
+                font: AppFont.caption
+                onClicked: {
+                    FluRouter.navigate("/pageWindow", {
+                        title: modelData.title,
+                        url: modelData.url
+                    });
+                }
+            }
+        }
+    }
 
     Flipable {
         id: flipable
@@ -153,7 +153,7 @@ BaseControls.Window {
                 anchors {
                     top: parent.top
                     left: parent.left
-                    topMargin: FluTools.isMacos() ? 20 : 5
+                    topMargin: 5
                     leftMargin: 5
                 }
                 // FluIconButton {
@@ -336,7 +336,7 @@ BaseControls.Window {
     // }
 
     BaseControls.TextBlock {
-        text: "fps %1".arg(fps_item.fps)
+        text: "fps %1".arg('{Fps}')
         opacity: 0.3
         anchors {
             bottom: parent.bottom
@@ -353,7 +353,7 @@ BaseControls.Window {
         property string body
 
         title: qsTr("Upgrade Tips")
-        message: qsTr("FluentUI is currently up to date ") + newVerson + qsTr(" -- The current app version") + AppInfo.version + qsTr(" \nNow go and download the new version？\n\nUpdated content: \n") + body
+        message: qsTr("FluentUI is currently up to date ") + '{NewVersion}' + qsTr(" -- The current app version") + '{CurrentVersion}' + qsTr(" \nNow go and download the new version？\n\nUpdated content: \n") + body
         // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
         negativeText: qsTr("Cancel")
         positiveText: qsTr("OK")
@@ -395,7 +395,8 @@ BaseControls.Window {
     // }
 
     function checkUpdate(silent) {
-        callable.silent = silent;
-        Network.get("https://api.github.com/repos/zhuzichu520/FluentUI/releases/latest").go(callable);
+        console.log('Checking update');
+    // callable.silent = silent;
+    // Network.get("https://api.github.com/repos/zhuzichu520/FluentUI/releases/latest").go(callable);
     }
 }

@@ -44,6 +44,8 @@
         <file>src/controls/base/TextBox.qml</file>
         <file>src/controls/base/ComboBox.qml</file>
         <file>src/controls/base/Progress.qml</file>
+        <file>src/controls/base/Menu.qml</file>
+        <file>src/controls/base/MenuItem.qml</file>
         <file>src/controls/base/Badge.qml</file>
         <file>src/controls/base/Tooltip.qml</file>
 
