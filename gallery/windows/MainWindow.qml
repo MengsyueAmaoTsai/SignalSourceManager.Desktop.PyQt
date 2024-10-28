@@ -175,7 +175,7 @@ BaseControls.Window {
         neutralText: "Cancel"
         // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.NeutralButton | FluContentDialogType.PositiveButton
         onNegativeClicked: {
-            .showMessage(qsTr("Friendly Reminder"), qsTr("FluentUI is hidden from the tray, click on the tray to activate the window again"));
+            showMessage(qsTr("Friendly Reminder"), qsTr("FluentUI is hidden from the tray, click on the tray to activate the window again"));
             hideWindowTimer.restart();
         }
         onPositiveClicked: {
@@ -191,11 +191,12 @@ BaseControls.Window {
         message: `FluentUI is currently up to date {newVersion} -- The current app version {currentVersion}` + " \nNow go and download the new version？\n\nUpdated content: \n" + body
         negativeText: 'Cancel'
         positiveText: 'OK'
+
         // buttonFlags: FluContentDialogType.NegativeButton | FluContentDialogType.PositiveButton
 
         property string body
         property string newVerson
-        
+
         onPositiveClicked: Qt.openUrlExternally("https://github.com/zhuzichu520/FluentUI/releases/latest")
     }
 
@@ -219,7 +220,7 @@ BaseControls.Window {
 
     Timer {
         id: hideWindowTimer
-       
+
         interval: 150
         onTriggered: window.hide()
     }
@@ -259,7 +260,7 @@ BaseControls.Window {
     Shortcut {
         sequence: "F6"
         context: Qt.WindowShortcut
-        onActivated: tour.open();
+        onActivated: tour.open()
     }
 
     // FluentInitializrWindow {
@@ -274,7 +275,7 @@ BaseControls.Window {
     // }
 
     // Component {
-    //     id: revealWrapper
+    //     id: com_reveal
     //     CircularReveal {
     //         id: reveal
     //         target: window.containerItem()
@@ -364,7 +365,7 @@ BaseControls.Window {
         if (FluTools.isMacos() || !FluTheme.animationEnabled) {
             changeDark();
         } else {
-            revealLoader.sourceComponent = revealWrapper;
+            revealLoader.sourceComponent = com_reveal;
             var target = window.containerItem();
             var pos = button.mapToItem(target, 0, 0);
             var mouseX = pos.x + button.width / 2;
