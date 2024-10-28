@@ -7,7 +7,7 @@ BaseControls.Window {
     id: window
 
     title: "About"
-    width: 600
+    width: 800
     height: 580
     fixSize: true
     launchMode: 'SingleTask'
@@ -29,9 +29,7 @@ BaseControls.Window {
                 font: AppFont.title
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: {
-                        FluRouter.navigate("/");
-                    }
+                    onClicked: BaseControls.WindowManager.navigateTo("/")
                 }
             }
         }
@@ -43,10 +41,11 @@ BaseControls.Window {
                 text: "Version"
             }
             BaseControls.TextBlock {
-                text: "1.0.0"
+                text: AppInfo.version
                 Layout.alignment: Qt.AlignBottom
             }
         }
+
         RowLayout {
             spacing: 14
             Layout.leftMargin: 15
@@ -54,10 +53,11 @@ BaseControls.Window {
                 text: "Python version"
             }
             BaseControls.TextBlock {
-                text: "3.12"
+                text: AppInfo.python_version
                 Layout.alignment: Qt.AlignBottom
             }
         }
+
         RowLayout {
             spacing: 14
             Layout.leftMargin: 15
@@ -65,7 +65,7 @@ BaseControls.Window {
                 text: "Qt version"
             }
             BaseControls.TextBlock {
-                text: "6.x.x"
+                text: AppInfo.qt_version
                 Layout.alignment: Qt.AlignBottom
             }
         }
@@ -79,35 +79,17 @@ BaseControls.Window {
 
             // Text link button
             BaseControls.Button {
-                id: text_hublink
+                id: githubLinkButton
+
                 topPadding: 0
                 bottomPadding: 0
-                text: "https://github.com/zhuzichu520/FluentUI"
+                text: AppInfo.repository
                 Layout.alignment: Qt.AlignBottom
-                onClicked: Qt.openUrlExternally(text_hublink.text)
+                onClicked: Qt.openUrlExternally(githubLinkButton.text)
             }
         }
 
-        RowLayout {
-            spacing: 14
-            Layout.leftMargin: 15
-            BaseControls.TextBlock {
-                id: text_info
-                text: "Color animation"
-                ColorAnimation {
-                    id: animation
-                    target: text_info
-                    property: "color"
-                    from: "red"
-                    to: "blue"
-                    duration: 1000
-                    running: true
-                    loops: Animation.Infinite
-                    easing.type: Easing.InOutQuad
-                }
-            }
-        }
-
+        // QR Core demo
         // Item {
         //     Layout.preferredWidth: parent.width
         //     Layout.preferredHeight: 252

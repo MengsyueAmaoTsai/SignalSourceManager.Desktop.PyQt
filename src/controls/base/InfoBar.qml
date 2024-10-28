@@ -6,6 +6,7 @@ BaseControls.Object {
     id: control
     property var root
     property int layoutY: 75
+
     BaseControls.Object {
         id: mcontrol
         property string const_success: "success"
@@ -14,6 +15,7 @@ BaseControls.Object {
         property string const_error: "error"
         property int maxWidth: 300
         property var screenLayout: null
+
         function create(type, text, duration, moremsg) {
             if (screenLayout) {
                 var last = screenLayout.getLastloader();
@@ -236,7 +238,7 @@ BaseControls.Object {
                         text: _super.moremsg
                         visible: _super.moremsg
                         wrapMode: Text.WrapAnywhere
-                        textColor: FluColors.Grey120
+                        // textColor: FluColors.Grey120
                         width: Math.min(implicitWidth, mcontrol.maxWidth)
                     }
                 }

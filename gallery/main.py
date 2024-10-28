@@ -7,7 +7,7 @@ from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
 import resources_rc as resources  # type: ignore # noqa: F401
-from constants import AppFont, AppTheme
+from constants import AppFont, AppInfo, AppTheme
 
 app = QGuiApplication(sys.argv)
 engine = QQmlApplicationEngine()
@@ -74,12 +74,13 @@ qmlRegisterSingletonType(
 )
 
 # Register context properties or objects
-theme = AppTheme()
-engine.rootContext().setContextProperty("AppTheme", theme)
-
+app_info = AppInfo()
 font = AppFont()
-engine.rootContext().setContextProperty("AppFont", font)
+theme = AppTheme()
 
+engine.rootContext().setContextProperty("AppTheme", theme)
+engine.rootContext().setContextProperty("AppFont", font)
+engine.rootContext().setContextProperty("AppInfo", app_info)
 for path in engine.importPathList():
     print(f"Import path: {path}")
 
