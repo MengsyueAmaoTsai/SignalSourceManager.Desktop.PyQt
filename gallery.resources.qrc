@@ -10,6 +10,7 @@
         <file>gallery/windows/CrashWindow.qml</file>
         <file>gallery/windows/PageWindow.qml</file>
         <file>gallery/windows/SignInWindow.qml</file>
+        <file>gallery/windows/StandardWindow.qml</file>
 
         <!-- Pages -->
         <file>gallery/pages/TextBlockPage.qml</file>
@@ -50,6 +51,9 @@
         <file>src/controls/base/Progress.qml</file>
         <file>src/controls/base/Menu.qml</file>
         <file>src/controls/base/MenuItem.qml</file>
+        <file>src/controls/base/MenuSeparator.qml</file>
+        <file>src/controls/base/MenuBar.qml</file>
+        <file>src/controls/base/MenuBarItem.qml</file>
         <file>src/controls/base/Badge.qml</file>
         <file>src/controls/base/Tooltip.qml</file>
 

@@ -18,7 +18,7 @@ T.Menu {
             property: "opacity"
             from: 0
             to: 1
-            duration: FluTheme.animationEnabled && control.animationEnabled ? 83 : 0
+            duration: AppTheme.animation_enabled && control.animationEnabled ? 83 : 0
         }
     }
     exit: Transition {
@@ -26,7 +26,7 @@ T.Menu {
             property: "opacity"
             from: 1
             to: 0
-            duration: FluTheme.animationEnabled && control.animationEnabled ? 83 : 0
+            duration: AppTheme.animation_enabled && control.animationEnabled ? 83 : 0
         }
     }
     contentItem: ListView {
@@ -40,16 +40,16 @@ T.Menu {
     background: Rectangle {
         implicitWidth: 150
         implicitHeight: 36
-        color: FluTheme.dark ? Qt.rgba(45 / 255, 45 / 255, 45 / 255, 1) : Qt.rgba(252 / 255, 252 / 255, 252 / 255, 1)
-        border.color: FluTheme.dark ? Qt.rgba(26 / 255, 26 / 255, 26 / 255, 1) : Qt.rgba(191 / 255, 191 / 255, 191 / 255, 1)
+        color: AppTheme.theme === 'Dark' ? Qt.rgba(45 / 255, 45 / 255, 45 / 255, 1) : Qt.rgba(252 / 255, 252 / 255, 252 / 255, 1)
+        border.color: AppTheme.theme === 'Dark' ? Qt.rgba(26 / 255, 26 / 255, 26 / 255, 1) : Qt.rgba(191 / 255, 191 / 255, 191 / 255, 1)
         border.width: 1
         radius: 5
         BaseControls.Shadow {}
     }
     T.Overlay.modal: Rectangle {
-        color: FluTools.withOpacity(control.palette.shadow, 0.5)
+        // color: FluTools.withOpacity(control.palette.shadow, 0.5)
     }
     T.Overlay.modeless: Rectangle {
-        color: FluTools.withOpacity(control.palette.shadow, 0.12)
+        // color: FluTools.withOpacity(control.palette.shadow, 0.12)
     }
 }

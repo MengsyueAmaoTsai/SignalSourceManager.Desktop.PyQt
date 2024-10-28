@@ -78,13 +78,13 @@ T.MenuItem {
         x: control.mirrored ? control.width - width - control.rightPadding : control.leftPadding
         y: control.topPadding + (control.availableHeight - height) / 2
         visible: control.checked
-        iconSource: FluentIcons.CheckMark
+        // iconSource: FluentIcons.CheckMark
     }
     arrow: BaseControls.Icon {
         x: control.mirrored ? control.leftPadding : control.width - width - control.rightPadding
         y: control.topPadding + (control.availableHeight - height) / 2
         visible: control.subMenu
-        iconSource: FluentIcons.ChevronRightMed
+        // iconSource: FluentIcons.ChevronRightMed
     }
     background: Item {
         implicitWidth: 150
@@ -99,9 +99,9 @@ T.MenuItem {
             radius: 4
             color: {
                 if (control.highlighted) {
-                    return FluTheme.itemHoverColor;
+                    return AppTheme.item_hover_color;
                 }
-                return FluTheme.itemNormalColor;
+                return AppTheme.item_normal_color;
             }
         }
     }

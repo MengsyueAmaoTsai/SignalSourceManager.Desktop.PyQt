@@ -12,6 +12,9 @@
         <file>src/controls/base/Progress.qml</file>
         <file>src/controls/base/Menu.qml</file>
         <file>src/controls/base/MenuItem.qml</file>
+        <file>src/controls/base/MenuSeparator.qml</file>
+        <file>src/controls/base/MenuBar.qml</file>
+        <file>src/controls/base/MenuBarItem.qml</file>
         
         <!-- Controls.Base.Containers -->
         <file>src/controls/base/Window.qml</file>
