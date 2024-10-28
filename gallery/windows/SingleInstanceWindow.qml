@@ -10,8 +10,7 @@ BaseControls.Window {
     width: 500
     height: 600
     fixSize: true
-
-    // launchMode: FluWindowType.SingleInstance
+    launchMode: 'SingleInstance'
 
     BaseControls.TextBox {
         anchors {

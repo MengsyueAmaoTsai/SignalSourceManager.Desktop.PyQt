@@ -11,7 +11,7 @@ BaseControls.Window {
     height: 600
     fixSize: true
 
-    // launchMode: FluWindowType.SingleTask
+    launchMode: 'SingleTask'
 
     BaseControls.TextBlock {
         anchors.centerIn: parent

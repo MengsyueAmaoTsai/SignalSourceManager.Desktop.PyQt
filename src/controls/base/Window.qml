@@ -5,6 +5,7 @@ import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
 Window {
     id: window
+    
     property var arguments: ({})
     property var windowRegister: undefined
     property string route: ''
@@ -361,8 +362,8 @@ Window {
         }
     }
     function setResult(data) {
-        if (_windowRegister) {
-            _windowRegister.setResult(data);
+        if (windowRegister) {
+            windowRegister.setResult(data);
         }
     }
     function showMaximized() {

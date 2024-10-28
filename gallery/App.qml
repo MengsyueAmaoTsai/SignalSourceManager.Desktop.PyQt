@@ -20,10 +20,10 @@ Item {
             '/crash': 'qrc:/gallery/windows/CrashWindow.qml',
             '/single-task': 'qrc:/gallery/windows/SingleTaskWindow.qml',
             '/single-instance': 'qrc:/gallery/windows/SingleInstanceWindow.qml',
-            '/page': 'qrc:/gallery/windows/PageWindow.qml',
+            '/page': 'qrc:/gallery/windows/PageWindow.qml'
             //     '/hotload': 'qrc:/gallery/windows/HotloadWindow.qml',
             //     '/standard': 'qrc:/gallery/windows/StandardWindow.qml',
         };
-        BaseControls.WindowManager.navigateTo('/');
+        BaseControls.WindowManager.navigateTo('/sign-in');
     }
 }

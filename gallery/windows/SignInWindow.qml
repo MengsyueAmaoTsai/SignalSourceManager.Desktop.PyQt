@@ -13,8 +13,8 @@ BaseControls.Window {
     modality: Qt.ApplicationModal
 
     onInitArgument: argument => {
-        textbox_uesrname.updateText(argument.username);
-        textbox_password.focus = true;
+        emailTextBox.updateText(argument.username);
+        passwordTextBox.focus = true;
     }
 
     ColumnLayout {
@@ -24,23 +24,23 @@ BaseControls.Window {
             verticalCenter: parent.verticalCenter
         }
 
-        // FluAutoSuggestBox {
-        //     id: textbox_uesrname
-        //     items: [
-        //         {
-        //             title: "Admin"
-        //         },
-        //         {
-        //             title: "User"
-        //         }
-        //     ]
-        //     placeholderText: qsTr("Please enter the account")
-        //     Layout.preferredWidth: 260
-        //     Layout.alignment: Qt.AlignHCenter
-        // }
+        BaseControls.AutoSuggestBox {
+            id: emailTextBox
+            items: [
+                {
+                    title: "Admin"
+                },
+                {
+                    title: "User"
+                }
+            ]
+            placeholderText: qsTr("Please enter the account")
+            Layout.preferredWidth: 260
+            Layout.alignment: Qt.AlignHCenter
+        }
 
         BaseControls.TextBox {
-            id: textbox_password
+            id: passwordTextBox
             Layout.topMargin: 20
             Layout.preferredWidth: 260
             placeholderText: qsTr("Please enter your password")
@@ -48,20 +48,20 @@ BaseControls.Window {
             Layout.alignment: Qt.AlignHCenter
         }
 
-        // FluFilledButton {
-        //     text: qsTr("Login")
-        //     Layout.alignment: Qt.AlignHCenter
-        //     Layout.topMargin: 20
-        //     onClicked: {
-        //         if (textbox_password.text === "") {
-        //             showError(qsTr("Please feel free to enter a password"));
-        //             return;
-        //         }
-        //         setResult({
-        //             password: textbox_password.text
-        //         });
-        //         window.close();
-        //     }
-        // }
+        BaseControls.Button {
+            text: "Sign in"
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 20
+            onClicked: {
+                if (passwordTextBox.text === "") {
+                    showError(qsTr("Please feel free to enter a password"));
+                    return;
+                }
+                setResult({
+                    password: passwordTextBox.text
+                });
+                window.close();
+            }
+        }
     }
 }

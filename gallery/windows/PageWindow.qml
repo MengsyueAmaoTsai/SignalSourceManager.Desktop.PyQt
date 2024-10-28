@@ -10,8 +10,7 @@ BaseControls.Window {
     height: 600
     minimumWidth: 520
     minimumHeight: 200
-
-    // launchMode: FluWindowType.SingleInstance
+    launchMode: 'SingleInstance'
 
     BaseControls.ComponentLoader {
         id: loader

@@ -21,8 +21,8 @@ Item {
     property int cellHeight: 38
     property int cellWidth: 300
     property bool hideNavAppBar: false
-    // property alias buttonMenu: menuButton
-    // property alias buttonBack: backButton
+    property alias buttonMenu: menuButton
+    property alias buttonBack: backButton
     property alias imageLogo: image_logo
 
     property BaseControls.Menu navItemRightMenu

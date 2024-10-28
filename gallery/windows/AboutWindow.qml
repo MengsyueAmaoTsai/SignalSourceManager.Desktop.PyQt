@@ -10,8 +10,7 @@ BaseControls.Window {
     width: 600
     height: 580
     fixSize: true
-
-    // launchMode: FluWindowType.SingleTask
+    launchMode: 'SingleTask'
 
     ColumnLayout {
         anchors {
@@ -77,16 +76,16 @@ BaseControls.Window {
             BaseControls.TextBlock {
                 text: "GitHub："
             }
-            // FluTextButton {
-            //     id: text_hublink
-            //     topPadding: 0
-            //     bottomPadding: 0
-            //     text: "https://github.com/zhuzichu520/FluentUI"
-            //     Layout.alignment: Qt.AlignBottom
-            //     onClicked: {
-            //         Qt.openUrlExternally(text_hublink.text);
-            //     }
-            // }
+
+            // Text link button
+            BaseControls.Button {
+                id: text_hublink
+                topPadding: 0
+                bottomPadding: 0
+                text: "https://github.com/zhuzichu520/FluentUI"
+                Layout.alignment: Qt.AlignBottom
+                onClicked: Qt.openUrlExternally(text_hublink.text)
+            }
         }
 
         RowLayout {

@@ -1,27 +1,19 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
-import Qt.labs.platform 1.0
+import QtQuick 
+import QtQuick.Controls 
+import QtQuick.Layouts 
+import Qt.labs.platform
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
 BaseControls.Window {
     id: window
 
-    title: qsTr("Friendly Reminder")
+    title: 'Friendly Reminder'
     width: 300
     height: 400
     fixSize: true
     showMinimize: false
 
     property string crashFilePath
-
-    Component.onCompleted: {
-        window.stayTop = true;
-    }
-
-    onInitArgument: argument => {
-        crashFilePath = argument.crashFilePath;
-    }
 
     Image {
         width: 540 / 2
@@ -45,7 +37,7 @@ BaseControls.Window {
             rightMargin: 10
         }
         wrapMode: Text.WrapAnywhere
-        text: qsTr("We apologize for the inconvenience caused by an unexpected error")
+        text: "We apologize for the inconvenience caused by an unexpected error"
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
     }
@@ -57,20 +49,26 @@ BaseControls.Window {
             bottomMargin: 20
         }
         BaseControls.Button {
-            text: qsTr("Report Logs")
-            onClicked:
-            // FluTools.showFileInFolder(crashFilePath);
-            {}
+            text: "Report Logs"
+            onClicked: console.log('FluTools.showFileInFolder(crashFilePath)')
         }
         Item {
             width: 30
             height: 1
         }
-        // FluFilledButton {
-        //     text: qsTr("Restart Program")
-        //     onClicked: {
-        //         FluRouter.exit(931);
-        //     }
-        // }
+        BaseControls.Button {
+            text: "Restart Program"
+            onClicked: {
+                FluRouter.exit(931);
+            }
+        }
+    }
+
+    Component.onCompleted: {
+        window.stayTop = true;
+    }
+
+    onInitArgument: argument => {
+        crashFilePath = argument.crashFilePath;
     }
 }
