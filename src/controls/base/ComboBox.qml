@@ -32,7 +32,7 @@ T.ComboBox {
         x: control.mirrored ? control.padding : control.width - width - control.padding
         y: control.topPadding + (control.availableHeight - height) / 2
         width: 28
-        iconSource: FluentIcons.ChevronDown
+        // iconSource: FluentIcons.ChevronDown
         iconSize: 15
         opacity: enabled ? 1 : 0.3
     }

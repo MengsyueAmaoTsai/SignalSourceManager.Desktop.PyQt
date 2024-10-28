@@ -3,6 +3,8 @@
         <file>src/App.qml</file>
 
         <!-- Controls.Base -->
+        <file>src/controls/base/WindowManager.qml</file>
+
         <file>src/controls/base/Icon.qml</file>
         <file>src/controls/base/TextBlock.qml</file>
         <file>src/controls/base/Button.qml</file>
@@ -30,6 +32,7 @@
         <file>src/controls/base/TextBoxBackground.qml</file>
         <file>src/controls/base/ItemDelegate.qml</file>
         <file>src/controls/base/ScrollBar.qml</file>
+        <file>src/controls/base/Clip.qml</file>
 
         <file>src/controls/base/StatusLayout.qml</file>
 

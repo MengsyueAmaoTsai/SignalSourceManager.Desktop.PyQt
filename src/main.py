@@ -2,12 +2,13 @@ import sys
 
 from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterType
+from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType, qmlRegisterType
 from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
 import resources_rc as resources  # type: ignore # noqa: F401
 from constants import AppFont, AppTheme
+from view_models import MainViewModel
 
 
 def services_add_base_controls(
@@ -15,13 +16,13 @@ def services_add_base_controls(
     version_major: int = 1,
     version_minor: int = 0,
 ) -> None:
-    # qmlRegisterSingletonType(
-    #     "qrc:/src/controls/base/WindowManager.qml",
-    #     module_name,
-    #     version_major,
-    #     version_minor,
-    #     "WindowManager",
-    # )
+    qmlRegisterSingletonType(
+        "qrc:/src/controls/base/WindowManager.qml",
+        module_name,
+        version_major,
+        version_minor,
+        "WindowManager",
+    )
 
     controls = {
         "Icon": "qrc:/src/controls/base/Icon.qml",
@@ -49,6 +50,7 @@ def services_add_base_controls(
         "TextBoxBackground": "qrc:/src/controls/base/TextBoxBackground.qml",
         "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
         "ScrollBar": "qrc:/src/controls/base/ScrollBar.qml",
+        "Clip": "qrc:/src/controls/base/Clip.qml",
         "StatusLayout": "qrc:/src/controls/base/StatusLayout.qml",
     }
 
@@ -65,9 +67,11 @@ services_add_base_controls()
 # Register context properties or objects
 theme = AppTheme()
 font = AppFont()
+main_view_model = MainViewModel()
 
 engine.rootContext().setContextProperty("AppTheme", theme)
 engine.rootContext().setContextProperty("AppFont", font)
+engine.rootContext().setContextProperty("MainViewModel", main_view_model)
 
 for path in engine.importPathList():
     print(f"Import path: {path}")
