@@ -116,5 +116,6 @@ ApplicationWindow {
 
     Component.onCompleted: {
         console.log('Application started');
+        MainViewModel.on_application_started();
     }
 }
