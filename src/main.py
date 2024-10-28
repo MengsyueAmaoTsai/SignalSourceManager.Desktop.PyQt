@@ -41,6 +41,7 @@ def services_add_base_controls(
         "AppTitleBar": "qrc:/src/controls/base/AppTitleBar.qml",
         "Popup": "qrc:/src/controls/base/Popup.qml",
         "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
+        "RemoteComponentLoader": "qrc:/src/controls/base/RemoteComponentLoader.qml",
         "Control": "qrc:/src/controls/base/Control.qml",
         "FocusRectangle": "qrc:/src/controls/base/FocusRectangle.qml",
         "Shadow": "qrc:/src/controls/base/Shadow.qml",
@@ -48,6 +49,7 @@ def services_add_base_controls(
         "TextBoxBackground": "qrc:/src/controls/base/TextBoxBackground.qml",
         "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
         "ScrollBar": "qrc:/src/controls/base/ScrollBar.qml",
+        "StatusLayout": "qrc:/src/controls/base/StatusLayout.qml",
     }
 
     for control_name, url in controls.items():

@@ -90,12 +90,13 @@ BaseControls.Window {
                     window.setHitTestVisible(layout_back_buttons);
                 }
             }
-            // FluRemoteLoader {
-            //     id: loader
-            //     lazy: true
-            //     anchors.fill: parent
-            //     souhu-zichu.gitee.io/Qt_174_LieflatPage.qml"
-            // }
+            BaseControls.RemoteComponentLoader {
+                id: loader
+                
+                lazy: true
+                anchors.fill: parent
+                source: "https://zhu-zichu.gitee.io/Qt_174_LieflatPage.qml"
+            }
         }
         front: Item {
             id: page_front

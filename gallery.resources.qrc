@@ -11,6 +11,7 @@
         <file>gallery/windows/PageWindow.qml</file>
         <file>gallery/windows/SignInWindow.qml</file>
         <file>gallery/windows/StandardWindow.qml</file>
+        <file>gallery/windows/HotloadWindow.qml</file>
 
         <!-- Pages -->
         <file>gallery/pages/TextBlockPage.qml</file>
@@ -33,6 +34,7 @@
         <file>src/controls/base/NavigationView.qml</file>
         <file>src/controls/base/AppTitleBar.qml</file>
         <file>src/controls/base/ComponentLoader.qml</file>
+        <file>src/controls/base/RemoteComponentLoader.qml</file>
         <file>src/controls/base/Control.qml</file>
         <file>src/controls/base/Popup.qml</file>
         <file>src/controls/base/ContentDialog.qml</file>
@@ -41,6 +43,7 @@
         <file>src/controls/base/Frame.qml</file>
         <file>src/controls/base/Clip.qml</file>
         <file>src/controls/base/Acrylic.qml</file>
+        <file>src/controls/base/StatusLayout.qml</file>
         
         <file>src/controls/base/Icon.qml</file>
         <file>src/controls/base/TextBlock.qml</file>

@@ -22,6 +22,7 @@
         <file>src/controls/base/AppTitleBar.qml</file>
         <file>src/controls/base/Popup.qml</file>
         <file>src/controls/base/ComponentLoader.qml</file>
+        <file>src/controls/base/RemoteComponentLoader.qml</file>
         <file>src/controls/base/Control.qml</file>
         <file>src/controls/base/FocusRectangle.qml</file>
         <file>src/controls/base/Shadow.qml</file>
@@ -29,6 +30,8 @@
         <file>src/controls/base/TextBoxBackground.qml</file>
         <file>src/controls/base/ItemDelegate.qml</file>
         <file>src/controls/base/ScrollBar.qml</file>
+
+        <file>src/controls/base/StatusLayout.qml</file>
 
         <!-- Images -->
         <file>static/images/favicon.ico</file>

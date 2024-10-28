@@ -26,6 +26,7 @@ BASE_CONTROLS = {
     "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
     "Divider": "qrc:/src/controls/base/Divider.qml",
     "ComponentLoader": "qrc:/src/controls/base/ComponentLoader.qml",
+    "RemoteComponentLoader": "qrc:/src/controls/base/RemoteComponentLoader.qml",
     "Control": "qrc:/src/controls/base/Control.qml",
     "Window": "qrc:/src/controls/base/Window.qml",
     "NavigationView": "qrc:/src/controls/base/NavigationView.qml",
@@ -52,6 +53,7 @@ BASE_CONTROLS = {
     "Badge": "qrc:/src/controls/base/Badge.qml",
     "Tooltip": "qrc:/src/controls/base/Tooltip.qml",
     "ScrollBar": "qrc:/src/controls/base/ScrollBar.qml",
+    "StatusLayout": "qrc:/src/controls/base/StatusLayout.qml",
     ## Pages
     "TextBlockPage": "qrc:/gallery/pages/TextBlockPage.qml",
     "ButtonPage": "qrc:/gallery/pages/ButtonPage.qml",
