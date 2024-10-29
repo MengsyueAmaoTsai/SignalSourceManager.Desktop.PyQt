@@ -16,6 +16,7 @@
         <file>gallery/windows/SignInWindow.qml</file>
         <file>gallery/windows/StandardWindow.qml</file>
         <file>gallery/windows/HotloadWindow.qml</file>
+        <file>gallery/windows/DevWindow.qml</file>
 
         <!-- Pages -->
         <file>gallery/pages/HomePage.qml</file>

@@ -22,8 +22,9 @@ Item {
             '/single-instance': 'qrc:/gallery/windows/SingleInstanceWindow.qml',
             '/page': 'qrc:/gallery/windows/PageWindow.qml',
             '/standard': 'qrc:/gallery/windows/StandardWindow.qml',
-            '/hotload': 'qrc:/gallery/windows/HotloadWindow.qml'
+            '/hotload': 'qrc:/gallery/windows/HotloadWindow.qml',
+            '/dev': 'qrc:/gallery/windows/DevWindow.qml'
         };
-        BaseControls.WindowManager.navigateTo('/standard');
+        BaseControls.WindowManager.navigateTo('/dev');
     }
 }
