@@ -24,7 +24,7 @@ BaseControls.Window {
                 text: "Save"
             }
             Action {
-                text: "Save A..."
+                text: "Save As..."
             }
             BaseControls.MenuSeparator {}
             Action {

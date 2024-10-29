@@ -22,5 +22,5 @@ QtObject {
     property var extra
     property bool showEdit
     signal tap
-    Component.onCompleted: key = FluTools.uuid()
+    // Component.onCompleted: key = FluTools.uuid()
 }

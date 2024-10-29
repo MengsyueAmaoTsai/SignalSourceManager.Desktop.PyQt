@@ -44,13 +44,11 @@ Item {
         property bool isCompactAndNotPanel: d.displayMode === 'Compact' && !d.enableNavigationPanel
         property bool isMinimalAndPanel: d.displayMode === 'Minimal' && d.enableNavigationPanel
         property color itemDisableColor: AppTheme.theme === 'Dark' ? Qt.rgba(131 / 255, 131 / 255, 131 / 255, 1) : Qt.rgba(160 / 255, 160 / 255, 160 / 255, 1)
-        // onIsCompactAndNotPanelChanged: {
-        //     collapseAll();
-        // }
+
         function handleItems() {
-            const _idx = 0;
+            let _idx = 0;
             const data = [];
-            const comEmpty = Qt.createComponent("FluPaneItemEmpty.qml");
+            const comEmpty = Qt.createComponent("BaseControls.NavigationViewItemEmpty.qml");
             if (items) {
                 for (let i = 0; i < items.children.length; i++) {
                     const item = items.children[i];
@@ -61,7 +59,8 @@ Item {
                     item._idx = _idx;
                     data.push(item);
                     _idx++;
-                    if (item instanceof FluPaneItemExpander) {
+                    console.log('Type => ', typeof item);
+                    if (item instanceof BaseControls.NavigationViewItemExpander) {
                         for (var j = 0; j < item.children.length; j++) {
                             var itemChild = item.children[j];
                             if (itemChild.visible !== true) {
@@ -338,15 +337,15 @@ Item {
                     }
                     color: {
                         if (!item_control.enabled) {
-                            return FluTheme.itemNormalColor;
+                            return AppTheme.item_normal_color;
                         }
                         if (nav_list.currentIndex === _idx && type === 0) {
-                            return FluTheme.itemCheckColor;
+                            return AppTheme.item_check_color;
                         }
                         if (item_control.hovered) {
-                            return FluTheme.itemHoverColor;
+                            return AppTheme.item_hover_color;
                         }
-                        return FluTheme.itemNormalColor;
+                        return AppTheme.item_normal_color;
                     }
                     Component {
                         id: com_icon
@@ -556,21 +555,21 @@ Item {
                     anchors.fill: parent
                     color: {
                         if (!item_control.enabled) {
-                            return FluTheme.itemNormalColor;
+                            return AppTheme.item_normal_color;
                         }
                         if (type === 0) {
                             if (nav_list.currentIndex === _idx) {
-                                return FluTheme.itemCheckColor;
+                                return AppTheme.item_check_color;
                             }
                         } else {
                             if (nav_list.currentIndex === (nav_list.count - layout_footer.count + _idx)) {
-                                return FluTheme.itemCheckColor;
+                                return AppTheme.item_check_color;
                             }
                         }
                         if (item_control.hovered) {
-                            return FluTheme.itemHoverColor;
+                            return AppTheme.item_hover_color;
                         }
-                        return FluTheme.itemNormalColor;
+                        return AppTheme.item_normal_color;
                     }
                     Component {
                         id: com_icon
@@ -964,26 +963,26 @@ Item {
                     return true;
                 }
             }
-            // FluIconButton {
-            //     visible: d.isCompactAndNotPanel
-            //     anchors {
-            //         fill: parent
-            //         leftMargin: 6
-            //         rightMargin: 6
-            //         topMargin: 2
-            //         bottomMargin: 2
-            //     }
-            //     iconSize: 15
-            //     iconSource: {
-            //         if (loader_auto_suggest_box.item) {
-            //             return loader_auto_suggest_box.item.autoSuggestBoxReplacement;
-            //         }
-            //         return 0;
-            //     }
-            //     onClicked: {
-            //         d.enableNavigationPanel = !d.enableNavigationPanel;
-            //     }
-            // }
+            BaseControls.Button {
+                visible: d.isCompactAndNotPanel
+                anchors {
+                    fill: parent
+                    leftMargin: 6
+                    rightMargin: 6
+                    topMargin: 2
+                    bottomMargin: 2
+                }
+                iconSize: 15
+                // iconSource: {
+                //     if (loader_auto_suggest_box.item) {
+                //         return loader_auto_suggest_box.item.autoSuggestBoxReplacement;
+                //     }
+                //     return 0;
+                // }
+                onClicked: {
+                    d.enableNavigationPanel = !d.enableNavigationPanel;
+                }
+            }
         }
         Flickable {
             id: layout_flickable
@@ -1033,19 +1032,19 @@ Item {
                     sourceComponent: {
                         if (model === null || !model)
                             return undefined;
-                        if (modelData instanceof FluPaneItem) {
+                        if (modelData instanceof BaseControls.NavigationViewItem) {
                             return com_panel_item;
                         }
-                        if (modelData instanceof FluPaneItemHeader) {
+                        if (modelData instanceof BaseControls.NavigationViewItemHeader) {
                             return com_panel_item_header;
                         }
-                        if (modelData instanceof FluPaneItemSeparator) {
+                        if (modelData instanceof BaseControls.NavigationViewItemSeparator) {
                             return com_panel_item_separatorr;
                         }
-                        if (modelData instanceof FluPaneItemExpander) {
+                        if (modelData instanceof BaseControls.NavigationViewItemExpander) {
                             return com_panel_item_expander;
                         }
-                        if (modelData instanceof FluPaneItemEmpty) {
+                        if (modelData instanceof BaseControls.NavigationViewItemEmpty) {
                             return com_panel_item_empty;
                         }
                         return undefined;
@@ -1084,13 +1083,13 @@ Item {
                 property var _idx: index
                 property int type: 1
                 sourceComponent: {
-                    if (modelData instanceof FluPaneItem) {
+                    if (modelData instanceof BaseControls.NavigationViewItem) {
                         return com_panel_item;
                     }
-                    if (modelData instanceof FluPaneItemHeader) {
+                    if (modelData instanceof BaseControls.NavigationViewItemHeader) {
                         return com_panel_item_header;
                     }
-                    if (modelData instanceof FluPaneItemSeparator) {
+                    if (modelData instanceof BaseControls.NavigationViewItemSeparator) {
                         return com_panel_item_separatorr;
                     }
                 }
@@ -1179,6 +1178,7 @@ Item {
             radius: 5
             BaseControls.Shadow {}
         }
+
         function showPopup(pos, height, model) {
             background.implicitHeight = height;
             control_popup.x = pos.x;
@@ -1187,10 +1187,12 @@ Item {
             control_popup.open();
         }
     }
+
     BaseControls.ComponentLoader {
         id: loader_item_menu
         property var modelData
     }
+
     Component {
         id: placeholderWrapper
         Item {
@@ -1198,8 +1200,10 @@ Item {
             property string url
         }
     }
+
     Connections {
         id: connection_item_menu
+
         function onVisibleChanged(visible) {
             if (target.visible === false) {
                 loader_item_menu.sourceComponent = undefined;
@@ -1207,10 +1211,12 @@ Item {
         }
     }
 
+    // onIsCompactAndNotPanelChanged: collapseAll()
+
     function collapseAll() {
         for (var i = 0; i < nav_list.model.length; i++) {
             var item = nav_list.model[i];
-            if (item instanceof FluPaneItemExpander) {
+            if (item instanceof BaseControls.NavigationViewItemExpander) {
                 item.isExpand = false;
             }
         }
@@ -1219,7 +1225,7 @@ Item {
         var item = nav_list.model[index];
         if (item.url) {
             nav_list.currentIndex = index;
-            if (item instanceof FluPaneItem) {
+            if (item instanceof BaseControls.NavigationViewItem) {
                 item.tap();
             }
         } else {

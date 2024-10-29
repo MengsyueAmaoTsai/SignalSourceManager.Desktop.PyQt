@@ -25,6 +25,7 @@
         <file>src/controls/base/NavigationViewItem.qml</file>
         <file>src/controls/base/NavigationViewItemHeader.qml</file>
         <file>src/controls/base/NavigationViewItemSeparator.qml</file>
+        <file>src/controls/base/NavigationViewItemEmpty.qml</file>
         <file>src/controls/base/AppTitleBar.qml</file>
         <file>src/controls/base/Popup.qml</file>
         <file>src/controls/base/ComponentLoader.qml</file>

@@ -9,7 +9,7 @@ BaseControls.Object {
     property var navigationView
     property var paneItemMenu
 
-    // BaseControls.NavigationViewItemSeparator {}
+    BaseControls.NavigationViewItemSeparator {}
 
     BaseControls.NavigationViewItem {
         title: "About"
