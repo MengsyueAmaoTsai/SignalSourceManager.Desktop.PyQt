@@ -70,14 +70,14 @@ BaseControls.Window {
                 }
                 BaseControls.Button {
                     // iconSource: FluentIcons.ChromeBack
-                    // iconSize: 13
+                    iconSize: 13
                     width: 30
                     height: 30
                     onClicked: flipable.flipped = false
                 }
                 BaseControls.Button {
                     // iconSource: FluentIcons.Sync
-                    // iconSize: 13
+                    iconSize: 13
                     width: 30
                     height: 30
                     onClicked: loader.reload()
@@ -105,28 +105,24 @@ BaseControls.Window {
                 width: parent.width
                 height: parent.height
                 z: 999
-                //Stack模式，每次切换都会将页面压入栈中，随着栈的页面增多，消耗的内存也越多，内存消耗多就会卡顿，这时候就需要按返回将页面pop掉，释放内存。该模式可以配合FluPage中的launchMode属性，设置页面的启动模式
-                //                pageMode: FluNavigationViewType.Stack
-                //NoStack模式，每次切换都会销毁之前的页面然后创建一个新的页面，只需消耗少量内存
-
-                // items: ItemsOriginal
-                // footerItems: ItemsFooter
                 autoSuggestBox: BaseControls.AutoSuggestBox {
                     // iconSource: FluentIcons.Search
-                    // items: ItemsOriginal.getSearchData()
+                    items: BaseControls.ItemsOriginal.getSearchData()
                     placeholderText: qsTr("Search")
                     onItemClicked: data => {
-                        ItemsOriginal.startPageByItem(data);
+                        BaseControls.ItemsOriginal.startPageByItem(data);
                     }
                 }
+                items: BaseControls.ItemsOriginal
+                footerItems: BaseControls.ItemsFooter
 
                 property int clickCount: 0
 
                 Component.onCompleted: {
-                    // ItemsOriginal.navigationView = navigationView;
-                    // ItemsOriginal.paneItemMenu = nav_item_right_menu;
-                    // ItemsFooter.navigationView = navigationView;
-                    // ItemsFooter.paneItemMenu = nav_item_right_menu;
+                    BaseControls.ItemsOriginal.navigationView = navigationView;
+                    BaseControls.ItemsOriginal.paneItemMenu = nav_item_right_menu;
+                    BaseControls.ItemsFooter.navigationView = navigationView;
+                    BaseControls.ItemsFooter.paneItemMenu = nav_item_right_menu;
                     window.setHitTestVisible(navigationView.buttonMenu);
                     window.setHitTestVisible(navigationView.buttonBack);
                     window.setHitTestVisible(navigationView.imageLogo);
@@ -149,9 +145,23 @@ BaseControls.Window {
         property real flipAngle: 0
     }
 
-    BaseControls.ComponentLoader {
-        id: revealLoader
-        anchors.fill: parent
+
+    Component {
+        id: nav_item_right_menu
+
+        BaseControls.Menu {
+            width: 186
+            BaseControls.MenuItem {
+                text: "Open in Separate Window"
+                font: AppFont.caption
+                onClicked: {
+                    BaseControls.WindowManager.navigateTo("/page", {
+                        title: modelData.title,
+                        url: modelData.url
+                    });
+                }
+            }
+        }
     }
 
     BaseControls.TextBlock {
@@ -200,27 +210,8 @@ BaseControls.Window {
         onPositiveClicked: Qt.openUrlExternally("https://github.com/zhuzichu520/FluentUI/releases/latest")
     }
 
-    Component {
-        id: nav_item_right_menu
-
-        BaseControls.Menu {
-            width: 186
-            BaseControls.MenuItem {
-                text: "Open in Separate Window"
-                font: AppFont.caption
-                onClicked: {
-                    BaseControls.WindowManager.navigateTo("/page", {
-                        title: modelData.title,
-                        url: modelData.url
-                    });
-                }
-            }
-        }
-    }
-
     Timer {
         id: hideWindowTimer
-
         interval: 150
         onTriggered: window.hide()
     }
@@ -247,35 +238,12 @@ BaseControls.Window {
         }
     }
 
-    Shortcut {
-        sequence: "F5"
-        context: Qt.WindowShortcut
-        onActivated: {
-            if (flipable.flipped) {
-                loader.reload();
-            }
-        }
+    BaseControls.ComponentLoader {
+        id: revealLoader
+        anchors.fill: parent
     }
-
-    Shortcut {
-        sequence: "F6"
-        context: Qt.WindowShortcut
-        onActivated: tour.open()
-    }
-
-    // FluentInitializrWindow {
-    //     id: fluent_Initializr
-    // }
-
-    // FluEvent {
-    //     name: "checkUpdate"
-    //     onTriggered: {
-    //         checkUpdate(false);
-    //     }
-    // }
-
     // Component {
-    //     id: com_reveal
+    //     id: revealWarpper
     //     CircularReveal {
     //         id: reveal
     //         target: window.containerItem()
@@ -291,8 +259,30 @@ BaseControls.Window {
     //     }
     // }
 
-    // FpsItem {
-    //     id: fps_item
+    Shortcut {
+        sequence: "F5"
+        context: Qt.WindowShortcut
+        onActivated: {
+            if (flipable.flipped) {
+                loader.reload();
+            }
+        }
+    }
+    Shortcut {
+        sequence: "F6"
+        context: Qt.WindowShortcut
+        onActivated: tour.open()
+    }
+
+    // FluentInitializrWindow {
+    //     id: fluent_Initializr
+    // }
+
+    // FluEvent {
+    //     name: "checkUpdate"
+    //     onTriggered: {
+    //         checkUpdate(false);
+    //     }
     // }
 
     // FluTour {
@@ -365,7 +355,7 @@ BaseControls.Window {
         if (FluTools.isMacos() || !FluTheme.animationEnabled) {
             changeDark();
         } else {
-            revealLoader.sourceComponent = com_reveal;
+            revealLoader.sourceComponent = revealWarpper;
             var target = window.containerItem();
             var pos = button.mapToItem(target, 0, 0);
             var mouseX = pos.x + button.width / 2;

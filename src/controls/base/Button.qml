@@ -44,6 +44,7 @@ Button {
     property color backgroundColor
     property string iconStart: ''
     property string iconEnd: ''
+    property int iconSize: 0
 
     property bool disabled: false
     property string contentDescription: ""

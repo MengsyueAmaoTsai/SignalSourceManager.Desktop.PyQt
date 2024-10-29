@@ -73,6 +73,22 @@ qmlRegisterSingletonType(
     "WindowManager",
 )
 
+qmlRegisterSingletonType(
+    "qrc:/gallery/models/ItemsOriginal.qml",
+    BASE_CONTROLS_MODULE_NAME,
+    MODULE_VERSION_MAJOR,
+    MODULE_VERSION_MINOR,
+    "ItemsOriginal",
+)
+
+qmlRegisterSingletonType(
+    "qrc:/gallery/models/ItemsFooter.qml",
+    BASE_CONTROLS_MODULE_NAME,
+    MODULE_VERSION_MAJOR,
+    MODULE_VERSION_MINOR,
+    "ItemsFooter",
+)
+
 # Register context properties or objects
 app_info = AppInfo()
 font = AppFont()
