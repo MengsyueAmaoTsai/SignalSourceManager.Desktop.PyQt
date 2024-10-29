@@ -14,23 +14,24 @@ BaseControls.Object {
         }
     }
 
-    // FluPaneItem {
-    //     id: item_home
-    //     count: 9
-    //     title: qsTr("Home")
-    //     menuDelegate: paneItemMenu
-    //     infoBadge: FluBadge {
-    //         count: item_home.count
-    //     }
-    //     icon: FluentIcons.Home
-    //     url: "qrc:/example/qml/page/T_Home.qml"
-    //     onTap: {
-    //         if (navigationView.getCurrentUrl()) {
-    //             item_home.count = 0;
-    //         }
-    //         navigationView.push(url);
-    //     }
-    // }
+    BaseControls.NavigationViewItem {
+        id: item_home
+
+        count: 9
+        title: "Home"
+        menuDelegate: paneItemMenu
+        // infoBadge: FluBadge {
+        //     count: item_home.count
+        // }
+        // icon: FluentIcons.Home
+        url: "qrc:/gallery/pages/HomePage.qml"
+        onTap: {
+            if (navigationView.getCurrentUrl()) {
+                item_home.count = 0;
+            }
+            navigationView.push(url);
+        }
+    }
 
     // FluPaneItemExpander {
     //     title: qsTr("PaneItemExpander Disabled")

@@ -18,6 +18,7 @@
         <file>gallery/windows/HotloadWindow.qml</file>
 
         <!-- Pages -->
+        <file>gallery/pages/HomePage.qml</file>
         <file>gallery/pages/TextBlockPage.qml</file>
         <file>gallery/pages/ButtonPage.qml</file>
         <file>gallery/pages/ComboBoxPage.qml</file>
@@ -37,6 +38,9 @@
 
         <file>src/controls/base/Window.qml</file>
         <file>src/controls/base/NavigationView.qml</file>
+        <file>src/controls/base/NavigationViewItem.qml</file>
+        <file>src/controls/base/NavigationViewItemHeader.qml</file>
+        <file>src/controls/base/NavigationViewItemSeparator.qml</file>
         <file>src/controls/base/AppTitleBar.qml</file>
         <file>src/controls/base/ComponentLoader.qml</file>
         <file>src/controls/base/RemoteComponentLoader.qml</file>

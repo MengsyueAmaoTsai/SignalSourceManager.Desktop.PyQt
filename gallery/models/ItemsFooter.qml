@@ -9,33 +9,29 @@ BaseControls.Object {
     property var navigationView
     property var paneItemMenu
 
-    // FluPaneItemSeparator {}
+    // BaseControls.NavigationViewItemSeparator {}
 
-    // FluPaneItem {
-    //     title: qsTr("About")
-    //     icon: FluentIcons.Contact
-    //     onTapListener: function () {
-    //         FluRouter.navigate("/about");
-    //     }
-    // }
+    BaseControls.NavigationViewItem {
+        title: "About"
+        // icon: FluentIcons.Contact
+        onTapListener: function () {
+            BaseControls.WindowManager.navigateTo("/about");
+        }
+    }
 
-    // FluPaneItem {
-    //     title: qsTr("Settings")
-    //     menuDelegate: paneItemMenu
-    //     icon: FluentIcons.Settings
-    //     url: "qrc:/example/qml/page/T_Settings.qml"
-    //     onTap: {
-    //         navigationView.push(url);
-    //     }
-    // }
+    BaseControls.NavigationViewItem {
+        title: "Settings"
+        menuDelegate: paneItemMenu
+        // icon: FluentIcons.Settings
+        url: "qrc:/example/qml/page/T_Settings.qml"
+        onTap: navigationView.push(url)
+    }
 
-    // FluPaneItem {
-    //     title: qsTr("FluentUI Pro")
-    //     menuDelegate: paneItemMenu
-    //     icon: FluentIcons.Airplane
-    //     url: "qrc:/example/qml/page/T_FluentPro.qml"
-    //     onTap: {
-    //         navigationView.push(url);
-    //     }
-    // }
+    BaseControls.NavigationViewItem {
+        title: "FluentUI Pro"
+        menuDelegate: paneItemMenu
+        // icon: FluentIcons.Airplane
+        url: "qrc:/example/qml/page/T_FluentPro.qml"
+        onTap: navigationView.push(url)
+    }
 }

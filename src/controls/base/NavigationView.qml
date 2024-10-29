@@ -48,12 +48,13 @@ Item {
         //     collapseAll();
         // }
         function handleItems() {
-            var _idx = 0;
-            var data = [];
-            var comEmpty = Qt.createComponent("FluPaneItemEmpty.qml");
+            const _idx = 0;
+            const data = [];
+            const comEmpty = Qt.createComponent("FluPaneItemEmpty.qml");
             if (items) {
-                for (var i = 0; i < items.children.length; i++) {
-                    var item = items.children[i];
+                for (let i = 0; i < items.children.length; i++) {
+                    const item = items.children[i];
+                    console.log('ITEM => ', item);
                     if (item.visible !== true) {
                         continue;
                     }
@@ -1205,7 +1206,7 @@ Item {
             }
         }
     }
-    
+
     function collapseAll() {
         for (var i = 0; i < nav_list.model.length; i++) {
             var item = nav_list.model[i];
