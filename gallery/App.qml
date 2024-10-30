@@ -25,6 +25,6 @@ Item {
             '/hotload': 'qrc:/gallery/windows/HotloadWindow.qml',
             '/dev': 'qrc:/gallery/windows/DevWindow.qml'
         };
-        BaseControls.WindowManager.navigateTo('/dev');
+        BaseControls.WindowManager.navigateTo('/');
     }
 }

@@ -4,7 +4,6 @@ import QtQuick
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
 BaseControls.Object {
-
     property var navigationView
     property var paneItemMenu
 
@@ -20,9 +19,9 @@ BaseControls.Object {
         count: 9
         title: "Home"
         menuDelegate: paneItemMenu
-        // infoBadge: FluBadge {
-        //     count: item_home.count
-        // }
+        infoBadge: BaseControls.Badge {
+            count: item_home.count
+        }
         // icon: FluentIcons.Home
         url: "qrc:/gallery/pages/HomePage.qml"
         onTap: {
@@ -32,18 +31,18 @@ BaseControls.Object {
             navigationView.push(url);
         }
     }
-
-    // FluPaneItemExpander {
+ 
+    // BaseControls.NavigationViewItemExpander {
     //     title: qsTr("PaneItemExpander Disabled")
     //     iconVisible: false
     //     disabled: true
     // }
 
-    // FluPaneItemExpander {
+    // BaseControls.NavigationViewItemExpander {
     //     id: item_expander_basic_input
     //     title: qsTr("Basic Input")
     //     icon: FluentIcons.CheckboxComposite
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         id: item_buttons
     //         count: 99
     //         infoBadge: FluBadge {
@@ -56,13 +55,13 @@ BaseControls.Object {
     //                 recentlyUpdated: true,
     //                 desc: qsTr("A control that responds to user input and raisesa Click event.")
     //             })
-    //         url: "qrc:/example/qml/page/T_Buttons.qml"
+    //         url: "qrc:/gallery/pages/T_Buttons.qml"
     //         onTap: {
     //             item_buttons.count = 0;
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         id: item_text
     //         title: qsTr("Text")
     //         menuDelegate: paneItemMenu
@@ -71,21 +70,21 @@ BaseControls.Object {
     //             count: item_text.count
     //             color: Qt.rgba(82 / 255, 196 / 255, 26 / 255, 1)
     //         }
-    //         url: "qrc:/example/qml/page/T_Text.qml"
+    //         url: "qrc:/gallery/pages/T_Text.qml"
     //         onTap: {
     //             item_text.count = 0;
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Image")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Image.qml"
+    //         url: "qrc:/gallery/pages/T_Image.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Slider")
     //         menuDelegate: paneItemMenu
     //         extra: ({
@@ -93,12 +92,12 @@ BaseControls.Object {
     //                 recentlyUpdated: true,
     //                 desc: qsTr("A control that lets the user select from a rangeof values by moving a Thumb control along atrack.")
     //             })
-    //         url: "qrc:/example/qml/page/T_Slider.qml"
+    //         url: "qrc:/gallery/pages/T_Slider.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("CheckBox")
     //         menuDelegate: paneItemMenu
     //         extra: ({
@@ -106,99 +105,99 @@ BaseControls.Object {
     //                 recentlyUpdated: true,
     //                 desc: qsTr("A control that a user can select or clear.")
     //             })
-    //         url: "qrc:/example/qml/page/T_CheckBox.qml"
+    //         url: "qrc:/gallery/pages/T_CheckBox.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("RadioButton")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_RadioButton.qml"
+    //         url: "qrc:/gallery/pages/T_RadioButton.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("ToggleSwitch")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_ToggleSwitch.qml"
+    //         url: "qrc:/gallery/pages/T_ToggleSwitch.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("GroupBox")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_GroupBox.qml"
+    //         url: "qrc:/gallery/pages/T_GroupBox.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("PaneItem Disabled")
     //         disabled: true
     //         icon: FluentIcons.Error
     //     }
     // }
 
-    // FluPaneItemExpander {
+    // BaseControls.NavigationViewItemExpander {
     //     title: qsTr("Form")
     //     icon: FluentIcons.GridView
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("TextBox")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_TextBox.qml"
+    //         url: "qrc:/gallery/pages/T_TextBox.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("TimePicker")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_TimePicker.qml"
+    //         url: "qrc:/gallery/pages/T_TimePicker.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("DatePicker")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_DatePicker.qml"
+    //         url: "qrc:/gallery/pages/T_DatePicker.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("CalendarPicker")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_CalendarPicker.qml"
+    //         url: "qrc:/gallery/pages/T_CalendarPicker.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("ColorPicker")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_ColorPicker.qml"
+    //         url: "qrc:/gallery/pages/T_ColorPicker.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("ShortcutPicker")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_ShortcutPicker.qml"
+    //         url: "qrc:/gallery/pages/T_ShortcutPicker.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
     // }
 
-    // FluPaneItemExpander {
+    // BaseControls.NavigationViewItemExpander {
     //     title: qsTr("Surface")
     //     icon: FluentIcons.SurfaceHub
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("InfoBar")
     //         menuDelegate: paneItemMenu
     //         extra: ({
@@ -206,118 +205,118 @@ BaseControls.Object {
     //                 recentlyUpdated: true,
     //                 desc: qsTr("An inline message to display app-wide statuschange information.")
     //             })
-    //         url: "qrc:/example/qml/page/T_InfoBar.qml"
+    //         url: "qrc:/gallery/pages/T_InfoBar.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Progress")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Progress.qml"
+    //         url: "qrc:/gallery/pages/T_Progress.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("RatingControl")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_RatingControl.qml"
+    //         url: "qrc:/gallery/pages/T_RatingControl.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Badge")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Badge.qml"
+    //         url: "qrc:/gallery/pages/T_Badge.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Rectangle")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Rectangle.qml"
+    //         url: "qrc:/gallery/pages/T_Rectangle.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Clip")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Clip.qml"
+    //         url: "qrc:/gallery/pages/T_Clip.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Carousel")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Carousel.qml"
+    //         url: "qrc:/gallery/pages/T_Carousel.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Expander")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Expander.qml"
+    //         url: "qrc:/gallery/pages/T_Expander.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Watermark")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Watermark.qml"
+    //         url: "qrc:/gallery/pages/T_Watermark.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
     // }
 
-    // FluPaneItemExpander {
+    // BaseControls.NavigationViewItemExpander {
     //     title: qsTr("Layout")
     //     icon: FluentIcons.DockLeft
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("StaggeredLayout")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_StaggeredLayout.qml"
+    //         url: "qrc:/gallery/pages/T_StaggeredLayout.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("SplitLayout")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_SplitLayout.qml"
+    //         url: "qrc:/gallery/pages/T_SplitLayout.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("StatusLayout")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_StatusLayout.qml"
+    //         url: "qrc:/gallery/pages/T_StatusLayout.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
     // }
 
-    // FluPaneItemExpander {
+    // BaseControls.NavigationViewItemExpander {
     //     title: qsTr("Popus")
     //     icon: FluentIcons.ButtonMenu
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Dialog")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Dialog.qml"
+    //         url: "qrc:/gallery/pages/T_Dialog.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         id: item_combobox
     //         title: qsTr("ComboBox")
     //         menuDelegate: paneItemMenu
@@ -326,42 +325,42 @@ BaseControls.Object {
     //             count: item_combobox.count
     //             color: Qt.rgba(250 / 255, 173 / 255, 20 / 255, 1)
     //         }
-    //         url: "qrc:/example/qml/page/T_ComboBox.qml"
+    //         url: "qrc:/gallery/pages/T_ComboBox.qml"
     //         onTap: {
     //             item_combobox.count = 0;
-    //             navigationView.push("qrc:/example/qml/page/T_ComboBox.qml");
+    //             navigationView.push("qrc:/gallery/pages/T_ComboBox.qml");
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Tooltip")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Tooltip.qml"
+    //         url: "qrc:/gallery/pages/T_Tooltip.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Menu")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Menu.qml"
+    //         url: "qrc:/gallery/pages/T_Menu.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Sheet")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Sheet.qml"
+    //         url: "qrc:/gallery/pages/T_Sheet.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
     // }
 
-    // FluPaneItemExpander {
+    // BaseControls.NavigationViewItemExpander {
     //     title: qsTr("Navigation")
     //     icon: FluentIcons.AllApps
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Pivot")
     //         menuDelegate: paneItemMenu
     //         extra: ({
@@ -370,20 +369,20 @@ BaseControls.Object {
     //                 recentlyAdded: true,
     //                 desc: qsTr("Presents information from different sources in a tabbed view.")
     //             })
-    //         url: "qrc:/example/qml/page/T_Pivot.qml"
+    //         url: "qrc:/gallery/pages/T_Pivot.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("BreadcrumbBar")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_BreadcrumbBar.qml"
+    //         url: "qrc:/gallery/pages/T_BreadcrumbBar.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("TabView")
     //         menuDelegate: paneItemMenu
     //         extra: ({
@@ -392,20 +391,20 @@ BaseControls.Object {
     //                 recentlyAdded: true,
     //                 desc: qsTr("A control that displays a collection of tabs thatcan be used to display several documents.")
     //             })
-    //         url: "qrc:/example/qml/page/T_TabView.qml"
+    //         url: "qrc:/gallery/pages/T_TabView.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("TreeView")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_TreeView.qml"
+    //         url: "qrc:/gallery/pages/T_TreeView.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("TableView")
     //         menuDelegate: paneItemMenu
     //         extra: ({
@@ -414,28 +413,28 @@ BaseControls.Object {
     //                 recentlyAdded: true,
     //                 desc: qsTr("The TableView control provides a flexible way to display a collection of data in rows and columns")
     //             })
-    //         url: "qrc:/example/qml/page/T_TableView.qml"
+    //         url: "qrc:/gallery/pages/T_TableView.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Pagination")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Pagination.qml"
+    //         url: "qrc:/gallery/pages/T_Pagination.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("MultiWindow")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_MultiWindow.qml"
+    //         url: "qrc:/gallery/pages/T_MultiWindow.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("FlipView")
     //         menuDelegate: paneItemMenu
     //         extra: ({
@@ -444,54 +443,54 @@ BaseControls.Object {
     //                 recentlyAdded: true,
     //                 desc: qsTr("Presents a collection of items that the user canflip through, one item at a time.")
     //             })
-    //         url: "qrc:/example/qml/page/T_FlipView.qml"
+    //         url: "qrc:/gallery/pages/T_FlipView.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
     // }
 
-    // FluPaneItemExpander {
+    // BaseControls.NavigationViewItemExpander {
     //     title: qsTr("Theming")
     //     icon: FluentIcons.Brightness
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Acrylic")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Acrylic.qml"
+    //         url: "qrc:/gallery/pages/T_Acrylic.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Theme")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Theme.qml"
+    //         url: "qrc:/gallery/pages/T_Theme.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Typography")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Typography.qml"
+    //         url: "qrc:/gallery/pages/T_Typography.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Icons")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Icons.qml"
+    //         url: "qrc:/gallery/pages/T_Icons.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
     // }
 
-    // FluPaneItemExpander {
+    // BaseControls.NavigationViewItemExpander {
     //     title: qsTr("Chart")
     //     icon: FluentIcons.AreaChart
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Bar Chart")
     //         menuDelegate: paneItemMenu
     //         url: "qrc:/example/qml/chart/T_BarChart.qml"
@@ -499,7 +498,7 @@ BaseControls.Object {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Line Chart")
     //         menuDelegate: paneItemMenu
     //         url: "qrc:/example/qml/chart/T_LineChart.qml"
@@ -507,7 +506,7 @@ BaseControls.Object {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Pie Chart")
     //         menuDelegate: paneItemMenu
     //         url: "qrc:/example/qml/chart/T_PieChart.qml"
@@ -515,7 +514,7 @@ BaseControls.Object {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Polar Area Chart")
     //         menuDelegate: paneItemMenu
     //         url: "qrc:/example/qml/chart/T_PolarAreaChart.qml"
@@ -523,7 +522,7 @@ BaseControls.Object {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Bubble Chart")
     //         menuDelegate: paneItemMenu
     //         url: "qrc:/example/qml/chart/T_BubbleChart.qml"
@@ -531,7 +530,7 @@ BaseControls.Object {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Scatter Chart")
     //         menuDelegate: paneItemMenu
     //         url: "qrc:/example/qml/chart/T_ScatterChart.qml"
@@ -539,7 +538,7 @@ BaseControls.Object {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Radar Chart")
     //         menuDelegate: paneItemMenu
     //         url: "qrc:/example/qml/chart/T_RadarChart.qml"
@@ -549,71 +548,71 @@ BaseControls.Object {
     //     }
     // }
 
-    // FluPaneItemSeparator {
+    // BaseControls.NavigationViewItemSeparator {
     //     spacing: 10
     //     size: 1
     // }
 
-    // FluPaneItemExpander {
+    // BaseControls.NavigationViewItemExpander {
     //     title: qsTr("Other")
     //     icon: FluentIcons.Shop
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("OpenGL")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_OpenGL.qml"
+    //         url: "qrc:/gallery/pages/T_OpenGL.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("QCustomPlot")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_CustomPlot.qml"
+    //         url: "qrc:/gallery/pages/T_CustomPlot.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("QRCode")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_QRCode.qml"
+    //         url: "qrc:/gallery/pages/T_QRCode.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Tour")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Tour.qml"
+    //         url: "qrc:/gallery/pages/T_Tour.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Timeline")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Timeline.qml"
+    //         url: "qrc:/gallery/pages/T_Timeline.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Captcha")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Captcha.qml"
+    //         url: "qrc:/gallery/pages/T_Captcha.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Network")
     //         menuDelegate: paneItemMenu
-    //         url: "qrc:/example/qml/page/T_Network.qml"
+    //         url: "qrc:/gallery/pages/T_Network.qml"
     //         onTap: {
     //             navigationView.push(url);
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         id: item_other
     //         title: qsTr("Remote Loader")
     //         menuDelegate: paneItemMenu
@@ -622,19 +621,19 @@ BaseControls.Object {
     //             count: item_other.count
     //             color: Qt.rgba(82 / 255, 196 / 255, 26 / 255, 1)
     //         }
-    //         url: "qrc:/example/qml/page/T_RemoteLoader.qml"
+    //         url: "qrc:/gallery/pages/T_RemoteLoader.qml"
     //         onTap: {
     //             item_other.count = 0;
-    //             navigationView.push("qrc:/example/qml/page/T_RemoteLoader.qml");
+    //             navigationView.push("qrc:/gallery/pages/T_RemoteLoader.qml");
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Hot Loader")
     //         onTapListener: function () {
     //             FluRouter.navigate("/hotload");
     //         }
     //     }
-    //     FluPaneItem {
+    //     BaseControls.NavigationViewItem {
     //         title: qsTr("Test Crash")
     //         onTapListener: function () {
     //             AppInfo.testCrash();
@@ -650,7 +649,7 @@ BaseControls.Object {
     //     var items = navigationView.getItems();
     //     for (var i = 0; i < items.length; i++) {
     //         var item = items[i];
-    //         if (item instanceof FluPaneItem && item.extra && item.extra.recentlyAdded) {
+    //         if (item instanceof BaseControls.NavigationViewItem && item.extra && item.extra.recentlyAdded) {
     //             arr.push(item);
     //         }
     //     }
@@ -665,7 +664,7 @@ BaseControls.Object {
     //     var items = navigationView.getItems();
     //     for (var i = 0; i < items.length; i++) {
     //         var item = items[i];
-    //         if (item instanceof FluPaneItem && item.extra && item.extra.recentlyUpdated) {
+    //         if (item instanceof BaseControls.NavigationViewItem && item.extra && item.extra.recentlyUpdated) {
     //             arr.push(item);
     //         }
     //     }
@@ -680,8 +679,8 @@ BaseControls.Object {
     //     var items = navigationView.getItems();
     //     for (var i = 0; i < items.length; i++) {
     //         var item = items[i];
-    //         if (item instanceof FluPaneItem) {
-    //             if (item.parent instanceof FluPaneItemExpander) {
+    //         if (item instanceof BaseControls.NavigationViewItem) {
+    //             if (item.parent instanceof BaseControls.NavigationViewItemExpander) {
     //                 arr.push({
     //                     title: `${item.parent.title} -> ${item.title}`,
     //                     key: item.key

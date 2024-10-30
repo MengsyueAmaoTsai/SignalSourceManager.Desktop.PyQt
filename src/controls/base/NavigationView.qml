@@ -635,15 +635,15 @@ Item {
                             return true;
                         }
                         elide: Text.ElideRight
-                        color: {
-                            if (!item_control.enabled) {
-                                return d.itemDisableColor;
-                            }
-                            if (item_mouse.pressed) {
-                                return AppTheme.theme === 'Dark' ? FluColors.Grey80 : FluColors.Grey120;
-                            }
-                            return AppTheme.theme === 'Dark' ? FluColors.White : FluColors.Grey220;
-                        }
+                        // color: {
+                        //     if (!item_control.enabled) {
+                        //         return d.itemDisableColor;
+                        //     }
+                        //     if (item_mouse.pressed) {
+                        //         return AppTheme.theme === 'Dark' ? FluColors.Grey80 : FluColors.Grey120;
+                        //     }
+                        //     return AppTheme.theme === 'Dark' ? FluColors.White : FluColors.Grey220;
+                        // }
                         anchors {
                             verticalCenter: parent.verticalCenter
                             left: item_icon.right
