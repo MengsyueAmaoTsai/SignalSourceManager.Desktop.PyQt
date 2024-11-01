@@ -38,6 +38,7 @@
         <file>src/controls/base/ItemDelegate.qml</file>
         <file>src/controls/base/ScrollBar.qml</file>
         <file>src/controls/base/Clip.qml</file>
+        <file>src/controls/base/DataGrid.qml</file>
 
         <file>src/controls/base/StatusLayout.qml</file>
 

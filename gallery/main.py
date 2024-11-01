@@ -1,12 +1,12 @@
 import sys
 
+import resources_rc as resources  # type: ignore # noqa: F401
 from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType, qmlRegisterType
 from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
-import resources_rc as resources  # type: ignore # noqa: F401
 from constants import AppFont, AppInfo, AppTheme
 
 app = QGuiApplication(sys.argv)
@@ -42,6 +42,7 @@ BASE_CONTROLS = {
     "ScrollablePage": "qrc:/src/controls/base/ScrollablePage.qml",
     "Frame": "qrc:/src/controls/base/Frame.qml",
     "Clip": "qrc:/src/controls/base/Clip.qml",
+    "DataGrid": "qrc:/src/controls/base/DataGrid.qml",
     "Acrylic": "qrc:/src/controls/base/Acrylic.qml",
     "Icon": "qrc:/src/controls/base/Icon.qml",
     "TextBlock": "qrc:/src/controls/base/TextBlock.qml",

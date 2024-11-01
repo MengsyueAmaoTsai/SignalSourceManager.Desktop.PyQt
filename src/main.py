@@ -1,12 +1,12 @@
 import sys
 
+import resources_rc as resources  # type: ignore # noqa: F401
 from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType, qmlRegisterType
 from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
-import resources_rc as resources  # type: ignore # noqa: F401
 from constants import AppFont, AppTheme
 from view_models import MainViewModel
 
@@ -56,6 +56,7 @@ def services_add_base_controls(
         "ItemDelegate": "qrc:/src/controls/base/ItemDelegate.qml",
         "ScrollBar": "qrc:/src/controls/base/ScrollBar.qml",
         "Clip": "qrc:/src/controls/base/Clip.qml",
+        "DataGrid": "qrc:/src/controls/base/DataGrid.qml",
         "StatusLayout": "qrc:/src/controls/base/StatusLayout.qml",
     }
 
