@@ -1,13 +1,9 @@
 import QtQuick
 import QtQuick.Controls
-
-import QtQuick
-import QtQuick.Controls
 import QtQuick.Controls.Basic
 import QtQuick.Layouts
 import Qt.labs.qmlmodels
 import Qt.labs.platform
-
 import RichillCapital.SignalSourceManager.Desktop.Controls.Base as BaseControls
 
 ApplicationWindow {

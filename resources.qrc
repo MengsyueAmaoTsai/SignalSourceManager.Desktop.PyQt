@@ -4,6 +4,8 @@
 
         <!-- Controls.Base -->
         <file>src/controls/base/WindowManager.qml</file>
+        
+        <file>src/controls/base/AppShell.qml</file>
         <file>src/controls/base/InfoBar.qml</file>
 
         <file>src/controls/base/Icon.qml</file>

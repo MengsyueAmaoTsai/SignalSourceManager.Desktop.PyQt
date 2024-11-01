@@ -1,12 +1,12 @@
 import sys
 
-import resources_rc as resources  # type: ignore # noqa: F401
 from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType, qmlRegisterType
 from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
+import resources_rc as resources  # type: ignore # noqa: F401
 from constants import AppFont, AppInfo, AppTheme
 
 app = QGuiApplication(sys.argv)
@@ -18,6 +18,7 @@ MODULE_VERSION_MINOR = 0
 
 ## Add custom QML module: RichillCapital.SignalSourceManager.Desktop.Controls.Base
 BASE_CONTROLS = {
+    "AppShell": "qrc:/src/controls/base/AppShell.qml",
     "InfoBar": "qrc:/src/controls/base/InfoBar.qml",
     "Object": "qrc:/src/controls/base/Object.qml",
     "FocusRectangle": "qrc:/src/controls/base/FocusRectangle.qml",

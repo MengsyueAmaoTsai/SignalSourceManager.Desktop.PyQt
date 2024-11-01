@@ -1,12 +1,12 @@
 import sys
 
-import resources_rc as resources  # type: ignore # noqa: F401
 from PySide6.QtCore import QProcess
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine, qmlRegisterSingletonType, qmlRegisterType
 from PySide6.QtQuick import QQuickWindow, QSGRendererInterface
 from PySide6.QtQuickControls2 import QQuickStyle
 
+import resources_rc as resources  # type: ignore # noqa: F401
 from constants import AppFont, AppTheme
 from view_models import MainViewModel
 
@@ -25,6 +25,7 @@ def services_add_base_controls(
     )
 
     controls = {
+        "AppShell": "qrc:/src/controls/base/AppShell.qml",
         "InfoBar": "qrc:/src/controls/base/InfoBar.qml",
         "Icon": "qrc:/src/controls/base/Icon.qml",
         "TextBlock": "qrc:/src/controls/base/TextBlock.qml",
